@@ -1,0 +1,13 @@
+services:
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j-thesis
+    restart: unless-stopped
+    ports:
+      - "7474:7474"   # browser UI: http://localhost:7474
+      - "7687:7687"   # bolt protocol: used by the python driver
+    environment:
+      - NEO4J_AUTH=${NEO4J_USER}/${NEO4J_PASSWORD}
+    volumes:
+      - ./neo4j-data/data:/data
+      - ./neo4j-data/logs:/logs

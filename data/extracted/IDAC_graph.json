@@ -1,0 +1,527 @@
+{
+  "storeys": [],
+  "spaces": [
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXe",
+      "number": "1",
+      "function": "Printer room",
+      "function_category": "Technical/Utility",
+      "storey": null,
+      "area_m2": 5.183690903365924
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXh",
+      "number": "2",
+      "function": "Storage",
+      "function_category": "Storage",
+      "storey": null,
+      "area_m2": 8.034784550044446
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXg",
+      "number": "3",
+      "function": "Workspace",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 156.1245229990927
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXb",
+      "number": "4",
+      "function": "Lobby",
+      "function_category": "Reception/Lobby",
+      "storey": null,
+      "area_m2": 63.3358091578877
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXa",
+      "number": "5",
+      "function": "Corridor",
+      "function_category": "Circulation",
+      "storey": null,
+      "area_m2": 19.26435740856774
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXd",
+      "number": "6",
+      "function": "Office 5",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 19.635252606235987
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXc",
+      "number": "7",
+      "function": "Office 8",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 19.21482268804758
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXX",
+      "number": "8",
+      "function": "Office 6",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 19.635252606236
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXW",
+      "number": "9",
+      "function": "Office 7",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 19.635252606236
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXZ",
+      "number": "10",
+      "function": "Office 4",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 18.706166826916984
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXY",
+      "number": "11",
+      "function": "Office 3",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 17.074678520879548
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXT",
+      "number": "12",
+      "function": "Office 2",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 14.305673600763779
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXS",
+      "number": "13",
+      "function": "Office 1",
+      "function_category": "Office",
+      "storey": null,
+      "area_m2": 32.30731986316555
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXV",
+      "number": "14",
+      "function": "Meeting room",
+      "function_category": "Meeting/Seminar",
+      "storey": null,
+      "area_m2": 88.4526199560953
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXU",
+      "number": "15",
+      "function": "Lab",
+      "function_category": "Laboratory",
+      "storey": null,
+      "area_m2": 16.17857419105565
+    }
+  ],
+  "doors": [
+    {
+      "guid": "2jlli2nuj35OT4Nt8dpGGq",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 1100 x 2136 IDAB_Räume:2470799",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg",
+        "3DsWwrAET2VRfR_BYHBzXc"
+      ]
+    },
+    {
+      "guid": "2jlli2nuj35OT4Nt8dpGF7",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 1100 x 2136 IDAB_Räume:2471036",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg",
+        "3DsWwrAET2VRfR_BYHBzXX"
+      ]
+    },
+    {
+      "guid": "1TBRTxOmH2qOCfGLFJR1oS",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 1100 x 2136 IDAB_Räume:2471581",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg",
+        "3DsWwrAET2VRfR_BYHBzXW"
+      ]
+    },
+    {
+      "guid": "1TBRTxOmH2qOCfGLFJR1qA",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 1100 x 2136 IDAB_Räume:2471691",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXa",
+        "3DsWwrAET2VRfR_BYHBzXd"
+      ]
+    },
+    {
+      "guid": "1TBRTxOmH2qOCfGLFJR1qc",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 1100 x 2136 IDAB_Räume:2471719",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXa",
+        "3DsWwrAET2VRfR_BYHBzXZ"
+      ]
+    },
+    {
+      "guid": "1TBRTxOmH2qOCfGLFJR1su",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 1100 x 2136 IDAB_Räume:2471865",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXY",
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "1TBRTxOmH2qOCfGLFJR18M",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 1100 x 2136 IDAB_Räume:2471959",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXT",
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "1TBRTxOmH2qOCfGLFJR1Ca",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 1100 x 2136 IDAB_Räume:2472229",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXS",
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "1TBRTxOmH2qOCfGLFJR1Fl",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 900 x 2136 IDAB_Räume 2:2472430",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg",
+        "3DsWwrAET2VRfR_BYHBzXU"
+      ]
+    },
+    {
+      "guid": "0xust1cwr8XOVmfb2C$iKT",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 900 x 2136 IDAB_Räume 2:2472665",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXe",
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "0xust1cwr8XOVmfb2C$iJu",
+      "name": "TU DF 1 - Rahmenstock flächenbündig:ML - 900 x 2136 IDAB_Räume 2:2472764",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXh",
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEcqd",
+      "name": "TU DF 1 - Rahmenstock mit Glasseitenteil:ML - 1260 x 2135 - DB 800:2478932",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg",
+        "3DsWwrAET2VRfR_BYHBzXa"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEcsb",
+      "name": "TU DF 1 - Rahmenstock mit Glasseitenteil:DL - 800 x 2000 - MB 1400 - EI 30:2479062",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXa",
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEch4",
+      "name": "TU DF 2 - Rahmenstock flächenbündig:DL - 1600 x 2000:2479287",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXb",
+        "3DsWwrAET2VRfR_BYHBzXa"
+      ]
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEfNM",
+      "name": "TU DF 1 - Rahmenstock Notausgang und Fluchttuere:EN 179 - ML - 885 x 2135 - EI 30:2516026",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "guid": "2G3VdamkPFjfkmj2380AV2",
+      "name": "Fenster:Fenster:2472976",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "1dNbgQzoz5Wu2LUd$V1uIC",
+      "name": "Fenster:Fenster:2475241",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJHP",
+      "name": "Fenster:Fenster:2475499",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJUq",
+      "name": "Fenster:Fenster:2475526",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJUy",
+      "name": "Fenster:Fenster:2475534",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJUa",
+      "name": "Fenster:Fenster:2475542",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJUi",
+      "name": "Fenster:Fenster:2475550",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJUK",
+      "name": "Fenster:Fenster:2475558",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXg"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJUT",
+      "name": "Fenster:Fenster:2475567",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXb"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJU5",
+      "name": "Fenster:Fenster:2475575",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXb"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJUD",
+      "name": "Fenster:Fenster:2475583",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJVw",
+      "name": "Fenster:Fenster:2475592",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJVY",
+      "name": "Fenster:Fenster:2475600",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXS"
+      ]
+    },
+    {
+      "guid": "0S_JsK2z1DqQcF8hghrJVh",
+      "name": "Fenster:Fenster:2475609",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXS"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGl",
+      "name": "Fenster:Fenster:2476636",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXc"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGk",
+      "name": "Fenster:Fenster:2476637",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXc"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGj",
+      "name": "Fenster:Fenster:2476638",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXW"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGi",
+      "name": "Fenster:Fenster:2476639",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXW"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGJ",
+      "name": "Fenster:Fenster:2476640",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXX"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGI",
+      "name": "Fenster:Fenster:2476641",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXX"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGH",
+      "name": "Fenster:Fenster:2476642",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXd"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGG",
+      "name": "Fenster:Fenster:2476643",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXd"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGN",
+      "name": "Fenster:Fenster:2476644",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXZ"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGM",
+      "name": "Fenster:Fenster:2476645",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXZ"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGL",
+      "name": "Fenster:Fenster:2476646",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXY"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGK",
+      "name": "Fenster:Fenster:2476647",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXY"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGR",
+      "name": "Fenster:Fenster:2476648",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdGQ",
+      "name": "Fenster:Fenster:2476649",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdMa",
+      "name": "Fenster:Fenster:2477015",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXS"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdCc",
+      "name": "Fenster:Fenster:2477397",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXS"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEdEU",
+      "name": "Fenster:Fenster:2477549",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXT"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEd52",
+      "name": "Fenster:Fenster:2477873",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    },
+    {
+      "guid": "2y16PNiQDAUu6vtOChEd46",
+      "name": "Fenster:Fenster:2477941",
+      "storey": "Default",
+      "bounds_spaces": [
+        "3DsWwrAET2VRfR_BYHBzXV"
+      ]
+    }
+  ]
+}
