@@ -1,0 +1,965 @@
+{
+  "source_file": "synthetic_office.ifc",
+  "schema": "IFC4X3",
+  "project": "Synthetic Office Building",
+  "storeys": [
+    {
+      "guid": "26sVx$IAzEqOa3WUkYTHAx",
+      "name": "Ground Floor",
+      "elevation": 0.0
+    }
+  ],
+  "spaces": [
+    {
+      "guid": "1Sayxc5tn34x36JslKuurr",
+      "name": "Corridor",
+      "long_name": "Main Corridor",
+      "object_type": "Circulation",
+      "area_m2": 52.5,
+      "centroid_xy": [
+        10.5,
+        6.25
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 52.5,
+          "GrossFloorArea": 52.5,
+          "NetVolume": 157.5
+        }
+      }
+    },
+    {
+      "guid": "0ozkLMvKb7NPUOs2lFkYkL",
+      "name": "Office1",
+      "long_name": "Office 1 - Shared Open Office",
+      "object_type": "Office",
+      "area_m2": 25.0,
+      "centroid_xy": [
+        2.5,
+        10.0
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 25.0,
+          "GrossFloorArea": 25.0,
+          "NetVolume": 75.0
+        }
+      }
+    },
+    {
+      "guid": "1iTKaIvDX138YJRfrhePfu",
+      "name": "Office2",
+      "long_name": "Office 2 - Shared Open Office",
+      "object_type": "Office",
+      "area_m2": 25.0,
+      "centroid_xy": [
+        7.5,
+        10.0
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 25.0,
+          "GrossFloorArea": 25.0,
+          "NetVolume": 75.0
+        }
+      }
+    },
+    {
+      "guid": "2OrJoaru56u9J_MJ4UkJZv",
+      "name": "Office3",
+      "long_name": "Office 3 - Manager Office",
+      "object_type": "Office",
+      "area_m2": 16.0,
+      "centroid_xy": [
+        12.0,
+        9.5
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 16.0,
+          "GrossFloorArea": 16.0,
+          "NetVolume": 48.0
+        }
+      }
+    },
+    {
+      "guid": "0ew1XPxBXEp9KDYiempUCs",
+      "name": "Seminar",
+      "long_name": "Seminar / Meeting Room",
+      "object_type": "Meeting",
+      "area_m2": 42.0,
+      "centroid_xy": [
+        17.5,
+        10.5
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 42.0,
+          "GrossFloorArea": 42.0,
+          "NetVolume": 126.0
+        }
+      }
+    },
+    {
+      "guid": "2EkXErEd9EBPmlQXcO0DJD",
+      "name": "Reception",
+      "long_name": "Reception / Entrance Lobby",
+      "object_type": "Reception",
+      "area_m2": 30.0,
+      "centroid_xy": [
+        3.0,
+        2.5
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 30.0,
+          "GrossFloorArea": 30.0,
+          "NetVolume": 90.0
+        }
+      }
+    },
+    {
+      "guid": "02NCXtVc52fhji$KN$Y6jC",
+      "name": "Kitchen",
+      "long_name": "Kitchen / Break Room",
+      "object_type": "Kitchen",
+      "area_m2": 25.0,
+      "centroid_xy": [
+        8.5,
+        2.5
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 25.0,
+          "GrossFloorArea": 25.0,
+          "NetVolume": 75.0
+        }
+      }
+    },
+    {
+      "guid": "3zNZmmxz10Efg3NkqN1HAn",
+      "name": "Restroom",
+      "long_name": "Restroom (Combined)",
+      "object_type": "Restroom",
+      "area_m2": 12.0,
+      "centroid_xy": [
+        12.5,
+        2.0
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 12.0,
+          "GrossFloorArea": 12.0,
+          "NetVolume": 36.0
+        }
+      }
+    },
+    {
+      "guid": "0XPsAIyxvAexSuwCxmRDjv",
+      "name": "Storage",
+      "long_name": "Storage / Server Room",
+      "object_type": "Technical",
+      "area_m2": 16.0,
+      "centroid_xy": [
+        16.0,
+        2.0
+      ],
+      "properties": {
+        "Qto_SpaceBaseQuantities": {
+          "NetFloorArea": 16.0,
+          "GrossFloorArea": 16.0,
+          "NetVolume": 48.0
+        }
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "guid": "12HGj5kmX3zOIaIjg1lgwQ",
+      "name": "Office1 Desk A",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "DESK",
+      "room": "Office1",
+      "centroid_xy": [
+        1.0,
+        8.2
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1kfnZmBH58SvbQXlPQgRey",
+      "name": "Office1 Chair A",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Office1",
+      "centroid_xy": [
+        2.15,
+        8.15
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3EVAWzaE5DMOXIl6TF4wTY",
+      "name": "Office1 Desk B",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "DESK",
+      "room": "Office1",
+      "centroid_xy": [
+        3.3,
+        8.2
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2Mv8wzoMD1fu0h08ATs$gq",
+      "name": "Office1 Chair B",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Office1",
+      "centroid_xy": [
+        0.65,
+        9.05
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0i8_Jy345FovJtKm6D_YNH",
+      "name": "Office1 Filing Cabinet",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": null,
+      "room": "Office1",
+      "centroid_xy": [
+        1.45,
+        9.0
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0KHAa1Cnb5N8tWXqCFPnxR",
+      "name": "Office2 Desk A",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "DESK",
+      "room": "Office2",
+      "centroid_xy": [
+        6.0,
+        8.2
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1tgUmLTpvBUh9ty1lDNSWm",
+      "name": "Office2 Chair A",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Office2",
+      "centroid_xy": [
+        7.15,
+        8.15
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3peWyZvsb41OJU3URSPeCL",
+      "name": "Office2 Desk B",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "DESK",
+      "room": "Office2",
+      "centroid_xy": [
+        8.3,
+        8.2
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1ao8XE3J176A1kA1nsTL6A",
+      "name": "Office2 Chair B",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Office2",
+      "centroid_xy": [
+        5.65,
+        9.05
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3O$K1voCf21Q616rCqOF0w",
+      "name": "Office2 Filing Cabinet",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": null,
+      "room": "Office2",
+      "centroid_xy": [
+        6.45,
+        9.0
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0M4c6SmEb2$h8oZ5z0VKoT",
+      "name": "Office3 Desk",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "DESK",
+      "room": "Office3",
+      "centroid_xy": [
+        11.1,
+        8.25
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2V_mairbnBevfxZE_ICPHN",
+      "name": "Office3 Chair",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Office3",
+      "centroid_xy": [
+        12.35,
+        8.15
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2GYEH7g_bByuXrDVRe$lU5",
+      "name": "Office3 Side Table",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "TABLE",
+      "room": "Office3",
+      "centroid_xy": [
+        13.2,
+        8.2
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2vwl5sW55AtvEVbJjsc677",
+      "name": "Office3 Bookshelf",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "SHELF",
+      "room": "Office3",
+      "centroid_xy": [
+        10.8,
+        9.075
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2z$fxglmH4qPIwBRNDf9ke",
+      "name": "Seminar Conference Table",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "TABLE",
+      "room": "Seminar",
+      "centroid_xy": [
+        15.9,
+        8.5
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "17xIpUYRj5Wf4At4Y_Bx4b",
+      "name": "Seminar Chair 1",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Seminar",
+      "centroid_xy": [
+        17.925,
+        8.125
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "23pwYjGLvA0QtTo7sl3jWR",
+      "name": "Seminar Chair 2",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Seminar",
+      "centroid_xy": [
+        18.675,
+        8.125
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1SnPmNHRP8B93Q5fKqtdyg",
+      "name": "Seminar Chair 3",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Seminar",
+      "centroid_xy": [
+        19.425,
+        8.125
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3m3Y_v2Cv4gx7Cac8MdaOm",
+      "name": "Seminar Chair 4",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Seminar",
+      "centroid_xy": [
+        20.175,
+        8.125
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3mtQXO2zXDMuEjdsj2Cprj",
+      "name": "Seminar Chair 5",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Seminar",
+      "centroid_xy": [
+        14.625,
+        9.625
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1LwP6XglTD7wc_Y7i9Nl8i",
+      "name": "Seminar Chair 6",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Seminar",
+      "centroid_xy": [
+        15.375,
+        9.625
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2W8ooKzGv7MQhgPtrW58RF",
+      "name": "Reception Desk",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "DESK",
+      "room": "Reception",
+      "centroid_xy": [
+        1.2,
+        0.75
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "10mWwIt2P1FQp$4I0yAAti",
+      "name": "Reception Chair",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Reception",
+      "centroid_xy": [
+        2.55,
+        0.65
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1mWmFWVGPFI9TL9Q8Dag3l",
+      "name": "Reception Sofa",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "SOFA",
+      "room": "Reception",
+      "centroid_xy": [
+        4.0,
+        0.8
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0hYdfqBTjFFOwFNnMhqPKL",
+      "name": "Reception Waiting Chair 1",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Reception",
+      "centroid_xy": [
+        0.65,
+        1.75
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0PYzJYYhb9NgJ1qWVgxWsF",
+      "name": "Reception Waiting Chair 2",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Reception",
+      "centroid_xy": [
+        1.45,
+        1.75
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1PnKxJ$TDDSAcx79mGU8XI",
+      "name": "Reception Coffee Table",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "TABLE",
+      "room": "Reception",
+      "centroid_xy": [
+        2.4,
+        1.75
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0jHYOIOCvCTws346udJytO",
+      "name": "Kitchen Countertop",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "TABLE",
+      "room": "Kitchen",
+      "centroid_xy": [
+        7.4,
+        1.7
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2w75t2CBLFIfYAz6vzT96e",
+      "name": "Kitchen Wall Cabinets",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "SHELF",
+      "room": "Kitchen",
+      "centroid_xy": [
+        7.15,
+        2.5
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2OpaztxPn0yQipdn_z92QL",
+      "name": "Kitchen Dining Table",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "TABLE",
+      "room": "Kitchen",
+      "centroid_xy": [
+        8.9,
+        2.7
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3bj9V8yTj5uQG6BcT0Y4Qn",
+      "name": "Kitchen Dining Chair 1",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Kitchen",
+      "centroid_xy": [
+        10.125,
+        2.525
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1hiC3fxRLAPQr13lwzrKzS",
+      "name": "Kitchen Dining Chair 2",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Kitchen",
+      "centroid_xy": [
+        6.625,
+        3.625
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "38apqX3wXCquB1UspW2NfE",
+      "name": "Kitchen Dining Chair 3",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Kitchen",
+      "centroid_xy": [
+        7.375,
+        3.625
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2tEhPAryf66Q1O7pMr6LY2",
+      "name": "Kitchen Dining Chair 4",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "CHAIR",
+      "room": "Kitchen",
+      "centroid_xy": [
+        8.125,
+        3.625
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0aWn9MnSn9kPkycLmagFOv",
+      "name": "Storage Shelving Unit 1",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "SHELF",
+      "room": "Storage",
+      "centroid_xy": [
+        15.8,
+        0.6
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2Fomq5oW50LwSe2fzJfQwF",
+      "name": "Storage Shelving Unit 2",
+      "ifc_class": "IfcFurniture",
+      "predefined_type": "SHELF",
+      "room": "Storage",
+      "centroid_xy": [
+        17.1,
+        0.6
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3xFBmORGTFf89M1hsccIM5",
+      "name": "Office1 Monitor A",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Office1",
+      "centroid_xy": [
+        0.65,
+        7.975
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1QSjTs33P7jO_o8Mm$haFE",
+      "name": "Office1 Monitor B",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Office1",
+      "centroid_xy": [
+        2.95,
+        7.975
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "39V0famR94PgPlSxpTu6o4",
+      "name": "Office2 Shared Printer",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Office2",
+      "centroid_xy": [
+        7.25,
+        9.05
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3eWQnWCNnBJuWXPaGPn0cW",
+      "name": "Office2 Monitor A",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Office2",
+      "centroid_xy": [
+        5.65,
+        7.975
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1UFcHm4qzFW9neYTzBGEFC",
+      "name": "Office2 Monitor B",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Office2",
+      "centroid_xy": [
+        7.95,
+        7.975
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2pBvzrX612jBckSqGD9DPR",
+      "name": "Office3 Monitor",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Office3",
+      "centroid_xy": [
+        10.65,
+        7.975
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0LEW7lz4LC5B15sm4Dkl6B",
+      "name": "Seminar Whiteboard",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Seminar",
+      "centroid_xy": [
+        16.65,
+        9.425
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "19vak_L$52hfrLjYFGu$KW",
+      "name": "Seminar Projection Screen",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Seminar",
+      "centroid_xy": [
+        18.7,
+        9.425
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1L6Cdlfmr79eEm7ACb4tw6",
+      "name": "Seminar Projector",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Seminar",
+      "centroid_xy": [
+        20.2,
+        9.55
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "28J6tyBxH3sfJ9_NFll0UJ",
+      "name": "Kitchen Sink",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Kitchen",
+      "centroid_xy": [
+        6.7,
+        0.65
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1DVuAHdY96XOJlPdInK3l5",
+      "name": "Kitchen Refrigerator",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Kitchen",
+      "centroid_xy": [
+        7.65,
+        0.75
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1RLeXgtcj3XOp4KqOVv8cQ",
+      "name": "Kitchen Coffee Machine",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Kitchen",
+      "centroid_xy": [
+        8.45,
+        0.55
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1ancYKPPz0FwDJ7O2AnAvb",
+      "name": "Kitchen Microwave",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Kitchen",
+      "centroid_xy": [
+        9.15,
+        0.6
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0XzYt056nA8hzeJ0KK8WlV",
+      "name": "Kitchen Water Dispenser",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Kitchen",
+      "centroid_xy": [
+        8.875,
+        1.575
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2cyRqR3dz8GRPSq8nxCwYG",
+      "name": "Restroom Toilet Stall 1",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Restroom",
+      "centroid_xy": [
+        11.85,
+        0.75
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "2G0pfn9DX1f87ii$KCN8PH",
+      "name": "Restroom Toilet Stall 2",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Restroom",
+      "centroid_xy": [
+        13.05,
+        0.75
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1iw9HreDn8JAa52KLLSxn4",
+      "name": "Restroom Sink 1",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Restroom",
+      "centroid_xy": [
+        11.65,
+        1.6
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "1c_wpYSRr5weavzpu1$t3u",
+      "name": "Restroom Sink 2",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Restroom",
+      "centroid_xy": [
+        12.45,
+        1.6
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0$TL_WU7j3YQfIxzHImp2D",
+      "name": "Restroom Mirror",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Restroom",
+      "centroid_xy": [
+        11.7,
+        2.125
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "3H0X4h0V990hmKYB18qcj8",
+      "name": "Restroom Hand Dryer",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Restroom",
+      "centroid_xy": [
+        12.45,
+        2.2
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0RJiojZNbAkeD_9MqeXfgj",
+      "name": "Server Rack",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Storage",
+      "centroid_xy": [
+        14.7,
+        0.8
+      ],
+      "properties": {}
+    },
+    {
+      "guid": "0rmtfuJnT0_9BiQaE1Lv2j",
+      "name": "Network Switch",
+      "ifc_class": "IfcBuildingElementProxy",
+      "predefined_type": null,
+      "room": "Storage",
+      "centroid_xy": [
+        14.6,
+        0.55
+      ],
+      "properties": {}
+    }
+  ],
+  "doors": [
+    {
+      "guid": "3yQhPp0w5CD9sw38s5ujEw",
+      "name": "Door - Office 1 to Corridor",
+      "connects_rooms": [
+        "Office1",
+        "Corridor"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    },
+    {
+      "guid": "33_lgKe_b02ALX0J2uS1px",
+      "name": "Door - Office 2 to Corridor",
+      "connects_rooms": [
+        "Office2",
+        "Corridor"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    },
+    {
+      "guid": "3iANqzgNPFzg5v202Mq0Ix",
+      "name": "Door - Office 3 to Corridor",
+      "connects_rooms": [
+        "Office3",
+        "Corridor"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    },
+    {
+      "guid": "2Mz$GSh1j7R8bisnYsPGFt",
+      "name": "Door - Seminar Room to Corridor",
+      "connects_rooms": [
+        "Seminar",
+        "Corridor"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    },
+    {
+      "guid": "19fEmAidb96xrIMrDpQuKu",
+      "name": "Door - Reception to Corridor",
+      "connects_rooms": [
+        "Reception",
+        "Corridor"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    },
+    {
+      "guid": "2DDNH$DRL3XwE$6TQVoIv6",
+      "name": "Door - Kitchen to Corridor",
+      "connects_rooms": [
+        "Kitchen",
+        "Corridor"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    },
+    {
+      "guid": "1JkiI1gMz4yel_HsNG3aYJ",
+      "name": "Door - Restroom to Corridor",
+      "connects_rooms": [
+        "Restroom",
+        "Corridor"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    },
+    {
+      "guid": "3eYHWJnWH3xuWgqxX4gPN6",
+      "name": "Door - Storage to Corridor",
+      "connects_rooms": [
+        "Storage",
+        "Corridor"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    },
+    {
+      "guid": "0BUEpSQID4qxAaBmZoI8X9",
+      "name": "Main Entrance Door",
+      "connects_rooms": [
+        "Reception"
+      ],
+      "overall_width": 1.0,
+      "overall_height": 2.1
+    }
+  ]
+}

@@ -69,6 +69,7 @@ imu-relay-pkg==0.0.0
 interactive-markers==2.5.5
 irobot-create-msgs==3.0.0
 isodate==0.7.2
+Jinja2==3.1.6
 joint-state-publisher==2.4.1
 joint-state-publisher-gui==2.4.1
 joy-teleop==1.8.0
@@ -85,6 +86,7 @@ lifecycle-msgs==2.0.4
 logging-demo==0.33.11
 map-msgs==2.4.1
 marine-acoustic-msgs==2.1.0
+MarkupSafe==3.0.3
 message-filters==4.11.17
 moveit-configs-utils==2.12.4
 moveit-msgs==2.6.0
@@ -107,8 +109,10 @@ pandas==3.0.5
 pcl-msgs==1.0.0
 pendulum-msgs==0.33.11
 ptz-action-server-msgs==2.0.3
+pyserial==3.5
 python-dateutil==2.9.0.post0
 python-qt-binding==2.2.2
+PyYAML==6.0.3
 qt-dotgraph==2.7.6
 qt-gui==2.7.6
 qt-gui-cpp==2.7.6
@@ -186,6 +190,7 @@ rviz-2d-overlay-msgs==1.4.1
 sensor-msgs==5.3.8
 sensor-msgs-py==5.3.8
 service-msgs==2.0.4
+setuptools==84.0.0
 shape-msgs==5.3.8
 shapely==2.1.2
 simulation-interfaces==1.5.1
@@ -222,6 +227,7 @@ turtlebot4-msgs==2.1.1
 turtlesim==1.8.4
 twist-mux-msgs==3.0.1
 type-description-interfaces==2.0.4
+typeguard==4.6.0
 typing_extensions==4.16.0
 unique-identifier-msgs==2.5.1
 urdfdom-py==1.2.1
