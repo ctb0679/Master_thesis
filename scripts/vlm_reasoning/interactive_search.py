@@ -35,7 +35,7 @@ from pathlib import Path
 from rank_candidates import (
     load_building, build_room_summaries, call_ollama, validate_rankings,
     strip_json_fences, get_centroid_lookup, optimal_visit_order,
-    DEFAULT_MODEL, DEFAULT_OLLAMA_HOST,
+    resolve_start_room, DEFAULT_MODEL, DEFAULT_OLLAMA_HOST,
 )
 import urllib.request
 
@@ -114,7 +114,11 @@ class SearchSession:
 
     def __init__(self, cleaned_json_path, start_room, threshold, model, host):
         self.building = load_building(cleaned_json_path)
-        self.start_room = start_room
+        # Don't assume a room name like "Reception" exists — that's true only
+        # for the synthetic office model. Fall back to the first room in this
+        # building's own JSON if the requested one isn't there (or none was
+        # given), so a new IFC file never hard-fails over this.
+        self.start_room = resolve_start_room(self.building, start_room)
         self.threshold = threshold
         self.model = model
         self.host = host
@@ -186,7 +190,12 @@ class SearchSession:
 def main():
     parser = argparse.ArgumentParser(description="Interactive plan->navigate->detect loop.")
     parser.add_argument("--cleaned_json", required=True)
-    parser.add_argument("--start_room", default="Reception")
+    parser.add_argument(
+        "--start_room", default=None,
+        help="Room the robot starts in. If omitted, or if the given name "
+             "isn't in this building, falls back to the first room listed "
+             "in the cleaned JSON (a warning/note is printed either way).",
+    )
     parser.add_argument("--threshold", type=float, default=0.3)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--ollama_host", default=DEFAULT_OLLAMA_HOST)

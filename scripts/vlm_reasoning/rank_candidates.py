@@ -8,7 +8,7 @@ import sys
 import urllib.request
 import urllib.error
 
-DEFAULT_MODEL = "qwen3-vl:30b-a3b-instruct-q4_K_M"
+DEFAULT_MODEL = "qwen3.6:27b"
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 MAX_RETRIES = 3
 
@@ -140,6 +140,32 @@ def validate_rankings(rankings, building):
 
 def get_centroid_lookup(building):
     return {s["name"]: s["centroid_xy"] for s in building["spaces"]}
+
+
+def resolve_start_room(building, requested=None):
+    """Pick a start room that's guaranteed to exist in this building, instead
+    of assuming a name like "Reception" that only happens to exist in the
+    synthetic office model. If `requested` is given and is a real room, use
+    it as-is; otherwise fall back to the first room listed in the cleaned
+    JSON (stable/deterministic) and print a note so the fallback is visible
+    rather than silent."""
+    spaces = building.get("spaces", [])
+    if not spaces:
+        print("ERROR: building has no spaces/rooms at all — cannot pick a start room.", file=sys.stderr)
+        sys.exit(1)
+
+    room_names = {s["name"] for s in spaces}
+    if requested and requested in room_names:
+        return requested
+
+    fallback = spaces[0]["name"]
+    if requested:
+        print(f"WARNING: start room '{requested}' not found in this building — "
+              f"falling back to first room '{fallback}'. Pass --start_room to pick a different one "
+              f"(known rooms: {sorted(room_names)}).", file=sys.stderr)
+    else:
+        print(f"NOTE: no --start_room given — using first room in building: '{fallback}'.", file=sys.stderr)
+    return fallback
 
 
 def euclidean(p1, p2):
