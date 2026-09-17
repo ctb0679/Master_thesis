@@ -6,16 +6,44 @@ given only a structured (IFC-derived) description of its rooms and equipment,
 then plans an efficient route to check the most likely rooms and visually
 confirms the target using camera images.
 
-The pipeline has three stages:
+The pipeline has four stages:
 
-1. **Semantic ranking** — given a natural-language task ("find the source of
-   a water leak") and a JSON summary of every room's function and equipment,
-   a local LLM (via [Ollama](https://ollama.com)) assigns a likelihood score
-   to every room.
-2. **Route planning** — rooms above a likelihood threshold are ordered into a
-   visit sequence (optimal for small room counts via Held-Karp, greedy
-   nearest-neighbor as a fallback for larger buildings), starting from a
-   fixed location.
+0. **Task interpretation** — the raw input is first classified by a local LLM
+   (via [Ollama](https://ollama.com)) into one intent, using the last few
+   exchanges as context so follow-ups like "go there" resolve:
+   - `find_object`: physically search for something. If the user restricted
+     the search to one room ("check the kitchen for a coffee machine") only
+     that room is visited. Otherwise, if the building model already records
+     the target as equipment somewhere (a printer model number counts as a
+     printer) those rooms are visited first, and only if it isn't confirmed
+     there does the pipeline fall through to ranking.
+   - `go_to_room`: navigate to a room, given by id, long name, synonym, or
+     with small typos. Ambiguous requests ("the office" when there are
+     several) are refused with the room list.
+   - `building_query`: a question about rooms or equipment ("is there a
+     storage room?", "how many offices?", "where is the printer?") is answered
+     from the building model without moving.
+   - `none`: greetings, small talk, questions about the robot, gibberish,
+     stray flags. Gets a short reply, never a search.
+
+   `scripts/vlm_reasoning/test_interpreter.py` runs a batch of phrasings
+   through this stage (no planning or walking) and flags misclassifications,
+   so a new building or a new set of inputs can be checked in one go.
+1. **Semantic ranking** — given the task and a JSON summary of every room's
+   function and equipment, the LLM assigns a raw 0–1 relevance score to every
+   room. Those scores are then converted to a proper probability distribution
+   over rooms with a softmax (`p_i = exp(s_i/T) / Σ_j exp(s_j/T)`,
+   temperature `T` = 0.1 by default, so the probabilities sum to 1). Rooms
+   already searched and ruled out are removed before the softmax so the mass
+   is redistributed over the rooms still in play.
+2. **Route planning** — the most likely rooms are taken in descending
+   probability until they cover `--prob_mass` of the distribution (default
+   0.9), skipping any room below `--min_prob` (default 0.01). This scales with
+   the building: a sharp distribution yields one or two rooms, a flat one
+   many. The chosen rooms are ordered into a visit sequence (optimal for
+   small room counts via Held-Karp, greedy nearest-neighbor as a fallback for
+   larger buildings), starting from a start room. If `--start_room` is omitted or names a room that doesn't exist
+   in the building, the first room listed in the cleaned JSON is used.
 3. **Visual confirmation** — at each planned stop, an image (standing in for
    a robot's camera capture) is sent to a vision-capable model, which judges
    whether the target is actually visible.
@@ -38,7 +66,8 @@ scripts/
   vlm_reasoning/
     rank_candidates.py    Ranking/planning logic (library, used by interactive_search.py)
     rank_candidates2.py   Standalone CLI for stages (a)+(b): rank + plan only
-    interactive_search.py Full interactive REPL: rank -> plan -> visual detect
+    interactive_search.py Full interactive REPL: interpret -> rank -> plan -> visual detect
+    test_interpreter.py   Batch checker for the interpretation stage (no walking)
     old_rank_candidates*.py  Superseded versions, kept for reference
 legacy_graph_pipeline/ Archived Neo4j-based approach (extraction, classification, query)
 testing_vlm.py          One-off smoke test for a local Ollama vision model
@@ -124,14 +153,37 @@ saves) a proximity-ordered visit plan — no image/detection stage.
 ```bash
 python3 scripts/vlm_reasoning/interactive_search.py \
   --cleaned_json data/cleaned_ifc/synthetic_office_cleaned.json \
-  --start_room Reception \
-  --threshold 0.3
+  --start_room Reception
+
+# or on a building whose room names you don't know yet — the start room
+# falls back to the first room in the file:
+python3 scripts/vlm_reasoning/interactive_search.py \
+  --cleaned_json data/cleaned_ifc/IDAC_model_cleaned.json
 ```
 
-Type a task at the prompt; the session ranks rooms, plans a route, then
-walks through each stop asking for an image path (e.g. one of the samples in
-`data/images/`) to stand in for a camera capture, running visual detection
-against it. Type `skip` to move on without an image, or `bye` to end.
+Type anything at the prompt. Questions about the building are answered in
+place; navigation requests drive to the room; search requests either go
+straight to rooms where the building model records the target, or rank every
+room, convert the scores to softmax probabilities, and plan a route over the
+most likely rooms until `--prob_mass` (default 0.9) of the probability is
+covered. The walk visits each stop asking for an image path (e.g. one of the
+samples in `data/images/`) to stand in for a camera capture and runs visual
+detection against it, stopping as soon as the target is found. Type `skip` to
+move on without an image, or `bye` to end.
+
+`--temperature` controls how sharp the softmax is (lower = the top-scored room
+takes more of the mass); `--min_prob` (alias `--threshold`) drops rooms whose
+own probability is negligible.
+
+To check how a batch of phrasings is understood without walking anything:
+
+```bash
+python3 scripts/vlm_reasoning/test_interpreter.py \
+  --cleaned_json data/cleaned_ifc/IDAC_model_cleaned.json
+# or your own list, one per line, optionally "<text> => <expected intent>":
+python3 scripts/vlm_reasoning/test_interpreter.py \
+  --cleaned_json data/cleaned_ifc/IDAC_model_cleaned.json --inputs phrases.txt
+```
 
 `interactive_search.py` imports its ranking/planning functions from
 `rank_candidates.py`, so both files must stay in the same directory (or
