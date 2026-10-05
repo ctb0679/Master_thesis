@@ -14,6 +14,41 @@ DEFAULT_MODEL = "qwen3.6:27b"
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 MAX_RETRIES = 3
 
+# Ollama sampling/runtime options sent with every request, so runs are
+# reproducible (greedy decoding, fixed seed) and the context window is large
+# enough for the full room list instead of Ollama's small default.
+DEFAULT_LLM_TEMPERATURE = 0.0
+DEFAULT_SEED = 42
+DEFAULT_NUM_CTX = 16384
+DEFAULT_NUM_PREDICT = 512
+DEFAULT_REPEAT_PENALTY = 1.0
+
+
+def build_ollama_options(llm_temperature=DEFAULT_LLM_TEMPERATURE, seed=DEFAULT_SEED):
+    """The `options` dict passed to every Ollama /api/chat call. Only the
+    temperature and seed are exposed on the command line; the rest are fixed."""
+    return {
+        "temperature": llm_temperature,
+        "seed": seed,
+        "num_ctx": DEFAULT_NUM_CTX,
+        "num_predict": DEFAULT_NUM_PREDICT,
+        "repeat_penalty": DEFAULT_REPEAT_PENALTY,
+    }
+
+
+def add_ollama_args(parser):
+    """Register the shared --llm_temperature / --seed flags on a parser;
+    turn the parsed values into options with build_ollama_options."""
+    parser.add_argument(
+        "--llm_temperature", type=float, default=DEFAULT_LLM_TEMPERATURE,
+        help=f"Sampling temperature for every Ollama call (default "
+             f"{DEFAULT_LLM_TEMPERATURE} = greedy/deterministic).",
+    )
+    parser.add_argument(
+        "--seed", type=int, default=DEFAULT_SEED,
+        help=f"Sampling seed for every Ollama call (default {DEFAULT_SEED}).",
+    )
+
 SYSTEM_PROMPT = """You are a spatial reasoning module for an indoor search robot. \
 You will be given a JSON list of rooms in a building — each with a "room" \
 field (the exact identifier), its function, and the equipment inside it — \
@@ -67,13 +102,16 @@ def strip_json_fences(text):
     return text
 
 
-def chat_json(host, model, system_prompt, user_prompt, validate=None):
+def chat_json(host, model, system_prompt, user_prompt, validate=None, options=None):
     """Send one system+user exchange to Ollama and return the parsed JSON
     object the model replies with. `validate(parsed)` may raise ValueError
     to reject a structurally-wrong answer; on parse/validation failure the
     error is fed back to the model and it is asked again, up to MAX_RETRIES.
     Shared by the ranking call and the task-interpretation call so both get
-    the same retry/repair behaviour."""
+    the same retry/repair behaviour. `options` defaults to
+    build_ollama_options()."""
+    if options is None:
+        options = build_ollama_options()
     url = f"{host}/api/chat"
     messages = [
         {"role": "system", "content": system_prompt},
@@ -83,7 +121,7 @@ def chat_json(host, model, system_prompt, user_prompt, validate=None):
     for attempt in range(1, MAX_RETRIES + 1):
         body = {
             "model": model, "messages": messages, "stream": False,
-            "think": False, "format": "json",
+            "think": False, "format": "json", "options": options,
         }
         req = urllib.request.Request(
             url, data=json.dumps(body).encode("utf-8"),
@@ -123,7 +161,7 @@ def chat_json(host, model, system_prompt, user_prompt, validate=None):
     sys.exit(1)
 
 
-def call_ollama(host, model, task_description, room_summaries, extra_context=None):
+def call_ollama(host, model, task_description, room_summaries, extra_context=None, options=None):
     """Stage (a): ask the model for a raw 0.0-1.0 relevance score per room.
     `extra_context` is an optional sentence prepended to the task, e.g. to
     tell the model which rooms have already been searched and ruled out."""
@@ -135,7 +173,8 @@ def call_ollama(host, model, task_description, room_summaries, extra_context=Non
         if "rankings" not in parsed or not isinstance(parsed["rankings"], list):
             raise ValueError("Missing or malformed 'rankings' key")
 
-    return chat_json(host, model, SYSTEM_PROMPT, user_prompt, validate=_check)["rankings"]
+    return chat_json(host, model, SYSTEM_PROMPT, user_prompt, validate=_check,
+                     options=options)["rankings"]
 
 
 # --- Task interpretation (stage a0) -----------------------------------------
@@ -213,7 +252,7 @@ def format_history(history, max_turns=3):
     return "Recent exchanges (oldest first):\n" + "\n".join(lines)
 
 
-def interpret_task(host, model, user_text, room_summaries, history=None):
+def interpret_task(host, model, user_text, room_summaries, history=None, options=None):
     """Stage (a0): classify the raw user input before doing any ranking, so
     non-tasks are rejected instead of being scored, questions are answered
     instead of driven to, and targets the building model already records
@@ -236,7 +275,8 @@ def interpret_task(host, model, user_text, room_summaries, history=None):
         if not isinstance(parsed.get("rooms_with_target", []), (list, type(None))):
             raise ValueError("'rooms_with_target' must be a list")
 
-    return chat_json(host, model, INTERPRET_SYSTEM_PROMPT, user_prompt, validate=_check)
+    return chat_json(host, model, INTERPRET_SYSTEM_PROMPT, user_prompt, validate=_check,
+                     options=options)
 
 
 _ROOM_STOPWORDS = {"the", "a", "an", "room", "area", "space", "to", "go", "into"}
@@ -377,10 +417,10 @@ def validate_rankings(rankings, building):
     return corrected
 
 
-DEFAULT_TEMPERATURE = 0.1
+DEFAULT_SOFTMAX_TEMP = 0.1
 
 
-def softmax_probabilities(rankings, temperature=DEFAULT_TEMPERATURE):
+def softmax_probabilities(rankings, softmax_temp=DEFAULT_SOFTMAX_TEMP):
     """Turn the model's raw per-room scores into a proper probability
     distribution over rooms: p_i = exp(s_i / T) / sum_j exp(s_j / T).
 
@@ -392,9 +432,9 @@ def softmax_probabilities(rankings, temperature=DEFAULT_TEMPERATURE):
     "likelihood") and returns the list sorted by probability, descending."""
     if not rankings:
         return []
-    if temperature <= 0:
-        raise ValueError("temperature must be > 0")
-    scaled = [float(r["likelihood"]) / temperature for r in rankings]
+    if softmax_temp <= 0:
+        raise ValueError("softmax_temp must be > 0")
+    scaled = [float(r["likelihood"]) / softmax_temp for r in rankings]
     m = max(scaled)  # subtract max for numerical stability
     exps = [math.exp(s - m) for s in scaled]
     total = sum(exps)

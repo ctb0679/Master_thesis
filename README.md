@@ -69,6 +69,9 @@ scripts/
     interactive_search.py Full interactive REPL: interpret -> rank -> plan -> visual detect
     test_interpreter.py   Batch checker for the interpretation stage (no walking)
     old_rank_candidates*.py  Superseded versions, kept for reference
+file_converters/        Standalone IFC <-> ifcJSON converters (ifc2json.py, json2ifc.py)
+results/                Output location for saved plans
+docs/                   Reserved for documentation (currently empty)
 legacy_graph_pipeline/ Archived Neo4j-based approach (extraction, classification, query)
 testing_vlm.py          One-off smoke test for a local Ollama vision model
 requirements.txt        Actual pipeline dependencies (ifcopenshell, ollama)
@@ -171,9 +174,15 @@ samples in `data/images/`) to stand in for a camera capture and runs visual
 detection against it, stopping as soon as the target is found. Type `skip` to
 move on without an image, or `bye` to end.
 
-`--temperature` controls how sharp the softmax is (lower = the top-scored room
+`--softmax_temp` controls how sharp the softmax is (lower = the top-scored room
 takes more of the mass); `--min_prob` (alias `--threshold`) drops rooms whose
 own probability is negligible.
+
+Every Ollama call (interpretation, ranking, visual detection) uses the same
+sampling options so runs are reproducible: `--llm_temperature` (default 0.0,
+greedy decoding) and `--seed` (default 42). The context window
+(`num_ctx` 16384), `num_predict` (512) and `repeat_penalty` (1.0) are fixed in
+`rank_candidates.py` (`build_ollama_options`).
 
 To check how a batch of phrasings is understood without walking anything:
 
@@ -189,6 +198,14 @@ python3 scripts/vlm_reasoning/test_interpreter.py \
 `rank_candidates.py`, so both files must stay in the same directory (or
 `rank_candidates.py` must be on `PYTHONPATH`).
 
+## IFC <-> JSON converters
+
+`file_converters/` holds a standalone converter between IFC (SPF) and the
+ifcJSON format (`ifc2json.py`, `json2ifc.py`, helpers in `ifcjson/`). It is
+separate from `clean_ifc.py`: it converts the whole model losslessly rather than
+producing the lightweight room/equipment summary the pipeline consumes. See
+[file_converters/README.md](file_converters/README.md) for install and usage.
+
 ## Legacy graph pipeline (archived)
 
 `legacy_graph_pipeline/` contains an earlier approach that extracted IFC data
@@ -200,6 +217,8 @@ and `requests`.
 
 ## Notes
 
+- `notes.txt` is the thesis log: what changed, why, rejected alternatives, and
+  experiment results. It is updated alongside this README.
 - `testing_vlm.py` is a minimal smoke test for confirming Ollama + a vision
   model are reachable — not part of the pipeline itself.
 - `data/images/` holds sample photos (kitchen, offices, reception, seminar

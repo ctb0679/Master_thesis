@@ -55,9 +55,9 @@ from rank_candidates import (
     load_building, build_room_summaries, call_ollama, validate_rankings,
     softmax_probabilities, select_candidates, strip_json_fences,
     get_centroid_lookup, optimal_visit_order, resolve_start_room,
-    interpret_task, validate_interpretation, DEFAULT_MODEL,
-    DEFAULT_OLLAMA_HOST, DEFAULT_TEMPERATURE, DEFAULT_PROB_MASS,
-    DEFAULT_MIN_PROB,
+    interpret_task, validate_interpretation, build_ollama_options,
+    add_ollama_args, DEFAULT_MODEL, DEFAULT_OLLAMA_HOST, DEFAULT_SOFTMAX_TEMP,
+    DEFAULT_PROB_MASS, DEFAULT_MIN_PROB,
 )
 import urllib.request
 
@@ -79,9 +79,10 @@ class VisualDetector:
         '"description": "<one short sentence on what you see relevant to the task>"}'
     )
 
-    def __init__(self, host, model):
+    def __init__(self, host, model, options=None):
         self.host = host
         self.model = model
+        self.options = options if options is not None else build_ollama_options()
 
     def detect(self, image_path, task_description, room_name):
         path = Path(image_path)
@@ -107,6 +108,7 @@ class VisualDetector:
             "stream": False,
             "think": False,
             "format": "json",
+            "options": self.options,
         }
         req = urllib.request.Request(
             f"{self.host}/api/chat", data=json.dumps(body).encode("utf-8"),
@@ -134,7 +136,8 @@ class SearchSession:
     is the seam future robot-control code should extend (e.g. subclass or
     inject a real navigation/camera backend), not rebuild from scratch."""
 
-    def __init__(self, cleaned_json_path, start_room, prob_mass, min_prob, temperature, model, host):
+    def __init__(self, cleaned_json_path, start_room, prob_mass, min_prob, softmax_temp, model, host,
+                 ollama_options=None):
         self.building = load_building(cleaned_json_path)
         # Don't assume a room name like "Reception" exists — that's true only
         # for the synthetic office model. Fall back to the first room in this
@@ -143,14 +146,15 @@ class SearchSession:
         self.start_room = resolve_start_room(self.building, start_room)
         self.prob_mass = prob_mass
         self.min_prob = min_prob
-        self.temperature = temperature
+        self.softmax_temp = softmax_temp
         self.history = []  # (user_text, outcome) pairs, fed back to the interpreter
         self.model = model
         self.host = host
+        self.ollama_options = ollama_options if ollama_options is not None else build_ollama_options()
         self.centroid_lookup = get_centroid_lookup(self.building)
         self.room_summaries = build_room_summaries(self.building)
         self.long_names = {s["name"]: s.get("long_name") or "" for s in self.building["spaces"]}
-        self.detector = VisualDetector(host, model)
+        self.detector = VisualDetector(host, model, self.ollama_options)
 
     # --- stage (a0): understand the input ---------------------------------
 
@@ -158,7 +162,8 @@ class SearchSession:
         """Classify the raw input before doing anything else: is it a task at
         all, what kind, what is the target, and does the building model
         already record where that target is."""
-        raw = interpret_task(self.host, self.model, user_text, self.room_summaries, self.history)
+        raw = interpret_task(self.host, self.model, user_text, self.room_summaries, self.history,
+                             options=self.ollama_options)
         return validate_interpretation(raw, self.building)
 
     def _remember(self, user_text, outcome):
@@ -182,10 +187,11 @@ class SearchSession:
         if exclude:
             note = ("The robot has ALREADY searched the following room(s) and the target "
                     "was NOT there, so give them 0.0: " + ", ".join(sorted(exclude)) + ".")
-        rankings = call_ollama(self.host, self.model, task_description, self.room_summaries, note)
+        rankings = call_ollama(self.host, self.model, task_description, self.room_summaries, note,
+                               options=self.ollama_options)
         rankings = validate_rankings(rankings, self.building)
         rankings = [r for r in rankings if r["room"] not in exclude]
-        rankings = softmax_probabilities(rankings, self.temperature)
+        rankings = softmax_probabilities(rankings, self.softmax_temp)
 
         candidates = select_candidates(rankings, self.prob_mass, self.min_prob)
         plan = optimal_visit_order(candidates, self.centroid_lookup, self.start_room) if candidates else []
@@ -320,7 +326,7 @@ class SearchSession:
         print("\nQuerying VLM for room probabilities...")
         rankings, plan = self.rank_and_plan(user_text, exclude=known)
 
-        print(f"\n=== Room probabilities (softmax, T={self.temperature}) ===")
+        print(f"\n=== Room probabilities (softmax, T={self.softmax_temp}) ===")
         for r in rankings:
             print(f"  p={r['probability']:.3f}  score={r['likelihood']:.2f}  "
                   f"{self._label(r['room']):28s} {r['reasoning']}")
@@ -360,16 +366,18 @@ def main():
              f"(default {DEFAULT_MIN_PROB}). --threshold is accepted as an alias.",
     )
     parser.add_argument(
-        "--temperature", type=float, default=DEFAULT_TEMPERATURE,
+        "--softmax_temp", type=float, default=DEFAULT_SOFTMAX_TEMP,
         help=f"Softmax temperature applied to the model's 0-1 scores (default "
-             f"{DEFAULT_TEMPERATURE}). Lower = sharper distribution.",
+             f"{DEFAULT_SOFTMAX_TEMP}). Lower = sharper distribution.",
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--ollama_host", default=DEFAULT_OLLAMA_HOST)
+    add_ollama_args(parser)
     args = parser.parse_args()
 
     session = SearchSession(args.cleaned_json, args.start_room, args.prob_mass,
-                            args.min_prob, args.temperature, args.model, args.ollama_host)
+                            args.min_prob, args.softmax_temp, args.model, args.ollama_host,
+                            build_ollama_options(args.llm_temperature, args.seed))
 
     print("Interactive search session. Type a task, or 'bye' to exit.")
     while True:

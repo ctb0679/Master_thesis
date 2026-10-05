@@ -1,0 +1,232 @@
+THESIS LOG - VLM-based object search in indoor environments
+===========================================================
+Purpose: running record for writing the master thesis report. Every change is
+logged with WHAT changed, WHY, and what ALTERNATIVES were rejected. Intermediate
+results go in section 6. Newest entries go at the top of section 5 and 6.
+Keep this file and README.md up to date with every modification.
+
+Conventions
+  [FACT]   taken from the repo / commit history / user's own notes
+  [RATIONALE] reason recorded from the code comments or the user's notes
+  [TODO]   not yet known - fill in (do not guess in the report)
+
+
+-----------------------------------------------------------------------------
+1. PROBLEM AND GOAL
+-----------------------------------------------------------------------------
+A robot must find a target object in a building. It only has a structured
+description of the building derived from an IFC model (rooms, their function,
+the equipment inside, doors/connectivity). A VLM/LLM reasons about WHERE the
+object is likely to be, a route over the likely rooms is planned, and at each
+stop a camera image is checked by a vision model.
+
+Pipeline (current):
+  0. Task interpretation  - classify input: find_object / go_to_room /
+                            building_query / none (local LLM via Ollama)
+  1. Semantic ranking     - LLM gives raw 0-1 score per room -> softmax -> p(room)
+  2. Route planning       - take rooms until prob_mass covered, order the visit
+                            (Held-Karp optimal for small N, greedy NN fallback)
+  3. Visual confirmation  - image at each stop sent to a vision model
+
+
+-----------------------------------------------------------------------------
+2. SYSTEM SETUP / EXPERIMENT CONFIGURATION
+-----------------------------------------------------------------------------
+[FACT, from user notes - "Now running"]
+  softmax temperature (--softmax_temp) = 0.1
+  LLM sampling temperature (--llm_temperature) = 0  (greedy, deterministic)
+  seed = 42
+  model = qwen3.6:27b (text/ranking, via Ollama)
+  vision model = qwen3-vl:30b-a3b-instruct (README example) [TODO confirm used]
+  IFC models used = synthetic_office (9 rooms, generated), IDAC_Model (real,
+                    15 rooms), ... [TODO list the rest]
+  Other fixed Ollama options: num_ctx 16384, num_predict 512, repeat_penalty 1.0
+  Defaults: prob_mass 0.9, min_prob 0.01
+  Hardware / OS: Linux 6.14, Python 3.12 [TODO GPU/VRAM for the report]
+
+WHY these settings
+  - llm_temperature 0 + fixed seed: reproducible runs so results can be
+    compared between prompt/code versions. [RATIONALE: commit/code comment]
+  - num_ctx 16384: Ollama's default context is small and the full room list
+    must fit in the prompt. [RATIONALE: code comment]
+  - softmax T=0.1: raw LLM scores in [0,1] are poorly separated; a low T
+    sharpens them so a clearly better room takes most of the probability
+    mass. Higher T = flatter = more rooms visited. [TODO justify 0.1 with the
+    sweep in section 6]
+
+
+-----------------------------------------------------------------------------
+3. DESIGN DECISIONS: WHAT WAS CHOSEN AND WHY NOT THE ALTERNATIVES
+-----------------------------------------------------------------------------
+
+3.1 Own IFC cleaning script (clean_ifc.py) vs. generic IFC->JSON converter
+    Candidate rejected: buildingSMART ifcJSON converter
+    (https://github.com/buildingsmart-community/ifcJSON), added to the repo as
+    file_converters/ in commit 072ebd3 (2026-09-30).
+    Findings [FACT, user's tests]:
+      - With IfcOpenShell 0.8.5 the converter crashed on import.
+      - After patching it, it shortened every GUID. On the IDAC model all 15
+        rooms collapsed onto 2 IDs, so it is impossible to tell which furniture
+        belongs to which room -> breaks the room->equipment mapping that the
+        whole pipeline depends on.
+      - Repo's last listed update: April 2024 (stale w.r.t. current
+        IfcOpenShell).
+    Defence of own script:
+      - Uses the current IfcOpenShell API directly.
+      - Keeps only what the task needs: spatial hierarchy, every IfcSpace
+        (name/function/area/centroid), equipment (IfcFurniture /
+        IfcBuildingElementProxy) with its containing room, doors with the rooms
+        they connect. Output is small enough to fit in the LLM context.
+      - A generic converter is lossless but huge (geometry, property sets) and
+        not room-centric; the LLM would need further filtering anyway.
+    Status: converter kept in file_converters/ as a reference/baseline, not part
+    of the active pipeline.
+
+3.2 Direct IFC pipeline vs. Neo4j graph pipeline (commit dd398a9, 2026-08-19)
+    Old approach: IFC -> Neo4j graph -> LLM-generated Cypher queries.
+    Replaced by: IFC -> cleaned JSON -> LLM reasons over the JSON directly.
+    Archived in legacy_graph_pipeline/.
+    [RATIONALE - inferred from the restructure, confirm wording] fewer moving
+    parts (no Docker/DB), no fragile LLM-written Cypher, and the full building
+    summary fits in the model context. [TODO: record concrete failures of the
+    Cypher approach if you want to cite them]
+
+3.3 Softmax over LLM scores instead of using raw scores / a fixed threshold
+    Raw scores are not a probability distribution and do not respect "rooms
+    already ruled out". Softmax gives p_i = exp(s_i/T)/sum_j exp(s_j/T) that
+    sums to 1; ruled-out rooms are removed BEFORE the softmax so their mass is
+    redistributed. Alternative (fixed score threshold, earlier --threshold
+    flag) does not scale with building size; it is kept only as an alias of
+    --min_prob. [RATIONALE: README/code]
+
+3.4 Cover prob_mass (0.9) instead of fixed top-k
+    Scales with the building: a sharp distribution -> 1-2 rooms, a flat one ->
+    many. Fixed k would over-visit when the model is confident and under-visit
+    when it is not. min_prob 0.01 drops negligible rooms.
+
+3.5 Route ordering: Held-Karp (optimal) for few rooms, greedy nearest-neighbour
+    otherwise. Held-Karp is exact but O(n^2 2^n), so greedy is the fallback for
+    larger buildings. Start room falls back to the first room in the JSON when
+    not given / not found (real models do not have a room called "Reception").
+
+3.6 Task-interpretation stage (stage 0) added before ranking (commit 7fe44dc)
+    Without it every input (greetings, questions, "go to X") would be scored as
+    a search task. It classifies intent, uses the last few exchanges as
+    context (so "go there" resolves), restricts to a named room, and
+    short-circuits to rooms where the building model already records the
+    target (e.g. a printer model number = printer). Ambiguous room references
+    are refused with the room list rather than guessed.
+    test_interpreter.py was added to batch-check phrasings without walking.
+
+3.7 Deterministic sampling options for all Ollama calls (uncommitted at time
+    of writing)
+    Added build_ollama_options / add_ollama_args; flag renamed
+    --temperature -> --softmax_temp to avoid confusion with the LLM sampling
+    temperature (--llm_temperature). Both detection and ranking now receive
+    the same options so a run is reproducible given (model, seed, prompts).
+
+3.8 Local models via Ollama (not a cloud API)
+    [TODO state your reason - e.g. privacy of building data, cost, offline
+    robot deployment - then it can be cited in the report]
+
+
+-----------------------------------------------------------------------------
+4. DATASETS / RELATED RESOURCES
+-----------------------------------------------------------------------------
+  - IFC-Bench: https://huggingface.co/datasets/sylvainHellin/ifc-bench
+    Open-source evaluation dataset/benchmark testing comprehension, reasoning
+    and information extraction of AI systems / LLMs on BIM data. Candidate for
+    related work and possibly for evaluating the interpretation/ranking stage.
+    [TODO decide: use for evaluation or only cite]
+  - buildingSMART ifcJSON: see 3.1.
+  - Own models: data/raw_ifc/synthetic_office.ifc (generated by
+    scripts/generate_synthetic_office_ifc.py), data/raw_ifc/IDAC_Model.ifc.
+  - Sample images: data/images/ (kitchen, offices, reception, seminar, corridor,
+    manager office) used as stand-in camera captures.
+
+
+-----------------------------------------------------------------------------
+5. CHANGE LOG (newest first)
+-----------------------------------------------------------------------------
+2026-10-05  (uncommitted)
+  - Added shared Ollama options (temperature, seed, num_ctx, num_predict,
+    repeat_penalty) passed to interpretation, ranking and visual detection.
+  - Renamed --temperature -> --softmax_temp; new --llm_temperature, --seed.
+  - README updated (layout, flags, file_converters section). notes.txt turned
+    into this thesis log.
+  Why: reproducibility of experiments; remove ambiguity between two kinds of
+  "temperature".
+
+2026-09-30  072ebd3  Added ifcJSON IFC->JSON converter (file_converters/).
+  Why: evaluate as an alternative to clean_ifc.py. Result: unreliable (see
+  3.1) -> own script retained.
+
+2026-09-17  7fe44dc  Added task interpretation stage, rank_candidates.py
+  extended (+300 lines), interactive_search.py reworked, test_interpreter.py
+  added, README expanded. Why: see 3.3-3.6.
+
+2026-09-10  79f86d6  Added sample images, rank_candidates2.py (standalone
+  rank+plan CLI), trimmed requirements.txt to actual dependencies, README.
+
+2026-09-03  2a2743a  Added VLM reasoning scripts, IFC cleaning, synthetic
+  office generator, cleaned JSON for IDAC + synthetic, testing_vlm.py.
+
+2026-08-19  dd398a9  Restructure: archived Neo4j graph pipeline into
+  legacy_graph_pipeline/, scaffolded direct-IFC pipeline. See 3.2.
+
+2026-08-14  df86b58  Initial commit.
+
+
+-----------------------------------------------------------------------------
+6. EXPERIMENTS AND INTERMEDIATE RESULTS (newest first)
+-----------------------------------------------------------------------------
+No results recorded yet - results/ is empty. For each run add an entry:
+
+  Date / git commit:
+  Building (IFC):
+  Config: model, llm_temperature, seed, softmax_temp, prob_mass, min_prob
+  Input / task:
+  Interpreter intent (correct? y/n):
+  Room probabilities (top rooms):
+  Planned route:
+  Visual detection outcome per stop:
+  Found target? / rooms visited / time:
+  Observations, failure cases, what to change next:
+
+Suggested experiments for the report [ideas, not done]:
+  - Interpreter accuracy on a labelled phrase set (test_interpreter.py).
+  - Softmax temperature sweep (e.g. 0.05, 0.1, 0.2, 0.5): rooms visited vs.
+    success rate, to justify T=0.1.
+  - Ranking quality: rank of the true room under the LLM vs. a random /
+    nearest-first baseline; compare model sizes.
+  - Own cleaner vs. ifcJSON converter as LLM input (fit in context, accuracy).
+  - Synthetic office vs. real IDAC model generalisation.
+
+
+-----------------------------------------------------------------------------
+7. OPEN QUESTIONS / TODO
+-----------------------------------------------------------------------------
+  - Fill every [TODO] above.
+  - rank_candidates2.py: check it still matches renamed flags/options.
+  - generate_synthetic_office_ifc.py writes to hardcoded /home/claude path.
+  - Decide how IFC-Bench is used (evaluation vs. citation).
+
+
+-----------------------------------------------------------------------------
+8. ORIGINAL RAW NOTES (kept verbatim)
+-----------------------------------------------------------------------------
+https://github.com/buildingsmart-community/ifcJSON
+
+in simple terms if I have to defend my own ifc cleaning file over this ifc to json converter, how shall I do it?
+
+It doesn't work reliably with current tools. With IfcOpenShell 0.8.5 the converter crashed on import, and after patching it shortened every GUID. In your model, all 15 rooms collapsed onto 2 IDs, so you can no longer tell which furniture belongs to which room. The repository's last listed update was April 2024. Your script uses the current IfcOpenShell API directly.
+
+https://huggingface.co/datasets/sylvainHellin/ifc-bench
+IFC-Bench is an open-source evaluation dataset and benchmark designed to test the comprehension, reasoning, and information-extraction capabilities of AI systems and large language models (LLMs) on Building Information Modeling (BIM) data.
+
+Now running,
+Softmax temp = 0.1
+temperature = 0
+seed = 42
+model = Qwen3.6:27b
+ifc used = synthetic_office, IDAC, ...

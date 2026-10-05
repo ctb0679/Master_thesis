@@ -1,0 +1,33 @@
+testing the Qwen3.5:9b model
+
+1. task: There is a water leakage. Find its source 
+
+=== Room probabilities (softmax, T=0.1) ===
+  p=0.731  score=0.95  Restroom (Restroom (Combined)) Restrooms contain multiple sinks and toilets, making them the most probable source of water leaks due to high plumbing density.
+  p=0.269  score=0.85  Kitchen (Kitchen / Break Room) Kitchens have sinks, refrigerators, and water dispensers, which are common sources of water leakage.
+
+2. find all the cups
+
+=== Room probabilities (softmax, T=0.1) ===
+  p=0.966  score=0.95  Kitchen (Kitchen / Break Room) As the designated break room with a coffee machine and dining table, this is the most logical place to store and find cups.
+  p=0.029  score=0.60  Reception (Reception / Entrance Lobby) Reception areas often have cups available for guests or staff at the coffee table or desk.
+  p=0.001  score=0.30  Office1 (Office 1 - Shared Open Office) Individual desks in an open office may have personal mugs or water glasses left on them.
+  p=0.001  score=0.30  Office2 (Office 2 - Shared Open Office) Similar to Office 1, desks here might hold personal drinking vessels.
+  p=0.001  score=0.30  Office3 (Office 3 - Manager Office) A manager's office likely contains a personal mug on the desk or side table.
+  p=0.001  score=0.20  Seminar (Seminar / Meeting Room) Meeting rooms sometimes have water pitchers and cups for attendees, though less common than in a kitchen.
+
+3. Find all the cups. Find only the used ones
+
+=== Room probabilities (softmax, T=0.1) ===
+  p=0.993  score=0.95  Kitchen (Kitchen / Break Room) As the designated break room with a sink and coffee machine, this is the primary location for drinking vessels and where used cups would accumulate before washing.
+  p=0.004  score=0.40  Reception (Reception / Entrance Lobby) Guests or staff may leave used cups on the coffee table or reception desk after meetings or visits.
+  p=0.001  score=0.30  Seminar (Seminar / Meeting Room) Participants often bring drinks to meetings, leaving used cups on the conference table.
+  p=0.001  score=0.20  Office1 (Office 1 - Shared Open Office) Staff may keep personal mugs or disposable cups on their desks during work hours.
+  p=0.001  score=0.20  Office2 (Office 2 - Shared Open Office) Similar to Office 1, staff desks are common places for used drinking vessels.
+  p=0.001  score=0.20  Office3 (Office 3 - Manager Office) The manager's desk or side table may hold a used coffee mug or water glass.
+
+4. Is there a printer in the office?
+
+According to the building model, there is a printer in Office2 (Office 2 - Shared Open Office). No printers are recorded in Office1 or Office3.
+
+5. 
