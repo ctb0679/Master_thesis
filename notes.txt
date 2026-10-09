@@ -82,6 +82,94 @@ WHY these settings
     Status: converter kept in file_converters/ as a reference/baseline, not part
     of the active pipeline.
 
+3.1b clean_ifc.py v2: generic extractor instead of a keep-list (2026-10-09)
+    What: keep-list (IfcSpace/IfcFurniture/IfcBuildingElementProxy/IfcDoor)
+    replaced by "every rooted entity except a blacklist" (IfcAnnotation,
+    IfcGrid, IfcStructuralItem/Activity/AnalysisModel). Output split into
+    <name>_full.json (everything) and <name>_llm.json (rooms, equipment,
+    adjacency). Records keyed by GlobalId; names are display only.
+    Why:
+      - A keep-list silently loses anything the exporter modelled with another
+        class (IfcFlowTerminal sinks/lights, IfcFurnishingElement in IFC2X3).
+        A blacklist fails open and is schema-agnostic (tested IFC2X3/4/4X3).
+      - Name-keyed v1 output cannot handle duplicate or numeric room names
+        (Revit: Name "101", LongName "Office"). Same failure class as the
+        ifcJSON GUID collapse in 3.1.
+      - Units: v1 assumed metres. v2 converts every length/area/volume/angle
+        (direct attributes via the schema's declared measure type, psets/qtos
+        via their measure type or own Unit). Verified: synthetic_office
+        converted to mm gives identical output.
+      - Door connectivity: v1 used only IfcRelSpaceBoundary, which many
+        exports lack (ac20 has 0 boundaries). v2 adds a geometric fallback
+        (probe 0.5 m either side of the door along its local Y axis,
+        point-in-polygon against space footprints) and records the source.
+      - Equipment-to-room: relation first (containment, spatial reference,
+        aggregation parent chain), then centroid point-in-polygon; recorded
+        as room_source = relation | geometric.
+      - Pset dropping: substring keywords ("material", "energy", ...) replaced
+        by exact names (DROP_PSET_EXACT, initially empty, extend with
+        --drop-pset). Substrings can hit useful psets; the audit lists every
+        pset name seen, so the drop list is chosen from evidence.
+      - Silent `except: pass` removed: every caught exception is counted by
+        stage | class | error type in the audit (semantic-quality variable).
+      - Geometry: one multi-threaded ifcopenshell.geom.iterator pass instead
+        of create_shape per entity; footprint = union of projected triangles
+        (shapely), centroid = footprint centroid (v1 used the vertex mean,
+        biased for L-shaped rooms).
+    Alternatives considered:
+      - Keep v1 and add classes to the keep-list: does not generalise to
+        unseen exporters.
+      - Export resource entities as records (like ifcJSON): huge and not
+        object-centric; resources are folded into the object that uses them.
+      - Separate script for the LLM view: kept in one file behind
+        --no-llm-view so both views come from the same run.
+    Deviations from the written plan (decided while implementing):
+      - ObjectPlacement, RepresentationMaps, HasPropertySets also dropped from
+        the attribute dump (represented by geometry / psets instead).
+      - IfcSlab excluded from obstacles (it is the floor); only slab openings
+        are added, as floor-level hazards.
+      - When IfcRelSpaceBoundary links a door to >2 spaces (Duplex_A), the
+        geometric probe picks the two spaces actually either side of it.
+      - Models without IfcBuildingStorey (IDAC_Model: spaces directly under
+        IfcSite) get one whole-model obstacle/grid layer; audit.no_storeys.
+
+3.1c Split into the ifc_extract package + make_grid.py (2026-10-09, v2.1)
+    What: clean_ifc.py (1,543 lines, IfcExtractor alone ~460 lines mixing
+    routing, rooms, doors, obstacles and frame) split into
+    scripts/ifc_cleaning/ifc_extract/{common, audit, units, relations,
+    geometry, exporter, rooms_doors, obstacles, extractor}.py; clean_ifc.py is
+    a 71-line CLI. Occupancy grids moved to make_grid.py, which reads
+    <name>_full.json (removes the private _shape/_id keys that existed only for
+    the grid). Largest module: exporter.py, 344 lines.
+    Why: debuggable units with one responsibility each, describable in the
+    thesis as a pipeline; grid generation decoupled from IFC parsing (it can be
+    rerun at another resolution without re-reading the IFC).
+    Verified: on all 5 real models the refactor gives identical rooms,
+    equipment, adjacency and door links; footprint centroids move <= 1 mm.
+    Fixes made at the same time (from review of v2.0 with a mm IFC4 fixture):
+      - Grid: unknown cells written as 128, not 205. nav2 map_server reads
+        (255-p)/255; 205 -> 0.196 <= free_thresh 0.25 -> everything outside
+        the building loaded as FREE. 128 -> 0.50 -> unknown.
+      - Project/Site/Building now in a "spatial" bucket, not "elements".
+      - Obstacles: elements below the lowest storey, with an unmatched storey,
+        below the floor or without a footprint are counted in
+        audit.obstacles_skipped (were silently skipped).
+      - Virtual boundaries without an element: pair keyed by the smaller
+        boundary GUID (pairing made symmetric), so one opening = one edge
+        (was 2). audit.virtual_boundaries_without_edge counts the rest
+        (Duplex_A: 28, fantasy1: 8; previously invisible).
+      - Door probe offset = max(door depth, host-wall layer thickness)/2 +
+        0.3 m (was fixed 0.5 m, which landed inside walls > ~1 m). Fixture
+        with a 1.5 m wall: offset 1.05 m, door linked correctly.
+      - Grid size limit (--max-cells, default 50M/storey) with an error that
+        names far-away obstacles (e.g. survey-point proxy); warning even under
+        the limit. Rasterised in row blocks to bound memory.
+      - IfcSite and openings that do not void a slab are no longer tessellated
+        (audit.tessellation_skipped); they keep placement-based fields.
+      - Found while splitting: footprints rounded to mm in the JSON could
+        become invalid and crash make_grid (IDAC, ac20). Footprints are now
+        snapped to the 1 mm grid when built, so rounding is a no-op.
+
 3.2 Direct IFC pipeline vs. Neo4j graph pipeline (commit dd398a9, 2026-08-19)
     Old approach: IFC -> Neo4j graph -> LLM-generated Cypher queries.
     Replaced by: IFC -> cleaned JSON -> LLM reasons over the JSON directly.
@@ -148,6 +236,19 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-10-09  (uncommitted)
+  - v2.1: split into ifc_extract/ package + make_grid.py; --grid removed
+    from clean_ifc.py; 7 fixes listed in 3.1c.
+  - clean_ifc.py rewritten as v2 (see 3.1b): classes IfcExtractor,
+    UnitResolver, EntityExporter, RelationshipResolver, GeometryExtractor,
+    AuditReport. New CLI: --input, --output-dir, --no-llm-view, --grid,
+    --drop-pset, --threads (old --output removed).
+  - Optional nav2 occupancy grid (PNG + YAML per storey; PNG written with
+    stdlib zlib, no Pillow).
+  - shapely added to requirements.txt. README step 2 rewritten.
+  - NOT yet done: rank_candidates.py / interactive_search.py /
+    test_interpreter.py still read the v1 *_cleaned.json format.
+
 2026-10-05  (uncommitted)
   - Added shared Ollama options (temperature, seed, num_ctx, num_predict,
     repeat_penalty) passed to interpretation, ranking and visual detection.
@@ -180,6 +281,27 @@ WHY these settings
 -----------------------------------------------------------------------------
 6. EXPERIMENTS AND INTERMEDIATE RESULTS (newest first)
 -----------------------------------------------------------------------------
+2026-10-09  clean_ifc.py v2 audit on the available models (uncommitted code)
+  Model (schema)            storeys spaces elements types bnds  edges  notes
+  synthetic_office (4X3)       1      9     106      0     53     8   all links by relation
+  IDAC_Model (4X3)             0     15     252     55    232    15   no IfcBuildingStorey; all 15
+                                                                       doors/106 equipment by relation
+  Duplex_A (2X3)               4     21     271     37    265    14   21/21 room areas from footprint
+                                                                       (no NetFloorArea/GrossFloorArea);
+                                                                       1 door had 3 boundary spaces
+  ac20 (IFC4)                  5     44    1798    258      0    34   34/34 doors linked only
+                                                                       geometrically; 4 equipment geometric
+  fantasy1 (IFC4)              5     82     991     19   1000    77   253 equipment placed geometrically;
+                                                                       113 IfcAnnotation skipped
+  hello_wall_with_door (2X3)   1      0       6      0      0     0   1 door with no room (no spaces)
+  All runs: 0 caught exceptions, 0 geometry failures. Runtime 0.1-15 s.
+  IDAC: full JSON 3.2 MB, LLM view 35 KB (v1 cleaned JSON was 209 KB).
+  Observation: the semantic quality of exports differs strongly (boundaries
+  present or not, area quantities present or not, equipment contained in
+  rooms or only in storeys); this is what the audit is meant to quantify.
+  Duplex_A and hello_wall come from ~/Junaidali/ifcJSON/Samples/IFC_2x3 and
+  are the IFC2X3 test set [TODO: copy into data/raw_ifc if used in the report].
+
 No results recorded yet - results/ is empty. For each run add an entry:
 
   Date / git commit:
@@ -207,6 +329,11 @@ Suggested experiments for the report [ideas, not done]:
 7. OPEN QUESTIONS / TODO
 -----------------------------------------------------------------------------
   - Fill every [TODO] above.
+  - Port rank_candidates.py / interactive_search.py / test_interpreter.py
+    to <name>_llm.json (GUID room keys, name as display label).
+  - Fill DROP_PSET_EXACT from audit.pset_names of IDAC_Model.
+  - Check door swing convention (+local Y = opening side) on a model
+    with known swings before relying on opens_into_room.
   - rank_candidates2.py: check it still matches renamed flags/options.
   - generate_synthetic_office_ifc.py writes to hardcoded /home/claude path.
   - Decide how IFC-Bench is used (evaluation vs. citation).

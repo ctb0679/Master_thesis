@@ -10,7 +10,7 @@ import sys
 import urllib.request
 import urllib.error
 
-DEFAULT_MODEL = "qwen3.6:27b"
+DEFAULT_MODEL = "qwen3.5:9b"
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 MAX_RETRIES = 3
 

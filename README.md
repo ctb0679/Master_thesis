@@ -57,12 +57,16 @@ no longer the active approach — see [Legacy graph pipeline](#legacy-graph-pipe
 ```
 data/
   raw_ifc/            Source .ifc building models
-  cleaned_ifc/         Cleaned JSON summaries produced by clean_ifc.py
+  cleaned_ifc/         JSON produced by clean_ifc.py (<name>_full.json, <name>_llm.json;
+                       *_cleaned.json are v1 outputs still read by vlm_reasoning/)
   images/              Sample photos used as stand-ins for camera captures
 scripts/
   generate_synthetic_office_ifc.py   Builds a synthetic test building (IFC4X3)
   ifc_cleaning/
-    clean_ifc.py        IFC -> lightweight JSON (spaces, equipment, doors)
+    clean_ifc.py        CLI: IFC -> <name>_full.json + <name>_llm.json
+    make_grid.py        CLI: <name>_full.json -> nav2 occupancy grid (PNG + YAML) per storey
+    ifc_extract/        Extractor package (audit, units, relations, geometry, exporter,
+                        rooms_doors, obstacles, extractor); see its __init__.py
   vlm_reasoning/
     rank_candidates.py    Ranking/planning logic (library, used by interactive_search.py)
     rank_candidates2.py   Standalone CLI for stages (a)+(b): rank + plan only
@@ -92,7 +96,7 @@ venv/                   Local virtual environment (not portable — see Setup)
   ```bash
   ollama pull qwen3.6:27b
   ```
-- **ifcopenshell** (only needed for generating/cleaning IFC files, not for
+- **ifcopenshell** and **shapely** (only needed for generating/cleaning IFC files, not for
   the ranking/planning/detection scripts, which are stdlib-only).
 
 ## Setup
@@ -124,18 +128,64 @@ bottom of the script, or move the file into `data/raw_ifc/` afterwards.
 Alternatively, use one of the existing files in `data/raw_ifc/` (e.g.
 `synthetic_office.ifc`, `IDAC_Model.ifc`).
 
-### 2. Clean the IFC into a JSON summary
+### 2. Extract the IFC into JSON
 
 ```bash
 python3 scripts/ifc_cleaning/clean_ifc.py \
-  --input data/raw_ifc/synthetic_office.ifc \
-  --output data/cleaned_ifc/synthetic_office_cleaned.json
+  --input data/raw_ifc/IDAC_Model.ifc \
+  --output-dir data/cleaned_ifc
 ```
 
-This keeps spatial hierarchy, every `IfcSpace` (with name/function/area/
-centroid), every piece of equipment (`IfcFurniture` / `IfcBuildingElementProxy`)
-with its containing room, and every door with the rooms it connects — see the
-module docstring in `clean_ifc.py` for the full keep/drop rationale.
+Writes two files, named after the input:
+
+- `<name>_full.json`: every rooted IFC entity except a short blacklist
+  (annotations, grids, structural analysis), keyed by GlobalId. Top-level keys:
+  `meta, frame, units, spatial, storeys, spaces, elements, types, groups,
+  space_boundaries, adjacency, obstacles, audit`. Each record has its
+  attributes, psets/qtos (with type inheritance), type object, resolved type,
+  materials, colours, classifications, folded relations and geometry
+  (centroid, 3D bbox, 2D footprint, yaw). All values are in m / m² / m³ /
+  degrees whatever the file's units. Works on IFC2X3, IFC4 and IFC4X3.
+- `<name>_llm.json`: compact view with `rooms` (function plus where it came
+  from), `equipment` (room plus whether it was found by relation or geometry)
+  and `adjacency` (room pairs via doors/virtual openings; external doors go to
+  the node `"outside"`).
+
+Doors with no space-boundary link and equipment with no spatial relation to a
+room are placed geometrically (door normal probes / point-in-polygon), and this
+is recorded. The `audit` key (also printed) counts classes, dropped psets,
+geometry failures, rooms with no function field, doors/equipment placed only
+geometrically and every caught exception. Use it as the model-quality measure.
+
+| Flag | Meaning |
+|---|---|
+| `--input` | source `.ifc` (required) |
+| `--output-dir` | where to write the JSON (default `.`) |
+| `--no-llm-view` | write only `<name>_full.json` |
+| `--drop-pset NAME` | drop a pset/qto by exact name (repeatable); the permanent list is `DROP_PSET_EXACT` in the script, initially empty. Pick names from `audit.pset_names` |
+| `--threads N` | geometry threads (default: all cores) |
+
+**Compatibility:** `rank_candidates.py`, `interactive_search.py` and
+`test_interpreter.py` still read the v1 format (`spaces[].name`,
+`centroid_xy`, `equipment[].room` as a room name), i.e. the existing
+`*_cleaned.json` files. They do not read `<name>_llm.json` yet.
+
+`clean_ifc.py` is a thin entry point; the logic is in `scripts/ifc_cleaning/ifc_extract/`
+(module map in its `__init__.py`). It must stay next to `clean_ifc.py`.
+
+Optional occupancy grids for nav2 (one PNG + YAML per storey, or one whole-model
+grid if the model has no storeys):
+
+```bash
+python3 scripts/ifc_cleaning/make_grid.py \
+  --full-json data/cleaned_ifc/IDAC_Model_full.json --resolution 0.05
+```
+
+Free = room and door footprints (254), occupied = floor-level obstacles (0),
+unknown = everything else (128, which nav2 reads as unknown; the usual 205 would
+load as free with `free_thresh: 0.25`). `--max-cells` (default 50M per storey)
+refuses grids blown up by outlying geometry such as a Revit survey point, and
+names the outlying objects. `--output-dir` defaults to the JSON's directory.
 
 ### 3. Rank candidate rooms and plan a route (one-shot)
 
