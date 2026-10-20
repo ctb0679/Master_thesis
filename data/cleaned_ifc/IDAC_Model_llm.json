@@ -1,0 +1,1132 @@
+{
+  "meta": {
+    "source_file": "IDAC_Model.ifc",
+    "schema": "IFC4X3_ADD2",
+    "units": "metres",
+    "outside_node": "outside"
+  },
+  "rooms": [
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXe",
+      "name": "1",
+      "function": "Printer room",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 5.18,
+      "centroid": [
+        30.118,
+        24.319
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXh",
+      "name": "2",
+      "function": "Storage",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 8.03,
+      "centroid": [
+        30.118,
+        21.711
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXg",
+      "name": "3",
+      "function": "Workspace",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 156.12,
+      "centroid": [
+        22.794,
+        24.121
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXb",
+      "name": "4",
+      "function": "Lobby",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 63.34,
+      "centroid": [
+        36.678,
+        23.959
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXa",
+      "name": "5",
+      "function": "Corridor",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 19.26,
+      "centroid": [
+        35.586,
+        19.163
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXd",
+      "name": "6",
+      "function": "Office 5",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 19.64,
+      "centroid": [
+        32.687,
+        16.363
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXc",
+      "name": "7",
+      "function": "Office 8",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 19.21,
+      "centroid": [
+        16.543,
+        16.36
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXX",
+      "name": "8",
+      "function": "Office 6",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 19.64,
+      "centroid": [
+        27.287,
+        16.363
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXW",
+      "name": "9",
+      "function": "Office 7",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 19.64,
+      "centroid": [
+        21.887,
+        16.363
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXZ",
+      "name": "10",
+      "function": "Office 4",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 18.71,
+      "centroid": [
+        38.005,
+        16.282
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXY",
+      "name": "11",
+      "function": "Office 3",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 17.07,
+      "centroid": [
+        43.477,
+        16.126
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXT",
+      "name": "12",
+      "function": "Office 2",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 14.31,
+      "centroid": [
+        49.051,
+        21.548
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXS",
+      "name": "13",
+      "function": "Office 1",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 32.31,
+      "centroid": [
+        49.052,
+        25.791
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXV",
+      "name": "14",
+      "function": "Meeting room",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 88.45,
+      "centroid": [
+        45.497,
+        21.117
+      ]
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXU",
+      "name": "15",
+      "function": "Lab",
+      "function_source": "LongName",
+      "storey": null,
+      "area_m2": 16.18,
+      "centroid": [
+        21.882,
+        21.821
+      ]
+    }
+  ],
+  "equipment": [
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1VrJ",
+      "name": "Computer monitor:Computer monitor:2484260",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Vue",
+      "name": "Computer monitor:Computer monitor:2485087",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Vxb",
+      "name": "Computer monitor:Computer monitor:2485138",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1VwJ",
+      "name": "Computer monitor:Computer monitor:2485220",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Ukg",
+      "name": "Computer monitor:Computer monitor:2490077",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Ukf",
+      "name": "Computer monitor:Computer monitor:2490078",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Uke",
+      "name": "Computer monitor:Computer monitor:2490079",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1UkN",
+      "name": "Computer monitor:Computer monitor:2490080",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEioD",
+      "name": "Computer monitor:Computer monitor:2506081",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEioE",
+      "name": "Computer monitor:Computer monitor:2506082",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEioF",
+      "name": "Computer monitor:Computer monitor:2506083",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEio8",
+      "name": "Computer monitor:Computer monitor:2506084",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEin_",
+      "name": "Computer monitor:Computer monitor:2506130",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEin$",
+      "name": "Computer monitor:Computer monitor:2506131",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEinu",
+      "name": "Computer monitor:Computer monitor:2506132",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEinv",
+      "name": "Computer monitor:Computer monitor:2506133",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimg",
+      "name": "Computer monitor:Computer monitor:2506182",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimh",
+      "name": "Computer monitor:Computer monitor:2506183",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEima",
+      "name": "Computer monitor:Computer monitor:2506184",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimb",
+      "name": "Computer monitor:Computer monitor:2506185",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimM",
+      "name": "Computer monitor:Computer monitor:2506234",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXY",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimN",
+      "name": "Computer monitor:Computer monitor:2506235",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXY",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEivt",
+      "name": "Computer monitor:Computer monitor:2506651",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXT",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEivm",
+      "name": "Computer monitor:Computer monitor:2506652",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXT",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEiuj",
+      "name": "Computer monitor:Computer monitor:2506689",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEiuk",
+      "name": "Computer monitor:Computer monitor:2506690",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXaT8",
+      "name": "Projection_Screen-Draper_Inc.-Premier:NOT A TYPE - LOAD TYPE CATALOG:2527038",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Projection_Screen-Draper_Inc.-Premier:NOT A TYPE - LOAD TYPE CATALOG",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXc8E",
+      "name": "Computer monitor:Computer monitor:2534008",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXc8F",
+      "name": "Computer monitor:Computer monitor:2534009",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXcBF",
+      "name": "Computer monitor:Computer monitor:2534073",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXcBC",
+      "name": "Computer monitor:Computer monitor:2534074",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpjc",
+      "name": "Computer monitor:Computer monitor:2534119",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpjf",
+      "name": "Computer monitor:Computer monitor:2534120",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpgE",
+      "name": "Computer monitor:Computer monitor:2534159",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpgH",
+      "name": "Computer monitor:Computer monitor:2534160",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpgu",
+      "name": "Computer monitor:Computer monitor:2534201",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpgx",
+      "name": "Computer monitor:Computer monitor:2534202",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpgw",
+      "name": "Computer monitor:Computer monitor:2534203",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpgz",
+      "name": "Computer monitor:Computer monitor:2534204",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpgy",
+      "name": "Computer monitor:Computer monitor:2534205",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpg$",
+      "name": "Computer monitor:Computer monitor:2534206",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhpg_",
+      "name": "Computer monitor:Computer monitor:2534207",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2aOiQt_Kz2hA9PCFDbhph1",
+      "name": "Computer monitor:Computer monitor:2534208",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Computer monitor:Computer monitor",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Svm",
+      "name": "Desk17:Desk17:2480903",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Saa",
+      "name": "Desk17:Desk17:2481235",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1VgK",
+      "name": "Office Chair:Office Chair:2486243",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1UQg",
+      "name": "Office Chair:Office Chair:2487261",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Uki",
+      "name": "Desk17:Desk17:2490075",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1Ukh",
+      "name": "Desk17:Desk17:2490076",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1UkM",
+      "name": "Office Chair:Office Chair:2490081",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BdguQjPn1kA2rXNqp1UkL",
+      "name": "Office Chair:Office Chair:2490082",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2HulHxjbP9SA4J0zJvK2MW",
+      "name": "Closet-white:Closet-white:2496325",
+      "ifc_class": "IfcFurniture",
+      "type": "Closet-white:Closet-white",
+      "room": "3DsWwrAET2VRfR_BYHBzXc",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2HulHxjbP9SA4J0zJvK0eR",
+      "name": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR:2504958",
+      "ifc_class": "IfcFurniture",
+      "type": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEihp",
+      "name": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR:2505503",
+      "ifc_class": "IfcFurniture",
+      "type": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEig$",
+      "name": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR:2505555",
+      "ifc_class": "IfcFurniture",
+      "type": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEigu",
+      "name": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR:2505556",
+      "ifc_class": "IfcFurniture",
+      "type": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEigp",
+      "name": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR:2505567",
+      "ifc_class": "IfcFurniture",
+      "type": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEigC",
+      "name": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR:2505568",
+      "ifc_class": "IfcFurniture",
+      "type": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEigD",
+      "name": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR:2505569",
+      "ifc_class": "IfcFurniture",
+      "type": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEigE",
+      "name": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR:2505570",
+      "ifc_class": "IfcFurniture",
+      "type": "Furniture_Office-Desks-Tables_Kinnarps_Oberon-work-table-OB1218KR-1800mm:OB1218KR",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEifv",
+      "name": "Office Chair:Office Chair:2505621",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEied",
+      "name": "Office Chair:Office Chair:2505675",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEieS",
+      "name": "Office Chair:Office Chair:2505712",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEitw",
+      "name": "Office Chair:Office Chair:2505750",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEisx",
+      "name": "Office Chair:Office Chair:2505815",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEiqW",
+      "name": "Office Chair:Office Chair:2505932",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEiqH",
+      "name": "Office Chair:Office Chair:2505981",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEip2",
+      "name": "Office Chair:Office Chair:2506030",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEiop",
+      "name": "Desk17:Desk17:2506079",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEioC",
+      "name": "Desk17:Desk17:2506080",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEio9",
+      "name": "Office Chair:Office Chair:2506085",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEioA",
+      "name": "Office Chair:Office Chair:2506086",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEiny",
+      "name": "Desk17:Desk17:2506128",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEinz",
+      "name": "Desk17:Desk17:2506129",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEinw",
+      "name": "Office Chair:Office Chair:2506134",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEinx",
+      "name": "Office Chair:Office Chair:2506135",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEime",
+      "name": "Desk17:Desk17:2506180",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimf",
+      "name": "Desk17:Desk17:2506181",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimc",
+      "name": "Office Chair:Office Chair:2506186",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimd",
+      "name": "Office Chair:Office Chair:2506187",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimK",
+      "name": "Desk17:Desk17:2506232",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXY",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEimI",
+      "name": "Office Chair:Office Chair:2506238",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXY",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEivs",
+      "name": "Desk17:Desk17:2506650",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXT",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEivn",
+      "name": "Office Chair:Office Chair:2506653",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXT",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEiui",
+      "name": "Desk17:Desk17:2506688",
+      "ifc_class": "IfcFurniture",
+      "type": "Desk17:Desk17",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEiul",
+      "name": "Office Chair:Office Chair:2506691",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2BOvfVeQT2E8wiKZrVEf_W",
+      "name": "Shelving-Mobile-Spacesaver-4Post-Moveable_Carriage:Powered:2518604",
+      "ifc_class": "IfcFurniture",
+      "type": "Shelving-Mobile-Spacesaver-4Post-Moveable_Carriage:Powered",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXbrL",
+      "name": "meeting_table:meeting_table:2528547",
+      "ifc_class": "IfcFurniture",
+      "type": "meeting_table:meeting_table",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXbz$",
+      "name": "Office Chair:Office Chair:2529033",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXb$_",
+      "name": "Office Chair:Office Chair:2529160",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXb$F",
+      "name": "Office Chair:Office Chair:2529209",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXb_S",
+      "name": "Office Chair:Office Chair:2529258",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXb0L",
+      "name": "Office Chair:Office Chair:2529379",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXb0I",
+      "name": "Office Chair:Office Chair:2529380",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXb0J",
+      "name": "Office Chair:Office Chair:2529381",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXb0G",
+      "name": "Office Chair:Office Chair:2529382",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXb3L",
+      "name": "Office Chair:Office Chair:2529443",
+      "ifc_class": "IfcFurniture",
+      "type": "Office Chair:Office Chair",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0FZIexl0H3agbbGJnfXc0M",
+      "name": "1451812023101_Canon_iR_C2620_3978:1451812023101_Canon_iR_C2620_3978:2533472",
+      "ifc_class": "IfcFurniture",
+      "type": "1451812023101_Canon_iR_C2620_3978:1451812023101_Canon_iR_C2620_3978",
+      "room": "3DsWwrAET2VRfR_BYHBzXe",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0KyH6RnzP9LBTji6fJw_mr",
+      "name": "Closet-white:Closet-white:2534270",
+      "ifc_class": "IfcFurniture",
+      "type": "Closet-white:Closet-white",
+      "room": "3DsWwrAET2VRfR_BYHBzXW",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0KyH6RnzP9LBTji6fJw_ow",
+      "name": "Closet-white:Closet-white:2534385",
+      "ifc_class": "IfcFurniture",
+      "type": "Closet-white:Closet-white",
+      "room": "3DsWwrAET2VRfR_BYHBzXX",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0KyH6RnzP9LBTji6fJw_jV",
+      "name": "Closet-white:Closet-white:2534420",
+      "ifc_class": "IfcFurniture",
+      "type": "Closet-white:Closet-white",
+      "room": "3DsWwrAET2VRfR_BYHBzXd",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0KyH6RnzP9LBTji6fJw_jy",
+      "name": "Closet-white:Closet-white:2534455",
+      "ifc_class": "IfcFurniture",
+      "type": "Closet-white:Closet-white",
+      "room": "3DsWwrAET2VRfR_BYHBzXZ",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0KyH6RnzP9LBTji6fJw_iH",
+      "name": "Closet-white:Closet-white:2534490",
+      "ifc_class": "IfcFurniture",
+      "type": "Closet-white:Closet-white",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0KyH6RnzP9LBTji6fJw_l8",
+      "name": "Closet-white:Closet-white:2534531",
+      "ifc_class": "IfcFurniture",
+      "type": "Closet-white:Closet-white",
+      "room": "3DsWwrAET2VRfR_BYHBzXV",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0KyH6RnzP9LBTji6fJw_lX",
+      "name": "Closet-white:Closet-white:2534570",
+      "ifc_class": "IfcFurniture",
+      "type": "Closet-white:Closet-white",
+      "room": "3DsWwrAET2VRfR_BYHBzXT",
+      "room_source": "relation"
+    },
+    {
+      "guid": "1ftOroVZf3z8ED3hjweavJ",
+      "name": "Shelving-Mobile-Spacesaver-4Post-Moveable_Carriage:Powered:2625922",
+      "ifc_class": "IfcFurniture",
+      "type": "Shelving-Mobile-Spacesaver-4Post-Moveable_Carriage:Powered",
+      "room": "3DsWwrAET2VRfR_BYHBzXg",
+      "room_source": "relation"
+    }
+  ],
+  "adjacency": [
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXc",
+      "b": "3DsWwrAET2VRfR_BYHBzXg",
+      "via": "2jlli2nuj35OT4Nt8dpGGq",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXX",
+      "b": "3DsWwrAET2VRfR_BYHBzXg",
+      "via": "2jlli2nuj35OT4Nt8dpGF7",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXW",
+      "b": "3DsWwrAET2VRfR_BYHBzXg",
+      "via": "1TBRTxOmH2qOCfGLFJR1oS",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXa",
+      "b": "3DsWwrAET2VRfR_BYHBzXd",
+      "via": "1TBRTxOmH2qOCfGLFJR1qA",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXZ",
+      "b": "3DsWwrAET2VRfR_BYHBzXa",
+      "via": "1TBRTxOmH2qOCfGLFJR1qc",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXV",
+      "b": "3DsWwrAET2VRfR_BYHBzXY",
+      "via": "1TBRTxOmH2qOCfGLFJR1su",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXT",
+      "b": "3DsWwrAET2VRfR_BYHBzXV",
+      "via": "1TBRTxOmH2qOCfGLFJR18M",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXS",
+      "b": "3DsWwrAET2VRfR_BYHBzXV",
+      "via": "1TBRTxOmH2qOCfGLFJR1Ca",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXU",
+      "b": "3DsWwrAET2VRfR_BYHBzXg",
+      "via": "1TBRTxOmH2qOCfGLFJR1Fl",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXe",
+      "b": "3DsWwrAET2VRfR_BYHBzXg",
+      "via": "0xust1cwr8XOVmfb2C$iKT",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXg",
+      "b": "3DsWwrAET2VRfR_BYHBzXh",
+      "via": "0xust1cwr8XOVmfb2C$iJu",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXa",
+      "b": "3DsWwrAET2VRfR_BYHBzXg",
+      "via": "2y16PNiQDAUu6vtOChEcqd",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXV",
+      "b": "3DsWwrAET2VRfR_BYHBzXa",
+      "via": "2y16PNiQDAUu6vtOChEcsb",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXa",
+      "b": "3DsWwrAET2VRfR_BYHBzXb",
+      "via": "2y16PNiQDAUu6vtOChEch4",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "3DsWwrAET2VRfR_BYHBzXg",
+      "b": "outside",
+      "via": "2BOvfVeQT2E8wiKZrVEfNM",
+      "via_class": "IfcDoor"
+    }
+  ]
+}

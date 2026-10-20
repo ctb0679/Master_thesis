@@ -21,8 +21,12 @@ The pipeline has four stages:
      with small typos. Ambiguous requests ("the office" when there are
      several) are refused with the room list.
    - `building_query`: a question about rooms or equipment ("is there a
-     storage room?", "how many offices?", "where is the printer?") is answered
-     from the building model without moving.
+     storage room?", "how many offices?", "where is the printer?", "how big
+     are the meeting-room windows?", "what colour are the chairs?") is answered
+     from the building model without moving. With a `<name>_full.json` this
+     goes through `building_query.py`: the LLM turns the question into a
+     structured query, Python runs it over every record (exact counts, sums,
+     min/max), and the LLM phrases the answer from that result only.
    - `none`: greetings, small talk, questions about the robot, gibberish,
      stray flags. Gets a short reply, never a search.
 
@@ -71,6 +75,7 @@ scripts/
     rank_candidates.py    Ranking/planning logic (library, used by interactive_search.py)
     rank_candidates2.py   Standalone CLI for stages (a)+(b): rank + plan only
     interactive_search.py Full interactive REPL: interpret -> rank -> plan -> visual detect
+    building_query.py     Answers building questions from <name>_full.json (plan -> compute -> answer)
     test_interpreter.py   Batch checker for the interpretation stage (no walking)
     old_rank_candidates*.py  Superseded versions, kept for reference
 file_converters/        Standalone IFC <-> ifcJSON converters (ifc2json.py, json2ifc.py)
@@ -166,9 +171,12 @@ geometrically and every caught exception. Use it as the model-quality measure.
 | `--threads N` | geometry threads (default: all cores) |
 
 **Compatibility:** `rank_candidates.py`, `interactive_search.py` and
-`test_interpreter.py` still read the v1 format (`spaces[].name`,
-`centroid_xy`, `equipment[].room` as a room name), i.e. the existing
-`*_cleaned.json` files. They do not read `<name>_llm.json` yet.
+`test_interpreter.py` take either a `<name>_llm.json` or a v1
+`*_cleaned.json` as `--cleaned_json`. `load_building()` converts the `_llm`
+view in memory to the v1 shape (`from_llm_view`); rooms are identified by
+their IFC `Name`, or by name plus function if two rooms share a name
+(`room_keys`). `<name>_full.json` is not meant for the ranking prompt (3 MB
+for IDAC); it is used by `building_query.py` and `make_grid.py`.
 
 `clean_ifc.py` is a thin entry point; the logic is in `scripts/ifc_cleaning/ifc_extract/`
 (module map in its `__init__.py`). It must stay next to `clean_ifc.py`.
@@ -212,6 +220,10 @@ python3 scripts/vlm_reasoning/interactive_search.py \
 # falls back to the first room in the file:
 python3 scripts/vlm_reasoning/interactive_search.py \
   --cleaned_json data/cleaned_ifc/IDAC_model_cleaned.json
+
+# new extractor output; building questions use IDAC_Model_full.json alongside it:
+python3 scripts/vlm_reasoning/interactive_search.py \
+  --cleaned_json data/cleaned_ifc/IDAC_Model_llm.json
 ```
 
 Type anything at the prompt. Questions about the building are answered in
@@ -233,6 +245,21 @@ sampling options so runs are reproducible: `--llm_temperature` (default 0.0,
 greedy decoding) and `--seed` (default 42). The context window
 (`num_ctx` 16384), `num_predict` (512) and `repeat_penalty` (1.0) are fixed in
 `rank_candidates.py` (`build_ollama_options`).
+
+When `--cleaned_json` is a `<name>_llm.json`, building questions are
+answered from the `<name>_full.json` next to it (or from `--full_json`).
+That covers sizes of rooms, windows, doors and furniture, colours (named from
+the IFC RGB values, per part), materials, property-set values, what connects
+to what, and exact counts / totals / largest / smallest. Without a full JSON
+the interpreter answers from the room summary, as before. To try questions
+on their own:
+
+```bash
+python3 scripts/vlm_reasoning/building_query.py \
+  --full_json data/cleaned_ifc/IDAC_Model_full.json \
+  --question "how many office chairs are in the meeting room?" --show_plan
+# or --questions qs.txt (one per line); --show_plan prints the query and the computed result
+```
 
 To check how a batch of phrasings is understood without walking anything:
 

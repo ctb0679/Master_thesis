@@ -5,6 +5,7 @@ import argparse
 import difflib
 import json
 import math
+import os
 import re
 import sys
 import urllib.request
@@ -13,6 +14,10 @@ import urllib.error
 DEFAULT_MODEL = "qwen3.5:9b"
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 MAX_RETRIES = 3
+# Seconds to wait for one Ollama reply. A 9B model on CPU reads ~10 prompt
+# tokens/s, so a ~3k-token prompt alone takes ~5 min; override with the
+# OLLAMA_TIMEOUT environment variable.
+REQUEST_TIMEOUT = float(os.environ.get("OLLAMA_TIMEOUT", "600"))
 
 # Ollama sampling/runtime options sent with every request, so runs are
 # reproducible (greedy decoding, fixed seed) and the context window is large
@@ -69,8 +74,70 @@ markdown fences:
 
 
 def load_building(path):
-    with open(path) as f:
-        return json.load(f)
+    """Load a building for ranking/planning. Accepts both the v1
+    `*_cleaned.json` format and the `<name>_llm.json` view written by
+    clean_ifc.py; the latter is converted in memory to the v1 shape the rest
+    of this module reads (see from_llm_view)."""
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    if "rooms" in data and "spaces" not in data:
+        return from_llm_view(data)
+    return data
+
+
+def room_keys(rooms):
+    """Map each room's GUID to the identifier the pipeline shows the model
+    and the user. That is the room's IFC Name when it is unique in the
+    building; duplicates get the function appended, and the GUID as a last
+    resort, so two rooms never share an identifier. `rooms` are dicts with
+    guid/name/function, as in both <name>_llm.json and <name>_full.json, so
+    the ranking side and building_query.py agree on the ids."""
+    def base(r):
+        return str(r.get("name") or r.get("function") or r["guid"]).strip()
+
+    counts = {}
+    for r in rooms:
+        counts[base(r)] = counts.get(base(r), 0) + 1
+    keys, used = {}, set()
+    for r in rooms:
+        key = base(r)
+        if counts[key] > 1 and r.get("function"):
+            key = f"{key} ({r['function']})"
+        if key in used:
+            key = f"{key} [{r['guid']}]"
+        used.add(key)
+        keys[r["guid"]] = key
+    return keys
+
+
+def from_llm_view(data):
+    """Adapter: <name>_llm.json -> the v1 dict shape (spaces / long_name /
+    centroid_xy / equipment[].room as a room name). Rooms are keyed by
+    room_keys; the GUID is kept on every record. Equipment whose room is
+    unknown is dropped from the per-room lists, as v1 never listed it."""
+    keys = room_keys(data["rooms"])
+    spaces = [{
+        "guid": r["guid"],
+        "name": keys[r["guid"]],
+        "long_name": r.get("function"),
+        "object_type": None,
+        "function_source": r.get("function_source"),
+        "storey": r.get("storey"),
+        "area_m2": r.get("area_m2"),
+        "centroid_xy": (r.get("centroid") or [0.0, 0.0])[:2],
+    } for r in data["rooms"]]
+    equipment = [{
+        "guid": e["guid"],
+        "name": e["name"],
+        "ifc_class": e.get("ifc_class"),
+        "type": e.get("type"),
+        "room": keys[e["room"]],
+        "room_source": e.get("room_source"),
+    } for e in data.get("equipment", []) if e.get("room") in keys]
+    adjacency = [{**a, "a": keys.get(a["a"], a["a"]), "b": keys.get(a["b"], a["b"])}
+                 for a in data.get("adjacency", [])]
+    return {"source_format": "llm_view", "meta": data.get("meta", {}),
+            "spaces": spaces, "equipment": equipment, "adjacency": adjacency}
 
 
 def build_room_summaries(building):
@@ -128,11 +195,15 @@ def chat_json(host, model, system_prompt, user_prompt, validate=None, options=No
             headers={"Content-Type": "application/json"}, method="POST",
         )
         try:
-            with urllib.request.urlopen(req, timeout=180) as resp:
+            with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
                 raw = json.loads(resp.read().decode("utf-8"))
             content = raw["message"]["content"]
         except urllib.error.URLError as e:
             print(f"ERROR: could not reach Ollama at {host} — is it running? ({e})", file=sys.stderr)
+            sys.exit(1)
+        except TimeoutError:
+            print(f"ERROR: Ollama did not answer within {REQUEST_TIMEOUT:.0f}s. On a CPU-only "
+                  f"machine raise the OLLAMA_TIMEOUT environment variable (seconds).", file=sys.stderr)
             sys.exit(1)
         except (KeyError, json.JSONDecodeError) as e:
             last_error = f"Unexpected Ollama response shape: {e}"

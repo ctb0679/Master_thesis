@@ -213,6 +213,33 @@ WHY these settings
     temperature (--llm_temperature). Both detection and ranking now receive
     the same options so a run is reproducible given (model, seed, prompts).
 
+3.9 Building questions: LLM plans, Python computes, LLM phrases (2026-10-14)
+    <name>_llm.json only holds room function, equipment per room and
+    adjacency, so it cannot answer sizes, colours, materials or properties.
+    <name>_full.json has them but is ~3.3 MB for IDAC (~1M tokens vs.
+    num_ctx 16384; Ollama truncates silently), and one record is ~2-3 KB of
+    mostly irrelevant psets.
+    Chosen: building_query.py. Step 1 the LLM sees a ~4.6k-char catalogue
+    (rooms, element types with counts and colours, materials, field names)
+    and returns a structured query (action, target, filters, field). Step 2
+    Python applies the filters to EVERY record and computes counts / sums /
+    averages / min / max exactly. Step 3 the LLM phrases the answer from the
+    computed result only.
+    Rejected: (a) whole full JSON in the prompt - does not fit. (b) LLM picks
+    GUIDs, code fetches those records, LLM answers - the LLM would have to
+    enumerate every match (misses are silent), many records still overflow
+    the context, and counting / adding over dozens of records is unreliable
+    for an LLM. (c) Enriching _llm.json with per-item details - only covers
+    the fields chosen in advance and still leaves arithmetic to the LLM.
+    Colour: RGB is mapped to a name by fixed HLS rules (colour_name), so the
+    filter and the answer agree; colours are per surface style, so a chair is
+    "black" and "bluish grey". Material names from Revit are often <Unnamed>
+    or library paths; they are shortened, and missing ones are reported as
+    not recorded. Windows/walls/columns have no containment relation; they
+    are tied to rooms through IfcRelSpaceBoundary.
+    Ranking and the interpreter keep using the _llm view (adapter
+    from_llm_view in rank_candidates.py) - no change to the ranking prompt.
+
 3.8 Local models via Ollama (not a cloud API)
     [TODO state your reason - e.g. privacy of building data, cost, offline
     robot deployment - then it can be cited in the report]
@@ -236,6 +263,15 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-10-14  (uncommitted)
+  - rank_candidates.py: load_building reads <name>_llm.json via the adapter
+    from_llm_view (v1 files unchanged); room_keys gives every room a unique
+    id; JSON read as UTF-8 (German names were mis-decoded on Windows).
+    Checked: per-room equipment from IDAC_Model_llm.json == IDAC_model_cleaned.json.
+  - New building_query.py (see 3.9), used by interactive_search.py for
+    building_query when a _full.json is available (--full_json, or found next
+    to the _llm.json).
+
 2026-10-09  (uncommitted)
   - v2.1: split into ifc_extract/ package + make_grid.py; --grid removed
     from clean_ifc.py; 7 fixes listed in 3.1c.
@@ -329,8 +365,12 @@ Suggested experiments for the report [ideas, not done]:
 7. OPEN QUESTIONS / TODO
 -----------------------------------------------------------------------------
   - Fill every [TODO] above.
-  - Port rank_candidates.py / interactive_search.py / test_interpreter.py
-    to <name>_llm.json (GUID room keys, name as display label).
+  - Use the _llm adjacency (door graph) for route distances instead of
+    straight-line centroid distance.
+  - Evaluate building_query: labelled questions with ground truth computed
+    from _full.json; compare (1) _llm summary only, (2) LLM-picks-records,
+    (3) plan -> compute -> answer. Repeat on a larger model.
+  - rank_candidates2.py still loads via load_building - check it on _llm.json.
   - Fill DROP_PSET_EXACT from audit.pset_names of IDAC_Model.
   - Check door swing convention (+local Y = opening side) on a model
     with known swings before relying on opens_into_room.

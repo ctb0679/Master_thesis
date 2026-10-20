@@ -12,7 +12,8 @@ Flow per input:
        find_object     - physically search for something
        go_to_room      - navigate to a room (synonyms/typos tolerated)
        building_query  - a question about rooms/equipment, answered from the
-                         building model without moving
+                         building model without moving (from <name>_full.json
+                         via building_query.py when available)
        none            - chit-chat, robot questions, gibberish, flags; gets a
                          short reply, never a search
   2. find_object: if the user restricted the search to one room, only that
@@ -43,6 +44,8 @@ directory (or on PYTHONPATH).
 
 Usage:
     python3 interactive_search.py --cleaned_json ../../data/cleaned_ifc/synthetic_office_cleaned.json
+    python3 interactive_search.py --cleaned_json ../../data/cleaned_ifc/IDAC_Model_llm.json
+        (building questions then use IDAC_Model_full.json from the same folder)
 """
 
 import argparse
@@ -57,8 +60,9 @@ from rank_candidates import (
     get_centroid_lookup, optimal_visit_order, resolve_start_room,
     interpret_task, validate_interpretation, build_ollama_options,
     add_ollama_args, DEFAULT_MODEL, DEFAULT_OLLAMA_HOST, DEFAULT_SOFTMAX_TEMP,
-    DEFAULT_PROB_MASS, DEFAULT_MIN_PROB,
+    DEFAULT_PROB_MASS, DEFAULT_MIN_PROB, REQUEST_TIMEOUT,
 )
+from building_query import BuildingQueryEngine, find_full_json
 import urllib.request
 
 
@@ -115,7 +119,7 @@ class VisualDetector:
             headers={"Content-Type": "application/json"}, method="POST",
         )
         try:
-            with urllib.request.urlopen(req, timeout=180) as resp:
+            with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
                 raw = json.loads(resp.read().decode("utf-8"))
             content = raw["message"]["content"]
         except Exception as e:
@@ -137,7 +141,7 @@ class SearchSession:
     inject a real navigation/camera backend), not rebuild from scratch."""
 
     def __init__(self, cleaned_json_path, start_room, prob_mass, min_prob, softmax_temp, model, host,
-                 ollama_options=None):
+                 ollama_options=None, full_json_path=None):
         self.building = load_building(cleaned_json_path)
         # Don't assume a room name like "Reception" exists — that's true only
         # for the synthetic office model. Fall back to the first room in this
@@ -155,6 +159,13 @@ class SearchSession:
         self.room_summaries = build_room_summaries(self.building)
         self.long_names = {s["name"]: s.get("long_name") or "" for s in self.building["spaces"]}
         self.detector = VisualDetector(host, model, self.ollama_options)
+        # building_query answers come from <name>_full.json when there is one
+        # (plan -> exact computation -> answer, see building_query.py);
+        # otherwise the interpreter's answer from the room summary is used.
+        self.query_engine = None
+        if full_json_path:
+            self.query_engine = BuildingQueryEngine(full_json_path, host, model, self.ollama_options)
+            print(f"NOTE: building questions are answered from {full_json_path}.", file=sys.stderr)
 
     # --- stage (a0): understand the input ---------------------------------
 
@@ -273,7 +284,10 @@ class SearchSession:
             return None
 
         if kind == "building_query":
-            answer = interp["answer"] or "The building model has no information on that."
+            if self.query_engine:
+                answer, _, _ = self.query_engine.answer(user_text, self.history)
+            else:
+                answer = interp["answer"] or "The building model has no information on that."
             print(answer)
             self._remember(user_text, f"answered from building model: {answer}")
             return None
@@ -347,7 +361,17 @@ class SearchSession:
 
 def main():
     parser = argparse.ArgumentParser(description="Interactive interpret->plan->navigate->detect loop.")
-    parser.add_argument("--cleaned_json", required=True)
+    parser.add_argument(
+        "--cleaned_json", required=True,
+        help="Building for ranking/planning: a v1 *_cleaned.json or a <name>_llm.json "
+             "from clean_ifc.py.",
+    )
+    parser.add_argument(
+        "--full_json", default=None,
+        help="<name>_full.json used to answer building questions (sizes, colours, "
+             "materials, counts). Defaults to the _full.json next to a given _llm.json; "
+             "without one, questions are answered from the room summary only.",
+    )
     parser.add_argument(
         "--start_room", default=None,
         help="Room the robot starts in. If omitted, or if the given name "
@@ -377,7 +401,8 @@ def main():
 
     session = SearchSession(args.cleaned_json, args.start_room, args.prob_mass,
                             args.min_prob, args.softmax_temp, args.model, args.ollama_host,
-                            build_ollama_options(args.llm_temperature, args.seed))
+                            build_ollama_options(args.llm_temperature, args.seed),
+                            full_json_path=args.full_json or find_full_json(args.cleaned_json))
 
     print("Interactive search session. Type a task, or 'bye' to exit.")
     while True:
