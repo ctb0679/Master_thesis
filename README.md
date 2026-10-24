@@ -243,8 +243,25 @@ own probability is negligible.
 Every Ollama call (interpretation, ranking, visual detection) uses the same
 sampling options so runs are reproducible: `--llm_temperature` (default 0.0,
 greedy decoding) and `--seed` (default 42). The context window
-(`num_ctx` 16384), `num_predict` (512) and `repeat_penalty` (1.0) are fixed in
+(`num_ctx` 32768), `num_predict` (512) and `repeat_penalty` (1.0) are fixed in
 `rank_candidates.py` (`build_ollama_options`).
+
+All text calls go through `chat_json`, which keeps one input from ever ending
+the session:
+
+- `num_ctx` is raised (doubling, up to the model's own maximum from
+  `/api/show`) when a prompt would not fit; Ollama would otherwise silently
+  drop the start of the prompt, i.e. the instructions. A request larger than
+  the model's maximum is refused with a clear message.
+- The ranking call sets `num_predict` to 60 tokens per room (+64); a reply cut
+  off at the budget (`done_reason: length`) is retried with the budget doubled.
+- Replies the model ended a few characters short of valid JSON (seen with
+  `qwen3.5:9b`, even with `format: json`) are closed and parsed instead of
+  retried; anything else invalid is sent back to the model (up to 4 attempts).
+- Rooms the ranking skips are asked about again in a short follow-up call.
+- Failures raise `LLMError`; `interactive_search.py` reports them (and any
+  unexpected error) and takes the next input. Ctrl-C cancels the current task;
+  Ctrl-D / EOF ends the session.
 
 When `--cleaned_json` is a `<name>_llm.json`, building questions are
 answered from the `<name>_full.json` next to it (or from `--full_json`).

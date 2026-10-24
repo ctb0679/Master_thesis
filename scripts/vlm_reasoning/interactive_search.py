@@ -52,6 +52,7 @@ import argparse
 import base64
 import json
 import sys
+import traceback
 from pathlib import Path
 
 from rank_candidates import (
@@ -60,7 +61,7 @@ from rank_candidates import (
     get_centroid_lookup, optimal_visit_order, resolve_start_room,
     interpret_task, validate_interpretation, build_ollama_options,
     add_ollama_args, DEFAULT_MODEL, DEFAULT_OLLAMA_HOST, DEFAULT_SOFTMAX_TEMP,
-    DEFAULT_PROB_MASS, DEFAULT_MIN_PROB, REQUEST_TIMEOUT,
+    DEFAULT_PROB_MASS, DEFAULT_MIN_PROB, REQUEST_TIMEOUT, LLMError,
 )
 from building_query import BuildingQueryEngine, find_full_json
 import urllib.request
@@ -243,7 +244,10 @@ class SearchSession:
             if not detect:
                 continue
 
-            answer = input("  Image path (or 'skip'/'bye'): ").strip()
+            try:
+                answer = input("  Image path (or 'skip'/'bye'): ").strip()
+            except EOFError:
+                answer = "bye"
             if answer.lower() == "bye":
                 print("Ending session.")
                 return "bye"
@@ -295,7 +299,8 @@ class SearchSession:
         if kind == "go_to_room":
             room = interp.get("resolved_room")
             if not room:
-                print(f"Understood 'go to {interp['target']}', but I can't pin that to a single "
+                print(f"Understood '{('go to ' + interp['target']) if interp['target'] else user_text}', "
+                      f"but I can't pin that to a single "
                       f"room in this building ({interp['reason']}). Known rooms: "
                       + ", ".join(self._label(s["name"]) for s in self.building["spaces"]))
                 self._remember(user_text, f"could not resolve room '{interp['target']}'")
@@ -404,16 +409,34 @@ def main():
                             build_ollama_options(args.llm_temperature, args.seed),
                             full_json_path=args.full_json or find_full_json(args.cleaned_json))
 
-    print("Interactive search session. Type a task, or 'bye' to exit.")
+    print("Interactive search session. Type a task, or 'bye' to exit "
+          "(Ctrl-C cancels the current task).")
     while True:
-        task = input("\nTask: ").strip()
+        try:
+            task = input("\nTask: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\nGoodbye.")
+            break
         if task.lower() in ("bye", "exit", "quit"):
             print("Goodbye.")
             break
         if not task:
             continue
-        if session.run_task(task) == "bye":
-            break
+        # One input must never end the session: model failures and unexpected
+        # errors are reported and the loop takes the next input.
+        try:
+            if session.run_task(task) == "bye":
+                break
+        except KeyboardInterrupt:
+            print("\nTask cancelled.")
+        except LLMError as e:
+            print(f"Sorry, I could not complete that: {e}")
+            session._remember(task, f"failed: {e}")
+        except Exception as e:
+            print(f"Sorry, something went wrong handling that input ({type(e).__name__}: {e}). "
+                  f"Details are on stderr; please try again or rephrase.")
+            traceback.print_exc()
+            session._remember(task, f"failed with an internal error ({type(e).__name__})")
 
 
 if __name__ == "__main__":

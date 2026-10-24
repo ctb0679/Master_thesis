@@ -24,7 +24,7 @@ import sys
 import time
 
 from rank_candidates import (
-    load_building, build_room_summaries, interpret_task, validate_interpretation,
+    load_building, build_room_summaries, interpret_task, validate_interpretation, LLMError,
     DEFAULT_MODEL, DEFAULT_OLLAMA_HOST,
 )
 
@@ -104,7 +104,12 @@ def main():
     mismatches = 0
     for text, expected in items:
         t0 = time.time()
-        r = validate_interpretation(interpret_task(args.ollama_host, args.model, text, summaries), building)
+        try:
+            r = validate_interpretation(interpret_task(args.ollama_host, args.model, text, summaries), building)
+        except LLMError as e:
+            mismatches += 1
+            print(f"!! {text!r}: model call failed: {e}")
+            continue
         dt = time.time() - t0
         ok = "  " if expected is None or r["task_type"] == expected else "!!"
         if ok == "!!":

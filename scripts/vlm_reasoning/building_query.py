@@ -33,7 +33,7 @@ import sys
 from pathlib import Path
 
 from rank_candidates import (
-    chat_json, build_ollama_options, add_ollama_args, format_history, room_keys,
+    chat_json, build_ollama_options, add_ollama_args, format_history, room_keys, LLMError,
     DEFAULT_MODEL, DEFAULT_OLLAMA_HOST,
 )
 
@@ -591,7 +591,11 @@ class BuildingQueryEngine:
     def answer(self, question, history=None, verbose=False):
         """Returns (answer_text, plan, result)."""
         plan = self.plan(question, history)
-        result = self.facts.execute(plan)
+        try:
+            result = self.facts.execute(plan)
+        except Exception as e:   # a plan the executor cannot run: let the model say so
+            print(f"WARNING: query plan could not be executed ({type(e).__name__}: {e}).", file=sys.stderr)
+            result = {"error": f"the query could not be computed ({type(e).__name__})"}
         if verbose:
             print("PLAN:  " + json.dumps(plan, ensure_ascii=False))
             print("RESULT: " + json.dumps(result, ensure_ascii=False)[:3000])
@@ -641,7 +645,10 @@ def main():
             questions = [l.strip() for l in f if l.strip() and not l.lstrip().startswith("#")]
     for q in questions:
         print(f"\nQ: {q}")
-        text, _, _ = engine.answer(q, verbose=args.show_plan)
+        try:
+            text, _, _ = engine.answer(q, verbose=args.show_plan)
+        except LLMError as e:
+            text = f"(no answer: {e})"
         print(f"A: {text}")
 
 

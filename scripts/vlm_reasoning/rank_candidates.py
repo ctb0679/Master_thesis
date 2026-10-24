@@ -13,7 +13,7 @@ import urllib.error
 
 DEFAULT_MODEL = "qwen3.5:9b"
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
-MAX_RETRIES = 3
+MAX_RETRIES = 4
 # Seconds to wait for one Ollama reply. A 9B model on CPU reads ~10 prompt
 # tokens/s, so a ~3k-token prompt alone takes ~5 min; override with the
 # OLLAMA_TIMEOUT environment variable.
@@ -24,8 +24,11 @@ REQUEST_TIMEOUT = float(os.environ.get("OLLAMA_TIMEOUT", "600"))
 # enough for the full room list instead of Ollama's small default.
 DEFAULT_LLM_TEMPERATURE = 0.0
 DEFAULT_SEED = 42
-DEFAULT_NUM_CTX = 16384
+DEFAULT_NUM_CTX = 32768        # this machine's Ollama default; set explicitly so runs
+                               # elsewhere do not fall back to a 2-4k window
+CHARS_PER_TOKEN = 3.0          # conservative prompt-size estimate (measured ~3.4)
 DEFAULT_NUM_PREDICT = 512
+TOKENS_PER_RANKED_ROOM = 60    # ranking reply budget per room (measured ~35, with margin)
 DEFAULT_REPEAT_PENALTY = 1.0
 
 
@@ -169,55 +172,166 @@ def strip_json_fences(text):
     return text
 
 
+class LLMError(RuntimeError):
+    """A model call that produced no usable answer (Ollama unreachable, timed
+    out, or kept replying in the wrong shape). Raised instead of exiting, so
+    an interactive session can report it and take the next input."""
+
+
+def _post(host, path, body, timeout):
+    req = urllib.request.Request(
+        f"{host}{path}", data=json.dumps(body).encode("utf-8"),
+        headers={"Content-Type": "application/json"}, method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+_MODEL_MAX_CTX = {}
+
+
+def model_max_context(host, model):
+    """The model's trained context length from /api/show (cached), or None."""
+    if model not in _MODEL_MAX_CTX:
+        limit = None
+        try:
+            info = _post(host, "/api/show", {"model": model}, 30).get("model_info") or {}
+            limit = next((int(v) for k, v in info.items() if k.endswith(".context_length")), None)
+        except (urllib.error.URLError, TimeoutError, ValueError, OSError):
+            pass
+        _MODEL_MAX_CTX[model] = limit
+    return _MODEL_MAX_CTX[model]
+
+
+def fit_context(host, model, messages, options):
+    """Options whose num_ctx holds the prompt plus the reply budget. If the
+    prompt does not fit, Ollama silently drops its START (the system prompt
+    with all instructions), so the window is doubled until it fits, up to
+    the model's own maximum."""
+    est = sum(len(m.get("content", "")) for m in messages) / CHARS_PER_TOKEN
+    need = int(est + options.get("num_predict", DEFAULT_NUM_PREDICT) + 256)
+    ctx = options.get("num_ctx", DEFAULT_NUM_CTX)
+    if need <= ctx:
+        return options
+    while ctx < need:
+        ctx *= 2
+    limit = model_max_context(host, model)
+    if limit:
+        if need > limit:
+            raise LLMError(f"the request (~{int(est)} prompt tokens plus reply) is larger than "
+                           f"{model}'s maximum context of {limit} tokens")
+        ctx = min(ctx, limit)
+    print(f"NOTE: prompt ~{int(est)} tokens; raising num_ctx to {ctx}.", file=sys.stderr)
+    return {**options, "num_ctx": ctx}
+
+
+def close_truncated_json(text):
+    """Complete JSON the model stopped early on. qwen3.5:9b under Ollama
+    0.30.7 sometimes ends a reply with done_reason "stop" a few characters
+    short of valid JSON (e.g. '...}]' without the final '}', or inside the
+    last string), even with format="json" or a JSON schema. Closes an open
+    string and any open arrays/objects; returns the parsed value, or None
+    when the text is cut where it cannot be closed (after a key, mid-number)."""
+    stack, in_str, esc = [], False, False
+    for ch in text:
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+        elif ch == '"':
+            in_str = True
+        elif ch in "{[":
+            stack.append("}" if ch == "{" else "]")
+        elif ch in "}]":
+            if not stack or stack.pop() != ch:
+                return None
+    if not stack and not in_str:
+        return None                      # nothing to close: a different error
+    if in_str:
+        text = (text[:-1] if esc else text) + '"'
+    else:
+        text = text.rstrip().rstrip(",")
+    try:
+        return json.loads(text + "".join(reversed(stack)))
+    except json.JSONDecodeError:
+        return None
+
+
 def chat_json(host, model, system_prompt, user_prompt, validate=None, options=None):
     """Send one system+user exchange to Ollama and return the parsed JSON
     object the model replies with. `validate(parsed)` may raise ValueError
     to reject a structurally-wrong answer; on parse/validation failure the
     error is fed back to the model and it is asked again, up to MAX_RETRIES.
-    Shared by the ranking call and the task-interpretation call so both get
-    the same retry/repair behaviour. `options` defaults to
-    build_ollama_options()."""
-    if options is None:
-        options = build_ollama_options()
-    url = f"{host}/api/chat"
+    Shared by every text call (interpretation, ranking, building questions)
+    so all get the same retry/repair behaviour. `options` defaults to
+    build_ollama_options(). Raises LLMError if no usable answer comes back."""
+    options = dict(options if options is not None else build_ollama_options())
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
     ]
     last_error = None
     for attempt in range(1, MAX_RETRIES + 1):
+        options = fit_context(host, model, messages, options)
         body = {
             "model": model, "messages": messages, "stream": False,
             "think": False, "format": "json", "options": options,
         }
-        req = urllib.request.Request(
-            url, data=json.dumps(body).encode("utf-8"),
-            headers={"Content-Type": "application/json"}, method="POST",
-        )
         try:
-            with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
-                raw = json.loads(resp.read().decode("utf-8"))
+            raw = _post(host, "/api/chat", body, REQUEST_TIMEOUT)
             content = raw["message"]["content"]
+        except urllib.error.HTTPError as e:
+            detail = e.read().decode("utf-8", "replace")[:300]
+            raise LLMError(f"Ollama returned HTTP {e.code}: {detail}") from e
         except urllib.error.URLError as e:
-            print(f"ERROR: could not reach Ollama at {host} — is it running? ({e})", file=sys.stderr)
-            sys.exit(1)
-        except TimeoutError:
-            print(f"ERROR: Ollama did not answer within {REQUEST_TIMEOUT:.0f}s. On a CPU-only "
-                  f"machine raise the OLLAMA_TIMEOUT environment variable (seconds).", file=sys.stderr)
-            sys.exit(1)
-        except (KeyError, json.JSONDecodeError) as e:
-            last_error = f"Unexpected Ollama response shape: {e}"
+            raise LLMError(f"could not reach Ollama at {host} — is it running? ({e.reason})") from e
+        except (TimeoutError, OSError) as e:
+            raise LLMError(f"Ollama did not answer within {REQUEST_TIMEOUT:.0f}s ({e}). On a "
+                           f"CPU-only machine raise the OLLAMA_TIMEOUT environment variable.") from e
+        except (KeyError, TypeError, json.JSONDecodeError) as e:
+            last_error = f"unexpected Ollama response shape: {e}"
+            continue
+
+        ctx = options.get("num_ctx", DEFAULT_NUM_CTX)
+        if raw.get("prompt_eval_count", 0) + raw.get("eval_count", 0) >= ctx - 8:
+            # prompt + reply filled the window: Ollama truncated or shifted the
+            # context, so the reply was made without part of the prompt
+            options = {**options, "num_ctx": ctx * 2}
+            last_error = f"context window of {ctx} tokens overflowed"
+            print(f"WARNING: attempt {attempt}: {last_error}, retrying with num_ctx={ctx * 2}...",
+                  file=sys.stderr)
+            continue
+
+        if raw.get("done_reason") == "length":
+            # Cut off at num_predict. Feeding the truncated text back as
+            # "invalid JSON" made a greedy model repeat the same cut-off reply;
+            # instead retry with a doubled budget (greedy decoding gives the
+            # same tokens up to the old cap, so results stay reproducible).
+            budget = options.get("num_predict", DEFAULT_NUM_PREDICT)
+            options = {**options, "num_predict": budget * 2}
+            last_error = f"reply cut off at num_predict={budget} tokens"
+            print(f"WARNING: attempt {attempt}: {last_error}, retrying with "
+                  f"num_predict={budget * 2}...", file=sys.stderr)
             continue
 
         cleaned = strip_json_fences(content)
         try:
-            parsed = json.loads(cleaned)
+            try:
+                parsed = json.loads(cleaned)
+            except json.JSONDecodeError:
+                parsed = close_truncated_json(cleaned) if raw.get("done_reason") == "stop" else None
+                if parsed is None:
+                    raise
+                print("NOTE: model stopped just short of valid JSON; closed it.", file=sys.stderr)
             if not isinstance(parsed, dict):
                 raise ValueError("Top-level JSON value must be an object")
             if validate is not None:
                 validate(parsed)
             return parsed
-        except (json.JSONDecodeError, ValueError) as e:
+        except (json.JSONDecodeError, ValueError, KeyError, TypeError, AttributeError) as e:
             last_error = str(e)
             messages.append({"role": "assistant", "content": content})
             messages.append({
@@ -227,16 +341,12 @@ def chat_json(host, model, system_prompt, user_prompt, validate=None, options=No
             })
             print(f"WARNING: attempt {attempt} failed to parse ({e}), retrying...", file=sys.stderr)
 
-    print(f"ERROR: failed to get valid JSON from the model after {MAX_RETRIES} attempts. "
-          f"Last error: {last_error}", file=sys.stderr)
-    sys.exit(1)
+    raise LLMError(f"no valid answer from the model after {MAX_RETRIES} attempts "
+                   f"(last error: {last_error})")
 
 
-def call_ollama(host, model, task_description, room_summaries, extra_context=None, options=None):
-    """Stage (a): ask the model for a raw 0.0-1.0 relevance score per room.
-    `extra_context` is an optional sentence prepended to the task, e.g. to
-    tell the model which rooms have already been searched and ruled out."""
-    user_prompt = f"Task: {task_description}\n\nRooms:\n{room_summaries}"
+def _rank_once(host, model, task_description, rooms, extra_context, options):
+    user_prompt = f"Task: {task_description}\n\nRooms:\n{json.dumps(rooms)}"
     if extra_context:
         user_prompt = f"{extra_context}\n\n{user_prompt}"
 
@@ -244,8 +354,30 @@ def call_ollama(host, model, task_description, room_summaries, extra_context=Non
         if "rankings" not in parsed or not isinstance(parsed["rankings"], list):
             raise ValueError("Missing or malformed 'rankings' key")
 
+    # One ranking entry is ~35 tokens, so the reply grows with the building
+    # (IDAC: 15 rooms overran the fixed 512). Scale the budget to the room count.
+    options = dict(options or build_ollama_options())
+    options["num_predict"] = max(options.get("num_predict", DEFAULT_NUM_PREDICT),
+                                 TOKENS_PER_RANKED_ROOM * len(rooms) + 64)
     return chat_json(host, model, SYSTEM_PROMPT, user_prompt, validate=_check,
                      options=options)["rankings"]
+
+
+def call_ollama(host, model, task_description, room_summaries, extra_context=None, options=None):
+    """Stage (a): ask the model for a raw 0.0-1.0 relevance score per room.
+    `extra_context` is an optional sentence prepended to the task, e.g. to
+    tell the model which rooms have already been searched and ruled out.
+    Rooms the model skips are asked about once more on their own, instead of
+    silently scoring 0.0 (seen: IDAC room 3, 'Workspace', skipped once)."""
+    rooms = json.loads(room_summaries)
+    rankings = _rank_once(host, model, task_description, rooms, extra_context, options)
+    got = {str(r.get("room", "")).strip().lower() for r in rankings if isinstance(r, dict)}
+    missing = [r for r in rooms if str(r["room"]).strip().lower() not in got]
+    if missing and len(missing) < len(rooms):
+        print(f"NOTE: model skipped {len(missing)} room(s) "
+              f"({', '.join(str(r['room']) for r in missing)}); asking for those again.", file=sys.stderr)
+        rankings = rankings + _rank_once(host, model, task_description, missing, extra_context, options)
+    return rankings
 
 
 # --- Task interpretation (stage a0) -----------------------------------------
@@ -467,19 +599,34 @@ def validate_interpretation(interp, building):
 def validate_rankings(rankings, building):
     known_rooms = {s["name"] for s in building["spaces"]}
     known_lower = {r.lower().strip(): r for r in known_rooms}
-    corrected = []
+    by_room = {}
     for r in rankings:
-        raw_name = r.get("room", "")
+        if not isinstance(r, dict):
+            print(f"WARNING: model returned a non-object ranking entry {r!r} — dropping.", file=sys.stderr)
+            continue
+        # models sometimes return the room as a number (1 for "1") or the
+        # score as a string ("0.8"); normalise instead of crashing
+        raw_name = str(r.get("room", "")).strip()
+        try:
+            likelihood = min(max(float(r.get("likelihood", 0.0)), 0.0), 1.0)
+        except (TypeError, ValueError):
+            print(f"WARNING: unreadable likelihood {r.get('likelihood')!r} for '{raw_name}' — using 0.0.",
+                  file=sys.stderr)
+            likelihood = 0.0
         if raw_name in known_rooms:
-            corrected.append(r)
-        elif raw_name.lower().strip() in known_lower:
-            fixed = known_lower[raw_name.lower().strip()]
-            print(f"NOTE: auto-corrected case/whitespace mismatch: '{raw_name}' -> '{fixed}'", file=sys.stderr)
-            corrected.append({**r, "room": fixed})
+            room = raw_name
+        elif raw_name.lower() in known_lower:
+            room = known_lower[raw_name.lower()]
+            print(f"NOTE: auto-corrected case/whitespace mismatch: '{raw_name}' -> '{room}'", file=sys.stderr)
         else:
             print(f"WARNING: model returned unrecognized room name '{raw_name}' — dropping.", file=sys.stderr)
+            continue
+        entry = {"room": room, "likelihood": likelihood, "reasoning": str(r.get("reasoning") or "")}
+        if room not in by_room or likelihood > by_room[room]["likelihood"]:   # duplicates: keep the best
+            by_room[room] = entry
+    corrected = list(by_room.values())
 
-    seen_rooms = {r["room"] for r in corrected}
+    seen_rooms = set(by_room)
     missing = known_rooms - seen_rooms
     if missing:
         print(f"WARNING: model omitted {len(missing)} room(s): {sorted(missing)}. Treating as 0.0.", file=sys.stderr)
@@ -581,8 +728,7 @@ def optimal_visit_order(candidates, centroid_lookup, start_room, max_exact=18):
 
     start_xy = centroid_lookup.get(start_room)
     if start_xy is None:
-        print(f"ERROR: start room '{start_room}' not found or has no centroid.", file=sys.stderr)
-        sys.exit(1)
+        raise ValueError(f"start room '{start_room}' not found or has no centroid")
 
     xy = [centroid_lookup[c["room"]] for c in candidates]
     dist_from_start = [euclidean(start_xy, p) for p in xy]
