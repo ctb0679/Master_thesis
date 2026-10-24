@@ -9,6 +9,7 @@ Conventions
   [FACT]   taken from the repo / commit history / user's own notes
   [RATIONALE] reason recorded from the code comments or the user's notes
   [TODO]   not yet known - fill in (do not guess in the report)
+  [RESEARCH] background from literature discussions; check citations before use
 
 
 -----------------------------------------------------------------------------
@@ -40,7 +41,9 @@ Pipeline (current):
   vision model = qwen3-vl:30b-a3b-instruct (README example) [TODO confirm used]
   IFC models used = synthetic_office (9 rooms, generated), IDAC_Model (real,
                     15 rooms), ... [TODO list the rest]
-  Other fixed Ollama options: num_ctx 16384, num_predict 512, repeat_penalty 1.0
+  Other fixed Ollama options: num_ctx 32768 (was 16384 until 2026-10-20),
+    num_predict 512, repeat_penalty 1.0
+    (ranking call: num_predict = max(512, 60 * rooms + 64); see 2026-10-20)
   Defaults: prob_mass 0.9, min_prob 0.01
   Hardware / OS: Linux 6.14, Python 3.12 [TODO GPU/VRAM for the report]
 
@@ -263,6 +266,69 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-10-20  (uncommitted)
+  - Follow-up, same day: made the interactive session robust to any input.
+    Findings from a 37-prompt battery (searches, navigation, questions, small
+    talk, junk, German, prompt injection, a 2,000-char prompt, JSON/escape
+    characters) run through the real interactive_search.main() loop:
+      * qwen3.5:9b under Ollama 0.30.7 sometimes ENDS a reply (done_reason
+        "stop", well under budget) a few characters short of valid JSON:
+        '...}]' without the final '}' (3 ranking calls), or inside the last
+        string (1 interpretation call). Deterministic (reproduced 2/2), and a
+        JSON schema in `format` does not prevent it (grammar not enforced for
+        this model). Fix: close_truncated_json() closes an open string and
+        open brackets and re-parses; only when done_reason is "stop" and the
+        cut can be closed unambiguously, otherwise the normal retry.
+      * Ranking once skipped a room (3, Workspace) -> it silently got p=0.
+        Fix: call_ollama asks about skipped rooms again in a short call.
+      * chat_json called sys.exit on any failure (Ollama down, timeout, 3 bad
+        replies) -> one input ended the whole session. Now raises LLMError;
+        the session loop reports it (and any unexpected exception, traceback
+        on stderr) and continues. Ctrl-C cancels a task, EOF ends cleanly.
+      * validate_rankings crashed on a room given as a number, a string
+        likelihood or a non-object entry; now normalised (duplicates: best kept).
+      * building_query: a plan the executor cannot run returns an error result
+        for the answer step instead of raising.
+    num_ctx: 16384 -> 32768 (= this machine's Ollama default; kept explicit so
+    other machines do not fall back to 2-4k and silently drop the system
+    prompt). fit_context() raises it when a prompt would not fit (doubling, up
+    to the model maximum from /api/show; qwen3.5:9b: 262144) and a post-check
+    retries with a doubled window if prompt+reply filled it. MAX_RETRIES 3->4
+    because length/context/parse retries now share the attempts.
+    Result: 37/37 prompts handled, 0 errors, 0 retries (3 replies closed in
+    place, 1 skipped room re-asked). Ollama-down / Ctrl-C / EOF paths tested.
+    Remaining ANSWER-QUALITY issues (not crashes), for later:
+      * "go to the office" -> Office 1, though 8 offices are ambiguous.
+      * "what colour are the chairs in the meeting room?" -> answer contains a
+        literal "<id>" placeholder (building_query answer prompt).
+      * "how many monitors in the workspace" -> "16 black, 16 grey, 16 light
+        grey, 16 white": surface colours of each monitor read as 4 groups.
+      * "list every piece of equipment" -> "43 pieces" (llm view has 106).
+      * Multi-step requests ("find X and then go to Y and ...") run only the
+        first step.
+      * 'find the "special" {chair} [with] \ backslashes' classified as none.
+    Correction to the entry below: the original failure was confirmed as the
+    512 cap ("find the leak in the building" needs 514 tokens), but the same
+    char-1924 symptom can also come from the early stop described above.
+
+  - Bug: "find the leak" on IDAC_Model_llm.json failed 3x with "Expecting ','
+    delimiter ... char 1924". Cause: the ranking reply (one entry per room,
+    ~35 tokens each) hit num_predict=512 -> Ollama done_reason=length, JSON cut
+    off inside room 15 of 15. The retry loop fed the truncated text back as
+    "invalid JSON"; with greedy decoding the model repeated the identical
+    truncated reply, so all retries failed the same way.
+  - Fix (rank_candidates.py): call_ollama sets num_predict = max(512,
+    60 * n_rooms + 64); chat_json detects done_reason == "length" and retries
+    with a doubled budget instead of the repair prompt (also covers the
+    interpretation and building_query calls).
+  - Why not just raise the global num_predict / set it unlimited: a fixed cap
+    breaks again on larger buildings (fantasy1: 82 rooms ~ 2,900 tokens), and
+    unlimited removes the guard against runaway generation. Raising the cap
+    does not change results: greedy decoding yields the same tokens up to the
+    old cap.
+  - Verified: IDAC 15 rooms ranked in 5 s; forced num_predict=256 recovers on
+    the 3rd attempt (256 -> 512 -> 1024).
+
 2026-10-14  (uncommitted)
   - rank_candidates.py: load_building reads <name>_llm.json via the adapter
     from_llm_view (v1 files unchanged); room_keys gives every room a unique
@@ -365,6 +431,10 @@ Suggested experiments for the report [ideas, not done]:
 7. OPEN QUESTIONS / TODO
 -----------------------------------------------------------------------------
   - Fill every [TODO] above.
+  - Ask supervisor: explicit HTN formalism (GTPyhop / HDDL) expected, or is a
+    documented task decomposition enough? (see 8.7)
+  - Planning layer: implement option 8.4 b) and the belief update in 8.6;
+    evaluate plan-validity rate and steps-to-find vs an LLM-only baseline.
   - Use the _llm adjacency (door graph) for route distances instead of
     straight-line centroid distance.
   - Evaluate building_query: labelled questions with ground truth computed
@@ -380,7 +450,168 @@ Suggested experiments for the report [ideas, not done]:
 
 
 -----------------------------------------------------------------------------
-8. ORIGINAL RAW NOTES (kept verbatim)
+8. PLANNING LAYER: HTN AND ALTERNATIVES  [RESEARCH, 2026-10-22]
+-----------------------------------------------------------------------------
+Purpose: background and design argument for the planning component (thesis
+task 4, "structured task representations, HTN or similar") and the related-work
+chapter (task 1). Nothing here is implemented yet.
+
+8.1 What an HTN (Hierarchical Task Network) is
+    A classical planner (STRIPS/PDDL) searches for ANY action sequence that
+    reaches a goal. An HTN planner instead starts from a high-level task and
+    decomposes it with designer-written recipes until only executable actions
+    remain. Components:
+      - State: facts about the world (rooms, doors, rooms already searched,
+        current belief about where the object is).
+      - Primitive tasks / operators: executable actions with preconditions and
+        effects, e.g. move_to(room), capture_view(), detect(object).
+      - Compound tasks: abstract goals, e.g. find(object), search_room(r).
+      - Methods: alternative decompositions of a compound task, each with its
+        own preconditions. The planner takes the first method whose
+        preconditions hold and backtracks if the decomposition fails.
+    Properties: domain knowledge lives in the methods, so the search space is
+    much smaller than in classical planning, and the decomposition tree
+    explains why each action was chosen.
+    References:
+      - Erol, Hendler, Nau (1994): formal semantics of HTN planning.
+      - Nau et al. (2003), JAIR: SHOP2.
+      - GTPyhop (Dana Nau): small Python HTN planner, fits the current stack.
+      - Hoeller et al. (2020): HDDL, PDDL-style language of the hierarchical
+        track of the International Planning Competition; usable as formal
+        notation in the written thesis.
+
+8.2 Mapping onto the current pipeline
+    find(object)
+    |- m_direct     [IFC contains the object as a modelled element]
+    |    move_to(element.space) -> detect(object) -> confirm
+    |- m_semantic   [object not modelled; infer from room function]
+         rank_rooms(object)        <- LLM room scorer (priors)
+         order_route(ranked_rooms) <- Held-Karp
+         for r in route: search_room(r)
+           |- m_found:     move_to(r) -> capture_view -> detect -> stop/continue
+           |- m_not_found: mark_searched(r) -> update_beliefs -> replan
+    Roles of existing components:
+      - <name>_llm.json / _full.json from clean_ifc.py = initial state.
+      - LLM room scores = method ordering and room priority.
+      - Held-Karp = helper inside m_semantic.
+      - VLM detection = primitive operator whose effect updates the state.
+      - "update plan" in the loop = re-decomposition of the remaining task tree
+        after a failed detection.
+    Single- vs multi-target (open item) = two methods for find():
+      - one stops at the first confirmed detection ("find a cup");
+      - one continues until all candidate rooms above a probability threshold
+        are searched ("find all fire extinguishers").
+      The LLM's parse of the instruction chooses between them.
+
+8.3 How an HTN differs from the current implementation
+    [FACT] SearchSession (interactive_search.py) runs one fixed recipe in
+    plain Python: interpret -> (rooms recorded in IFC, or rank all rooms with
+    the LLM) -> softmax -> Held-Karp -> visit, detect, stop on success.
+    Variations are if/else branches inside run_task. It is effectively a
+    single-method HTN already, so moving to an HTN is a refactor, not a rewrite.
+    For the current test cases the robot would likely do the same actions in
+    the same order. What changes:
+      1. Choosing strategies: several methods for find(object) (modelled in
+         IFC / room scoring / find-all); the planner picks by state instead of
+         branches buried in the loop.
+      2. Plan validity: operators have preconditions, e.g. move_to(room)
+         requires the room to be reachable through a door in the IFC data.
+         Invalid plans are rejected; today the room list is trusted as built.
+      3. Inspectable plan: the decomposition tree (which method, which steps
+         from which task) can be logged, shown as a thesis figure, and
+         compared against an LLM-only plan. Today the plan is only an
+         implicit room list.
+      4. Replanning from state: after a failed detection the remaining plan is
+         rebuilt from the updated state instead of moving down a fixed list.
+         Almost identical with one strategy; matters once a failure can
+         switch method.
+    The HTN does NOT make the search faster or more accurate by itself; room
+    scoring and Held-Karp do that. It adds structure, extensibility and an
+    evaluable formal planning component.
+
+8.4 Where the LLM sits (three options)
+    a) LLM generates the whole plan. Easy, no guarantees (non-existent rooms,
+       violated preconditions). Use only as the evaluation BASELINE.
+    b) LLM grounds and parameterises; symbolic HTN decomposes.  <- CHOSEN
+       LLM turns the instruction into a goal task, object class and
+       constraints; the scorer supplies priors; GTPyhop (or own planner)
+       guarantees every plan is valid against the IFC state.
+       Measurable contribution: plan-validity rate and steps-to-find,
+       LLM-only vs LLM+HTN.
+    c) LLM writes new methods at runtime. A research topic of its own; out of
+       scope for a master's thesis.
+
+8.5 Alternatives to HTN (for the related-work / design-justification section)
+    Option                    Examples                      Verdict
+    ------------------------  ----------------------------  -------------------
+    Classical planning (PDDL) LLM+P (Liu et al., 2023):     Considered, rejected
+      + LLM translator        LLM -> PDDL goal, planner     (see below)
+                              (e.g. Fast Downward) solves
+    POMDP / belief-space      Wandzel et al. (2019) multi-  Theoretical upper
+      planning                object search; GenMOS (Zheng  bound, out of scope
+                              & Tellex, 2023)
+    LLM-only planning         SayCan (Ahn et al., 2022);    Baseline
+                              ProgPrompt (Singh et al.,
+                              2023); Code as Policies
+                              (Liang et al., 2022)
+    LLM over a scene graph    SayPlan (Rana et al., 2023)   Closest related work;
+                                                            must cite and contrast
+    Behaviour trees / state   -                             Execution control,
+      machines                                              not a planner
+    Details:
+      - PDDL: plans guaranteed valid, standard language reviewers like. But the
+        whole domain must be modelled carefully, and classical planners assume
+        a fully known world; an unknown object location is exactly what they
+        handle badly. Object search is a fixed recipe, not a puzzle needing
+        open search, so HTN fits better.
+      - POMDP: robot keeps a probability distribution over object locations and
+        picks actions that best reduce uncertainty, modelling imperfect
+        detection. Most principled; directly models room priors and detector
+        misses. Hard to implement, slow beyond small problems, and would turn
+        the thesis into a POMDP thesis. Use in the literature review as the
+        theoretical ideal.
+      - LLM-only: flexible and fast to build; no validity guarantee and
+        run-to-run variance (already observed with the local models).
+        SayCan additionally weights LLM suggestions by skill feasibility.
+      - SayPlan: LLM searches a 3D scene graph of a building (collapsing /
+        expanding floors and rooms) and checks its plan in a simulator before
+        execution. IFC data is effectively a scene graph. Difference to argue:
+        this thesis uses IFC semantics and explicit probabilities instead of an
+        LLM browsing the graph.
+    Thesis structure suggested: HTN as the choice; PDDL as the considered and
+    rejected alternative (modelling effort, poor fit with unknown object
+    locations); POMDP as the principled upper bound, out of scope; LLM-only
+    and SayPlan-style planning as related work and baselines. Covers task 1
+    (literature) and the design justification in one section.
+
+8.6 Belief update after a failed detection (links task 3 and task 4)
+    [FACT] Current code: rooms already searched are passed as `exclude` and
+    REMOVED before the softmax (rank_and_plan), i.e. P(r) := 0.
+    Proposed: a negative detection does not prove absence. With detector
+    detection rate d (miss rate 1 - d):
+        P'(r)  = P(r) * (1 - d)          for the searched room r
+        P'(r') = P(r')                   for every other room r'
+        then renormalise so that sum P' = 1.
+    Keeps the probabilistic part (task 3) and the planning part (task 4)
+    connected instead of describing two separate mechanisms.
+    [TODO] estimate d for the VLM detector from the detection experiments.
+
+8.7 Caveats
+    - One robot, one floor: the hierarchy is shallow (2-3 levels).
+    - Value is structural: inspectable, logged plan tree; clear separation of
+      symbolic validity and neural scoring; a natural place for
+      scenario-specific methods (e.g. a smoke source warrants checking
+      technical rooms and kitchens first and not stopping at a single
+      sighting, unlike a cup).
+    - Task description says "HTN or similar": confirm with the supervisor
+      whether an explicit HTN formalism is expected or a documented task
+      decomposition is enough (see section 7). The answer decides between
+      GTPyhop and refactoring SearchSession into method/operator classes.
+    [TODO] verify the exact bibliographic details of every reference above.
+
+
+-----------------------------------------------------------------------------
+9. ORIGINAL RAW NOTES (kept verbatim)
 -----------------------------------------------------------------------------
 https://github.com/buildingsmart-community/ifcJSON
 
