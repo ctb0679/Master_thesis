@@ -25,6 +25,12 @@ Flow per input:
   3. go_to_room: resolves the room and navigates, no detection.
   4. Detection stops the walk as soon as the target is found.
 
+By default find_object and go_to_room are planned by the HTN layer (htn/,
+docs/htn_design.md): explicit methods for the three search strategies,
+routes through doors, a Bayesian belief update after each miss and a replan
+after every searched room; one JSON log per plan in results/htn_runs/.
+--no-htn keeps the SearchSession behaviour below as the evaluation baseline.
+
 Status: this is a testing tool, not the final robot interface — but it's built
 with an OOP skeleton (SearchSession, VisualDetector) on purpose, since it's
 expected to grow into that interface later. The class boundaries here
@@ -43,9 +49,10 @@ from rank_candidates.py rather than duplicating already-tested logic. rank_candi
 directory (or on PYTHONPATH).
 
 Usage:
-    python3 interactive_search.py --cleaned_json ../../data/cleaned_ifc/synthetic_office_cleaned.json
-    python3 interactive_search.py --cleaned_json ../../data/cleaned_ifc/IDAC_Model_llm.json
-        (building questions then use IDAC_Model_full.json from the same folder)
+    python3 interactive_search.py --cleaned_json ../../data/cleaned_ifc/synthetic_office_cleaned.json --no-htn
+    python3 interactive_search.py --cleaned_json ../../data/cleaned_ifc/IDAC_Model_llm.json --miss_rate 0.2
+        (building questions and the HTN then use IDAC_Model_full.json from the same folder;
+        add --no-htn for the old SearchSession baseline)
 """
 
 import argparse
@@ -64,6 +71,7 @@ from rank_candidates import (
     DEFAULT_PROB_MASS, DEFAULT_MIN_PROB, REQUEST_TIMEOUT, LLMError,
 )
 from building_query import BuildingQueryEngine, find_full_json
+from htn.cli import HTNSearch, add_htn_args, check_htn_args
 import urllib.request
 
 
@@ -163,6 +171,7 @@ class SearchSession:
         # building_query answers come from <name>_full.json when there is one
         # (plan -> exact computation -> answer, see building_query.py);
         # otherwise the interpreter's answer from the room summary is used.
+        self.htn = None   # HTNSearch when the HTN plans find_object / go_to_room (set in main)
         self.query_engine = None
         if full_json_path:
             self.query_engine = BuildingQueryEngine(full_json_path, host, model, self.ollama_options)
@@ -305,6 +314,8 @@ class SearchSession:
                       + ", ".join(self._label(s["name"]) for s in self.building["spaces"]))
                 self._remember(user_text, f"could not resolve room '{interp['target']}'")
                 return None
+            if self.htn is not None:
+                return self.htn.run(self, interp, user_text)
             print(f"Task type: go_to_room -> {self._label(room)}")
             plan = self.plan_known_rooms([room], "navigation target")
             self._print_plan(plan, "Navigation plan")
@@ -313,6 +324,8 @@ class SearchSession:
             return outcome
 
         # kind == "find_object"
+        if self.htn is not None:
+            return self.htn.run(self, interp, user_text)
         target = interp["target"] or user_text
         known = interp["rooms_with_target"]
         restricted = interp.get("resolved_room")
@@ -402,12 +415,21 @@ def main():
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--ollama_host", default=DEFAULT_OLLAMA_HOST)
     add_ollama_args(parser)
+    add_htn_args(parser)
     args = parser.parse_args()
+    check_htn_args(parser, args)
+    args.full_json = args.full_json or find_full_json(args.cleaned_json)
 
     session = SearchSession(args.cleaned_json, args.start_room, args.prob_mass,
                             args.min_prob, args.softmax_temp, args.model, args.ollama_host,
                             build_ollama_options(args.llm_temperature, args.seed),
-                            full_json_path=args.full_json or find_full_json(args.cleaned_json))
+                            full_json_path=args.full_json)
+    if not args.no_htn:
+        try:
+            session.htn = HTNSearch.from_args(args, session)
+        except Exception as e:
+            print(f"ERROR: cannot set up HTN planning: {e}", file=sys.stderr)
+            sys.exit(2)
 
     print("Interactive search session. Type a task, or 'bye' to exit "
           "(Ctrl-C cancels the current task).")

@@ -1,0 +1,22 @@
+{
+  "_note": "ASSUMED initial door states (not in the IFC model; the paper also assumes them). Every door has the 'default' state unless listed in 'overrides' by door GUID, e.g. \"overrides\": {\"2y16PNiQDAUu6vtOChEcsb\": \"closed\"}. '_doors' is for reference only.",
+  "default": "open",
+  "overrides": {},
+  "_doors": {
+    "2jlli2nuj35OT4Nt8dpGGq": "7 (Office 8) <-> 3 (Workspace)",
+    "2jlli2nuj35OT4Nt8dpGF7": "8 (Office 6) <-> 3 (Workspace)",
+    "1TBRTxOmH2qOCfGLFJR1oS": "9 (Office 7) <-> 3 (Workspace)",
+    "1TBRTxOmH2qOCfGLFJR1qA": "5 (Corridor) <-> 6 (Office 5)",
+    "1TBRTxOmH2qOCfGLFJR1qc": "10 (Office 4) <-> 5 (Corridor)",
+    "1TBRTxOmH2qOCfGLFJR1su": "14 (Meeting room) <-> 11 (Office 3)",
+    "1TBRTxOmH2qOCfGLFJR18M": "12 (Office 2) <-> 14 (Meeting room)",
+    "1TBRTxOmH2qOCfGLFJR1Ca": "13 (Office 1) <-> 14 (Meeting room)",
+    "1TBRTxOmH2qOCfGLFJR1Fl": "15 (Lab) <-> 3 (Workspace)",
+    "0xust1cwr8XOVmfb2C$iKT": "1 (Printer room) <-> 3 (Workspace)",
+    "0xust1cwr8XOVmfb2C$iJu": "3 (Workspace) <-> 2 (Storage)",
+    "2y16PNiQDAUu6vtOChEcqd": "5 (Corridor) <-> 3 (Workspace)",
+    "2y16PNiQDAUu6vtOChEcsb": "14 (Meeting room) <-> 5 (Corridor)",
+    "2y16PNiQDAUu6vtOChEch4": "5 (Corridor) <-> 4 (Lobby)",
+    "2BOvfVeQT2E8wiKZrVEfNM": "3 (Workspace) <-> outside"
+  }
+}

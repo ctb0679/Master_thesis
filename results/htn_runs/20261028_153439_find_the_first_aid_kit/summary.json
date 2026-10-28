@@ -1,0 +1,79 @@
+{
+  "task": {
+    "name": "find_object",
+    "args": [
+      "first aid kit",
+      "single"
+    ],
+    "text": "find the first aid kit"
+  },
+  "robot": {
+    "id": "a300",
+    "space": "3DsWwrAET2VRfR_BYHBzXe",
+    "capabilities": [
+      "depth",
+      "navigate",
+      "rgb"
+    ],
+    "width_m": 0.665,
+    "safety_margin_m": 0.1,
+    "allow_exterior": false
+  },
+  "settings": {
+    "prob_mass": 0.9,
+    "min_prob": 0.01,
+    "max_visits_per_room": 1,
+    "distance": "door_graph",
+    "door_states_source": "/home/idac/Junaidali/Master_thesis/data/robot/door_states_IDAC.json",
+    "miss_rate": 0.2,
+    "detect_threshold": 0.0,
+    "residual_mass": 0.09999999999999998,
+    "llm_temperature": 0.0,
+    "seed": 42,
+    "model": "qwen3.5:9b"
+  },
+  "outcome": "not_found",
+  "reason": "remaining probability 0.039 < residual_mass 0.100",
+  "found": [],
+  "visit_order": [
+    "3DsWwrAET2VRfR_BYHBzXh",
+    "3DsWwrAET2VRfR_BYHBzXg",
+    "3DsWwrAET2VRfR_BYHBzXc",
+    "3DsWwrAET2VRfR_BYHBzXU",
+    "3DsWwrAET2VRfR_BYHBzXW",
+    "3DsWwrAET2VRfR_BYHBzXX",
+    "3DsWwrAET2VRfR_BYHBzXd",
+    "3DsWwrAET2VRfR_BYHBzXa",
+    "3DsWwrAET2VRfR_BYHBzXb",
+    "3DsWwrAET2VRfR_BYHBzXZ",
+    "3DsWwrAET2VRfR_BYHBzXS",
+    "3DsWwrAET2VRfR_BYHBzXT",
+    "3DsWwrAET2VRfR_BYHBzXV",
+    "3DsWwrAET2VRfR_BYHBzXY"
+  ],
+  "travelled_m": 121.67,
+  "iterations": 16,
+  "model_calls": {
+    "ranker": 1,
+    "detector": 3
+  },
+  "failure": null,
+  "log_dir": "/home/idac/Junaidali/Master_thesis/results/htn_runs/20261028_153439_find_the_first_aid_kit",
+  "found_labels": [],
+  "visit_order_labels": [
+    "2 (Storage)",
+    "3 (Workspace)",
+    "7 (Office 8)",
+    "15 (Lab)",
+    "9 (Office 7)",
+    "8 (Office 6)",
+    "6 (Office 5)",
+    "5 (Corridor)",
+    "4 (Lobby)",
+    "10 (Office 4)",
+    "13 (Office 1)",
+    "12 (Office 2)",
+    "14 (Meeting room)",
+    "11 (Office 3)"
+  ]
+}

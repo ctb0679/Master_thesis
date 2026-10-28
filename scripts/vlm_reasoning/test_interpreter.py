@@ -28,7 +28,8 @@ from rank_candidates import (
     DEFAULT_MODEL, DEFAULT_OLLAMA_HOST,
 )
 
-# (input, expected intent or None). Generic enough to hold for any building.
+# (input, expected intent or None[, expected quantity "one"/"all"]).
+# Generic enough to hold for any building.
 BUILTIN = [
     # --- not tasks ---
     ("hello", "none"),
@@ -57,7 +58,7 @@ BUILTIN = [
     ("go to the cafeteria", None),          # building-dependent: go_to_room w/o room, or none
     ("go to the office", None),             # ambiguous in most buildings
     # --- physical search ---
-    ("find the fire extinguisher", "find_object"),
+    ("find the fire extinguisher", "find_object", "one"),
     ("find the printer", "find_object"),
     ("look for a first aid kit", "find_object"),
     ("locate the source of the water leak", "find_object"),
@@ -66,6 +67,11 @@ BUILTIN = [
     ("check if there is a projector in the meeting room", "find_object"),
     ("is the coffee machine in the kitchen?", None),   # query or restricted search both defensible
     ("find the meeting room", "go_to_room"),
+    # --- quantity: one instance or all of them ---
+    ("find a cup", "find_object", "one"),
+    ("find all fire extinguishers", "find_object", "all"),
+    ("where are all the chairs? go and check", "find_object", "all"),
+    ("look for every first aid kit in the building", "find_object", "all"),
 ]
 
 
@@ -102,7 +108,8 @@ def main():
 
     items = load_inputs(args.inputs) if args.inputs else BUILTIN
     mismatches = 0
-    for text, expected in items:
+    for text, expected, *rest in items:
+        expected_quantity = rest[0] if rest else None
         t0 = time.time()
         try:
             r = validate_interpretation(interpret_task(args.ollama_host, args.model, text, summaries), building)
@@ -111,16 +118,17 @@ def main():
             print(f"!! {text!r}: model call failed: {e}")
             continue
         dt = time.time() - t0
-        ok = "  " if expected is None or r["task_type"] == expected else "!!"
+        ok = "  " if (expected is None or r["task_type"] == expected) and \
+            (expected_quantity is None or r["quantity"] == expected_quantity) else "!!"
         if ok == "!!":
             mismatches += 1
         print(f"{ok} {dt:4.1f}s {text!r:50s} -> {r['task_type']:15s}"
               f" target={r['target']!r:22s} room={label(r.get('resolved_room')):28s}"
-              f" rooms_with_target={r['rooms_with_target']}")
+              f" quantity={r['quantity']} rooms_with_target={r['rooms_with_target']}")
         extra = r["answer"] if r["task_type"] in ("building_query", "none") else r["reason"]
         print(f"          {extra}")
         if ok == "!!":
-            print(f"          EXPECTED {expected}")
+            print(f"          EXPECTED {expected}" + (f", quantity {expected_quantity}" if expected_quantity else ""))
 
     print(f"\n{len(items)} inputs, {mismatches} mismatch(es) against expectations.")
     sys.exit(1 if mismatches else 0)

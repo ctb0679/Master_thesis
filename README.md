@@ -64,6 +64,10 @@ data/
   cleaned_ifc/         JSON produced by clean_ifc.py (<name>_full.json, <name>_llm.json;
                        *_cleaned.json are v1 outputs still read by vlm_reasoning/)
   images/              Sample photos used as stand-ins for camera captures
+  robot/
+    urdf/              Robot descriptions (*.urdf); a300.urdf = Clearpath A300 (expanded xacro)
+    profiles/          <robot>.json derived from the URDF (width, capabilities, evidence); edit to correct
+    door_states_IDAC.json  Assumed initial door states (all open + per-door overrides)
 scripts/
   generate_synthetic_office_ifc.py   Builds a synthetic test building (IFC4X3)
   ifc_cleaning/
@@ -75,15 +79,19 @@ scripts/
     rank_candidates.py    Ranking/planning logic (library, used by interactive_search.py)
     rank_candidates2.py   Standalone CLI for stages (a)+(b): rank + plan only
     interactive_search.py Full interactive REPL: interpret -> rank -> plan -> visual detect
+    htn/                  HTN planning layer (core framework, object-search domain, executor);
+                          see docs/htn_design.md
     building_query.py     Answers building questions from <name>_full.json (plan -> compute -> answer)
     test_interpreter.py   Batch checker for the interpretation stage (no walking)
     old_rank_candidates*.py  Superseded versions, kept for reference
 file_converters/        Standalone IFC <-> ifcJSON converters (ifc2json.py, json2ifc.py)
-results/                Output location for saved plans
-docs/                   Reserved for documentation (currently empty)
+results/                Output location for saved plans; results/htn_runs/ = one folder per HTN run
+docs/                   htn_design.md (HTN design + decisions), references/ (papers)
+tests/htn/              pytest suite for the HTN layer (no Ollama needed)
 legacy_graph_pipeline/ Archived Neo4j-based approach (extraction, classification, query)
 testing_vlm.py          One-off smoke test for a local Ollama vision model
 requirements.txt        Actual pipeline dependencies (ifcopenshell, ollama)
+requirements-dev.txt    Test dependencies (pytest); pytest.ini sets the test path
 venv/                   Local virtual environment (not portable — see Setup)
 ```
 
@@ -101,8 +109,9 @@ venv/                   Local virtual environment (not portable — see Setup)
   ```bash
   ollama pull qwen3.6:27b
   ```
-- **ifcopenshell** and **shapely** (only needed for generating/cleaning IFC files, not for
-  the ranking/planning/detection scripts, which are stdlib-only).
+- **ifcopenshell**, **shapely** and **numpy**: ifcopenshell only for generating/cleaning
+  IFC files; shapely and numpy also for the HTN layer (approach points, URDF meshes).
+  The `--no-htn` ranking/planning/detection path is stdlib-only.
 
 ## Setup
 
@@ -221,9 +230,14 @@ python3 scripts/vlm_reasoning/interactive_search.py \
 python3 scripts/vlm_reasoning/interactive_search.py \
   --cleaned_json data/cleaned_ifc/IDAC_model_cleaned.json
 
-# new extractor output; building questions use IDAC_Model_full.json alongside it:
+# new extractor output; building questions and the HTN use IDAC_Model_full.json alongside it.
+# Search and navigation are planned by the HTN layer (section 5), which needs --miss_rate:
 python3 scripts/vlm_reasoning/interactive_search.py \
-  --cleaned_json data/cleaned_ifc/IDAC_Model_llm.json
+  --cleaned_json data/cleaned_ifc/IDAC_Model_llm.json --miss_rate 0.2
+
+# the v1 *_cleaned.json files have no door positions: use the old search there
+python3 scripts/vlm_reasoning/interactive_search.py \
+  --cleaned_json data/cleaned_ifc/synthetic_office_cleaned.json --no-htn
 ```
 
 Type anything at the prompt. Questions about the building are answered in
@@ -291,6 +305,46 @@ python3 scripts/vlm_reasoning/test_interpreter.py \
 `interactive_search.py` imports its ranking/planning functions from
 `rank_candidates.py`, so both files must stay in the same directory (or
 `rank_candidates.py` must be on `PYTHONPATH`).
+
+### 5. HTN planning layer (default for search and navigation)
+
+With a `<name>_llm.json` + `<name>_full.json`, `find_object` and `go_to_room`
+are planned by a hierarchical task network (`scripts/vlm_reasoning/htn/`,
+design and decisions in [docs/htn_design.md](docs/htn_design.md)), following
+Tandon et al. (ECPPM 2026): a custom rule-based planner with operator and
+method libraries, depth-first decomposition with backtracking, explicit
+infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
+
+- **Methods** for `find_object`, in priority order: the room the user named →
+  rooms where the IFC records the target → the most likely rooms from the
+  ranking model (asked once per task, only when needed).
+- **Routes** go through doors (shortest path by length through door
+  positions); the visit order is Held-Karp over those route lengths
+  (`--distance euclidean` for the old straight lines).
+- **Robot**: `data/robot/urdf/*.urdf` (`--robot <stem>` when there are several).
+  Width and capabilities are derived once into `data/robot/profiles/<stem>.json`;
+  a door is passable when it is at least width + 0.1 m wide, open (or the robot
+  has `manipulate_door`) and not to the outside. Door states:
+  `data/robot/door_states_IDAC.json` or `--door_states` (assumed values).
+- **Replanning**: after each searched room the belief is updated
+  (a miss multiplies that room's probability by `--miss_rate`, then all rooms
+  are renormalised) and the plan is made again. It stops when the target is
+  found (`found` and confidence >= `--detect_threshold`, default 0.0), when no
+  room is left (`--max_visits_per_room`, default 1), or when the unsearched
+  rooms hold less than `--residual_mass` (default 1 − `--prob_mass`).
+- `--miss_rate` (the detector's P(not detected | present)) is required and has
+  no default; it is recorded in each run's `summary.json`.
+- Every plan is logged to `results/htn_runs/<timestamp>_<task>/iter_<nn>.json`
+  (state, prior, posterior, chosen method, decomposition tree with rejected
+  methods and reasons, plan, executed actions, observation), plus `summary.json`.
+- `--no-htn` keeps the previous `SearchSession` behaviour as the evaluation baseline.
+
+### Tests
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest            # tests/htn: framework, IDAC domain, robot profiles, executor
+```
 
 ## IFC <-> JSON converters
 

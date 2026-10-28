@@ -425,6 +425,8 @@ when there are many offices).
 whose equipment list explicitly records the target — a printer model number \
 counts as a printer. Only use equipment actually listed; never guess from the \
 room's function alone. Empty list otherwise.
+- "quantity" (find_object only): "all" if the user wants every instance found \
+("find all fire extinguishers", "where are all the chairs"), otherwise "one".
 - "answer": for building_query, a concise answer (1-3 sentences) grounded ONLY \
 in the room list, naming rooms as "<identifier> (<function>)". If the data does \
 not record what was asked, say so plainly and mention that the user can say \
@@ -438,7 +440,7 @@ room", "the same one", "yes do that".
 
 Respond with ONLY a JSON object in this exact shape, no other text, no markdown \
 fences:
-{"task_type": "<find_object|go_to_room|building_query|none>", "target": "<string>", "room": "<room or empty>", "rooms_with_target": ["<room>", ...], "answer": "<string>", "reason": "<one short sentence>"}
+{"task_type": "<find_object|go_to_room|building_query|none>", "target": "<string>", "room": "<room or empty>", "rooms_with_target": ["<room>", ...], "quantity": "<one|all>", "answer": "<string>", "reason": "<one short sentence>"}
 """
 
 TASK_TYPES = ("find_object", "go_to_room", "building_query", "none")
@@ -553,6 +555,7 @@ def validate_interpretation(interp, building):
         "task_type": interp.get("task_type", "none"),
         "target": (interp.get("target") or "").strip(),
         "rooms_with_target": [],
+        "quantity": "all" if str(interp.get("quantity") or "").strip().lower() == "all" else "one",
         "answer": (interp.get("answer") or "").strip(),
         "reason": interp.get("reason") or "",
         "resolved_room": None,
@@ -718,21 +721,28 @@ def euclidean(p1, p2):
     return math.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
 
 
-def optimal_visit_order(candidates, centroid_lookup, start_room, max_exact=18):
+def optimal_visit_order(candidates, centroid_lookup, start_room, max_exact=18, distance=None):
+    """Shortest open tour from start_room over the candidates (Held-Karp).
+    `distance(room_a, room_b) -> metres` defaults to the straight line
+    between centroid_lookup centroids; the HTN passes door-graph route
+    lengths instead."""
     n = len(candidates)
     if n == 0:
         return []
+    if distance is None:
+        def distance(a, b):
+            return euclidean(centroid_lookup[a], centroid_lookup[b])
     if n > max_exact:
         print(f"WARNING: {n} candidates exceeds max_exact={max_exact}, falling back to greedy.", file=sys.stderr)
-        return _greedy_nearest_neighbor(candidates, centroid_lookup, start_room)
+        return _greedy_nearest_neighbor(candidates, centroid_lookup, start_room, distance)
 
     start_xy = centroid_lookup.get(start_room)
     if start_xy is None:
         raise ValueError(f"start room '{start_room}' not found or has no centroid")
 
-    xy = [centroid_lookup[c["room"]] for c in candidates]
-    dist_from_start = [euclidean(start_xy, p) for p in xy]
-    dist = [[euclidean(xy[i], xy[j]) for j in range(n)] for i in range(n)]
+    rooms = [c["room"] for c in candidates]
+    dist_from_start = [distance(start_room, r) for r in rooms]
+    dist = [[distance(rooms[i], rooms[j]) for j in range(n)] for i in range(n)]
 
     FULL = (1 << n) - 1
     INF = float("inf")
@@ -765,27 +775,26 @@ def optimal_visit_order(candidates, centroid_lookup, start_room, max_exact=18):
     order.reverse()
 
     ordered = []
-    prev_xy = start_xy
+    prev = start_room
     raw_total = 0.0
     for idx in order:
         c = candidates[idx]
-        d = euclidean(prev_xy, xy[idx])
+        d = distance(prev, rooms[idx])
         raw_total += d
         ordered.append(dict(c, distance_from_previous_m=round(d, 2)))
-        prev_xy = xy[idx]
+        prev = rooms[idx]
     assert abs(raw_total - best_cost) < 1e-6, "path reconstruction mismatch"
     return ordered
 
 
-def _greedy_nearest_neighbor(candidates, centroid_lookup, start_room):
-    start_xy = centroid_lookup[start_room]
+def _greedy_nearest_neighbor(candidates, centroid_lookup, start_room, distance):
     remaining = list(candidates)
     ordered = []
-    current_xy = start_xy
+    current = start_room
     while remaining:
-        remaining.sort(key=lambda c: euclidean(current_xy, centroid_lookup[c["room"]]))
+        remaining.sort(key=lambda c: distance(current, c["room"]))
         nxt = remaining.pop(0)
-        d = euclidean(current_xy, centroid_lookup[nxt["room"]])
+        d = distance(current, nxt["room"])
         ordered.append(dict(nxt, distance_from_previous_m=round(d, 2)))
-        current_xy = centroid_lookup[nxt["room"]]
+        current = nxt["room"]
     return ordered

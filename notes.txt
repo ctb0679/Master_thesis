@@ -28,6 +28,10 @@ Pipeline (current):
   2. Route planning       - take rooms until prob_mass covered, order the visit
                             (Held-Karp optimal for small N, greedy NN fallback)
   3. Visual confirmation  - image at each stop sent to a vision model
+  Since 2026-10-28 steps 1-3 for find_object / go_to_room run inside an HTN
+  planning layer (scripts/vlm_reasoning/htn/, see 3.10, 8 and
+  docs/htn_design.md): plan -> execute -> observe -> belief update -> replan.
+  The old flow stays available with --no-htn as the baseline.
 
 
 -----------------------------------------------------------------------------
@@ -243,6 +247,70 @@ WHY these settings
     Ranking and the interpreter keep using the _llm view (adapter
     from_llm_view in rank_candidates.py) - no change to the ranking prompt.
 
+3.10 HTN planning layer (2026-10-28)  [design: docs/htn_design.md]
+    WHAT: a custom HTN planner following Tandon et al., ECPPM 2026 (Sec. II):
+    OperatorLibrary + MethodLibrary, preconditions/effects as named objects,
+    depth-first totally ordered decomposition on state copies with
+    backtracking, the full decomposition tree (incl. rejected methods and the
+    reason) in every log, explicit infeasibility codes, JSON plans of
+    {"action", "robot", "args"} with the initial robot and door states.
+    The three SearchSession strategies became three HTN methods of
+    find_object, tried in order: m_search_restricted (room named by the user)
+    -> m_search_recorded (rooms where the IFC records the target) ->
+    m_search_semantic (ranked rooms). search_space = go_to, capture_rgb,
+    detect, update_belief, record_result. go_to = navigate through each door
+    on the route, manipulate_door before a closed one.
+    Executor: plan the full sweep assuming "not found", execute up to the
+    first searched room, observe, Bayesian update, replan.
+    WHY: thesis task 4 (structured task representation); an inspectable plan
+    tree; plans valid against the building by construction (no room, door or
+    action the robot cannot use); one place where the LLM (priors) and the
+    symbolic layer (validity) meet (option 8.4 b).
+    Decisions taken with the reasons:
+    - Own planner, no GTPyhop/pyhop: same as the paper; the planner is ~150
+      lines and every concept is a named class that can be shown in the thesis.
+    - Routes by Dijkstra (shortest length through door positions), NOT BFS as
+      in the paper: route() and route_length() must describe the same path,
+      otherwise the robot drives the fewest-doors path while Held-Karp ordered
+      the rooms by another path's length. Tested on a cycle where the 1-door
+      path is longer than the 3-door path.
+    - Visit order stays Held-Karp (shortest tour over the selected rooms),
+      now over door-graph distances (--distance euclidean = old metric).
+      Probability-weighted ordering deliberately NOT added.
+    - Selection after a miss: select_candidates on the eligible rooms'
+      posterior RENORMALISED to 1; stop rule on the un-normalised mass.
+      Rejected alternative (the original rule): un-normalised selection can
+      never reach prob_mass after a miss and then selects every room, and the
+      nearest (possibly unlikely) room is visited next.
+      Consequence (proved + tested): with max_visits_per_room = 1 the miss
+      rate changes only WHEN the search stops, not the visit order.
+    - Miss update P(r) <- P(r) * miss_rate, renormalise; never set to 0 and
+      no new ranking call (replaces SearchSession's re-ranking with an
+      "already searched" note). The ranking model is called at most once per
+      task, and only when m_search_semantic is needed (reason code
+      prior_needed from the planner; the planner itself makes no model calls).
+    - --miss_rate is a REQUIRED flag, no default, recorded in summary.json.
+      Not in the robot profile: it depends on the VLM and the target, not the
+      robot. [TODO] measure it on a labelled image set, then move it to a
+      detector config file.
+    - Robot from URDF (data/robot/urdf/a300.urdf, Clearpath A300): width =
+      y-extent of ALL collision geometry (0.665 m), because the A300's
+      base_link has no collision geometry and the wheels stick out past the
+      chassis (chassis alone 0.461 m). Capabilities from sensor tags with the
+      evidence listed (rgb + depth from the rgbd_camera); manipulate_door is
+      never inferred. Result in data/robot/profiles/a300.json (hand-editable,
+      overrides the URDF). The user will supply their own URDF later.
+    - Traversal: door passable if width >= robot width + 0.1 m, open (or
+      robot has manipulate_door), and not to "outside". Door states are an
+      ASSUMED input (data/robot/door_states_IDAC.json, all open), as in the paper.
+    - Exterior door decided by the edge touching "outside": IDAC's exterior
+      door has Pset_DoorCommon IsExternal = false.
+    - A search the user restricted to one room never falls back to other
+      rooms (NoRestrictedRoom precondition on methods 2 and 3), as before.
+    Deviations from the paper: search instead of inspection; Held-Karp
+    instead of greedy BFS ordering; Dijkstra instead of BFS routes;
+    replanning loop (the paper plans once); per-space granularity; no BT export.
+
 3.8 Local models via Ollama (not a cloud API)
     [TODO state your reason - e.g. privacy of building data, cost, offline
     robot deployment - then it can be cited in the report]
@@ -266,6 +334,41 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-10-28  (uncommitted)  HTN planning layer
+  New: scripts/vlm_reasoning/htn/ (core/ framework, domain/ object search,
+  execution/ executor + belief + backends + run_logger, cli.py), tests/htn/
+  (42 pytest tests), data/robot/ (a300.urdf, profiles/a300.json,
+  door_states_IDAC.json), docs/htn_design.md, pytest.ini,
+  requirements-dev.txt (pytest==9.2.0), numpy pinned in requirements.txt
+  (the HTN imports it directly). Design + reasons: 3.10.
+  Changed in existing files (only these):
+    - rank_candidates.optimal_visit_order(..., distance=None): optional
+      distance(room_a, room_b); default = straight line as before. Held-Karp
+      unchanged; output identical to the old function (tested on 50 random
+      cases against a verbatim copy). _greedy_nearest_neighbor takes it too.
+    - Interpreter: "quantity" ("one" | "all") field rule + JSON shape in
+      INTERPRET_SYSTEM_PROMPT; validate_interpretation returns it (default
+      "one"). mode "all" = keep searching after a find.
+    - test_interpreter.py: optional third element (expected quantity) in
+      BUILTIN; 4 new cases.
+    - interactive_search.py: find_object / go_to_room go through the HTN by
+      default; --no-htn keeps SearchSession unchanged. New flags --robot,
+      --door_states, --miss_rate (required), --detect_threshold 0.0,
+      --max_visits_per_room 1, --residual_mass (1 - prob_mass),
+      --distance door_graph|euclidean.
+  Data checks done before coding (step 1): all 15 IDAC adjacency edges join
+  a door record on GUID, every door has width + position + matching rooms;
+  units are metres (room 3: area 156.12 vs footprint 156.14 m2); the
+  synthetic office has no door positions, so the HTN refuses it (--no-htn).
+  The task brief's distances (25 / 27 / 16 m) were via intermediate room
+  centroids; through doors they are 8.3 / 13.4 / 6.1 m.
+  Bugs found while building it:
+    - First version let an infeasible RESTRICTED search fall through to the
+      semantic method; its "prior_needed" code then hid the real reason
+      (door_too_narrow etc.). Fixed with the NoRestrictedRoom precondition.
+    - Route failures lost their details (which door blocks) when reported
+      through a method precondition; Condition.details() added.
+
 2026-10-20  (uncommitted)
   - Follow-up, same day: made the interactive session robust to any input.
     Findings from a 37-prompt battery (searches, navigation, questions, small
@@ -383,6 +486,45 @@ WHY these settings
 -----------------------------------------------------------------------------
 6. EXPERIMENTS AND INTERMEDIATE RESULTS (newest first)
 -----------------------------------------------------------------------------
+2026-10-28  HTN layer: tests and end-to-end runs (uncommitted code)
+  Tests: python -m pytest -> 42 passed (0.0-3 s, no Ollama). Mapped to the
+  paper's validation criteria (completeness, correctness, ordering,
+  groundedness, infeasibility) + determinism (identical plan JSON in 10
+  runs), robot profiles, belief update, distances. Table: htn_design.md 11.
+  End-to-end, "find the first aid kit", IDAC_Model_llm.json, qwen3.5:9b,
+  llm_temperature 0, seed 42, miss_rate 0.2 (ASSUMED value), A300, all doors
+  open, start room 1 (Printer room, first room in the file). Logs:
+  results/htn_runs/20261028_153230_* and 20261028_153439_*.
+    Interpreter: find_object, target "first aid kit", mode single; IFC
+    records no first aid kit -> m_search_recorded rejected -> plan 1 fails
+    with prior_needed -> one ranking call -> m_search_semantic.
+    Prior (softmax T=0.1): Storage 0.216, Lab 0.131, Lobby 0.080, Meeting
+    room 0.080, every office and Workspace 0.048, Printer room / Corridor 0.029.
+    Flat -> 13 rooms needed for 90 %. Identical in both runs.
+    Plan 2: Storage -> Workspace -> Office 8 -> Lab -> Office 7 -> Office 6 ->
+    Office 5 -> Lobby -> Office 4 -> Office 3 -> Meeting room -> Office 2 -> Office 1.
+    Run A (images office2.jpg, Corridor.png, ...): Storage miss (conf 0.99);
+    Workspace "FOUND" with conf 0.95 on Corridor.png - FALSE POSITIVE: the
+    white wall cabinet is a fire-extinguisher cabinet (fire alarm pull
+    station above it), not a first aid kit. 2 rooms, 13.9 m, 3 plans.
+    Run B (office2.jpg, reception.jpg, kitchenwithcups.jpg, then "skip"):
+    3 real misses (conf 0.95-0.99), 11 skips; replanned after every room
+    (16 plans, 1 ranking call, 3 detector calls); after Office 4 the
+    renormalised selection added the Printer room and reordered the rest.
+    Stopped after 14 rooms: "remaining probability 0.039 < residual_mass
+    0.100"; 121.7 m driven.
+  Observations:
+    - The VLM detector's FALSE POSITIVES are not modelled (the belief update
+      only covers misses) and a confidence threshold would not have caught
+      this one (0.95). Needs a measured false-positive rate too.
+    - Shortest-tour ordering visits nearby low-probability rooms before a
+      far likely one (offline stub run: Office 7 and Office 6 at p=0.018
+      before Storage at p=0.46). As specified; a thesis discussion point.
+    - With max_visits_per_room = 2 the tour often re-searches the current
+      room immediately (0 m away). Default 1 is unaffected.
+    - Skipped images still count as visits, so a run of skips ends the
+      search by the stop rule even though nothing was observed.
+
 2026-10-09  clean_ifc.py v2 audit on the available models (uncommitted code)
   Model (schema)            storeys spaces elements types bnds  edges  notes
   synthetic_office (4X3)       1      9     106      0     53     8   all links by relation
@@ -433,10 +575,17 @@ Suggested experiments for the report [ideas, not done]:
   - Fill every [TODO] above.
   - Ask supervisor: explicit HTN formalism (GTPyhop / HDDL) expected, or is a
     documented task decomposition enough? (see 8.7)
-  - Planning layer: implement option 8.4 b) and the belief update in 8.6;
-    evaluate plan-validity rate and steps-to-find vs an LLM-only baseline.
-  - Use the _llm adjacency (door graph) for route distances instead of
-    straight-line centroid distance.
+  - Planning layer: 8.4 b) and the belief update of 8.6 are implemented
+    (2026-10-28, 3.10). Still to do: evaluate plan-validity rate and
+    steps-to-find vs the --no-htn baseline and an LLM-only planner.
+  - Measure the detector miss rate (and false-positive rate, see 6,
+    2026-10-28) on a labelled image set; move miss_rate to a detector config.
+  - Ask supervisor whether distance-only visit ordering is wanted, or a
+    probability-aware order (expected time to find); currently distance only.
+  - Real door states for IDAC (data/robot/door_states_IDAC.json is assumed).
+  - Replace a300.urdf by the user's own robot URDF when available.
+  - Route lengths use straight lines between doors inside a room (cross
+    furniture in room 3); could use the make_grid.py occupancy grid instead.
   - Evaluate building_query: labelled questions with ground truth computed
     from _full.json; compare (1) _llm summary only, (2) LLM-picks-records,
     (3) plan -> compute -> answer. Repeat on a larger model.
@@ -454,7 +603,9 @@ Suggested experiments for the report [ideas, not done]:
 -----------------------------------------------------------------------------
 Purpose: background and design argument for the planning component (thesis
 task 4, "structured task representations, HTN or similar") and the related-work
-chapter (task 1). Nothing here is implemented yet.
+chapter (task 1). Implemented on 2026-10-28 as option 8.4 b) with the belief
+update of 8.6, using an own planner as in Tandon et al. (see 3.10 and
+docs/htn_design.md).
 
 8.1 What an HTN (Hierarchical Task Network) is
     A classical planner (STRIPS/PDDL) searches for ANY action sequence that

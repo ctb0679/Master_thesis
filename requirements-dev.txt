@@ -1,0 +1,2 @@
+# Test-only dependencies (pip install -r requirements-dev.txt), on top of requirements.txt
+pytest==9.2.0

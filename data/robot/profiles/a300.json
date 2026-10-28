@@ -1,0 +1,145 @@
+{
+  "id": "a300",
+  "width_m": 0.665,
+  "capabilities": [
+    "navigate",
+    "rgb",
+    "depth"
+  ],
+  "safety_margin_m": 0.1,
+  "allow_exterior": false,
+  "length_m": 0.995,
+  "evidence": {
+    "navigate": "assumed: mobile base (continuous joints: front_left_wheel_joint, front_right_wheel_joint, rear_left_wheel_joint, rear_right_wheel_joint)",
+    "rgb": [
+      "<sensor name=\"camera_0\" type=\"rgbd_camera\"> on link camera_0_link"
+    ],
+    "depth": [
+      "<sensor name=\"camera_0\" type=\"rgbd_camera\"> on link camera_0_link"
+    ],
+    "other_sensors (no capability used by the planner)": [
+      "lidar3d_0 (gpu_lidar)",
+      "imu_0 (imu)"
+    ],
+    "manipulate_door": "not inferred (never inferred from a URDF; add it by hand if the robot can open doors)",
+    "width": {
+      "method": "y-extent of all collision geometry in the base_link frame",
+      "root_link": "base_link",
+      "outermost_links": [
+        "front_right_wheel_link",
+        "front_left_wheel_link"
+      ],
+      "geometries": [
+        {
+          "link": "chassis_link",
+          "geometry": "mesh chassis_collision.stl",
+          "y_min": -0.2303,
+          "y_max": 0.2305
+        },
+        {
+          "link": "left_suspension_beam_spacer_link",
+          "geometry": "mesh suspension_spacer.stl",
+          "y_min": 0.192,
+          "y_max": 0.2079
+        },
+        {
+          "link": "left_suspension_beam_link",
+          "geometry": "mesh suspension_beam.stl",
+          "y_min": 0.2079,
+          "y_max": 0.2174
+        },
+        {
+          "link": "right_suspension_beam_spacer_link",
+          "geometry": "mesh suspension_spacer.stl",
+          "y_min": -0.192,
+          "y_max": -0.1761
+        },
+        {
+          "link": "right_suspension_beam_link",
+          "geometry": "mesh suspension_beam.stl",
+          "y_min": -0.2079,
+          "y_max": -0.1984
+        },
+        {
+          "link": "front_left_motor_link",
+          "geometry": "mesh motor.stl",
+          "y_min": 0.0994,
+          "y_max": 0.2254
+        },
+        {
+          "link": "front_right_motor_link",
+          "geometry": "mesh motor.stl",
+          "y_min": -0.3164,
+          "y_max": -0.1904
+        },
+        {
+          "link": "front_left_wheel_link",
+          "geometry": "cylinder",
+          "y_min": 0.2236,
+          "y_max": 0.3422
+        },
+        {
+          "link": "front_right_wheel_link",
+          "geometry": "cylinder",
+          "y_min": -0.3232,
+          "y_max": -0.2046
+        },
+        {
+          "link": "rear_left_motor_link",
+          "geometry": "mesh motor.stl",
+          "y_min": 0.0994,
+          "y_max": 0.2254
+        },
+        {
+          "link": "rear_right_motor_link",
+          "geometry": "mesh motor.stl",
+          "y_min": -0.3164,
+          "y_max": -0.1904
+        },
+        {
+          "link": "rear_left_wheel_link",
+          "geometry": "cylinder",
+          "y_min": 0.2236,
+          "y_max": 0.3422
+        },
+        {
+          "link": "rear_right_wheel_link",
+          "geometry": "cylinder",
+          "y_min": -0.3232,
+          "y_max": -0.2046
+        },
+        {
+          "link": "front_bumper_link",
+          "geometry": "mesh bumper_collision.stl",
+          "y_min": -0.1889,
+          "y_max": 0.1889
+        },
+        {
+          "link": "rear_bumper_link",
+          "geometry": "mesh bumper_collision.stl",
+          "y_min": -0.1889,
+          "y_max": 0.1889
+        },
+        {
+          "link": "top_plate_link",
+          "geometry": "box",
+          "y_min": -0.21,
+          "y_max": 0.21
+        },
+        {
+          "link": "lidar3d_0_link",
+          "geometry": "cylinder",
+          "y_min": -0.0516,
+          "y_max": 0.0516
+        },
+        {
+          "link": "camera_0_link",
+          "geometry": "box",
+          "y_min": -0.045,
+          "y_max": 0.045
+        }
+      ]
+    }
+  },
+  "source": "../../data/robot/urdf/a300.urdf"
+}
