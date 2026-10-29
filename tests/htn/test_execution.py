@@ -54,7 +54,8 @@ def run(state, keys, found_in=(), miss_rate=0.2, max_visits=1, residual=None, sk
 
     def ranker(text):
         calls.append(text)
-        return prior_for(keys)
+        return [{"space": g, "probability": p, "likelihood": p, "reasoning": f"stub reason for {g}"}
+                for g, p in prior_for(keys).items()]
 
     perception = StubBackend(found_in=found_in, skip=skip)
     from htn.core import HTNPlanner
@@ -70,6 +71,14 @@ def test_finds_the_target_and_stops(idac):
     assert summary.outcome == "found" and summary.found == [keys["14"]]
     assert summary.visit_order[-1] == keys["14"]
     assert len(calls) == 1                                     # ranking model asked once per task
+
+
+def test_rankings_keep_the_model_reasoning(idac):
+    state, keys = idac
+    summary, _, _ = run(state, keys, found_in=[keys["14"]])
+    assert summary.rankings[0]["space"] == keys["2"]           # sorted by probability
+    assert all(r["reasoning"] == f"stub reason for {r['space']}" for r in summary.rankings)
+    assert len(summary.rankings) == len(keys)
 
 
 def test_restricted_search_never_calls_the_ranker(idac):

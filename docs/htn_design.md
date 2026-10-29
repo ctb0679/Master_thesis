@@ -443,7 +443,7 @@ rooms) are applied to the prior when it arrives.
 | Call | Where | When |
 |---|---|---|
 | `interpret_task` + `validate_interpretation` | `interactive_search.py` | once per input |
-| `call_ollama` → `validate_rankings` → `softmax_probabilities` | ranker in `cli.py` | at most once per task |
+| `call_ollama` → `validate_rankings` → `softmax_probabilities` | ranker in `cli.py`; returns `[{space, probability, likelihood, reasoning}]`, printed and logged with the model's reasoning per room | at most once per task |
 | `VisualDetector.detect` | `ManualImageBackend` | at each `detect` with an image |
 
 All use `build_ollama_options(--llm_temperature, --seed)`.
@@ -548,13 +548,14 @@ All use `build_ollama_options(--llm_temperature, --seed)`.
 `residual_mass`, `distance`, `llm_temperature`, `seed`, model), `outcome`
 (`found` / `not_found` / `reached` / `infeasible` / `aborted`) and `reason`,
 found spaces, visit order (GUIDs and labels), metres travelled, iterations,
-model calls, failure.
+model calls, failure, and `rankings` (probability, score and the model's
+reasoning per room; also in the `iter_<nn>.json` that asked the model).
 
 ---
 
 ## 11. Tests (`python -m pytest`), mapped to the paper's criteria
 
-42 tests, all passing, no Ollama (ranker and detector stubbed).
+43 tests, all passing, no Ollama (ranker and detector stubbed).
 
 | Criterion | Tests |
 |---|---|

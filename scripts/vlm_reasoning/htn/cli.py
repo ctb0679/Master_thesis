@@ -80,12 +80,14 @@ class HTNSearch:
         return cls(args, session, llm_json, full_json)
 
     def make_ranker(self, session):
-        """call_ollama -> validate_rankings -> softmax, as {space guid: probability}."""
+        """call_ollama -> validate_rankings -> softmax, as a list of
+        {space (guid), probability, likelihood, reasoning}."""
         def rank(task_text):
             rankings = call_ollama(session.host, session.model, task_text, session.room_summaries,
                                    options=session.ollama_options)
             rankings = softmax_probabilities(validate_rankings(rankings, session.building), session.softmax_temp)
-            return {self.key_to_guid[r["room"]]: r["probability"] for r in rankings}
+            return [{"space": self.key_to_guid[r["room"]], "probability": r["probability"],
+                     "likelihood": r["likelihood"], "reasoning": r["reasoning"]} for r in rankings]
         return rank
 
     def run(self, session, interp, user_text):

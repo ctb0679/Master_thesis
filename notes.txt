@@ -334,6 +334,23 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-10-29  HTN: show the ranking model's reasoning again
+  What: the HTN ranker (htn/cli.py make_ranker) now returns
+    [{space, probability, likelihood, reasoning}] instead of only
+    {space: probability}. PlanExecutor._fetch_prior prints
+    "p=..  score=..  <room>  <reasoning>" (same layout as --no-htn) and keeps
+    the list in RunSummary.rankings -> summary.json, and in the iter_<nn>.json
+    of the iteration that asked the model. New test:
+    test_rankings_keep_the_model_reasoning (43 tests).
+  Why: the HTN version printed only p and the room, so the reasoning the
+    model already returns (validate_rankings keeps it) was lost; it is needed
+    to judge whether a ranking is sensible and to quote in the thesis.
+  Alternatives: a second ranker callback just for display (rejected: two
+    contracts for one call); printing inside cli.py (rejected: the executor
+    decides when the model is asked, so it owns the output and the log).
+  Results: unit tests pass; the belief/plan behaviour is unchanged (only the
+    prior's probabilities are used for planning).
+
 2026-10-28  (uncommitted)  HTN planning layer
   New: scripts/vlm_reasoning/htn/ (core/ framework, domain/ object search,
   execution/ executor + belief + backends + run_logger, cli.py), tests/htn/

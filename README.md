@@ -337,6 +337,8 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
 - Every plan is logged to `results/htn_runs/<timestamp>_<task>/iter_<nn>.json`
   (state, prior, posterior, chosen method, decomposition tree with rejected
   methods and reasons, plan, executed actions, observation), plus `summary.json`.
+- The room probabilities are printed with the model's score and one-line
+  reasoning per room, as in `--no-htn`, and saved as `rankings` in `summary.json`.
 - `--no-htn` keeps the previous `SearchSession` behaviour as the evaluation baseline.
 
 ### Tests

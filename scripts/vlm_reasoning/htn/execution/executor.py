@@ -20,6 +20,7 @@ class RunSummary:
     outcome: str                      # found | not_found | reached | infeasible | aborted
     reason: str = ""
     found: list = field(default_factory=list)
+    rankings: list = field(default_factory=list)   # ranking model output, with its reasoning per room
     visit_order: list = field(default_factory=list)
     travelled_m: float = 0.0
     iterations: int = 0
@@ -47,6 +48,7 @@ class PlanExecutor:
         self.residual_mass = residual_mass if residual_mass is not None else 1 - state.settings["prob_mass"]
         self.log = log
         self.ranker_calls = 0
+        self.rankings = []
 
     def label(self, space):
         return DoorGraph.from_state(self.state).label(space)
@@ -87,6 +89,7 @@ class PlanExecutor:
                 if code == "prior_needed" and self.ranker_calls == 0:
                     self._fetch_prior()
                     record["note"] = "no prior yet: asked the ranking model, replanning"
+                    record["rankings"] = self.rankings
                     self.logger.log_iteration(n, record)
                     continue
                 if code == "no_eligible_rooms":
@@ -132,6 +135,7 @@ class PlanExecutor:
         else:
             summary.reason = f"stopped after {max_iterations} iterations"
 
+        summary.rankings = self.rankings
         summary.model_calls = {"ranker": self.ranker_calls,
                                "detector": getattr(self.perception, "model_calls", 0)}
         summary.log_dir = str(self.logger.dir) if self.logger.dir else None
@@ -141,17 +145,21 @@ class PlanExecutor:
 
     def _fetch_prior(self):
         """Ask the ranking model once; misses observed before (in recorded
-        rooms) are then applied to the new prior."""
+        rooms) are then applied to the new prior. The ranker returns
+        [{space, probability, likelihood, reasoning}, ...]."""
         self.log("\nQuerying the model for room probabilities...")
-        probabilities = self.ranker(self.state.task.get("text") or self.state.task.get("target"))
+        self.rankings = sorted(self.ranker(self.state.task.get("text") or self.state.task.get("target")),
+                               key=lambda r: -r["probability"])
         self.ranker_calls += 1
-        self.belief.set_prior(probabilities)
+        self.belief.set_prior({r["space"]: r["probability"] for r in self.rankings})
         for obs in self.state.search["observations"]:
             if not obs["skipped"] and not obs["found"]:
                 self.belief.update_on_miss(obs["space"], self.miss_rate)
         self.state.belief = self.belief.to_state()
-        for space, p in sorted(self.belief.prior.items(), key=lambda kv: -kv[1]):
-            self.log(f"  p={p:.3f}  {self.label(space)}")
+        for r in self.rankings:
+            score = f"score={r['likelihood']:.2f}  " if r.get("likelihood") is not None else ""
+            self.log(f"  p={self.belief.prior[r['space']]:.3f}  {score}"
+                     f"{self.label(r['space']):28s} {r.get('reasoning', '')}")
 
     def _is_find(self, obs):
         return (not obs.skipped and obs.found
