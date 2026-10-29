@@ -512,6 +512,35 @@ WHY these settings
 -----------------------------------------------------------------------------
 6. EXPERIMENTS AND INTERMEDIATE RESULTS (newest first)
 -----------------------------------------------------------------------------
+2026-10-29  fantasy_office_building_1.ifc (German Revit 2025 export), no code changes
+  Cleaning: clean_ifc.py --input data/raw_ifc/fantasy_office_building_1.ifc
+  -> 14 s, 44 rooms, 96 equipment, 34 doors, 5 storeys (EG, OG1-OG4),
+  0 errors, rooms_without_function = [] (all from LongName).
+  Language: room Names are numbers, LongNames English (Lobby, WC, Working
+  Space, Meeting Room); equipment, doors and materials German (Waschbecken,
+  Drehstuhl, Drehflügel, "8 Stühle"). Storeys use German abbreviations.
+  HTN runs (qwen3.5:9b, temp 0, seed 42, miss_rate 0.2, A300, no images):
+    - "find a sink": interpreter mapped sink -> Waschbecken, but listed all
+      22 WCs as recorded although only 10 have one (over-claim); ranking
+      correct (the 10 WCs with Waschbecken p=0.1 each, reasons in English).
+    - "Finde den Feuerlöscher": target -> 'fire extinguisher'; sensible
+      ranking (lobbies first).
+    - "geh zum Besprechungsraum": -> 8 (Meeting Room); took 8 without
+      asking although 9 is also a Meeting Room.
+    => German input and German equipment names work without changes.
+  Building-model findings (not language):
+    - Circulation (corridors, stair cores) is not modelled as IfcSpace; the
+      14 IfcStair are not linked to rooms. From room 1 the robot can reach
+      only rooms 2-4 without passing an exterior door; OG2-OG4 rooms form
+      isolated groups (Working Space + its WCs). go_to 8 -> infeasible
+      (exterior_not_allowed).
+    - Single-floor assumption of the HTN: storeys are not modelled; all
+      centroids are 2-D, so rooms on different floors overlap.
+    - Outcome reporting: unreachable rooms are silently not eligible, so the
+      fire extinguisher run ended "not_found (remaining probability 0.001)"
+      after 1 room although rooms with p = 0.46 (24, 29, 5) were unreachable.
+  Logs: results/htn_runs/20261029_1254*, 20261029_125518_*.
+
 2026-10-28  HTN layer: tests and end-to-end runs (uncommitted code)
   Tests: python -m pytest -> 42 passed (0.0-3 s, no Ollama). Mapped to the
   paper's validation criteria (completeness, correctness, ordering,

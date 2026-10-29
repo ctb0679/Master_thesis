@@ -1,0 +1,1514 @@
+{
+  "meta": {
+    "source_file": "fantasy_office_building_1.ifc",
+    "schema": "IFC4",
+    "units": "metres",
+    "outside_node": "outside"
+  },
+  "rooms": [
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Ox78",
+      "name": "1",
+      "function": "Lobby",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 98.29,
+      "centroid": [
+        8.273,
+        -6.783
+      ]
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Ox70",
+      "name": "2",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 4.87,
+      "centroid": [
+        7.098,
+        3.793
+      ]
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Ox7V",
+      "name": "3",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 3.53,
+      "centroid": [
+        7.098,
+        6.721
+      ]
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Ox7Q",
+      "name": "4",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 3.53,
+      "centroid": [
+        7.099,
+        9.195
+      ]
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Ox7L",
+      "name": "5",
+      "function": "Lobby",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 18.09,
+      "centroid": [
+        3.47,
+        -18.857
+      ]
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "name": "6",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 34.91,
+      "centroid": [
+        -2.898,
+        -18.812
+      ]
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Ox6l",
+      "name": "7",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        -17.267
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRMe",
+      "name": "8",
+      "function": "Meeting Room",
+      "function_source": "LongName",
+      "storey": "OG1",
+      "area_m2": 16.34,
+      "centroid": [
+        8.145,
+        8.101
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRMm",
+      "name": "9",
+      "function": "Meeting Room",
+      "function_source": "LongName",
+      "storey": "OG1",
+      "area_m2": 16.34,
+      "centroid": [
+        -10.173,
+        8.101
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRM$",
+      "name": "10",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG1",
+      "area_m2": 53.52,
+      "centroid": [
+        -0.705,
+        8.332
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRMw",
+      "name": "11",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG1",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        6.773
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRMv",
+      "name": "12",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG1",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        -17.267
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRM4",
+      "name": "13",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG1",
+      "area_m2": 53.52,
+      "centroid": [
+        -0.705,
+        -18.826
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRMH",
+      "name": "14",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 103.83,
+      "centroid": [
+        8.218,
+        -6.241
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRMT",
+      "name": "15",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 3.53,
+      "centroid": [
+        7.098,
+        6.721
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRMO",
+      "name": "16",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 3.53,
+      "centroid": [
+        7.099,
+        9.195
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRNd",
+      "name": "17",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 53.52,
+      "centroid": [
+        -0.705,
+        -18.826
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRNY",
+      "name": "18",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        -17.267
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRNX",
+      "name": "19",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 103.83,
+      "centroid": [
+        -10.246,
+        -6.241
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRNi",
+      "name": "20",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 3.53,
+      "centroid": [
+        -9.127,
+        9.195
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRNh",
+      "name": "21",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 3.53,
+      "centroid": [
+        -9.127,
+        6.72
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRNs",
+      "name": "22",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 53.52,
+      "centroid": [
+        -0.705,
+        8.332
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRNr",
+      "name": "23",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG2",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        6.773
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRgN",
+      "name": "24",
+      "function": "Lobby",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 98.29,
+      "centroid": [
+        -10.301,
+        -6.783
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRgI",
+      "name": "25",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 4.87,
+      "centroid": [
+        -9.127,
+        3.793
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRgH",
+      "name": "26",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 3.53,
+      "centroid": [
+        -9.127,
+        6.72
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRgS",
+      "name": "27",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 3.53,
+      "centroid": [
+        -9.127,
+        9.195
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRhs",
+      "name": "28",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 34.91,
+      "centroid": [
+        -2.898,
+        8.318
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRhr",
+      "name": "29",
+      "function": "Lobby",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 18.09,
+      "centroid": [
+        3.47,
+        8.363
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRhm",
+      "name": "30",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "EG",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        6.773
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzReR",
+      "name": "31",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 103.83,
+      "centroid": [
+        8.218,
+        -6.241
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRfd",
+      "name": "32",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 103.83,
+      "centroid": [
+        -10.246,
+        -6.241
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRfY",
+      "name": "33",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 3.53,
+      "centroid": [
+        -9.127,
+        6.72
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRfX",
+      "name": "34",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 3.53,
+      "centroid": [
+        -9.127,
+        9.195
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRfi",
+      "name": "35",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 3.53,
+      "centroid": [
+        7.099,
+        9.195
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRfh",
+      "name": "36",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 3.53,
+      "centroid": [
+        7.098,
+        6.721
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRfs",
+      "name": "37",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 53.52,
+      "centroid": [
+        -0.705,
+        8.332
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRfr",
+      "name": "38",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        6.773
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRfm",
+      "name": "39",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        -17.267
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRf$",
+      "name": "40",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG3",
+      "area_m2": 53.52,
+      "centroid": [
+        -0.705,
+        -18.826
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRf6",
+      "name": "41",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG4",
+      "area_m2": 53.52,
+      "centroid": [
+        -0.705,
+        8.332
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRf7",
+      "name": "42",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG4",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        6.773
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRf4",
+      "name": "43",
+      "function": "WC",
+      "function_source": "LongName",
+      "storey": "OG4",
+      "area_m2": 2.63,
+      "centroid": [
+        -6.634,
+        -17.267
+      ]
+    },
+    {
+      "guid": "0II2RZUufDBOPLitolzRf5",
+      "name": "44",
+      "function": "Working Space",
+      "function_source": "LongName",
+      "storey": "OG4",
+      "area_m2": 53.52,
+      "centroid": [
+        -0.705,
+        -18.826
+      ]
+    }
+  ],
+  "equipment": [
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5duZ",
+      "name": "Glas:Typ1:483137",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5dx5",
+      "name": "Glas:Typ1:483239",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5a5a",
+      "name": "Glas:Typ1:483334",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5a4C",
+      "name": "Glas:Typ1:483438",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5a1r",
+      "name": "Glas:Typ1:483607",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxe",
+      "name": "Glas:Typ1:527110",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxc",
+      "name": "Glas:Typ1:527112",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxd",
+      "name": "Glas:Typ1:527113",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxb",
+      "name": "Glas:Typ1:527115",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwxY",
+      "name": "Glas:Typ1:527116",
+      "ifc_class": "IfcBuildingElementProxy",
+      "type": "Glas:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe66y",
+      "name": "WC 01:WC:496045",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0N9CSx_ib7HQ7izEW$Ox6l",
+      "room_source": "geometric"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe6dd",
+      "name": "Waschbecken 05:Tischbreite 900:498166",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0N9CSx_ib7HQ7izEW$Ox6l",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9nT",
+      "name": "WC 01:WC:513026",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0N9CSx_ib7HQ7izEW$Ox70",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9tx",
+      "name": "Waschbecken 05:Tischbreite 900:513444",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0N9CSx_ib7HQ7izEW$Ox70",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9sY",
+      "name": "WC 01:WC:513533",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7V",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9sX",
+      "name": "Waschbecken 05:Tischbreite 900:513534",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7V",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9u3",
+      "name": "WC 01:WC:513628",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7Q",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9u2",
+      "name": "Waschbecken 05:Tischbreite 900:513629",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7Q",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9Ao",
+      "name": "Urinal 02:Urinal:514797",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Urinal 02:Urinal",
+      "room": "0N9CSx_ib7HQ7izEW$Ox70",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9IB",
+      "name": "WC 01:WC:515284",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0II2RZUufDBOPLitolzRMv",
+      "room_source": "geometric"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9I9",
+      "name": "Waschbecken 05:Tischbreite 900:515286",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0II2RZUufDBOPLitolzRMv",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owd_",
+      "name": "WC 01:WC:527376",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0II2RZUufDBOPLitolzRgI",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owdy",
+      "name": "Waschbecken 05:Tischbreite 900:527378",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0II2RZUufDBOPLitolzRgI",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owdw",
+      "name": "WC 01:WC:527380",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0II2RZUufDBOPLitolzRgH",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owdx",
+      "name": "Waschbecken 05:Tischbreite 900:527381",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0II2RZUufDBOPLitolzRgH",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owds",
+      "name": "WC 01:WC:527384",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0II2RZUufDBOPLitolzRgS",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owdt",
+      "name": "Waschbecken 05:Tischbreite 900:527385",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0II2RZUufDBOPLitolzRgS",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owdq",
+      "name": "Urinal 02:Urinal:527386",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Urinal 02:Urinal",
+      "room": "0II2RZUufDBOPLitolzRgI",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwjO",
+      "name": "WC 01:WC:528054",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0II2RZUufDBOPLitolzRhm",
+      "room_source": "geometric"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwjM",
+      "name": "Waschbecken 05:Tischbreite 900:528056",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0II2RZUufDBOPLitolzRhm",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owid",
+      "name": "WC 01:WC:528073",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "WC 01:WC",
+      "room": "0II2RZUufDBOPLitolzRMw",
+      "room_source": "geometric"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owib",
+      "name": "Waschbecken 05:Tischbreite 900:528075",
+      "ifc_class": "IfcFlowTerminal",
+      "type": "Waschbecken 05:Tischbreite 900",
+      "room": "0II2RZUufDBOPLitolzRMw",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKD8H",
+      "name": "Tisch_Empfang:Tisch_empfang:472839",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch_Empfang:Tisch_empfang",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKDZf",
+      "name": "Drehstuhl-01:Typ1:474623",
+      "ifc_class": "IfcFurniture",
+      "type": "Drehstuhl-01:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKA00",
+      "name": "Sofa-08:2000 x 800:476438",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-08:2000 x 800",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKA0l",
+      "name": "Drehstuhl-01:Typ1:476473",
+      "ifc_class": "IfcFurniture",
+      "type": "Drehstuhl-01:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKAD4",
+      "name": "Tisch_Empfang:Tisch_empfang:476754",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch_Empfang:Tisch_empfang",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKAdK",
+      "name": "Hocker-06:Typ1:478402",
+      "ifc_class": "IfcFurniture",
+      "type": "Hocker-06:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKAZY",
+      "name": "Hocker-06:Typ1:478708",
+      "ifc_class": "IfcFurniture",
+      "type": "Hocker-06:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKAit",
+      "name": "Hocker-06:Typ1:478753",
+      "ifc_class": "IfcFurniture",
+      "type": "Hocker-06:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKAir",
+      "name": "Hocker-06:Typ1:478755",
+      "ifc_class": "IfcFurniture",
+      "type": "Hocker-06:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKBJA",
+      "name": "Sofa-02:B 800:479708",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-02:B 800",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0IhjmBLjj8p9J$NL5GKBPJ",
+      "name": "Sofa-02:B 800:480069",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-02:B 800",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5dSV",
+      "name": "Tisch-02:D 600, H 350, Glas:480893",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch-02:D 600, H 350, Glas",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5dOL",
+      "name": "Sofa-02:B 800:481143",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-02:B 800",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5dOQ",
+      "name": "Sofa-02:B 800:481144",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-02:B 800",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5dOR",
+      "name": "Tisch-02:D 600, H 350, Glas:481145",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch-02:D 600, H 350, Glas",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5dZZ",
+      "name": "Tisch-04:800 x 800 x 450:481665",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch-04:800 x 800 x 450",
+      "room": "0N9CSx_ib7HQ7izEW$Ox78",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe4zJ",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:507714",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe35R",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:508234",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe3AX",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:508592",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe3Hp",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:509026",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe3Jo",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:509155",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe3NT",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:509388",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe3N7",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:509398",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9I4",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:515291",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM4",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9I3",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:515292",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM4",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9I2",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:515293",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM4",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9I1",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:515294",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM4",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9I0",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:515295",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM4",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9I$",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:515296",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM4",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9I_",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:515297",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM4",
+      "room_source": "relation"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9KG",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:515407",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM4",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyS",
+      "name": "Tisch_Empfang:Tisch_empfang:527090",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch_Empfang:Tisch_empfang",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyT",
+      "name": "Drehstuhl-01:Typ1:527091",
+      "ifc_class": "IfcFurniture",
+      "type": "Drehstuhl-01:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyQ",
+      "name": "Sofa-08:2000 x 800:527092",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-08:2000 x 800",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyR",
+      "name": "Drehstuhl-01:Typ1:527093",
+      "ifc_class": "IfcFurniture",
+      "type": "Drehstuhl-01:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyO",
+      "name": "Tisch_Empfang:Tisch_empfang:527094",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch_Empfang:Tisch_empfang",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyP",
+      "name": "Hocker-06:Typ1:527095",
+      "ifc_class": "IfcFurniture",
+      "type": "Hocker-06:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyN",
+      "name": "Hocker-06:Typ1:527097",
+      "ifc_class": "IfcFurniture",
+      "type": "Hocker-06:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyL",
+      "name": "Hocker-06:Typ1:527099",
+      "ifc_class": "IfcFurniture",
+      "type": "Hocker-06:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyJ",
+      "name": "Hocker-06:Typ1:527101",
+      "ifc_class": "IfcFurniture",
+      "type": "Hocker-06:Typ1",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwyH",
+      "name": "Sofa-02:B 800:527103",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-02:B 800",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxk",
+      "name": "Sofa-02:B 800:527104",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-02:B 800",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxl",
+      "name": "Tisch-02:D 600, H 350, Glas:527105",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch-02:D 600, H 350, Glas",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxi",
+      "name": "Sofa-02:B 800:527106",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-02:B 800",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxj",
+      "name": "Sofa-02:B 800:527107",
+      "ifc_class": "IfcFurniture",
+      "type": "Sofa-02:B 800",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxg",
+      "name": "Tisch-02:D 600, H 350, Glas:527108",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch-02:D 600, H 350, Glas",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owxh",
+      "name": "Tisch-04:800 x 800 x 450:527109",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch-04:800 x 800 x 450",
+      "room": "0II2RZUufDBOPLitolzRgN",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwYh",
+      "name": "Tisch-Stuhl-Kombination-08 Konferenz:2400 x 1000 x 750 - 8 St\u00fchle:527685",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch-Stuhl-Kombination-08 Konferenz:2400 x 1000 x 750 - 8 St\u00fchle",
+      "room": "0II2RZUufDBOPLitolzRMm",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwjG",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528062",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRhs",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwjH",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528063",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRhs",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owik",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528064",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRhs",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owil",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528065",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRhs",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owii",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528066",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRhs",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owij",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528067",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRhs",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owig",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528068",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRhs",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwiW",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528078",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM$",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwiX",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528079",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM$",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owi_",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528080",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM$",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owi$",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528081",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM$",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owiy",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528082",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM$",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owiz",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528083",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM$",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owiw",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528084",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM$",
+      "room_source": "relation"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owiu",
+      "name": "Schreibtisch-Kombination-02 mit PC:Typ1:528086",
+      "ifc_class": "IfcFurniture",
+      "type": "Schreibtisch-Kombination-02 mit PC:Typ1",
+      "room": "0II2RZUufDBOPLitolzRM$",
+      "room_source": "relation"
+    },
+    {
+      "guid": "2TThLe7Hj4EeSrbZELDMOm",
+      "name": "Tisch-Stuhl-Kombination-08 Konferenz:2400 x 1000 x 750 - 8 St\u00fchle:531880",
+      "ifc_class": "IfcFurniture",
+      "type": "Tisch-Stuhl-Kombination-08 Konferenz:2400 x 1000 x 750 - 8 St\u00fchle",
+      "room": "0II2RZUufDBOPLitolzRMe",
+      "room_source": "relation"
+    }
+  ],
+  "adjacency": [
+    {
+      "a": "0N9CSx_ib7HQ7izEW$Ox78",
+      "b": "outside",
+      "via": "2S7nIm7pvBthAHaPVMoDmb",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0N9CSx_ib7HQ7izEW$Ox78",
+      "b": "outside",
+      "via": "2S7nIm7pvBthAHaPVMoDmd",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0N9CSx_ib7HQ7izEW$Ox7L",
+      "b": "outside",
+      "via": "3SOX5dZHP7dwnUJhhNe8vQ",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0N9CSx_ib7HQ7izEW$Ox6l",
+      "b": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "via": "3SOX5dZHP7dwnUJhhNe7ri",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "b": "0N9CSx_ib7HQ7izEW$Ox7L",
+      "via": "3SOX5dZHP7dwnUJhhNe6pj",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0N9CSx_ib7HQ7izEW$Ox70",
+      "b": "0N9CSx_ib7HQ7izEW$Ox78",
+      "via": "3xCOwMZ_r0HfXOhUmMA9nU",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0N9CSx_ib7HQ7izEW$Ox78",
+      "b": "0N9CSx_ib7HQ7izEW$Ox7V",
+      "via": "3xCOwMZ_r0HfXOhUmMA9sZ",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0N9CSx_ib7HQ7izEW$Ox78",
+      "b": "0N9CSx_ib7HQ7izEW$Ox7Q",
+      "via": "3xCOwMZ_r0HfXOhUmMA9u4",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRM4",
+      "b": "0II2RZUufDBOPLitolzRMv",
+      "via": "3xCOwMZ_r0HfXOhUmMA9IC",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRMe",
+      "b": "outside",
+      "via": "37dJdSzd98YfHGn6im$tKD",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRgN",
+      "b": "outside",
+      "via": "0N9CSx_ib7HQ7izEW$Ow$6",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRgN",
+      "b": "outside",
+      "via": "0N9CSx_ib7HQ7izEW$Ow$4",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRgI",
+      "b": "0II2RZUufDBOPLitolzRgN",
+      "via": "0N9CSx_ib7HQ7izEW$OwdX",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRgH",
+      "b": "0II2RZUufDBOPLitolzRgN",
+      "via": "0N9CSx_ib7HQ7izEW$Owdz",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRgN",
+      "b": "0II2RZUufDBOPLitolzRgS",
+      "via": "0N9CSx_ib7HQ7izEW$Owdv",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRMm",
+      "b": "outside",
+      "via": "0N9CSx_ib7HQ7izEW$OwYf",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRhr",
+      "b": "outside",
+      "via": "0N9CSx_ib7HQ7izEW$Owj_",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRhm",
+      "b": "0II2RZUufDBOPLitolzRhs",
+      "via": "0N9CSx_ib7HQ7izEW$OwjR",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRhr",
+      "b": "0II2RZUufDBOPLitolzRhs",
+      "via": "0N9CSx_ib7HQ7izEW$OwjL",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRM$",
+      "b": "0II2RZUufDBOPLitolzRMw",
+      "via": "0N9CSx_ib7HQ7izEW$Owic",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRNY",
+      "b": "0II2RZUufDBOPLitolzRNd",
+      "via": "0N9CSx_ib7HQ7izEW$Ox6R",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRf$",
+      "b": "0II2RZUufDBOPLitolzRfm",
+      "via": "0N9CSx_ib7HQ7izEW$Ox6L",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRf4",
+      "b": "0II2RZUufDBOPLitolzRf5",
+      "via": "0N9CSx_ib7HQ7izEW$Ox5k",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRNr",
+      "b": "0II2RZUufDBOPLitolzRNs",
+      "via": "0N9CSx_ib7HQ7izEW$Ox5r",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRfr",
+      "b": "0II2RZUufDBOPLitolzRfs",
+      "via": "0N9CSx_ib7HQ7izEW$Ox5E",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRf6",
+      "b": "0II2RZUufDBOPLitolzRf7",
+      "via": "0N9CSx_ib7HQ7izEW$Ox5B",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRMH",
+      "b": "0II2RZUufDBOPLitolzRMT",
+      "via": "0N9CSx_ib7HQ7izEW$Ox4y",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRMH",
+      "b": "0II2RZUufDBOPLitolzRMO",
+      "via": "0N9CSx_ib7HQ7izEW$Ox4w",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRNX",
+      "b": "0II2RZUufDBOPLitolzRNh",
+      "via": "0II2RZUufDBOPLitolzRMN",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRNX",
+      "b": "0II2RZUufDBOPLitolzRNi",
+      "via": "0II2RZUufDBOPLitolzRML",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRfY",
+      "b": "0II2RZUufDBOPLitolzRfd",
+      "via": "0II2RZUufDBOPLitolzRhP",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzRfX",
+      "b": "0II2RZUufDBOPLitolzRfd",
+      "via": "0II2RZUufDBOPLitolzRed",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzReR",
+      "b": "0II2RZUufDBOPLitolzRfh",
+      "via": "0II2RZUufDBOPLitolzReq",
+      "via_class": "IfcDoor"
+    },
+    {
+      "a": "0II2RZUufDBOPLitolzReR",
+      "b": "0II2RZUufDBOPLitolzRfi",
+      "via": "0II2RZUufDBOPLitolzRer",
+      "via_class": "IfcDoor"
+    }
+  ]
+}
