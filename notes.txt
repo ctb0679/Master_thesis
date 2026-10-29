@@ -334,6 +334,15 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-10-29  Raw IFC files replaced (data/raw_ifc/)
+  Removed ac20.ifc and fantasy1.ifc; added fantasy_office_building_1/2/3.ifc
+  (13.4, 19.5, 9.7 MB). fantasy_office_building_1.ifc is byte-identical to
+  the old ac20.ifc (same SHA-256), i.e. a rename. fantasy1.ifc (82 rooms)
+  matches none of the new files. Older entries in this file that say ac20
+  or fantasy1 refer to those files; nothing in scripts/ or tests/ refers to
+  them (legacy_graph_pipeline/ mentions an older ac20_office.ifc only in
+  usage examples).
+
 2026-10-29  HTN: show the ranking model's reasoning again
   What: the HTN ranker (htn/cli.py make_ranker) now returns
     [{space, probability, likelihood, reasoning}] instead of only
