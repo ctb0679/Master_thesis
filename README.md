@@ -326,12 +326,26 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
   a door is passable when it is at least width + 0.1 m wide, open (or the robot
   has `manipulate_door`) and not to the outside. Door states:
   `data/robot/door_states_IDAC.json` or `--door_states` (assumed values).
+- **Single storey**: the robot plans only within its current storey (no stair
+  or lift traversal). Rooms on other storeys, behind doors it cannot pass, or
+  not connected by doors are unreachable; they keep their probability and are
+  listed with the reason (`other_storey`, `door_too_narrow`,
+  `missing_capability`, `exterior_not_allowed`, `unreachable_space`).
+- **Connectivity report**: printed once at start-up and saved as
+  `connectivity.json` in every run folder: groups of rooms connected through
+  interior doors, rooms reachable from the start room, stairs not linked to any
+  space, rooms with no door. Missing connections are never inferred.
 - **Replanning**: after each searched room the belief is updated
   (a miss multiplies that room's probability by `--miss_rate`, then all rooms
   are renormalised) and the plan is made again. It stops when the target is
   found (`found` and confidence >= `--detect_threshold`, default 0.0), when no
   room is left (`--max_visits_per_room`, default 1), or when the unsearched
-  rooms hold less than `--residual_mass` (default 1 − `--prob_mass`).
+  reachable rooms hold less than `--residual_mass` (default 1 − `--prob_mass`).
+- **Outcome**: `found`, `not_found_reachable_exhausted` (reachable rooms
+  searched, but unreachable rooms still hold more than `--residual_mass`),
+  `not_found`, `infeasible: <code>`, `reached` (go_to) or `aborted`. The final
+  message and `summary.json` give the prior/posterior mass in reachable rooms
+  searched, reachable rooms not searched and unreachable rooms.
 - `--miss_rate` (the detector's P(not detected | present)) is required and has
   no default; it is recorded in each run's `summary.json`.
 - Every plan is logged to `results/htn_runs/<timestamp>_<task>/iter_<nn>.json`
@@ -345,7 +359,7 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
 
 ```bash
 pip install -r requirements-dev.txt
-python -m pytest            # tests/htn: framework, IDAC domain, robot profiles, executor
+python -m pytest            # tests/htn: framework, IDAC domain, robot profiles, executor, reachability
 ```
 
 ## IFC <-> JSON converters

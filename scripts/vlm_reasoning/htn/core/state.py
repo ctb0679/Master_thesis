@@ -12,8 +12,8 @@ class WorldState:
     to_dict()/from_dict() give exact logging and replay.
 
     robot      id, space (current), capabilities, width_m, safety_margin_m, allow_exterior
-    spaces     guid -> {name, function, centroid}
-    doors      guid -> {rooms, clear_width_m, position, approach, is_exterior, state}
+    spaces     guid -> {name, function, centroid, storey}
+    doors      guid -> {rooms, clear_width_m, position, approach, is_exterior, state, storey}
     adjacency  space -> [{to, door, door_action, capabilities}]
     task       what was asked (domain-defined)
     belief     prior / posterior per space

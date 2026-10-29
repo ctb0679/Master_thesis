@@ -17,22 +17,30 @@ from .operators import HasCapability, RobotAt, SpaceReachable
 
 # --- room selection (shared with the executor's stop rule) --------------------
 
-def eligible_spaces(state):
-    """Rooms that may still be searched: fewer than max_visits_per_room
-    visits and a passable route from the robot. Returns (eligible guids,
-    {unreachable guid: "code: message"})."""
+def reachability(state):
+    """Every room, split by whether this robot has a passable route to it
+    from its current space. Returns (reachable guids, {unreachable guid:
+    {"code", "message"}}); codes: unreachable_space, door_too_narrow,
+    missing_capability, exterior_not_allowed, other_storey."""
     graph = DoorGraph.from_state(state)
-    visits, max_visits = state.search["visits"], state.settings["max_visits_per_room"]
-    eligible, unreachable = [], {}
+    reachable, unreachable = [], {}
     for guid in state.spaces:
-        if visits.get(guid, 0) >= max_visits:
-            continue
         route = graph.route(state.robot["space"], guid, state.robot)
         if isinstance(route, list):
-            eligible.append(guid)
+            reachable.append(guid)
         else:
-            unreachable[guid] = f"{route.reason_code}: {route.message}"
-    return eligible, unreachable
+            unreachable[guid] = {"code": route.reason_code, "message": route.message}
+    return reachable, unreachable
+
+
+def eligible_spaces(state):
+    """Rooms that may still be searched: reachable (see reachability) and
+    fewer than max_visits_per_room visits. Returns (eligible guids,
+    {unreachable guid: {"code", "message"}}). Unreachable rooms keep their
+    probability; the executor reports it."""
+    visits, max_visits = state.search["visits"], state.settings["max_visits_per_room"]
+    reachable, unreachable = reachability(state)
+    return [g for g in reachable if visits.get(g, 0) < max_visits], unreachable
 
 
 def visit_order(state, candidates):
@@ -120,7 +128,7 @@ class SomeRoomSelected(Condition):
         return bool(select_rooms(state))
 
     def explain(self, state):
-        return "no room is left to search (all visited, unreachable or below min_prob)"
+        return "no reachable room is left to search (all visited or below min_prob)"
 
 
 # --- method bodies ------------------------------------------------------------

@@ -334,6 +334,47 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-10-29  HTN: unreachable probability, single-storey planning, connectivity report
+  What:
+    - methods.reachability(state): every room reachable / unreachable for this
+      robot from its space, with a code (unreachable_space, door_too_narrow,
+      missing_capability, exterior_not_allowed, other_storey).
+      eligible_spaces = reachable rooms with visits < max.
+    - Unreachable rooms keep their probability. Executor._account reports
+      prior/posterior mass for reachable searched / reachable not searched /
+      unreachable, and every unreachable room (summary.json "probability",
+      "unreachable"; final REPL message). Stop reason now reads "remaining
+      probability in reachable rooms X < residual_mass Y; unreachable rooms
+      hold Z".
+    - Outcomes: found | not_found_reachable_exhausted | not_found |
+      infeasible: <code> | reached | aborted (was "infeasible" + code in reason).
+    - Storey (name from the cleaned JSON, None without IfcBuildingStorey) on
+      Space and Door. Routes stay on the start storey; route_length is None
+      across storeys (never measured); other_storey failure. Rooms without a
+      storey in a storeyed IFC are reported at load, not placed by z.
+    - htn/domain/connectivity.py: connected groups (interior doors), rooms
+      reachable from the start, stairs not linked to any space, rooms with no
+      door; printed once at load, connectivity.json in every run folder.
+    - 9 new tests (tests/htn/test_reachability.py), 52 total.
+  Why: on fantasy_office_building_1 the search ended "not_found (remaining
+    probability 0.001)" after 1 room while 0.48 of the probability sat in rooms
+    the robot could not reach; rooms on 5 storeys were planned as one floor.
+  Alternatives (rejected for now, decided by the user):
+    - infer missing doors/corridors or stair links from geometry: not done;
+      the connectivity report shows the gaps, and the user decides between
+      editing the IFC and a manual connections file;
+    - allow exterior traversal for this building: not done;
+    - guess storeys from z when the cleaned JSON has none: not done (reported).
+    - Outcome rule on the prior instead of the posterior: rejected. After
+      misses in every reachable room the unreachable rooms' posterior rises
+      (prior 0.05 -> 0.21 in the test), which is the honest statement.
+  Results: fantasy_office_building_1, "Finde den Feuerlöscher": outcome
+    not_found_reachable_exhausted; reachable searched 0.519, reachable not
+    searched 0.001, unreachable 0.480 (40 rooms; 24 Lobby p=0.315
+    exterior_not_allowed, ...). "geh zum Besprechungsraum" -> infeasible:
+    other_storey. Connectivity: 18 groups, 4/44 rooms reachable from room 1,
+    14 unlinked stairs. IDAC unchanged: 1 group, 15/15 reachable.
+
 2026-10-29  Raw IFC files replaced (data/raw_ifc/)
   Removed ac20.ifc and fantasy1.ifc; added fantasy_office_building_1/2/3.ifc
   (13.4, 19.5, 9.7 MB). fantasy_office_building_1.ifc is byte-identical to

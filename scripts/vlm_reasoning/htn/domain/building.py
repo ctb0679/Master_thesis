@@ -4,7 +4,10 @@ Paper (Sec. II): "a door-based adjacency list where each edge stores the door
 id, the door action required to pass it, and the capabilities needed to
 traverse it". Deviation (docs/htn_design.md, 8): routes are the shortest
 paths by length through door positions (Dijkstra), not the fewest-doors path
-(BFS), so route() and route_length() always describe the same path."""
+(BFS), so route() and route_length() always describe the same path.
+
+Single-storey planning: a route never enters a space on another storey and
+no distance between storeys is computed (no stair or lift traversal)."""
 
 import heapq
 import math
@@ -23,13 +26,15 @@ class Space:
     name: str
     function: str = ""
     centroid: tuple = None
+    storey: str = None              # storey name from the cleaned JSON; None if the IFC has none
 
     @property
     def label(self):
         return f"{self.name} ({self.function})" if self.function and self.function != self.name else self.name
 
     def to_state(self):
-        return {"name": self.name, "function": self.function, "centroid": list(self.centroid)}
+        return {"name": self.name, "function": self.function, "centroid": list(self.centroid),
+                "storey": self.storey}
 
 
 @dataclass
@@ -45,6 +50,7 @@ class Door:
     is_exterior: bool = False
     state: str = "open"
     name: str = ""
+    storey: str = None
 
     def other(self, space):
         a, b = self.rooms
@@ -53,13 +59,13 @@ class Door:
     def to_state(self):
         return {"name": self.name, "rooms": list(self.rooms), "clear_width_m": self.clear_width_m,
                 "position": list(self.position), "approach": {k: list(v) for k, v in self.approach.items()},
-                "is_exterior": self.is_exterior, "state": self.state}
+                "is_exterior": self.is_exterior, "state": self.state, "storey": self.storey}
 
     @classmethod
     def from_state(cls, guid, d):
         return cls(guid, tuple(d["rooms"]), d["clear_width_m"], tuple(d["position"]),
                    {k: tuple(v) for k, v in d.get("approach", {}).items()},
-                   d.get("is_exterior", False), d.get("state", "open"), d.get("name", ""))
+                   d.get("is_exterior", False), d.get("state", "open"), d.get("name", ""), d.get("storey"))
 
 
 def edge(door_guid, to_space, door_state):
@@ -98,13 +104,21 @@ class DoorGraph:
 
     @classmethod
     def from_state(cls, state):
-        spaces = {g: Space(g, s["name"], s.get("function", ""), tuple(s["centroid"]))
+        spaces = {g: Space(g, s["name"], s.get("function", ""), tuple(s["centroid"]), s.get("storey"))
                   for g, s in state.spaces.items()}
         doors = {g: Door.from_state(g, d) for g, d in state.doors.items()}
         return cls(spaces, doors, state.adjacency)
 
     def label(self, space):
         return self.spaces[space].label if space in self.spaces else space
+
+    def storey(self, space):
+        return self.spaces[space].storey if space in self.spaces else None
+
+    def same_storey(self, a, b):
+        """"outside" belongs to every storey; None (no storeys in the IFC) is
+        a storey like any other, so a building without storeys is one storey."""
+        return OUTSIDE in (a, b) or self.storey(a) == self.storey(b)
 
     def neighbours(self, space):
         """[(door guid, other space)] in adjacency-list order."""
@@ -116,6 +130,8 @@ class DoorGraph:
         when it is None. Returns (length_m, [(door, next space), ...]) or None."""
         if a == b:
             return 0.0, []
+        if not self.same_storey(a, b):
+            return None
         start, goal = self.spaces[a].centroid, self.spaces[b].centroid
         heap = [(0.0, 0, a, start, ())]           # cost, tie-break, space, position, path
         seen, counter = set(), 0
@@ -135,7 +151,7 @@ class DoorGraph:
                 door = self.doors[door_guid]
                 if robot is not None and door_problem(door, robot):
                     continue
-                if (door_guid, other) in seen:
+                if (door_guid, other) in seen or not self.same_storey(a, other):
                     continue
                 counter += 1
                 heapq.heappush(heap, (cost + math.dist(pos, door.position), counter, other,
@@ -149,6 +165,10 @@ class DoorGraph:
         if found is not None:
             return [(space, door) for door, space in found[1]]
         task = f"route({self.label(a)}, {self.label(b)})"
+        if not self.same_storey(a, b):
+            return PlanFailure(task, "other_storey",
+                               f"{self.label(b)} is on storey {self.storey(b)}, the robot is on storey "
+                               f"{self.storey(a)}; planning is single-storey (no stair or lift traversal)")
         anyway = self._shortest(a, b, None)
         if anyway is None:
             return PlanFailure(task, "unreachable_space",

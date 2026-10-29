@@ -48,15 +48,18 @@ class BeliefModel:
     def mass(self, spaces):
         return sum(self._posterior.get(s, 0.0) for s in spaces)
 
-    def should_stop(self, eligible, residual_mass):
+    def should_stop(self, eligible, residual_mass, unreachable=()):
         """(stop?, reason). Stop when no space is eligible or the eligible
-        spaces together hold less than residual_mass of the (un-normalised)
-        posterior. Assumes the target is somewhere in the building."""
+        (reachable, not yet searched) spaces together hold less than
+        residual_mass of the (un-normalised) posterior. Assumes the target is
+        somewhere in the building. The reason always states the mass in the
+        unreachable spaces, so a "remaining probability" never hides it."""
+        rest = f"; unreachable rooms hold {self.mass(unreachable):.3f}"
         if not eligible:
-            return True, "no eligible room left"
+            return True, "no reachable room left to search" + rest
         mass = self.mass(eligible)
         if mass < residual_mass:
-            return True, f"remaining probability {mass:.3f} < residual_mass {residual_mass:.3f}"
+            return True, f"remaining probability in reachable rooms {mass:.3f} < residual_mass {residual_mass:.3f}" + rest
         return False, ""
 
     def to_state(self):

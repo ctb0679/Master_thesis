@@ -3,7 +3,8 @@ robot profile and the (assumed) initial door states.
 
 The adjacency list is the _llm.json adjacency joined with the door blocks of
 _full.json on the door GUID. Edges whose door, width, position or rooms are
-missing are left out and reported, never guessed."""
+missing are left out and reported, never guessed. Storeys come from the
+cleaned JSON only; a room without one is reported, not placed by its z."""
 
 import json
 from pathlib import Path
@@ -95,8 +96,15 @@ def load_world(llm_json, full_json, robot, door_states=None, start_space=None, s
         raise WorldError(f"{full_json}: coordinates are in '{length_unit}', expected metres")
 
     keys = room_keys(llm["rooms"])
-    spaces = {r["guid"]: Space(r["guid"], keys[r["guid"]], r.get("function") or "", tuple(r["centroid"][:2]))
+    spaces = {r["guid"]: Space(r["guid"], keys[r["guid"]], r.get("function") or "", tuple(r["centroid"][:2]),
+                               r.get("storey"))
               for r in llm["rooms"] if r.get("centroid")}
+    storey_names = {st["guid"]: st.get("name") for st in full.get("storeys", [])}
+    no_storey = [s.name for s in spaces.values() if s.storey is None]
+    if storey_names and no_storey:
+        report.append(f"{len(no_storey)} room(s) have no storey in {Path(llm_json).name} although the IFC has "
+                      f"{len(storey_names)} IfcBuildingStorey ({', '.join(map(str, storey_names.values()))}); "
+                      f"they count as one storey of their own, not placed by z: {', '.join(no_storey)}")
     report += [f"room {keys[r['guid']]}: no centroid, left out" for r in llm["rooms"] if not r.get("centroid")]
     footprints = {s["guid"]: f for s in full.get("spaces", []) if (f := _footprint(s)) is not None}
     door_recs = {e["guid"]: e for e in full.get("elements", []) if e.get("door")}
@@ -126,7 +134,8 @@ def load_world(llm_json, full_json, robot, door_states=None, start_space=None, s
         if issue:
             report.append(issue)
         doors[via] = Door(via, ends, d["clear_width_m"], tuple(rec["geometry"]["centroid"][:2]), approach,
-                          is_exterior=OUTSIDE in ends, name=rec.get("name") or "")
+                          is_exterior=OUTSIDE in ends, name=rec.get("name") or "",
+                          storey=storey_names.get(rec.get("storey")))
         if d.get("is_external") != (OUTSIDE in ends):
             report.append(f"door {via}: is_external={d.get('is_external')} but the edge "
                           f"{'touches' if OUTSIDE in ends else 'does not touch'} 'outside'; the edge decides")

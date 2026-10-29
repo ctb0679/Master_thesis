@@ -34,8 +34,10 @@ def test_stop_rule():
     b = BeliefModel()
     b.set_prior({"a": 0.95, "b": 0.05})
     assert b.should_stop([], 0.1)[0]
-    assert b.should_stop(["b"], 0.1) == (True, "remaining probability 0.050 < residual_mass 0.100")
+    assert b.should_stop(["b"], 0.1) == (
+        True, "remaining probability in reachable rooms 0.050 < residual_mass 0.100; unreachable rooms hold 0.000")
     assert b.should_stop(["a", "b"], 0.1) == (False, "")
+    assert b.should_stop(["b"], 0.1, unreachable=["a"])[1].endswith("unreachable rooms hold 0.950")
 
 
 # --- executor --------------------------------------------------------------------------

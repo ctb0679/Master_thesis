@@ -47,24 +47,33 @@ def idac_with(robot=None, door_states=None, start="3", tmp_path=None, closed=())
     return state, keys
 
 
-def write_building(tmp_path, rooms, doors):
+def write_building(tmp_path, rooms, doors, storeys=None, ifc_storeys=(), stairs=()):
     """A tiny building as _llm.json + _full.json.
     rooms: {name: (cx, cy)}; the GUID is the name.
-    doors: [(guid, room_a, room_b, (x, y), width)]; room_b may be "outside"."""
-    llm = {"rooms": [{"guid": n, "name": n, "function": "", "centroid": list(c)} for n, c in rooms.items()],
+    doors: [(guid, room_a, room_b, (x, y), width)]; room_b may be "outside".
+    storeys: {room name: storey name} (default: no storey, as in IDAC).
+    ifc_storeys: storey names present as IfcBuildingStorey in _full.json.
+    stairs: [(guid, storey name)] IfcStair contained only in a storey."""
+    storeys = storeys or {}
+    llm = {"rooms": [{"guid": n, "name": n, "function": "", "centroid": list(c), "storey": storeys.get(n)}
+                     for n, c in rooms.items()],
            "adjacency": [{"a": a, "b": b, "via": g, "via_class": "IfcDoor"} for g, a, b, _, _ in doors]}
     full = {"units": {"output_units": {"length": "m"}},
+            "storeys": [{"guid": f"st_{n}", "name": n} for n in ifc_storeys],
             "spaces": [{"guid": n, "geometry": {}} for n in rooms],
             "elements": [{"guid": g, "ifc_class": "IfcDoor", "geometry": {"centroid": [x, y, 1.0]},
+                          "storey": f"st_{storeys[a]}" if a in storeys else None,
                           "door": {"clear_width_m": w, "rooms": [a, b], "is_external": b == "outside"}}
-                         for g, a, b, (x, y), w in doors]}
+                         for g, a, b, (x, y), w in doors]
+                        + [{"guid": g, "ifc_class": "IfcStair", "name": g, "storey": f"st_{st}",
+                            "relations": {"container": f"st_{st}"}} for g, st in stairs]}
     (tmp_path / "toy_llm.json").write_text(json.dumps(llm))
     (tmp_path / "toy_full.json").write_text(json.dumps(full))
     return tmp_path / "toy_llm.json", tmp_path / "toy_full.json"
 
 
-def toy_world(tmp_path, rooms, doors, start, robot=None, settings=None):
-    llm, full = write_building(tmp_path, rooms, doors)
+def toy_world(tmp_path, rooms, doors, start, robot=None, settings=None, **building):
+    llm, full = write_building(tmp_path, rooms, doors, **building)
     state, _ = load_world(llm, full, robot or a300(), None, start, settings)
     return state
 

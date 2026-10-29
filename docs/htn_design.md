@@ -381,12 +381,22 @@ length** (Dijkstra) from the start centroid through door positions to the
 target centroid, over passable doors only. An intermediate room's centroid is
 never a waypoint.
 
+**Single storey.** `Space` and `Door` carry `storey` (the storey name from the
+cleaned JSON; `None` when the IFC has no `IfcBuildingStorey`, as in IDAC,
+where the whole building is one storey). A route never enters a space on
+another storey than its start, and `route_length` returns `None` between
+storeys, so no distance between storeys is ever computed. A room on another
+storey fails with `other_storey`. If the IFC has storeys but a room in the
+cleaned JSON has none, the load step reports it; the storey is never guessed
+from z.
+
 ### Infeasibility
 
 If no passable route exists, the shortest path ignoring passability is taken:
 none at all → `unreachable_space`; otherwise the first impassable door on it
 gives the code (`door_too_narrow`, `missing_capability`,
-`exterior_not_allowed`), and all its blocked doors are in the details. No `rgb`
+`exterior_not_allowed`), and all its blocked doors are in the details. A room
+on another storey → `other_storey` (checked first). No `rgb`
 → `missing_capability` at `m_search_space`. When all methods of a task fail, a
 specific code is passed up if all methods that gave one agree on it; otherwise
 the code is `no_applicable_method` with every method's reason. In all cases
@@ -400,8 +410,10 @@ there is no plan and no unsupported action.
 PlanExecutor.run(task):                       (find_object needs --miss_rate)
   loop:
     if find_object and a prior exists:
-        eligible ← rooms with visits < max and a passable route
+        reachable / unreachable ← reachability(state)   (passable route, same storey)
+        eligible ← reachable rooms with visits < max
         stop if none, or if their (un-normalised) posterior < residual_mass
+          (the reason always also states the unreachable mass)
     result ← planner.plan(state, [task])
     if result.failure is prior_needed (first time): fetch prior, replan
     if no plan: stop with the failure code (no_eligible_rooms = searched all)
@@ -414,8 +426,54 @@ PlanExecutor.run(task):                       (find_object needs --miss_rate)
           miss          → P(r) ← P(r) · miss_rate, renormalise all rooms
           found         → recorded; mode single: stop after this iteration
     log iteration
-  write summary.json (cli.py)
+  find_object: account for the probability (below), set the outcome
+  write summary.json and connectivity.json (cli.py)
 ```
+
+### Unreachable rooms keep their probability
+
+Rooms this robot cannot reach from its current space (`reachability`, codes
+`unreachable_space`, `door_too_narrow`, `missing_capability`,
+`exterior_not_allowed`, `other_storey`) are never selected, but they are not
+dropped: they keep their prior and posterior. At the end of a `find_object`
+run the executor reports the prior and posterior mass in three groups
+(reachable rooms searched, reachable rooms not searched, unreachable rooms) and
+every unreachable room with its id, function, storey, probability and reason
+code, in `summary.json` and in the final REPL message.
+
+Outcomes: `found`; `not_found_reachable_exhausted` (the reachable rooms were
+searched until their remaining mass fell below `residual_mass`, or none was
+left, but the unreachable rooms hold more than `residual_mass`);
+`not_found` (the unreachable mass is also below `residual_mass`);
+`infeasible: <code>` (no plan, e.g. a restricted room or a `go_to` target that
+cannot be reached); `reached` and `aborted` as before. "Exhausted" means the
+stop rule ended the search, so reachable rooms below `residual_mass` may be
+left unsearched; their mass is the "reachable not searched" group.
+
+The rule uses the **posterior** of the unreachable rooms. Misses in the
+reachable rooms raise it: an unreachable room with prior 0.05, after misses in
+reachable rooms holding the other 0.95 (miss rate 0.2), has posterior
+0.05 / (0.95 · 0.2 + 0.05) = 0.21. That is the intended reading: having
+searched everything reachable without a find, the target is now probably in a
+room the robot cannot get to. Without a prior (restricted search only) the
+masses are `null` and the outcome stays `not_found`.
+
+### Connectivity report
+
+Printed once when the building is loaded and written as `connectivity.json`
+into every run folder (`htn/domain/connectivity.py`). Nothing is inferred; no
+door, edge or stair link is added.
+
+- groups of rooms connected through interior doors ("outside" does not
+  connect), each with its storeys and number of exterior doors;
+- the rooms this robot can reach from its current space;
+- stairs (`IfcStair`, or `IfcStairFlight` without a parent stair) not linked
+  to any space. Linked means contained in a space or the `via` of an
+  adjacency edge; a stair contained only in a storey is not linked;
+- rooms with no door.
+
+fantasy_office_building_1: 18 groups, 4 of 44 rooms reachable from room 1,
+14 unlinked stairs (corridors and stair cores are not modelled as spaces).
 
 **Found** = `found` is true and `confidence >= --detect_threshold` (default
 0.0, the old behaviour). Misses seen before the prior was fetched (in recorded
@@ -546,16 +604,23 @@ All use `build_ollama_options(--llm_temperature, --seed)`.
 
 `summary.json`: task, robot, settings (incl. `miss_rate`, `detect_threshold`,
 `residual_mass`, `distance`, `llm_temperature`, `seed`, model), `outcome`
-(`found` / `not_found` / `reached` / `infeasible` / `aborted`) and `reason`,
-found spaces, visit order (GUIDs and labels), metres travelled, iterations,
-model calls, failure, and `rankings` (probability, score and the model's
-reasoning per room; also in the `iter_<nn>.json` that asked the model).
+(`found` / `not_found_reachable_exhausted` / `not_found` / `reached` /
+`infeasible: <code>` / `aborted`) and `reason`, found spaces, `probability`
+(prior and posterior mass and room count for `reachable_searched`,
+`reachable_not_searched`, `unreachable`), `unreachable` (per room: space,
+name, function, storey, prior, posterior, code, message), visit order (GUIDs
+and labels), metres travelled, iterations, model calls, failure, and
+`rankings` (probability, score and the model's reasoning per room; also in the
+`iter_<nn>.json` that asked the model).
+
+`connectivity.json`: the connectivity report (section 7) for the robot's
+space at the start of the run.
 
 ---
 
 ## 11. Tests (`python -m pytest`), mapped to the paper's criteria
 
-43 tests, all passing, no Ollama (ranker and detector stubbed).
+52 tests, all passing, no Ollama (ranker and detector stubbed).
 
 | Criterion | Tests |
 |---|---|
@@ -569,11 +634,19 @@ reasoning per room; also in the `iter_<nn>.json` that asked the model).
 | robot profile | known box → width; wheel sticking out widens it; capabilities + evidence; two URDFs without `--robot` → list; empty folder; profile JSON overrides; unresolvable mesh stops; committed A300 profile |
 | belief / executor | miss lowers by the miss rate and sums to 1; stop rule; find stops; restricted search never calls the ranker; recorded → semantic with one ranker call; skipped image leaves the belief unchanged; miss rate changes the order only with `max_visits_per_room = 2`; `--miss_rate` required; go_to |
 | distances | Office 4 → Office 3 via rooms 5 and 14; Dijkstra on a cycle (route and length agree); default `optimal_visit_order` identical to the old function |
+| reachability (`test_reachability.py`) | reason codes per unreachable room; 0.46 of the prior unreachable → `not_found_reachable_exhausted` with those rooms listed; small unreachable posterior → `not_found`; `infeasible: exterior_not_allowed`; room on another storey → `other_storey`, no route length even ignoring the robot; missing storeys reported, not guessed; IDAC (no storeys) fully reachable; connectivity report on a toy building and on fantasy_office_building_1 |
 
 ---
 
 ## 12. Limitations
 
+- **Single-storey planning; no stair or lift traversal.** The robot plans only
+  within its current storey; rooms on other storeys are reported as
+  unreachable (`other_storey`). Stairs and lifts are not modelled as
+  connections.
+- **Connections come only from the cleaned JSON.** Missing corridors or stair
+  cores (not modelled as `IfcSpace`) are not inferred; the connectivity report
+  shows the gaps.
 - **Route length uses straight lines between doors inside a room**, which can
   cross furniture in large rooms such as room 3 (Workspace, 156 m²).
 - `clear_width_m` is `OverallWidth` (1.6 #4), so door clearance is optimistic.

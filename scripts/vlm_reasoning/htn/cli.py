@@ -7,7 +7,8 @@ from pathlib import Path
 from rank_candidates import call_ollama, softmax_probabilities, validate_rankings
 
 from .core import CompoundTask, HTNPlanner
-from .domain import build_domain, load_world, select_robot, set_task
+from .domain import (build_domain, connectivity_report, format_connectivity, load_world, select_robot,
+                     set_task, unlinked_stairs)
 from .domain.world import default_door_states_path
 from .execution import BeliefModel, ManualImageBackend, PlanExecutor, RunLogger, SimulatedNavigation
 
@@ -69,6 +70,13 @@ class HTNSearch:
         self.perception = ManualImageBackend(session.detector)
         note(f"NOTE: HTN planning with robot '{self.robot.id}' (width {self.robot.width_m} m, "
             f"capabilities {self.robot.capabilities}); door states: {self.world.settings['door_states_source']}.")
+        self.stairs = unlinked_stairs(full_json, set(self.world.spaces))
+        for line in format_connectivity(connectivity_report(self.world, self.stairs), self._label):
+            note(line)
+
+    def _label(self, space):
+        s = self.world.spaces[space]
+        return f"{s['name']} ({s['function']})" if s.get("function") and s["function"] != s["name"] else s["name"]
 
     @classmethod
     def from_args(cls, args, session):
@@ -114,6 +122,7 @@ class HTNSearch:
                   "('skip' = no image, 'bye' = end the session).")
 
         logger = RunLogger(RESULTS_DIR, user_text)
+        logger.write_json("connectivity.json", connectivity_report(state, self.stairs))
         executor = PlanExecutor(self.planner, state, BeliefModel(), self.perception, SimulatedNavigation(),
                                 self.make_ranker(session), logger, args.miss_rate, args.detect_threshold,
                                 args.residual_mass, log=print)
@@ -135,7 +144,22 @@ class HTNSearch:
               + (f" ({summary.reason})" if summary.reason else "")
               + f"; {len(summary.visit_order)} room(s) searched, {summary.travelled_m} m, "
                 f"{summary.iterations} plan(s). Log: {summary.log_dir}")
+        self._print_probability(summary, executor)
         visited = ", ".join(executor.label(s) for s in summary.visit_order) or "no room"
         session._remember(user_text, f"{task.name} via HTN: {summary.outcome}"
                           + (f" in {where}" if where else "") + f"; searched {visited}")
         return "bye" if summary.outcome == "aborted" else None
+
+    @staticmethod
+    def _print_probability(summary, executor):
+        """Where the probability ended up, and every room the robot cannot reach."""
+        p = summary.probability
+        if p:
+            print("Probability (prior / posterior): "
+                  + " | ".join(f"{k.replace('_', ' ')} {v['prior']:.3f} / {v['posterior']:.3f} ({v['rooms']} rooms)"
+                               for k, v in p.items()))
+        if summary.unreachable:
+            print(f"Unreachable for this robot ({len(summary.unreachable)} room(s)):")
+            for r in summary.unreachable:
+                prob = f"p={r['prior']:.3f}  " if r["prior"] is not None else ""
+                print(f"  {prob}{executor.label(r['space']):28s} storey {r['storey']}  {r['code']}")

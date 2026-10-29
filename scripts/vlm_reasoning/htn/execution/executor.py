@@ -8,7 +8,7 @@ import math
 from dataclasses import asdict, dataclass, field
 
 from htn.domain.building import DoorGraph
-from htn.domain.methods import eligible_spaces
+from htn.domain.methods import eligible_spaces, reachability
 
 
 class ExecutionError(RuntimeError):
@@ -17,9 +17,12 @@ class ExecutionError(RuntimeError):
 
 @dataclass
 class RunSummary:
-    outcome: str                      # found | not_found | reached | infeasible | aborted
+    # found | not_found | not_found_reachable_exhausted | reached | infeasible: <code> | aborted
+    outcome: str
     reason: str = ""
     found: list = field(default_factory=list)
+    probability: dict = None          # find_object: prior/posterior mass per group (see _account)
+    unreachable: list = field(default_factory=list)   # rooms this robot cannot reach, with the reason
     rankings: list = field(default_factory=list)   # ranking model output, with its reasoning per room
     visit_order: list = field(default_factory=list)
     travelled_m: float = 0.0
@@ -70,8 +73,8 @@ class PlanExecutor:
                       "posterior": self.belief.posterior()}
 
             if find and self.belief.has_prior:
-                eligible, _ = eligible_spaces(self.state)
-                stop, why = self.belief.should_stop(eligible, self.residual_mass)
+                eligible, unreachable = eligible_spaces(self.state)
+                stop, why = self.belief.should_stop(eligible, self.residual_mass, list(unreachable))
                 if stop:
                     summary.outcome, summary.reason = ("found" if summary.found else "not_found"), why
                     record["stopped"] = why
@@ -96,7 +99,7 @@ class PlanExecutor:
                     summary.outcome = "found" if summary.found else "not_found"
                     summary.reason = result.failure.message
                 else:
-                    summary.outcome, summary.reason = "infeasible", f"{code}: {result.failure.message}"
+                    summary.outcome, summary.reason = f"infeasible: {code}", result.failure.message
                     summary.failure = result.failure.to_dict()
                     self.log(f"No plan: {code}: {result.failure.message}")
                 self.logger.log_iteration(n, record)
@@ -135,6 +138,8 @@ class PlanExecutor:
         else:
             summary.reason = f"stopped after {max_iterations} iterations"
 
+        if find:
+            self._account(summary)
         summary.rankings = self.rankings
         summary.model_calls = {"ranker": self.ranker_calls,
                                "detector": getattr(self.perception, "model_calls", 0)}
@@ -160,6 +165,34 @@ class PlanExecutor:
             score = f"score={r['likelihood']:.2f}  " if r.get("likelihood") is not None else ""
             self.log(f"  p={self.belief.prior[r['space']]:.3f}  {score}"
                      f"{self.label(r['space']):28s} {r.get('reasoning', '')}")
+
+    def _account(self, summary):
+        """Where the probability is at the end: reachable rooms searched,
+        reachable rooms not searched, unreachable rooms (prior and posterior
+        mass; None without a prior), and each unreachable room with its
+        reason. "not_found" becomes "not_found_reachable_exhausted" when the
+        unreachable rooms hold more than residual_mass."""
+        reachable, unreachable = reachability(self.state)
+        visits = self.state.search["visits"]
+        groups = {"reachable_searched": [g for g in reachable if visits.get(g, 0) > 0],
+                  "reachable_not_searched": [g for g in reachable if visits.get(g, 0) == 0],
+                  "unreachable": list(unreachable)}
+        prior, post = self.belief.prior, self.belief.posterior()
+        if self.belief.has_prior:
+            summary.probability = {k: {"prior": round(sum(prior.get(g, 0.0) for g in v), 4),
+                                       "posterior": round(sum(post.get(g, 0.0) for g in v), 4),
+                                       "rooms": len(v)} for k, v in groups.items()}
+        rooms = self.state.spaces
+        summary.unreachable = sorted(
+            ({"space": g, "name": rooms[g]["name"], "function": rooms[g].get("function", ""),
+              "storey": rooms[g].get("storey"),
+              "prior": round(prior[g], 4) if g in prior else None,
+              "posterior": round(post[g], 4) if g in post else None, **why}
+             for g, why in unreachable.items()),
+            key=lambda r: (-(r["prior"] or 0.0), r["name"]))
+        if (summary.outcome == "not_found" and self.belief.has_prior
+                and self.belief.mass(groups["unreachable"]) > self.residual_mass):
+            summary.outcome = "not_found_reachable_exhausted"
 
     def _is_find(self, obs):
         return (not obs.skipped and obs.found

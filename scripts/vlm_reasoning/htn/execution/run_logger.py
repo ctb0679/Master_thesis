@@ -10,7 +10,8 @@ from pathlib import Path
 
 
 class RunLogger:
-    """Writes results/htn_runs/<timestamp>_<task-slug>/iter_<n>.json and summary.json."""
+    """Writes results/htn_runs/<timestamp>_<task-slug>/iter_<n>.json, summary.json
+    and connectivity.json."""
 
     def __init__(self, root, task_text):
         slug = re.sub(r"[^a-z0-9]+", "_", task_text.lower()).strip("_")[:40] or "task"
@@ -21,7 +22,10 @@ class RunLogger:
         (self.dir / f"iter_{n:02d}.json").write_text(json.dumps(record, indent=2) + "\n")
 
     def write_summary(self, summary):
-        (self.dir / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+        self.write_json("summary.json", summary)
+
+    def write_json(self, name, data):
+        (self.dir / name).write_text(json.dumps(data, indent=2) + "\n")
 
 
 class NullLogger:
@@ -32,4 +36,7 @@ class NullLogger:
         pass
 
     def write_summary(self, summary):
+        pass
+
+    def write_json(self, name, data):
         pass
