@@ -1,0 +1,71 @@
+{
+  "task": {
+    "name": "go_to",
+    "args": [
+      "0II2RZUufDBOPLitolzRMe"
+    ],
+    "text": "geh zum Besprechungsraum"
+  },
+  "robot": {
+    "id": "a300",
+    "space": "0N9CSx_ib7HQ7izEW$Ox78",
+    "capabilities": [
+      "depth",
+      "navigate",
+      "rgb"
+    ],
+    "width_m": 0.665,
+    "safety_margin_m": 0.1,
+    "allow_exterior": false
+  },
+  "settings": {
+    "prob_mass": 0.9,
+    "min_prob": 0.01,
+    "max_visits_per_room": 1,
+    "distance": "door_graph",
+    "door_states_source": "assumed: all open (no door-states file)",
+    "miss_rate": 0.2,
+    "detect_threshold": 0.0,
+    "residual_mass": 0.09999999999999998,
+    "llm_temperature": 0.0,
+    "seed": 42,
+    "model": "qwen3.5:9b"
+  },
+  "outcome": "infeasible",
+  "reason": "exterior_not_allowed: 8 (Meeting Room) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false",
+  "found": [],
+  "rankings": [],
+  "visit_order": [],
+  "travelled_m": 0.0,
+  "iterations": 1,
+  "model_calls": {
+    "ranker": 0,
+    "detector": 0
+  },
+  "failure": {
+    "task": "go_to(0II2RZUufDBOPLitolzRMe)",
+    "reason_code": "exterior_not_allowed",
+    "message": "8 (Meeting Room) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false",
+    "details": {
+      "blocked_doors": [
+        {
+          "door": "2S7nIm7pvBthAHaPVMoDmd",
+          "code": "exterior_not_allowed",
+          "message": "door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+        },
+        {
+          "door": "37dJdSzd98YfHGn6im$tKD",
+          "code": "exterior_not_allowed",
+          "message": "door 37dJdSzd98YfHGn6im$tKD leads outside and the robot profile has allow_exterior = false"
+        }
+      ],
+      "methods": {
+        "m_already_there": "precondition_failed: robot is in 1 (Lobby), not in 8 (Meeting Room)",
+        "m_route": "exterior_not_allowed: 8 (Meeting Room) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+      }
+    }
+  },
+  "log_dir": "/home/idac/Junaidali/Master_thesis/results/htn_runs/20261029_125518_geh_zum_besprechungsraum",
+  "found_labels": [],
+  "visit_order_labels": []
+}

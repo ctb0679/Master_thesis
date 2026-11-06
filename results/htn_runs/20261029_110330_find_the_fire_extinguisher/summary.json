@@ -1,0 +1,145 @@
+{
+  "task": {
+    "name": "find_object",
+    "args": [
+      "fire extinguisher",
+      "single"
+    ],
+    "text": "find the fire extinguisher"
+  },
+  "robot": {
+    "id": "a300",
+    "space": "3DsWwrAET2VRfR_BYHBzXe",
+    "capabilities": [
+      "depth",
+      "navigate",
+      "rgb"
+    ],
+    "width_m": 0.665,
+    "safety_margin_m": 0.1,
+    "allow_exterior": false
+  },
+  "settings": {
+    "prob_mass": 0.9,
+    "min_prob": 0.01,
+    "max_visits_per_room": 1,
+    "distance": "door_graph",
+    "door_states_source": "/home/idac/Junaidali/Master_thesis/data/robot/door_states_IDAC.json",
+    "miss_rate": 0.2,
+    "detect_threshold": 0.0,
+    "residual_mass": 0.09999999999999998,
+    "llm_temperature": 0.0,
+    "seed": 42,
+    "model": "qwen3.5:9b"
+  },
+  "outcome": "aborted",
+  "reason": "user ended the session",
+  "found": [],
+  "rankings": [
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXe",
+      "probability": 0.5789367462584463,
+      "likelihood": 0.8,
+      "reasoning": "Printer rooms often have fire extinguishers mounted near the exit or on walls due to equipment heat risks."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXb",
+      "probability": 0.2129789266871701,
+      "likelihood": 0.7,
+      "reasoning": "Lobbies are high-traffic public areas where fire extinguishers are standardly placed for accessibility."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXh",
+      "probability": 0.07835056853096972,
+      "likelihood": 0.6,
+      "reasoning": "Storage areas typically require fire safety equipment like extinguishers for stored materials."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXa",
+      "probability": 0.07835056853096972,
+      "likelihood": 0.6,
+      "reasoning": "Corridors often have fire extinguishers mounted on walls near stairwells or exits."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXg",
+      "probability": 0.01060359638388843,
+      "likelihood": 0.4,
+      "reasoning": "Workspaces may have extinguishers, but they are less likely than utility or storage rooms."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXU",
+      "probability": 0.01060359638388843,
+      "likelihood": 0.4,
+      "reasoning": "Labs may contain hazardous materials requiring fire safety equipment, though this room is empty."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXd",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Offices usually do not require dedicated extinguishers unless they contain specific hazards."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXc",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Similar to other offices, this room is unlikely to have a fire extinguisher unless specified."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXX",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Standard office environment with low probability of containing a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXW",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Standard office environment with low probability of containing a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXZ",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Standard office environment with low probability of containing a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXT",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Standard office environment with low probability of containing a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXV",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Meeting rooms are generally not equipped with fire extinguishers unless near exits."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXY",
+      "probability": 0.0014350407199402628,
+      "likelihood": 0.2,
+      "reasoning": "Small office space with minimal equipment, unlikely to have a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXS",
+      "probability": 0.0014350407199402628,
+      "likelihood": 0.2,
+      "reasoning": "Empty office room with no equipment, very unlikely to have a fire extinguisher."
+    }
+  ],
+  "visit_order": [
+    "3DsWwrAET2VRfR_BYHBzXe"
+  ],
+  "travelled_m": 0.0,
+  "iterations": 2,
+  "model_calls": {
+    "ranker": 1,
+    "detector": 0
+  },
+  "failure": null,
+  "log_dir": "/home/idac/Junaidali/Master_thesis/results/htn_runs/20261029_110330_find_the_fire_extinguisher",
+  "found_labels": [],
+  "visit_order_labels": [
+    "1 (Printer room)"
+  ]
+}

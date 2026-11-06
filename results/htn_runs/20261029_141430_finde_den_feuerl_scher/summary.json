@@ -1,0 +1,738 @@
+{
+  "task": {
+    "name": "find_object",
+    "args": [
+      "fire extinguisher",
+      "single"
+    ],
+    "text": "Finde den Feuerl\u00f6scher"
+  },
+  "robot": {
+    "id": "a300",
+    "space": "0N9CSx_ib7HQ7izEW$Ox78",
+    "capabilities": [
+      "depth",
+      "navigate",
+      "rgb"
+    ],
+    "width_m": 0.665,
+    "safety_margin_m": 0.1,
+    "allow_exterior": false
+  },
+  "settings": {
+    "prob_mass": 0.9,
+    "min_prob": 0.01,
+    "max_visits_per_room": 1,
+    "distance": "door_graph",
+    "door_states_source": "assumed: all open (no door-states file)",
+    "miss_rate": 0.2,
+    "detect_threshold": 0.0,
+    "residual_mass": 0.09999999999999998,
+    "llm_temperature": 0.0,
+    "seed": 42,
+    "model": "qwen3.5:9b"
+  },
+  "outcome": "not_found_reachable_exhausted",
+  "reason": "remaining probability in reachable rooms 0.001 < residual_mass 0.100; unreachable rooms hold 0.480",
+  "found": [],
+  "probability": {
+    "reachable_searched": {
+      "prior": 0.5195,
+      "posterior": 0.5195,
+      "rooms": 1
+    },
+    "reachable_not_searched": {
+      "prior": 0.0009,
+      "posterior": 0.0009,
+      "rooms": 3
+    },
+    "unreachable": {
+      "prior": 0.4797,
+      "posterior": 0.4797,
+      "rooms": 40
+    }
+  },
+  "unreachable": [
+    {
+      "space": "0II2RZUufDBOPLitolzRgN",
+      "name": "24",
+      "function": "Lobby",
+      "storey": "EG",
+      "prior": 0.3151,
+      "posterior": 0.3151,
+      "code": "exterior_not_allowed",
+      "message": "24 (Lobby) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhr",
+      "name": "29",
+      "function": "Lobby",
+      "storey": "EG",
+      "prior": 0.0703,
+      "posterior": 0.0703,
+      "code": "exterior_not_allowed",
+      "message": "29 (Lobby) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7L",
+      "name": "5",
+      "function": "Lobby",
+      "storey": "EG",
+      "prior": 0.0703,
+      "posterior": 0.0703,
+      "code": "exterior_not_allowed",
+      "message": "5 (Lobby) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmb leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMe",
+      "name": "8",
+      "function": "Meeting Room",
+      "storey": "OG1",
+      "prior": 0.0035,
+      "posterior": 0.0035,
+      "code": "other_storey",
+      "message": "8 (Meeting Room) is on storey OG1, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMm",
+      "name": "9",
+      "function": "Meeting Room",
+      "storey": "OG1",
+      "prior": 0.0035,
+      "posterior": 0.0035,
+      "code": "other_storey",
+      "message": "9 (Meeting Room) is on storey OG1, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRM$",
+      "name": "10",
+      "function": "Working Space",
+      "storey": "OG1",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "10 (Working Space) is on storey OG1, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRM4",
+      "name": "13",
+      "function": "Working Space",
+      "storey": "OG1",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "13 (Working Space) is on storey OG1, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMH",
+      "name": "14",
+      "function": "Working Space",
+      "storey": "OG2",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "14 (Working Space) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNd",
+      "name": "17",
+      "function": "Working Space",
+      "storey": "OG2",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "17 (Working Space) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNX",
+      "name": "19",
+      "function": "Working Space",
+      "storey": "OG2",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "19 (Working Space) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNs",
+      "name": "22",
+      "function": "Working Space",
+      "storey": "OG2",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "22 (Working Space) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhs",
+      "name": "28",
+      "function": "Working Space",
+      "storey": "EG",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "exterior_not_allowed",
+      "message": "28 (Working Space) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzReR",
+      "name": "31",
+      "function": "Working Space",
+      "storey": "OG3",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "31 (Working Space) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfd",
+      "name": "32",
+      "function": "Working Space",
+      "storey": "OG3",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "32 (Working Space) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfs",
+      "name": "37",
+      "function": "Working Space",
+      "storey": "OG3",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "37 (Working Space) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf$",
+      "name": "40",
+      "function": "Working Space",
+      "storey": "OG3",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "40 (Working Space) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf6",
+      "name": "41",
+      "function": "Working Space",
+      "storey": "OG4",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "41 (Working Space) is on storey OG4, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf5",
+      "name": "44",
+      "function": "Working Space",
+      "storey": "OG4",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "other_storey",
+      "message": "44 (Working Space) is on storey OG4, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "name": "6",
+      "function": "Working Space",
+      "storey": "EG",
+      "prior": 0.0008,
+      "posterior": 0.0008,
+      "code": "exterior_not_allowed",
+      "message": "6 (Working Space) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmb leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMw",
+      "name": "11",
+      "function": "WC",
+      "storey": "OG1",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "11 (WC) is on storey OG1, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMv",
+      "name": "12",
+      "function": "WC",
+      "storey": "OG1",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "12 (WC) is on storey OG1, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMT",
+      "name": "15",
+      "function": "WC",
+      "storey": "OG2",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "15 (WC) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMO",
+      "name": "16",
+      "function": "WC",
+      "storey": "OG2",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "16 (WC) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNY",
+      "name": "18",
+      "function": "WC",
+      "storey": "OG2",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "18 (WC) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNi",
+      "name": "20",
+      "function": "WC",
+      "storey": "OG2",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "20 (WC) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNh",
+      "name": "21",
+      "function": "WC",
+      "storey": "OG2",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "21 (WC) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNr",
+      "name": "23",
+      "function": "WC",
+      "storey": "OG2",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "23 (WC) is on storey OG2, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgI",
+      "name": "25",
+      "function": "WC",
+      "storey": "EG",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "exterior_not_allowed",
+      "message": "25 (WC) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgH",
+      "name": "26",
+      "function": "WC",
+      "storey": "EG",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "exterior_not_allowed",
+      "message": "26 (WC) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgS",
+      "name": "27",
+      "function": "WC",
+      "storey": "EG",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "exterior_not_allowed",
+      "message": "27 (WC) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhm",
+      "name": "30",
+      "function": "WC",
+      "storey": "EG",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "exterior_not_allowed",
+      "message": "30 (WC) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmd leads outside and the robot profile has allow_exterior = false"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfY",
+      "name": "33",
+      "function": "WC",
+      "storey": "OG3",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "33 (WC) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfX",
+      "name": "34",
+      "function": "WC",
+      "storey": "OG3",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "34 (WC) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfi",
+      "name": "35",
+      "function": "WC",
+      "storey": "OG3",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "35 (WC) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfh",
+      "name": "36",
+      "function": "WC",
+      "storey": "OG3",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "36 (WC) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfr",
+      "name": "38",
+      "function": "WC",
+      "storey": "OG3",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "38 (WC) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfm",
+      "name": "39",
+      "function": "WC",
+      "storey": "OG3",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "39 (WC) is on storey OG3, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf7",
+      "name": "42",
+      "function": "WC",
+      "storey": "OG4",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "42 (WC) is on storey OG4, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf4",
+      "name": "43",
+      "function": "WC",
+      "storey": "OG4",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "other_storey",
+      "message": "43 (WC) is on storey OG4, the robot is on storey EG; planning is single-storey (no stair or lift traversal)"
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox6l",
+      "name": "7",
+      "function": "WC",
+      "storey": "EG",
+      "prior": 0.0003,
+      "posterior": 0.0003,
+      "code": "exterior_not_allowed",
+      "message": "7 (WC) cannot be reached from 1 (Lobby): door 2S7nIm7pvBthAHaPVMoDmb leads outside and the robot profile has allow_exterior = false"
+    }
+  ],
+  "rankings": [
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox78",
+      "probability": 0.5194807100640231,
+      "likelihood": 0.8,
+      "reasoning": "Lobbies often have fire safety equipment like extinguishers near the entrance or reception."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgN",
+      "probability": 0.31508097778311916,
+      "likelihood": 0.75,
+      "reasoning": "This lobby also typically contains fire safety equipment near exits."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhr",
+      "probability": 0.07030406903247118,
+      "likelihood": 0.6,
+      "reasoning": "As a lobby, it may have an extinguisher, though the room is currently empty in the list."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7L",
+      "probability": 0.07030406903247118,
+      "likelihood": 0.6,
+      "reasoning": "This lobby might contain a fire extinguisher despite having no listed equipment."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMe",
+      "probability": 0.003500233491458672,
+      "likelihood": 0.3,
+      "reasoning": "Meeting rooms sometimes have extinguishers mounted on walls near exits."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMm",
+      "probability": 0.003500233491458672,
+      "likelihood": 0.3,
+      "reasoning": "Meeting rooms sometimes have extinguishers mounted on walls near exits."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRM$",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRM4",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMH",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNd",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNX",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNs",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhs",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzReR",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfd",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfs",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf$",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf6",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf5",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox70",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7V",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7Q",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox6l",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMw",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMv",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMT",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMO",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNY",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNi",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNh",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNr",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgI",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgH",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgS",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhm",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfY",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfX",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfi",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfh",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfr",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfm",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf7",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf4",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    }
+  ],
+  "visit_order": [
+    "0N9CSx_ib7HQ7izEW$Ox78"
+  ],
+  "travelled_m": 0.0,
+  "iterations": 3,
+  "model_calls": {
+    "ranker": 1,
+    "detector": 0
+  },
+  "failure": null,
+  "log_dir": "/home/idac/Junaidali/Master_thesis/results/htn_runs/20261029_141430_finde_den_feuerl_scher",
+  "found_labels": [],
+  "visit_order_labels": [
+    "1 (Lobby)"
+  ]
+}

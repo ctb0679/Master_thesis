@@ -1,0 +1,990 @@
+{
+  "iteration": 1,
+  "task": {
+    "name": "find_object",
+    "args": [
+      "fire extinguisher",
+      "single"
+    ]
+  },
+  "state": {
+    "robot": {
+      "id": "a300",
+      "space": "3DsWwrAET2VRfR_BYHBzXe",
+      "capabilities": [
+        "depth",
+        "navigate",
+        "rgb"
+      ],
+      "width_m": 0.665,
+      "safety_margin_m": 0.1,
+      "allow_exterior": false
+    },
+    "spaces": {
+      "3DsWwrAET2VRfR_BYHBzXe": {
+        "name": "1",
+        "function": "Printer room",
+        "centroid": [
+          30.118,
+          24.319
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXh": {
+        "name": "2",
+        "function": "Storage",
+        "centroid": [
+          30.118,
+          21.711
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXg": {
+        "name": "3",
+        "function": "Workspace",
+        "centroid": [
+          22.794,
+          24.121
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXb": {
+        "name": "4",
+        "function": "Lobby",
+        "centroid": [
+          36.678,
+          23.959
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXa": {
+        "name": "5",
+        "function": "Corridor",
+        "centroid": [
+          35.586,
+          19.163
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXd": {
+        "name": "6",
+        "function": "Office 5",
+        "centroid": [
+          32.687,
+          16.363
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXc": {
+        "name": "7",
+        "function": "Office 8",
+        "centroid": [
+          16.543,
+          16.36
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXX": {
+        "name": "8",
+        "function": "Office 6",
+        "centroid": [
+          27.287,
+          16.363
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXW": {
+        "name": "9",
+        "function": "Office 7",
+        "centroid": [
+          21.887,
+          16.363
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXZ": {
+        "name": "10",
+        "function": "Office 4",
+        "centroid": [
+          38.005,
+          16.282
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXY": {
+        "name": "11",
+        "function": "Office 3",
+        "centroid": [
+          43.477,
+          16.126
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXT": {
+        "name": "12",
+        "function": "Office 2",
+        "centroid": [
+          49.051,
+          21.548
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXS": {
+        "name": "13",
+        "function": "Office 1",
+        "centroid": [
+          49.052,
+          25.791
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXV": {
+        "name": "14",
+        "function": "Meeting room",
+        "centroid": [
+          45.497,
+          21.117
+        ],
+        "storey": null
+      },
+      "3DsWwrAET2VRfR_BYHBzXU": {
+        "name": "15",
+        "function": "Lab",
+        "centroid": [
+          21.882,
+          21.821
+        ],
+        "storey": null
+      }
+    },
+    "doors": {
+      "2jlli2nuj35OT4Nt8dpGGq": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2470799",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXc",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          15.19,
+          18.286
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXc": [
+            15.19,
+            17.894
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            15.19,
+            18.678
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "2jlli2nuj35OT4Nt8dpGF7": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471036",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXX",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          25.862,
+          18.286
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXX": [
+            25.862,
+            17.894
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            25.862,
+            18.678
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "1TBRTxOmH2qOCfGLFJR1oS": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471581",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXW",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          23.482,
+          18.286
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXW": [
+            23.482,
+            17.894
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            23.482,
+            18.678
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "1TBRTxOmH2qOCfGLFJR1qA": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471691",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXa",
+          "3DsWwrAET2VRfR_BYHBzXd"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          34.225,
+          18.286
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXd": [
+            34.225,
+            17.894
+          ],
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            34.225,
+            18.678
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "1TBRTxOmH2qOCfGLFJR1qc": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471719",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXZ",
+          "3DsWwrAET2VRfR_BYHBzXa"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          40.066,
+          17.813
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXZ": [
+            40.066,
+            17.421
+          ],
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            40.066,
+            18.205
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "1TBRTxOmH2qOCfGLFJR1su": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471865",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXV",
+          "3DsWwrAET2VRfR_BYHBzXY"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          41.526,
+          17.813
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXY": [
+            41.526,
+            17.421
+          ],
+          "3DsWwrAET2VRfR_BYHBzXV": [
+            41.526,
+            18.205
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "1TBRTxOmH2qOCfGLFJR18M": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471959",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXT",
+          "3DsWwrAET2VRfR_BYHBzXV"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          46.166,
+          21.458
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXT": [
+            46.559,
+            21.458
+          ],
+          "3DsWwrAET2VRfR_BYHBzXV": [
+            45.773,
+            21.458
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "1TBRTxOmH2qOCfGLFJR1Ca": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2472229",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXS",
+          "3DsWwrAET2VRfR_BYHBzXV"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          46.166,
+          24.598
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXS": [
+            46.559,
+            24.598
+          ],
+          "3DsWwrAET2VRfR_BYHBzXV": [
+            45.773,
+            24.598
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "1TBRTxOmH2qOCfGLFJR1Fl": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 900 x 2136 IDAB_R\u00e4ume 2:2472430",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXU",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 0.9,
+        "position": [
+          23.554,
+          20.22
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXU": [
+            23.554,
+            20.612
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            23.554,
+            19.828
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "0xust1cwr8XOVmfb2C$iKT": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 900 x 2136 IDAB_R\u00e4ume 2:2472665",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXe",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 0.9,
+        "position": [
+          29.467,
+          25.352
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXe": [
+            29.467,
+            24.96
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            29.467,
+            25.744
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "0xust1cwr8XOVmfb2C$iJu": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 900 x 2136 IDAB_R\u00e4ume 2:2472764",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXg",
+          "3DsWwrAET2VRfR_BYHBzXh"
+        ],
+        "clear_width_m": 0.9,
+        "position": [
+          28.728,
+          21.941
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXh": [
+            29.121,
+            21.941
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            28.335,
+            21.941
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "2y16PNiQDAUu6vtOChEcqd": {
+        "name": "TU DF 1 - Rahmenstock mit Glasseitenteil:ML - 1260 x 2135 - DB 800:2478932",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXa",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 1.26,
+        "position": [
+          29.99,
+          19.121
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            30.382,
+            19.121
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            29.598,
+            19.121
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "2y16PNiQDAUu6vtOChEcsb": {
+        "name": "TU DF 1 - Rahmenstock mit Glasseitenteil:DL - 800 x 2000 - MB 1400 - EI 30:2479062",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXV",
+          "3DsWwrAET2VRfR_BYHBzXa"
+        ],
+        "clear_width_m": 1.4,
+        "position": [
+          40.785,
+          19.189
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            40.392,
+            19.189
+          ],
+          "3DsWwrAET2VRfR_BYHBzXV": [
+            41.178,
+            19.189
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "2y16PNiQDAUu6vtOChEch4": {
+        "name": "TU DF 2 - Rahmenstock fl\u00e4chenb\u00fcndig:DL - 1600 x 2000:2479287",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXa",
+          "3DsWwrAET2VRfR_BYHBzXb"
+        ],
+        "clear_width_m": 1.69,
+        "position": [
+          36.638,
+          20.175
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXb": [
+            36.638,
+            20.605
+          ],
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            36.638,
+            19.745
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": null
+      },
+      "2BOvfVeQT2E8wiKZrVEfNM": {
+        "name": "TU DF 1 - Rahmenstock Notausgang und Fluchttuere:EN 179 - ML - 885 x 2135 - EI 30:2516026",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXg",
+          "outside"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          13.744,
+          20.496
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            14.304,
+            20.496
+          ],
+          "outside": [
+            13.184,
+            20.496
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": null
+      }
+    },
+    "adjacency": {
+      "3DsWwrAET2VRfR_BYHBzXe": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "0xust1cwr8XOVmfb2C$iKT",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXh": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "0xust1cwr8XOVmfb2C$iJu",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXg": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXc",
+          "door": "2jlli2nuj35OT4Nt8dpGGq",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXX",
+          "door": "2jlli2nuj35OT4Nt8dpGF7",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXW",
+          "door": "1TBRTxOmH2qOCfGLFJR1oS",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXU",
+          "door": "1TBRTxOmH2qOCfGLFJR1Fl",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXe",
+          "door": "0xust1cwr8XOVmfb2C$iKT",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXh",
+          "door": "0xust1cwr8XOVmfb2C$iJu",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "2y16PNiQDAUu6vtOChEcqd",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "outside",
+          "door": "2BOvfVeQT2E8wiKZrVEfNM",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXb": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "2y16PNiQDAUu6vtOChEch4",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXa": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXd",
+          "door": "1TBRTxOmH2qOCfGLFJR1qA",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXZ",
+          "door": "1TBRTxOmH2qOCfGLFJR1qc",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2y16PNiQDAUu6vtOChEcqd",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "2y16PNiQDAUu6vtOChEcsb",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXb",
+          "door": "2y16PNiQDAUu6vtOChEch4",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXd": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "1TBRTxOmH2qOCfGLFJR1qA",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXc": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2jlli2nuj35OT4Nt8dpGGq",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXX": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2jlli2nuj35OT4Nt8dpGF7",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXW": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "1TBRTxOmH2qOCfGLFJR1oS",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXZ": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "1TBRTxOmH2qOCfGLFJR1qc",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXY": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "1TBRTxOmH2qOCfGLFJR1su",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXT": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "1TBRTxOmH2qOCfGLFJR18M",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXS": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "1TBRTxOmH2qOCfGLFJR1Ca",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXV": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXY",
+          "door": "1TBRTxOmH2qOCfGLFJR1su",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXT",
+          "door": "1TBRTxOmH2qOCfGLFJR18M",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXS",
+          "door": "1TBRTxOmH2qOCfGLFJR1Ca",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "2y16PNiQDAUu6vtOChEcsb",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXU": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "1TBRTxOmH2qOCfGLFJR1Fl",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "outside": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2BOvfVeQT2E8wiKZrVEfNM",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ]
+    },
+    "task": {
+      "name": "find_object",
+      "target": "fire extinguisher",
+      "mode": "single",
+      "restricted": null,
+      "recorded": [],
+      "text": "find the fire extinguisher"
+    },
+    "belief": {
+      "prior": {},
+      "posterior": {}
+    },
+    "search": {
+      "visits": {},
+      "stage": {},
+      "searched": [],
+      "found": [],
+      "observations": []
+    },
+    "settings": {
+      "prob_mass": 0.9,
+      "min_prob": 0.01,
+      "max_visits_per_room": 1,
+      "distance": "door_graph",
+      "door_states_source": "/home/idac/Junaidali/Master_thesis/data/robot/door_states_IDAC.json"
+    }
+  },
+  "prior": {},
+  "posterior": {},
+  "chosen_method": null,
+  "tree": {
+    "task": "goal(find_object(fire extinguisher, single))",
+    "method": null,
+    "status": "failed",
+    "reasons": [
+      "prior_needed: no room probabilities yet (the executor asks the ranking model once)"
+    ],
+    "children": [
+      {
+        "task": "find_object(fire extinguisher, single)",
+        "method": null,
+        "status": "failed",
+        "children": [
+          {
+            "task": "find_object(fire extinguisher, single)",
+            "method": "m_search_restricted",
+            "status": "rejected",
+            "reasons": [
+              "precondition_failed: the user did not restrict the search to one room"
+            ]
+          },
+          {
+            "task": "find_object(fire extinguisher, single)",
+            "method": "m_search_recorded",
+            "status": "rejected",
+            "reasons": [
+              "precondition_failed: the building model records the target in no room",
+              "precondition_failed: every room where the building model records the target has been searched"
+            ]
+          },
+          {
+            "task": "find_object(fire extinguisher, single)",
+            "method": "m_search_semantic",
+            "status": "rejected",
+            "reasons": [
+              "prior_needed: no room probabilities yet (the executor asks the ranking model once)",
+              "no_eligible_rooms: no reachable room is left to search (all visited or below min_prob)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "plan": null,
+  "failure": {
+    "task": "find_object(fire extinguisher, single)",
+    "reason_code": "prior_needed",
+    "message": "no room probabilities yet (the executor asks the ranking model once)",
+    "details": {
+      "methods": {
+        "m_search_restricted": "precondition_failed: the user did not restrict the search to one room",
+        "m_search_recorded": "precondition_failed: the building model records the target in no room",
+        "m_search_semantic": "prior_needed: no room probabilities yet (the executor asks the ranking model once)"
+      }
+    }
+  },
+  "note": "no prior yet: asked the ranking model, replanning",
+  "rankings": [
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXe",
+      "probability": 0.5789367462584463,
+      "likelihood": 0.8,
+      "reasoning": "Printer rooms often have fire extinguishers mounted near the exit or on walls due to equipment heat risks."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXb",
+      "probability": 0.2129789266871701,
+      "likelihood": 0.7,
+      "reasoning": "Lobbies are high-traffic public areas where fire extinguishers are standardly placed for accessibility."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXh",
+      "probability": 0.07835056853096972,
+      "likelihood": 0.6,
+      "reasoning": "Storage areas typically require fire safety equipment like extinguishers for stored materials."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXa",
+      "probability": 0.07835056853096972,
+      "likelihood": 0.6,
+      "reasoning": "Corridors often have fire extinguishers mounted on walls near stairwells or exits."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXg",
+      "probability": 0.01060359638388843,
+      "likelihood": 0.4,
+      "reasoning": "Workspaces may have extinguishers, but they are less likely than utility or storage rooms."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXU",
+      "probability": 0.01060359638388843,
+      "likelihood": 0.4,
+      "reasoning": "Labs may contain hazardous materials requiring fire safety equipment, though this room is empty."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXd",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Offices usually do not require dedicated extinguishers unless they contain specific hazards."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXc",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Similar to other offices, this room is unlikely to have a fire extinguisher unless specified."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXX",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Standard office environment with low probability of containing a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXW",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Standard office environment with low probability of containing a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXZ",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Standard office environment with low probability of containing a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXT",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Standard office environment with low probability of containing a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXV",
+      "probability": 0.0039008451121124023,
+      "likelihood": 0.3,
+      "reasoning": "Meeting rooms are generally not equipped with fire extinguishers unless near exits."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXY",
+      "probability": 0.0014350407199402628,
+      "likelihood": 0.2,
+      "reasoning": "Small office space with minimal equipment, unlikely to have a fire extinguisher."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXS",
+      "probability": 0.0014350407199402628,
+      "likelihood": 0.2,
+      "reasoning": "Empty office room with no equipment, very unlikely to have a fire extinguisher."
+    }
+  ]
+}

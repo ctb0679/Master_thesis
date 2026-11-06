@@ -1,0 +1,145 @@
+{
+  "task": {
+    "name": "find_object",
+    "args": [
+      "managers office",
+      "single"
+    ],
+    "text": "find the managers office"
+  },
+  "robot": {
+    "id": "a300",
+    "space": "3DsWwrAET2VRfR_BYHBzXe",
+    "capabilities": [
+      "depth",
+      "navigate",
+      "rgb"
+    ],
+    "width_m": 0.665,
+    "safety_margin_m": 0.1,
+    "allow_exterior": false
+  },
+  "settings": {
+    "prob_mass": 0.9,
+    "min_prob": 0.01,
+    "max_visits_per_room": 1,
+    "distance": "door_graph",
+    "door_states_source": "/home/idac/Junaidali/Master_thesis/data/robot/door_states_IDAC.json",
+    "miss_rate": 0.2,
+    "detect_threshold": 0.0,
+    "residual_mass": 0.09999999999999998,
+    "llm_temperature": 0.0,
+    "seed": 42,
+    "model": "qwen3.5:9b"
+  },
+  "outcome": "aborted",
+  "reason": "user ended the session",
+  "found": [],
+  "rankings": [
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXd",
+      "probability": 0.120821092225871,
+      "likelihood": 0.4,
+      "reasoning": "This room is explicitly named 'Office 5' and contains standard office furniture like desks and chairs."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXc",
+      "probability": 0.120821092225871,
+      "likelihood": 0.4,
+      "reasoning": "This room is explicitly named 'Office 8' and contains standard office furniture like desks and chairs."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXX",
+      "probability": 0.120821092225871,
+      "likelihood": 0.4,
+      "reasoning": "This room is explicitly named 'Office 6' and contains standard office furniture like desks and chairs."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXW",
+      "probability": 0.120821092225871,
+      "likelihood": 0.4,
+      "reasoning": "This room is explicitly named 'Office 7' and contains standard office furniture like desks and chairs."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXZ",
+      "probability": 0.120821092225871,
+      "likelihood": 0.4,
+      "reasoning": "This room is explicitly named 'Office 4' and contains standard office furniture like desks and chairs."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXY",
+      "probability": 0.120821092225871,
+      "likelihood": 0.4,
+      "reasoning": "This room is explicitly named 'Office 3' and contains standard office furniture like desks and chairs."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXT",
+      "probability": 0.120821092225871,
+      "likelihood": 0.4,
+      "reasoning": "This room is explicitly named 'Office 2' and contains standard office furniture like desks and chairs."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXS",
+      "probability": 0.120821092225871,
+      "likelihood": 0.4,
+      "reasoning": "This room is explicitly named 'Office 1' but currently has no equipment listed."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXV",
+      "probability": 0.016351356737345155,
+      "likelihood": 0.2,
+      "reasoning": "A meeting room is for group gatherings and typically lacks the private desk setup of a manager's office."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXg",
+      "probability": 0.006015327978929434,
+      "likelihood": 0.1,
+      "reasoning": "This workspace has many monitors and desks but lacks the specific 'Office' designation often associated with managers."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXe",
+      "probability": 0.0022129154953515013,
+      "likelihood": 0.0,
+      "reasoning": "A printer room is for equipment maintenance and not suitable for a manager's office."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXh",
+      "probability": 0.0022129154953515013,
+      "likelihood": 0.0,
+      "reasoning": "A storage room contains no desks or computers and is not an office space."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXb",
+      "probability": 0.0022129154953515013,
+      "likelihood": 0.0,
+      "reasoning": "A lobby is a public entrance area and not an office."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXa",
+      "probability": 0.0022129154953515013,
+      "likelihood": 0.0,
+      "reasoning": "A corridor is a passageway and cannot contain an office."
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXU",
+      "probability": 0.0022129154953515013,
+      "likelihood": 0.0,
+      "reasoning": "A lab is for scientific work and not an administrative office."
+    }
+  ],
+  "visit_order": [
+    "3DsWwrAET2VRfR_BYHBzXc"
+  ],
+  "travelled_m": 19.5,
+  "iterations": 2,
+  "model_calls": {
+    "ranker": 1,
+    "detector": 0
+  },
+  "failure": null,
+  "log_dir": "/home/idac/Junaidali/Master_thesis/results/htn_runs/20261029_110516_find_the_managers_office",
+  "found_labels": [],
+  "visit_order_labels": [
+    "7 (Office 8)"
+  ]
+}

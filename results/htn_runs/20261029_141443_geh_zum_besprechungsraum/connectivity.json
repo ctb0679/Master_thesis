@@ -1,0 +1,524 @@
+{
+  "start_space": {
+    "space": "0N9CSx_ib7HQ7izEW$Ox78",
+    "name": "1",
+    "function": "Lobby",
+    "storey": "EG"
+  },
+  "storeys": [
+    "EG",
+    "OG1",
+    "OG2",
+    "OG3",
+    "OG4"
+  ],
+  "groups": [
+    {
+      "rooms": [
+        {
+          "space": "0N9CSx_ib7HQ7izEW$Ox78",
+          "name": "1",
+          "function": "Lobby",
+          "storey": "EG"
+        },
+        {
+          "space": "0N9CSx_ib7HQ7izEW$Ox7Q",
+          "name": "4",
+          "function": "WC",
+          "storey": "EG"
+        },
+        {
+          "space": "0N9CSx_ib7HQ7izEW$Ox70",
+          "name": "2",
+          "function": "WC",
+          "storey": "EG"
+        },
+        {
+          "space": "0N9CSx_ib7HQ7izEW$Ox7V",
+          "name": "3",
+          "function": "WC",
+          "storey": "EG"
+        }
+      ],
+      "storeys": [
+        "EG"
+      ],
+      "exterior_doors": 2
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRgN",
+          "name": "24",
+          "function": "Lobby",
+          "storey": "EG"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRgH",
+          "name": "26",
+          "function": "WC",
+          "storey": "EG"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRgI",
+          "name": "25",
+          "function": "WC",
+          "storey": "EG"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRgS",
+          "name": "27",
+          "function": "WC",
+          "storey": "EG"
+        }
+      ],
+      "storeys": [
+        "EG"
+      ],
+      "exterior_doors": 2
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRMH",
+          "name": "14",
+          "function": "Working Space",
+          "storey": "OG2"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRMO",
+          "name": "16",
+          "function": "WC",
+          "storey": "OG2"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRMT",
+          "name": "15",
+          "function": "WC",
+          "storey": "OG2"
+        }
+      ],
+      "storeys": [
+        "OG2"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRNX",
+          "name": "19",
+          "function": "Working Space",
+          "storey": "OG2"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRNh",
+          "name": "21",
+          "function": "WC",
+          "storey": "OG2"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRNi",
+          "name": "20",
+          "function": "WC",
+          "storey": "OG2"
+        }
+      ],
+      "storeys": [
+        "OG2"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRhs",
+          "name": "28",
+          "function": "Working Space",
+          "storey": "EG"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRhm",
+          "name": "30",
+          "function": "WC",
+          "storey": "EG"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRhr",
+          "name": "29",
+          "function": "Lobby",
+          "storey": "EG"
+        }
+      ],
+      "storeys": [
+        "EG"
+      ],
+      "exterior_doors": 1
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzReR",
+          "name": "31",
+          "function": "Working Space",
+          "storey": "OG3"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRfi",
+          "name": "35",
+          "function": "WC",
+          "storey": "OG3"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRfh",
+          "name": "36",
+          "function": "WC",
+          "storey": "OG3"
+        }
+      ],
+      "storeys": [
+        "OG3"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRfd",
+          "name": "32",
+          "function": "Working Space",
+          "storey": "OG3"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRfX",
+          "name": "34",
+          "function": "WC",
+          "storey": "OG3"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRfY",
+          "name": "33",
+          "function": "WC",
+          "storey": "OG3"
+        }
+      ],
+      "storeys": [
+        "OG3"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0N9CSx_ib7HQ7izEW$Ox7L",
+          "name": "5",
+          "function": "Lobby",
+          "storey": "EG"
+        },
+        {
+          "space": "0N9CSx_ib7HQ7izEW$Ox7G",
+          "name": "6",
+          "function": "Working Space",
+          "storey": "EG"
+        },
+        {
+          "space": "0N9CSx_ib7HQ7izEW$Ox6l",
+          "name": "7",
+          "function": "WC",
+          "storey": "EG"
+        }
+      ],
+      "storeys": [
+        "EG"
+      ],
+      "exterior_doors": 1
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRM$",
+          "name": "10",
+          "function": "Working Space",
+          "storey": "OG1"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRMw",
+          "name": "11",
+          "function": "WC",
+          "storey": "OG1"
+        }
+      ],
+      "storeys": [
+        "OG1"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRMv",
+          "name": "12",
+          "function": "WC",
+          "storey": "OG1"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRM4",
+          "name": "13",
+          "function": "Working Space",
+          "storey": "OG1"
+        }
+      ],
+      "storeys": [
+        "OG1"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRNd",
+          "name": "17",
+          "function": "Working Space",
+          "storey": "OG2"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRNY",
+          "name": "18",
+          "function": "WC",
+          "storey": "OG2"
+        }
+      ],
+      "storeys": [
+        "OG2"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRNs",
+          "name": "22",
+          "function": "Working Space",
+          "storey": "OG2"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRNr",
+          "name": "23",
+          "function": "WC",
+          "storey": "OG2"
+        }
+      ],
+      "storeys": [
+        "OG2"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRfs",
+          "name": "37",
+          "function": "Working Space",
+          "storey": "OG3"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRfr",
+          "name": "38",
+          "function": "WC",
+          "storey": "OG3"
+        }
+      ],
+      "storeys": [
+        "OG3"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRfm",
+          "name": "39",
+          "function": "WC",
+          "storey": "OG3"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRf$",
+          "name": "40",
+          "function": "Working Space",
+          "storey": "OG3"
+        }
+      ],
+      "storeys": [
+        "OG3"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRf6",
+          "name": "41",
+          "function": "Working Space",
+          "storey": "OG4"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRf7",
+          "name": "42",
+          "function": "WC",
+          "storey": "OG4"
+        }
+      ],
+      "storeys": [
+        "OG4"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRf4",
+          "name": "43",
+          "function": "WC",
+          "storey": "OG4"
+        },
+        {
+          "space": "0II2RZUufDBOPLitolzRf5",
+          "name": "44",
+          "function": "Working Space",
+          "storey": "OG4"
+        }
+      ],
+      "storeys": [
+        "OG4"
+      ],
+      "exterior_doors": 0
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRMe",
+          "name": "8",
+          "function": "Meeting Room",
+          "storey": "OG1"
+        }
+      ],
+      "storeys": [
+        "OG1"
+      ],
+      "exterior_doors": 1
+    },
+    {
+      "rooms": [
+        {
+          "space": "0II2RZUufDBOPLitolzRMm",
+          "name": "9",
+          "function": "Meeting Room",
+          "storey": "OG1"
+        }
+      ],
+      "storeys": [
+        "OG1"
+      ],
+      "exterior_doors": 1
+    }
+  ],
+  "reachable_from_start": [
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox78",
+      "name": "1",
+      "function": "Lobby",
+      "storey": "EG"
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox70",
+      "name": "2",
+      "function": "WC",
+      "storey": "EG"
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7V",
+      "name": "3",
+      "function": "WC",
+      "storey": "EG"
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7Q",
+      "name": "4",
+      "function": "WC",
+      "storey": "EG"
+    }
+  ],
+  "unlinked_stairs": [
+    {
+      "guid": "0sHz$Q4_TDUxOoi4rM5aJm",
+      "name": "Ortbetontreppe:Treppe:484754",
+      "storey": "EG"
+    },
+    {
+      "guid": "21_ODlrCb62O2Ec4M21M8$",
+      "name": "Zusammengebaute Treppe:Treppe:487526",
+      "storey": "OG1"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe7XY",
+      "name": "Zusammengebaute Treppe:Treppe:493683",
+      "storey": "EG"
+    },
+    {
+      "guid": "3SOX5dZHP7dwnUJhhNe7nU",
+      "name": "Zusammengebaute Treppe:Treppe:494671",
+      "storey": "OG1"
+    },
+    {
+      "guid": "3xCOwMZ_r0HfXOhUmMA9kB",
+      "name": "Zusammengebaute Treppe:Treppe:512980",
+      "storey": "OG2"
+    },
+    {
+      "guid": "3XE9QcHwLFg9UVUHzCKTrH",
+      "name": "Zusammengebaute Treppe:Treppe:518755",
+      "storey": "OG2"
+    },
+    {
+      "guid": "3XE9QcHwLFg9UVUHzCKTr6",
+      "name": "Zusammengebaute Treppe:Treppe:518772",
+      "storey": "OG3"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwxW",
+      "name": "Ortbetontreppe:Treppe:527118",
+      "storey": "EG"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwxV",
+      "name": "Zusammengebaute Treppe:Treppe:527153",
+      "storey": "OG1"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwuS",
+      "name": "Zusammengebaute Treppe:Treppe:527346",
+      "storey": "OG2"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owjz",
+      "name": "Zusammengebaute Treppe:Treppe:528019",
+      "storey": "EG"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OwjB",
+      "name": "Zusammengebaute Treppe:Treppe:528037",
+      "storey": "OG1"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$Owe3",
+      "name": "Zusammengebaute Treppe:Treppe:528365",
+      "storey": "OG2"
+    },
+    {
+      "guid": "0N9CSx_ib7HQ7izEW$OweI",
+      "name": "Zusammengebaute Treppe:Treppe:528380",
+      "storey": "OG3"
+    }
+  ],
+  "rooms_without_door": []
+}

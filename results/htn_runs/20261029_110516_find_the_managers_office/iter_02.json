@@ -1,0 +1,2265 @@
+{
+  "iteration": 2,
+  "task": {
+    "name": "find_object",
+    "args": [
+      "managers office",
+      "single"
+    ]
+  },
+  "state": {
+    "robot": {
+      "id": "a300",
+      "space": "3DsWwrAET2VRfR_BYHBzXe",
+      "capabilities": [
+        "depth",
+        "navigate",
+        "rgb"
+      ],
+      "width_m": 0.665,
+      "safety_margin_m": 0.1,
+      "allow_exterior": false
+    },
+    "spaces": {
+      "3DsWwrAET2VRfR_BYHBzXe": {
+        "name": "1",
+        "function": "Printer room",
+        "centroid": [
+          30.118,
+          24.319
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXh": {
+        "name": "2",
+        "function": "Storage",
+        "centroid": [
+          30.118,
+          21.711
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXg": {
+        "name": "3",
+        "function": "Workspace",
+        "centroid": [
+          22.794,
+          24.121
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXb": {
+        "name": "4",
+        "function": "Lobby",
+        "centroid": [
+          36.678,
+          23.959
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXa": {
+        "name": "5",
+        "function": "Corridor",
+        "centroid": [
+          35.586,
+          19.163
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXd": {
+        "name": "6",
+        "function": "Office 5",
+        "centroid": [
+          32.687,
+          16.363
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXc": {
+        "name": "7",
+        "function": "Office 8",
+        "centroid": [
+          16.543,
+          16.36
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXX": {
+        "name": "8",
+        "function": "Office 6",
+        "centroid": [
+          27.287,
+          16.363
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXW": {
+        "name": "9",
+        "function": "Office 7",
+        "centroid": [
+          21.887,
+          16.363
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXZ": {
+        "name": "10",
+        "function": "Office 4",
+        "centroid": [
+          38.005,
+          16.282
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXY": {
+        "name": "11",
+        "function": "Office 3",
+        "centroid": [
+          43.477,
+          16.126
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXT": {
+        "name": "12",
+        "function": "Office 2",
+        "centroid": [
+          49.051,
+          21.548
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXS": {
+        "name": "13",
+        "function": "Office 1",
+        "centroid": [
+          49.052,
+          25.791
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXV": {
+        "name": "14",
+        "function": "Meeting room",
+        "centroid": [
+          45.497,
+          21.117
+        ]
+      },
+      "3DsWwrAET2VRfR_BYHBzXU": {
+        "name": "15",
+        "function": "Lab",
+        "centroid": [
+          21.882,
+          21.821
+        ]
+      }
+    },
+    "doors": {
+      "2jlli2nuj35OT4Nt8dpGGq": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2470799",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXc",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          15.19,
+          18.286
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXc": [
+            15.19,
+            17.894
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            15.19,
+            18.678
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "2jlli2nuj35OT4Nt8dpGF7": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471036",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXX",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          25.862,
+          18.286
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXX": [
+            25.862,
+            17.894
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            25.862,
+            18.678
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "1TBRTxOmH2qOCfGLFJR1oS": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471581",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXW",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          23.482,
+          18.286
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXW": [
+            23.482,
+            17.894
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            23.482,
+            18.678
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "1TBRTxOmH2qOCfGLFJR1qA": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471691",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXa",
+          "3DsWwrAET2VRfR_BYHBzXd"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          34.225,
+          18.286
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXd": [
+            34.225,
+            17.894
+          ],
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            34.225,
+            18.678
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "1TBRTxOmH2qOCfGLFJR1qc": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471719",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXZ",
+          "3DsWwrAET2VRfR_BYHBzXa"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          40.066,
+          17.813
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXZ": [
+            40.066,
+            17.421
+          ],
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            40.066,
+            18.205
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "1TBRTxOmH2qOCfGLFJR1su": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471865",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXV",
+          "3DsWwrAET2VRfR_BYHBzXY"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          41.526,
+          17.813
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXY": [
+            41.526,
+            17.421
+          ],
+          "3DsWwrAET2VRfR_BYHBzXV": [
+            41.526,
+            18.205
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "1TBRTxOmH2qOCfGLFJR18M": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2471959",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXT",
+          "3DsWwrAET2VRfR_BYHBzXV"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          46.166,
+          21.458
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXT": [
+            46.559,
+            21.458
+          ],
+          "3DsWwrAET2VRfR_BYHBzXV": [
+            45.773,
+            21.458
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "1TBRTxOmH2qOCfGLFJR1Ca": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 1100 x 2136 IDAB_R\u00e4ume:2472229",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXS",
+          "3DsWwrAET2VRfR_BYHBzXV"
+        ],
+        "clear_width_m": 1.1,
+        "position": [
+          46.166,
+          24.598
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXS": [
+            46.559,
+            24.598
+          ],
+          "3DsWwrAET2VRfR_BYHBzXV": [
+            45.773,
+            24.598
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "1TBRTxOmH2qOCfGLFJR1Fl": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 900 x 2136 IDAB_R\u00e4ume 2:2472430",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXU",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 0.9,
+        "position": [
+          23.554,
+          20.22
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXU": [
+            23.554,
+            20.612
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            23.554,
+            19.828
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "0xust1cwr8XOVmfb2C$iKT": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 900 x 2136 IDAB_R\u00e4ume 2:2472665",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXe",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 0.9,
+        "position": [
+          29.467,
+          25.352
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXe": [
+            29.467,
+            24.96
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            29.467,
+            25.744
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "0xust1cwr8XOVmfb2C$iJu": {
+        "name": "TU DF 1 - Rahmenstock fl\u00e4chenb\u00fcndig:ML - 900 x 2136 IDAB_R\u00e4ume 2:2472764",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXg",
+          "3DsWwrAET2VRfR_BYHBzXh"
+        ],
+        "clear_width_m": 0.9,
+        "position": [
+          28.728,
+          21.941
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXh": [
+            29.121,
+            21.941
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            28.335,
+            21.941
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "2y16PNiQDAUu6vtOChEcqd": {
+        "name": "TU DF 1 - Rahmenstock mit Glasseitenteil:ML - 1260 x 2135 - DB 800:2478932",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXa",
+          "3DsWwrAET2VRfR_BYHBzXg"
+        ],
+        "clear_width_m": 1.26,
+        "position": [
+          29.99,
+          19.121
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            30.382,
+            19.121
+          ],
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            29.598,
+            19.121
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "2y16PNiQDAUu6vtOChEcsb": {
+        "name": "TU DF 1 - Rahmenstock mit Glasseitenteil:DL - 800 x 2000 - MB 1400 - EI 30:2479062",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXV",
+          "3DsWwrAET2VRfR_BYHBzXa"
+        ],
+        "clear_width_m": 1.4,
+        "position": [
+          40.785,
+          19.189
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            40.392,
+            19.189
+          ],
+          "3DsWwrAET2VRfR_BYHBzXV": [
+            41.178,
+            19.189
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "2y16PNiQDAUu6vtOChEch4": {
+        "name": "TU DF 2 - Rahmenstock fl\u00e4chenb\u00fcndig:DL - 1600 x 2000:2479287",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXa",
+          "3DsWwrAET2VRfR_BYHBzXb"
+        ],
+        "clear_width_m": 1.69,
+        "position": [
+          36.638,
+          20.175
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXb": [
+            36.638,
+            20.605
+          ],
+          "3DsWwrAET2VRfR_BYHBzXa": [
+            36.638,
+            19.745
+          ]
+        },
+        "is_exterior": false,
+        "state": "open"
+      },
+      "2BOvfVeQT2E8wiKZrVEfNM": {
+        "name": "TU DF 1 - Rahmenstock Notausgang und Fluchttuere:EN 179 - ML - 885 x 2135 - EI 30:2516026",
+        "rooms": [
+          "3DsWwrAET2VRfR_BYHBzXg",
+          "outside"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          13.744,
+          20.496
+        ],
+        "approach": {
+          "3DsWwrAET2VRfR_BYHBzXg": [
+            14.304,
+            20.496
+          ],
+          "outside": [
+            13.184,
+            20.496
+          ]
+        },
+        "is_exterior": true,
+        "state": "open"
+      }
+    },
+    "adjacency": {
+      "3DsWwrAET2VRfR_BYHBzXe": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "0xust1cwr8XOVmfb2C$iKT",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXh": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "0xust1cwr8XOVmfb2C$iJu",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXg": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXc",
+          "door": "2jlli2nuj35OT4Nt8dpGGq",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXX",
+          "door": "2jlli2nuj35OT4Nt8dpGF7",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXW",
+          "door": "1TBRTxOmH2qOCfGLFJR1oS",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXU",
+          "door": "1TBRTxOmH2qOCfGLFJR1Fl",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXe",
+          "door": "0xust1cwr8XOVmfb2C$iKT",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXh",
+          "door": "0xust1cwr8XOVmfb2C$iJu",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "2y16PNiQDAUu6vtOChEcqd",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "outside",
+          "door": "2BOvfVeQT2E8wiKZrVEfNM",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXb": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "2y16PNiQDAUu6vtOChEch4",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXa": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXd",
+          "door": "1TBRTxOmH2qOCfGLFJR1qA",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXZ",
+          "door": "1TBRTxOmH2qOCfGLFJR1qc",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2y16PNiQDAUu6vtOChEcqd",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "2y16PNiQDAUu6vtOChEcsb",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXb",
+          "door": "2y16PNiQDAUu6vtOChEch4",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXd": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "1TBRTxOmH2qOCfGLFJR1qA",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXc": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2jlli2nuj35OT4Nt8dpGGq",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXX": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2jlli2nuj35OT4Nt8dpGF7",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXW": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "1TBRTxOmH2qOCfGLFJR1oS",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXZ": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "1TBRTxOmH2qOCfGLFJR1qc",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXY": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "1TBRTxOmH2qOCfGLFJR1su",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXT": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "1TBRTxOmH2qOCfGLFJR18M",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXS": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "1TBRTxOmH2qOCfGLFJR1Ca",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXV": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXY",
+          "door": "1TBRTxOmH2qOCfGLFJR1su",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXT",
+          "door": "1TBRTxOmH2qOCfGLFJR18M",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXS",
+          "door": "1TBRTxOmH2qOCfGLFJR1Ca",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "2y16PNiQDAUu6vtOChEcsb",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "3DsWwrAET2VRfR_BYHBzXU": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "1TBRTxOmH2qOCfGLFJR1Fl",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "outside": [
+        {
+          "to": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2BOvfVeQT2E8wiKZrVEfNM",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ]
+    },
+    "task": {
+      "name": "find_object",
+      "target": "managers office",
+      "mode": "single",
+      "restricted": null,
+      "recorded": [],
+      "text": "find the managers office"
+    },
+    "belief": {
+      "prior": {
+        "3DsWwrAET2VRfR_BYHBzXd": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXc": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXX": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXW": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXZ": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXY": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXT": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXS": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXV": 0.016351356737345155,
+        "3DsWwrAET2VRfR_BYHBzXg": 0.006015327978929434,
+        "3DsWwrAET2VRfR_BYHBzXe": 0.0022129154953515013,
+        "3DsWwrAET2VRfR_BYHBzXh": 0.0022129154953515013,
+        "3DsWwrAET2VRfR_BYHBzXb": 0.0022129154953515013,
+        "3DsWwrAET2VRfR_BYHBzXa": 0.0022129154953515013,
+        "3DsWwrAET2VRfR_BYHBzXU": 0.0022129154953515013
+      },
+      "posterior": {
+        "3DsWwrAET2VRfR_BYHBzXd": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXc": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXX": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXW": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXZ": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXY": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXT": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXS": 0.120821092225871,
+        "3DsWwrAET2VRfR_BYHBzXV": 0.016351356737345155,
+        "3DsWwrAET2VRfR_BYHBzXg": 0.006015327978929434,
+        "3DsWwrAET2VRfR_BYHBzXe": 0.0022129154953515013,
+        "3DsWwrAET2VRfR_BYHBzXh": 0.0022129154953515013,
+        "3DsWwrAET2VRfR_BYHBzXb": 0.0022129154953515013,
+        "3DsWwrAET2VRfR_BYHBzXa": 0.0022129154953515013,
+        "3DsWwrAET2VRfR_BYHBzXU": 0.0022129154953515013
+      }
+    },
+    "search": {
+      "visits": {},
+      "stage": {},
+      "searched": [],
+      "found": [],
+      "observations": []
+    },
+    "settings": {
+      "prob_mass": 0.9,
+      "min_prob": 0.01,
+      "max_visits_per_room": 1,
+      "distance": "door_graph",
+      "door_states_source": "/home/idac/Junaidali/Master_thesis/data/robot/door_states_IDAC.json"
+    }
+  },
+  "prior": {
+    "3DsWwrAET2VRfR_BYHBzXd": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXc": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXX": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXW": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXZ": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXY": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXT": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXS": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXV": 0.016351356737345155,
+    "3DsWwrAET2VRfR_BYHBzXg": 0.006015327978929434,
+    "3DsWwrAET2VRfR_BYHBzXe": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXh": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXb": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXa": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXU": 0.0022129154953515013
+  },
+  "posterior": {
+    "3DsWwrAET2VRfR_BYHBzXd": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXc": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXX": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXW": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXZ": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXY": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXT": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXS": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXV": 0.016351356737345155,
+    "3DsWwrAET2VRfR_BYHBzXg": 0.006015327978929434,
+    "3DsWwrAET2VRfR_BYHBzXe": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXh": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXb": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXa": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXU": 0.0022129154953515013
+  },
+  "chosen_method": "m_search_semantic",
+  "tree": {
+    "task": "goal(find_object(managers office, single))",
+    "method": null,
+    "status": "expanded",
+    "children": [
+      {
+        "task": "find_object(managers office, single)",
+        "method": "m_search_semantic",
+        "status": "expanded",
+        "children": [
+          {
+            "task": "find_object(managers office, single)",
+            "method": "m_search_restricted",
+            "status": "rejected",
+            "reasons": [
+              "precondition_failed: the user did not restrict the search to one room"
+            ]
+          },
+          {
+            "task": "find_object(managers office, single)",
+            "method": "m_search_recorded",
+            "status": "rejected",
+            "reasons": [
+              "precondition_failed: the building model records the target in no room",
+              "precondition_failed: every room where the building model records the target has been searched"
+            ]
+          },
+          {
+            "task": "find_object(managers office, single)",
+            "method": "m_search_semantic",
+            "status": "expanded",
+            "children": [
+              {
+                "task": "search_space(3DsWwrAET2VRfR_BYHBzXc, managers office)",
+                "method": "m_search_space",
+                "status": "expanded",
+                "children": [
+                  {
+                    "task": "search_space(3DsWwrAET2VRfR_BYHBzXc, managers office)",
+                    "method": "m_search_space",
+                    "status": "expanded",
+                    "children": [
+                      {
+                        "task": "go_to(3DsWwrAET2VRfR_BYHBzXc)",
+                        "method": "m_route",
+                        "status": "expanded",
+                        "children": [
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXc)",
+                            "method": "m_already_there",
+                            "status": "rejected",
+                            "reasons": [
+                              "precondition_failed: robot is in 1 (Printer room), not in 7 (Office 8)"
+                            ]
+                          },
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXc)",
+                            "method": "m_route",
+                            "status": "expanded",
+                            "children": [
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXe, 3DsWwrAET2VRfR_BYHBzXg, 0xust1cwr8XOVmfb2C$iKT, (29.467, 25.352), (29.467, 24.96), (29.467, 25.744), (22.794, 24.121))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXg, 3DsWwrAET2VRfR_BYHBzXc, 2jlli2nuj35OT4Nt8dpGGq, (15.19, 18.286), (15.19, 18.678), (15.19, 17.894), (16.543, 16.36))",
+                                "method": null,
+                                "status": "primitive"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "task": "capture_rgb(3DsWwrAET2VRfR_BYHBzXc)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "detect(3DsWwrAET2VRfR_BYHBzXc, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "update_belief(3DsWwrAET2VRfR_BYHBzXc)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "record_result(3DsWwrAET2VRfR_BYHBzXc, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "task": "search_space(3DsWwrAET2VRfR_BYHBzXW, managers office)",
+                "method": "m_search_space",
+                "status": "expanded",
+                "children": [
+                  {
+                    "task": "search_space(3DsWwrAET2VRfR_BYHBzXW, managers office)",
+                    "method": "m_search_space",
+                    "status": "expanded",
+                    "children": [
+                      {
+                        "task": "go_to(3DsWwrAET2VRfR_BYHBzXW)",
+                        "method": "m_route",
+                        "status": "expanded",
+                        "children": [
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXW)",
+                            "method": "m_already_there",
+                            "status": "rejected",
+                            "reasons": [
+                              "precondition_failed: robot is in 7 (Office 8), not in 9 (Office 7)"
+                            ]
+                          },
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXW)",
+                            "method": "m_route",
+                            "status": "expanded",
+                            "children": [
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXc, 3DsWwrAET2VRfR_BYHBzXg, 2jlli2nuj35OT4Nt8dpGGq, (15.19, 18.286), (15.19, 17.894), (15.19, 18.678), (22.794, 24.121))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXg, 3DsWwrAET2VRfR_BYHBzXW, 1TBRTxOmH2qOCfGLFJR1oS, (23.482, 18.286), (23.482, 18.678), (23.482, 17.894), (21.887, 16.363))",
+                                "method": null,
+                                "status": "primitive"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "task": "capture_rgb(3DsWwrAET2VRfR_BYHBzXW)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "detect(3DsWwrAET2VRfR_BYHBzXW, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "update_belief(3DsWwrAET2VRfR_BYHBzXW)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "record_result(3DsWwrAET2VRfR_BYHBzXW, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "task": "search_space(3DsWwrAET2VRfR_BYHBzXX, managers office)",
+                "method": "m_search_space",
+                "status": "expanded",
+                "children": [
+                  {
+                    "task": "search_space(3DsWwrAET2VRfR_BYHBzXX, managers office)",
+                    "method": "m_search_space",
+                    "status": "expanded",
+                    "children": [
+                      {
+                        "task": "go_to(3DsWwrAET2VRfR_BYHBzXX)",
+                        "method": "m_route",
+                        "status": "expanded",
+                        "children": [
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXX)",
+                            "method": "m_already_there",
+                            "status": "rejected",
+                            "reasons": [
+                              "precondition_failed: robot is in 9 (Office 7), not in 8 (Office 6)"
+                            ]
+                          },
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXX)",
+                            "method": "m_route",
+                            "status": "expanded",
+                            "children": [
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXW, 3DsWwrAET2VRfR_BYHBzXg, 1TBRTxOmH2qOCfGLFJR1oS, (23.482, 18.286), (23.482, 17.894), (23.482, 18.678), (22.794, 24.121))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXg, 3DsWwrAET2VRfR_BYHBzXX, 2jlli2nuj35OT4Nt8dpGF7, (25.862, 18.286), (25.862, 18.678), (25.862, 17.894), (27.287, 16.363))",
+                                "method": null,
+                                "status": "primitive"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "task": "capture_rgb(3DsWwrAET2VRfR_BYHBzXX)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "detect(3DsWwrAET2VRfR_BYHBzXX, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "update_belief(3DsWwrAET2VRfR_BYHBzXX)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "record_result(3DsWwrAET2VRfR_BYHBzXX, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "task": "search_space(3DsWwrAET2VRfR_BYHBzXd, managers office)",
+                "method": "m_search_space",
+                "status": "expanded",
+                "children": [
+                  {
+                    "task": "search_space(3DsWwrAET2VRfR_BYHBzXd, managers office)",
+                    "method": "m_search_space",
+                    "status": "expanded",
+                    "children": [
+                      {
+                        "task": "go_to(3DsWwrAET2VRfR_BYHBzXd)",
+                        "method": "m_route",
+                        "status": "expanded",
+                        "children": [
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXd)",
+                            "method": "m_already_there",
+                            "status": "rejected",
+                            "reasons": [
+                              "precondition_failed: robot is in 8 (Office 6), not in 6 (Office 5)"
+                            ]
+                          },
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXd)",
+                            "method": "m_route",
+                            "status": "expanded",
+                            "children": [
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXX, 3DsWwrAET2VRfR_BYHBzXg, 2jlli2nuj35OT4Nt8dpGF7, (25.862, 18.286), (25.862, 17.894), (25.862, 18.678), (22.794, 24.121))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXg, 3DsWwrAET2VRfR_BYHBzXa, 2y16PNiQDAUu6vtOChEcqd, (29.99, 19.121), (29.598, 19.121), (30.382, 19.121), (35.586, 19.163))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXa, 3DsWwrAET2VRfR_BYHBzXd, 1TBRTxOmH2qOCfGLFJR1qA, (34.225, 18.286), (34.225, 18.678), (34.225, 17.894), (32.687, 16.363))",
+                                "method": null,
+                                "status": "primitive"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "task": "capture_rgb(3DsWwrAET2VRfR_BYHBzXd)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "detect(3DsWwrAET2VRfR_BYHBzXd, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "update_belief(3DsWwrAET2VRfR_BYHBzXd)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "record_result(3DsWwrAET2VRfR_BYHBzXd, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "task": "search_space(3DsWwrAET2VRfR_BYHBzXZ, managers office)",
+                "method": "m_search_space",
+                "status": "expanded",
+                "children": [
+                  {
+                    "task": "search_space(3DsWwrAET2VRfR_BYHBzXZ, managers office)",
+                    "method": "m_search_space",
+                    "status": "expanded",
+                    "children": [
+                      {
+                        "task": "go_to(3DsWwrAET2VRfR_BYHBzXZ)",
+                        "method": "m_route",
+                        "status": "expanded",
+                        "children": [
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXZ)",
+                            "method": "m_already_there",
+                            "status": "rejected",
+                            "reasons": [
+                              "precondition_failed: robot is in 6 (Office 5), not in 10 (Office 4)"
+                            ]
+                          },
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXZ)",
+                            "method": "m_route",
+                            "status": "expanded",
+                            "children": [
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXd, 3DsWwrAET2VRfR_BYHBzXa, 1TBRTxOmH2qOCfGLFJR1qA, (34.225, 18.286), (34.225, 17.894), (34.225, 18.678), (35.586, 19.163))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXa, 3DsWwrAET2VRfR_BYHBzXZ, 1TBRTxOmH2qOCfGLFJR1qc, (40.066, 17.813), (40.066, 18.205), (40.066, 17.421), (38.005, 16.282))",
+                                "method": null,
+                                "status": "primitive"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "task": "capture_rgb(3DsWwrAET2VRfR_BYHBzXZ)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "detect(3DsWwrAET2VRfR_BYHBzXZ, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "update_belief(3DsWwrAET2VRfR_BYHBzXZ)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "record_result(3DsWwrAET2VRfR_BYHBzXZ, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "task": "search_space(3DsWwrAET2VRfR_BYHBzXY, managers office)",
+                "method": "m_search_space",
+                "status": "expanded",
+                "children": [
+                  {
+                    "task": "search_space(3DsWwrAET2VRfR_BYHBzXY, managers office)",
+                    "method": "m_search_space",
+                    "status": "expanded",
+                    "children": [
+                      {
+                        "task": "go_to(3DsWwrAET2VRfR_BYHBzXY)",
+                        "method": "m_route",
+                        "status": "expanded",
+                        "children": [
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXY)",
+                            "method": "m_already_there",
+                            "status": "rejected",
+                            "reasons": [
+                              "precondition_failed: robot is in 10 (Office 4), not in 11 (Office 3)"
+                            ]
+                          },
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXY)",
+                            "method": "m_route",
+                            "status": "expanded",
+                            "children": [
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXZ, 3DsWwrAET2VRfR_BYHBzXa, 1TBRTxOmH2qOCfGLFJR1qc, (40.066, 17.813), (40.066, 17.421), (40.066, 18.205), (35.586, 19.163))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXa, 3DsWwrAET2VRfR_BYHBzXV, 2y16PNiQDAUu6vtOChEcsb, (40.785, 19.189), (40.392, 19.189), (41.178, 19.189), (45.497, 21.117))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXV, 3DsWwrAET2VRfR_BYHBzXY, 1TBRTxOmH2qOCfGLFJR1su, (41.526, 17.813), (41.526, 18.205), (41.526, 17.421), (43.477, 16.126))",
+                                "method": null,
+                                "status": "primitive"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "task": "capture_rgb(3DsWwrAET2VRfR_BYHBzXY)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "detect(3DsWwrAET2VRfR_BYHBzXY, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "update_belief(3DsWwrAET2VRfR_BYHBzXY)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "record_result(3DsWwrAET2VRfR_BYHBzXY, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "task": "search_space(3DsWwrAET2VRfR_BYHBzXT, managers office)",
+                "method": "m_search_space",
+                "status": "expanded",
+                "children": [
+                  {
+                    "task": "search_space(3DsWwrAET2VRfR_BYHBzXT, managers office)",
+                    "method": "m_search_space",
+                    "status": "expanded",
+                    "children": [
+                      {
+                        "task": "go_to(3DsWwrAET2VRfR_BYHBzXT)",
+                        "method": "m_route",
+                        "status": "expanded",
+                        "children": [
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXT)",
+                            "method": "m_already_there",
+                            "status": "rejected",
+                            "reasons": [
+                              "precondition_failed: robot is in 11 (Office 3), not in 12 (Office 2)"
+                            ]
+                          },
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXT)",
+                            "method": "m_route",
+                            "status": "expanded",
+                            "children": [
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXY, 3DsWwrAET2VRfR_BYHBzXV, 1TBRTxOmH2qOCfGLFJR1su, (41.526, 17.813), (41.526, 17.421), (41.526, 18.205), (45.497, 21.117))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXV, 3DsWwrAET2VRfR_BYHBzXT, 1TBRTxOmH2qOCfGLFJR18M, (46.166, 21.458), (45.773, 21.458), (46.559, 21.458), (49.051, 21.548))",
+                                "method": null,
+                                "status": "primitive"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "task": "capture_rgb(3DsWwrAET2VRfR_BYHBzXT)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "detect(3DsWwrAET2VRfR_BYHBzXT, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "update_belief(3DsWwrAET2VRfR_BYHBzXT)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "record_result(3DsWwrAET2VRfR_BYHBzXT, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "task": "search_space(3DsWwrAET2VRfR_BYHBzXS, managers office)",
+                "method": "m_search_space",
+                "status": "expanded",
+                "children": [
+                  {
+                    "task": "search_space(3DsWwrAET2VRfR_BYHBzXS, managers office)",
+                    "method": "m_search_space",
+                    "status": "expanded",
+                    "children": [
+                      {
+                        "task": "go_to(3DsWwrAET2VRfR_BYHBzXS)",
+                        "method": "m_route",
+                        "status": "expanded",
+                        "children": [
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXS)",
+                            "method": "m_already_there",
+                            "status": "rejected",
+                            "reasons": [
+                              "precondition_failed: robot is in 12 (Office 2), not in 13 (Office 1)"
+                            ]
+                          },
+                          {
+                            "task": "go_to(3DsWwrAET2VRfR_BYHBzXS)",
+                            "method": "m_route",
+                            "status": "expanded",
+                            "children": [
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXT, 3DsWwrAET2VRfR_BYHBzXV, 1TBRTxOmH2qOCfGLFJR18M, (46.166, 21.458), (46.559, 21.458), (45.773, 21.458), (45.497, 21.117))",
+                                "method": null,
+                                "status": "primitive"
+                              },
+                              {
+                                "task": "navigate(3DsWwrAET2VRfR_BYHBzXV, 3DsWwrAET2VRfR_BYHBzXS, 1TBRTxOmH2qOCfGLFJR1Ca, (46.166, 24.598), (45.773, 24.598), (46.559, 24.598), (49.052, 25.791))",
+                                "method": null,
+                                "status": "primitive"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "task": "capture_rgb(3DsWwrAET2VRfR_BYHBzXS)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "detect(3DsWwrAET2VRfR_BYHBzXS, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "update_belief(3DsWwrAET2VRfR_BYHBzXS)",
+                        "method": null,
+                        "status": "primitive"
+                      },
+                      {
+                        "task": "record_result(3DsWwrAET2VRfR_BYHBzXS, managers office)",
+                        "method": null,
+                        "status": "primitive"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "initial_robot": {
+      "id": "a300",
+      "space": "3DsWwrAET2VRfR_BYHBzXe",
+      "capabilities": [
+        "depth",
+        "navigate",
+        "rgb"
+      ]
+    },
+    "initial_doors": {
+      "2jlli2nuj35OT4Nt8dpGGq": "open",
+      "2jlli2nuj35OT4Nt8dpGF7": "open",
+      "1TBRTxOmH2qOCfGLFJR1oS": "open",
+      "1TBRTxOmH2qOCfGLFJR1qA": "open",
+      "1TBRTxOmH2qOCfGLFJR1qc": "open",
+      "1TBRTxOmH2qOCfGLFJR1su": "open",
+      "1TBRTxOmH2qOCfGLFJR18M": "open",
+      "1TBRTxOmH2qOCfGLFJR1Ca": "open",
+      "1TBRTxOmH2qOCfGLFJR1Fl": "open",
+      "0xust1cwr8XOVmfb2C$iKT": "open",
+      "0xust1cwr8XOVmfb2C$iJu": "open",
+      "2y16PNiQDAUu6vtOChEcqd": "open",
+      "2y16PNiQDAUu6vtOChEcsb": "open",
+      "2y16PNiQDAUu6vtOChEch4": "open",
+      "2BOvfVeQT2E8wiKZrVEfNM": "open"
+    },
+    "actions": [
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXe",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "0xust1cwr8XOVmfb2C$iKT",
+          "door_position": [
+            29.467,
+            25.352
+          ],
+          "approach_from": [
+            29.467,
+            24.96
+          ],
+          "approach_to": [
+            29.467,
+            25.744
+          ],
+          "to_centroid": [
+            22.794,
+            24.121
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXg",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXc",
+          "door": "2jlli2nuj35OT4Nt8dpGGq",
+          "door_position": [
+            15.19,
+            18.286
+          ],
+          "approach_from": [
+            15.19,
+            18.678
+          ],
+          "approach_to": [
+            15.19,
+            17.894
+          ],
+          "to_centroid": [
+            16.543,
+            16.36
+          ]
+        }
+      },
+      {
+        "action": "capture_rgb",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXc"
+        }
+      },
+      {
+        "action": "detect",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXc",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "update_belief",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXc"
+        }
+      },
+      {
+        "action": "record_result",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXc",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXc",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2jlli2nuj35OT4Nt8dpGGq",
+          "door_position": [
+            15.19,
+            18.286
+          ],
+          "approach_from": [
+            15.19,
+            17.894
+          ],
+          "approach_to": [
+            15.19,
+            18.678
+          ],
+          "to_centroid": [
+            22.794,
+            24.121
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXg",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXW",
+          "door": "1TBRTxOmH2qOCfGLFJR1oS",
+          "door_position": [
+            23.482,
+            18.286
+          ],
+          "approach_from": [
+            23.482,
+            18.678
+          ],
+          "approach_to": [
+            23.482,
+            17.894
+          ],
+          "to_centroid": [
+            21.887,
+            16.363
+          ]
+        }
+      },
+      {
+        "action": "capture_rgb",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXW"
+        }
+      },
+      {
+        "action": "detect",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXW",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "update_belief",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXW"
+        }
+      },
+      {
+        "action": "record_result",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXW",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXW",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "1TBRTxOmH2qOCfGLFJR1oS",
+          "door_position": [
+            23.482,
+            18.286
+          ],
+          "approach_from": [
+            23.482,
+            17.894
+          ],
+          "approach_to": [
+            23.482,
+            18.678
+          ],
+          "to_centroid": [
+            22.794,
+            24.121
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXg",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXX",
+          "door": "2jlli2nuj35OT4Nt8dpGF7",
+          "door_position": [
+            25.862,
+            18.286
+          ],
+          "approach_from": [
+            25.862,
+            18.678
+          ],
+          "approach_to": [
+            25.862,
+            17.894
+          ],
+          "to_centroid": [
+            27.287,
+            16.363
+          ]
+        }
+      },
+      {
+        "action": "capture_rgb",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXX"
+        }
+      },
+      {
+        "action": "detect",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXX",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "update_belief",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXX"
+        }
+      },
+      {
+        "action": "record_result",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXX",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXX",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXg",
+          "door": "2jlli2nuj35OT4Nt8dpGF7",
+          "door_position": [
+            25.862,
+            18.286
+          ],
+          "approach_from": [
+            25.862,
+            17.894
+          ],
+          "approach_to": [
+            25.862,
+            18.678
+          ],
+          "to_centroid": [
+            22.794,
+            24.121
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXg",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "2y16PNiQDAUu6vtOChEcqd",
+          "door_position": [
+            29.99,
+            19.121
+          ],
+          "approach_from": [
+            29.598,
+            19.121
+          ],
+          "approach_to": [
+            30.382,
+            19.121
+          ],
+          "to_centroid": [
+            35.586,
+            19.163
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXa",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXd",
+          "door": "1TBRTxOmH2qOCfGLFJR1qA",
+          "door_position": [
+            34.225,
+            18.286
+          ],
+          "approach_from": [
+            34.225,
+            18.678
+          ],
+          "approach_to": [
+            34.225,
+            17.894
+          ],
+          "to_centroid": [
+            32.687,
+            16.363
+          ]
+        }
+      },
+      {
+        "action": "capture_rgb",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXd"
+        }
+      },
+      {
+        "action": "detect",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXd",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "update_belief",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXd"
+        }
+      },
+      {
+        "action": "record_result",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXd",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXd",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "1TBRTxOmH2qOCfGLFJR1qA",
+          "door_position": [
+            34.225,
+            18.286
+          ],
+          "approach_from": [
+            34.225,
+            17.894
+          ],
+          "approach_to": [
+            34.225,
+            18.678
+          ],
+          "to_centroid": [
+            35.586,
+            19.163
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXa",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXZ",
+          "door": "1TBRTxOmH2qOCfGLFJR1qc",
+          "door_position": [
+            40.066,
+            17.813
+          ],
+          "approach_from": [
+            40.066,
+            18.205
+          ],
+          "approach_to": [
+            40.066,
+            17.421
+          ],
+          "to_centroid": [
+            38.005,
+            16.282
+          ]
+        }
+      },
+      {
+        "action": "capture_rgb",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXZ"
+        }
+      },
+      {
+        "action": "detect",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXZ",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "update_belief",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXZ"
+        }
+      },
+      {
+        "action": "record_result",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXZ",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXZ",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXa",
+          "door": "1TBRTxOmH2qOCfGLFJR1qc",
+          "door_position": [
+            40.066,
+            17.813
+          ],
+          "approach_from": [
+            40.066,
+            17.421
+          ],
+          "approach_to": [
+            40.066,
+            18.205
+          ],
+          "to_centroid": [
+            35.586,
+            19.163
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXa",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "2y16PNiQDAUu6vtOChEcsb",
+          "door_position": [
+            40.785,
+            19.189
+          ],
+          "approach_from": [
+            40.392,
+            19.189
+          ],
+          "approach_to": [
+            41.178,
+            19.189
+          ],
+          "to_centroid": [
+            45.497,
+            21.117
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXV",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXY",
+          "door": "1TBRTxOmH2qOCfGLFJR1su",
+          "door_position": [
+            41.526,
+            17.813
+          ],
+          "approach_from": [
+            41.526,
+            18.205
+          ],
+          "approach_to": [
+            41.526,
+            17.421
+          ],
+          "to_centroid": [
+            43.477,
+            16.126
+          ]
+        }
+      },
+      {
+        "action": "capture_rgb",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXY"
+        }
+      },
+      {
+        "action": "detect",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXY",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "update_belief",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXY"
+        }
+      },
+      {
+        "action": "record_result",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXY",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXY",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "1TBRTxOmH2qOCfGLFJR1su",
+          "door_position": [
+            41.526,
+            17.813
+          ],
+          "approach_from": [
+            41.526,
+            17.421
+          ],
+          "approach_to": [
+            41.526,
+            18.205
+          ],
+          "to_centroid": [
+            45.497,
+            21.117
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXV",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXT",
+          "door": "1TBRTxOmH2qOCfGLFJR18M",
+          "door_position": [
+            46.166,
+            21.458
+          ],
+          "approach_from": [
+            45.773,
+            21.458
+          ],
+          "approach_to": [
+            46.559,
+            21.458
+          ],
+          "to_centroid": [
+            49.051,
+            21.548
+          ]
+        }
+      },
+      {
+        "action": "capture_rgb",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXT"
+        }
+      },
+      {
+        "action": "detect",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXT",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "update_belief",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXT"
+        }
+      },
+      {
+        "action": "record_result",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXT",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXT",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXV",
+          "door": "1TBRTxOmH2qOCfGLFJR18M",
+          "door_position": [
+            46.166,
+            21.458
+          ],
+          "approach_from": [
+            46.559,
+            21.458
+          ],
+          "approach_to": [
+            45.773,
+            21.458
+          ],
+          "to_centroid": [
+            45.497,
+            21.117
+          ]
+        }
+      },
+      {
+        "action": "navigate",
+        "robot": "a300",
+        "args": {
+          "from_space": "3DsWwrAET2VRfR_BYHBzXV",
+          "to_space": "3DsWwrAET2VRfR_BYHBzXS",
+          "door": "1TBRTxOmH2qOCfGLFJR1Ca",
+          "door_position": [
+            46.166,
+            24.598
+          ],
+          "approach_from": [
+            45.773,
+            24.598
+          ],
+          "approach_to": [
+            46.559,
+            24.598
+          ],
+          "to_centroid": [
+            49.052,
+            25.791
+          ]
+        }
+      },
+      {
+        "action": "capture_rgb",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXS"
+        }
+      },
+      {
+        "action": "detect",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXS",
+          "target": "managers office"
+        }
+      },
+      {
+        "action": "update_belief",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXS"
+        }
+      },
+      {
+        "action": "record_result",
+        "robot": "a300",
+        "args": {
+          "space": "3DsWwrAET2VRfR_BYHBzXS",
+          "target": "managers office"
+        }
+      }
+    ]
+  },
+  "failure": null,
+  "executed": [
+    {
+      "action": "navigate",
+      "robot": "a300",
+      "args": {
+        "from_space": "3DsWwrAET2VRfR_BYHBzXe",
+        "to_space": "3DsWwrAET2VRfR_BYHBzXg",
+        "door": "0xust1cwr8XOVmfb2C$iKT",
+        "door_position": [
+          29.467,
+          25.352
+        ],
+        "approach_from": [
+          29.467,
+          24.96
+        ],
+        "approach_to": [
+          29.467,
+          25.744
+        ],
+        "to_centroid": [
+          22.794,
+          24.121
+        ]
+      }
+    },
+    {
+      "action": "navigate",
+      "robot": "a300",
+      "args": {
+        "from_space": "3DsWwrAET2VRfR_BYHBzXg",
+        "to_space": "3DsWwrAET2VRfR_BYHBzXc",
+        "door": "2jlli2nuj35OT4Nt8dpGGq",
+        "door_position": [
+          15.19,
+          18.286
+        ],
+        "approach_from": [
+          15.19,
+          18.678
+        ],
+        "approach_to": [
+          15.19,
+          17.894
+        ],
+        "to_centroid": [
+          16.543,
+          16.36
+        ]
+      }
+    },
+    {
+      "action": "capture_rgb",
+      "robot": "a300",
+      "args": {
+        "space": "3DsWwrAET2VRfR_BYHBzXc"
+      }
+    },
+    {
+      "action": "detect",
+      "robot": "a300",
+      "args": {
+        "space": "3DsWwrAET2VRfR_BYHBzXc",
+        "target": "managers office"
+      }
+    }
+  ],
+  "observation": {
+    "space": "3DsWwrAET2VRfR_BYHBzXc",
+    "found": false,
+    "confidence": null,
+    "description": "",
+    "skipped": false,
+    "error": null,
+    "aborted": true
+  },
+  "posterior_after": {
+    "3DsWwrAET2VRfR_BYHBzXd": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXc": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXX": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXW": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXZ": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXY": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXT": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXS": 0.120821092225871,
+    "3DsWwrAET2VRfR_BYHBzXV": 0.016351356737345155,
+    "3DsWwrAET2VRfR_BYHBzXg": 0.006015327978929434,
+    "3DsWwrAET2VRfR_BYHBzXe": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXh": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXb": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXa": 0.0022129154953515013,
+    "3DsWwrAET2VRfR_BYHBzXU": 0.0022129154953515013
+  }
+}

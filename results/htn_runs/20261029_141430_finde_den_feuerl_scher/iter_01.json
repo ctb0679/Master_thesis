@@ -1,0 +1,2262 @@
+{
+  "iteration": 1,
+  "task": {
+    "name": "find_object",
+    "args": [
+      "fire extinguisher",
+      "single"
+    ]
+  },
+  "state": {
+    "robot": {
+      "id": "a300",
+      "space": "0N9CSx_ib7HQ7izEW$Ox78",
+      "capabilities": [
+        "depth",
+        "navigate",
+        "rgb"
+      ],
+      "width_m": 0.665,
+      "safety_margin_m": 0.1,
+      "allow_exterior": false
+    },
+    "spaces": {
+      "0N9CSx_ib7HQ7izEW$Ox78": {
+        "name": "1",
+        "function": "Lobby",
+        "centroid": [
+          8.273,
+          -6.783
+        ],
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox70": {
+        "name": "2",
+        "function": "WC",
+        "centroid": [
+          7.098,
+          3.793
+        ],
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox7V": {
+        "name": "3",
+        "function": "WC",
+        "centroid": [
+          7.098,
+          6.721
+        ],
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox7Q": {
+        "name": "4",
+        "function": "WC",
+        "centroid": [
+          7.099,
+          9.195
+        ],
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox7L": {
+        "name": "5",
+        "function": "Lobby",
+        "centroid": [
+          3.47,
+          -18.857
+        ],
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox7G": {
+        "name": "6",
+        "function": "Working Space",
+        "centroid": [
+          -2.898,
+          -18.812
+        ],
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox6l": {
+        "name": "7",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          -17.267
+        ],
+        "storey": "EG"
+      },
+      "0II2RZUufDBOPLitolzRMe": {
+        "name": "8",
+        "function": "Meeting Room",
+        "centroid": [
+          8.145,
+          8.101
+        ],
+        "storey": "OG1"
+      },
+      "0II2RZUufDBOPLitolzRMm": {
+        "name": "9",
+        "function": "Meeting Room",
+        "centroid": [
+          -10.173,
+          8.101
+        ],
+        "storey": "OG1"
+      },
+      "0II2RZUufDBOPLitolzRM$": {
+        "name": "10",
+        "function": "Working Space",
+        "centroid": [
+          -0.705,
+          8.332
+        ],
+        "storey": "OG1"
+      },
+      "0II2RZUufDBOPLitolzRMw": {
+        "name": "11",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          6.773
+        ],
+        "storey": "OG1"
+      },
+      "0II2RZUufDBOPLitolzRMv": {
+        "name": "12",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          -17.267
+        ],
+        "storey": "OG1"
+      },
+      "0II2RZUufDBOPLitolzRM4": {
+        "name": "13",
+        "function": "Working Space",
+        "centroid": [
+          -0.705,
+          -18.826
+        ],
+        "storey": "OG1"
+      },
+      "0II2RZUufDBOPLitolzRMH": {
+        "name": "14",
+        "function": "Working Space",
+        "centroid": [
+          8.218,
+          -6.241
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRMT": {
+        "name": "15",
+        "function": "WC",
+        "centroid": [
+          7.098,
+          6.721
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRMO": {
+        "name": "16",
+        "function": "WC",
+        "centroid": [
+          7.099,
+          9.195
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRNd": {
+        "name": "17",
+        "function": "Working Space",
+        "centroid": [
+          -0.705,
+          -18.826
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRNY": {
+        "name": "18",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          -17.267
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRNX": {
+        "name": "19",
+        "function": "Working Space",
+        "centroid": [
+          -10.246,
+          -6.241
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRNi": {
+        "name": "20",
+        "function": "WC",
+        "centroid": [
+          -9.127,
+          9.195
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRNh": {
+        "name": "21",
+        "function": "WC",
+        "centroid": [
+          -9.127,
+          6.72
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRNs": {
+        "name": "22",
+        "function": "Working Space",
+        "centroid": [
+          -0.705,
+          8.332
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRNr": {
+        "name": "23",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          6.773
+        ],
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRgN": {
+        "name": "24",
+        "function": "Lobby",
+        "centroid": [
+          -10.301,
+          -6.783
+        ],
+        "storey": "EG"
+      },
+      "0II2RZUufDBOPLitolzRgI": {
+        "name": "25",
+        "function": "WC",
+        "centroid": [
+          -9.127,
+          3.793
+        ],
+        "storey": "EG"
+      },
+      "0II2RZUufDBOPLitolzRgH": {
+        "name": "26",
+        "function": "WC",
+        "centroid": [
+          -9.127,
+          6.72
+        ],
+        "storey": "EG"
+      },
+      "0II2RZUufDBOPLitolzRgS": {
+        "name": "27",
+        "function": "WC",
+        "centroid": [
+          -9.127,
+          9.195
+        ],
+        "storey": "EG"
+      },
+      "0II2RZUufDBOPLitolzRhs": {
+        "name": "28",
+        "function": "Working Space",
+        "centroid": [
+          -2.898,
+          8.318
+        ],
+        "storey": "EG"
+      },
+      "0II2RZUufDBOPLitolzRhr": {
+        "name": "29",
+        "function": "Lobby",
+        "centroid": [
+          3.47,
+          8.363
+        ],
+        "storey": "EG"
+      },
+      "0II2RZUufDBOPLitolzRhm": {
+        "name": "30",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          6.773
+        ],
+        "storey": "EG"
+      },
+      "0II2RZUufDBOPLitolzReR": {
+        "name": "31",
+        "function": "Working Space",
+        "centroid": [
+          8.218,
+          -6.241
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRfd": {
+        "name": "32",
+        "function": "Working Space",
+        "centroid": [
+          -10.246,
+          -6.241
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRfY": {
+        "name": "33",
+        "function": "WC",
+        "centroid": [
+          -9.127,
+          6.72
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRfX": {
+        "name": "34",
+        "function": "WC",
+        "centroid": [
+          -9.127,
+          9.195
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRfi": {
+        "name": "35",
+        "function": "WC",
+        "centroid": [
+          7.099,
+          9.195
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRfh": {
+        "name": "36",
+        "function": "WC",
+        "centroid": [
+          7.098,
+          6.721
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRfs": {
+        "name": "37",
+        "function": "Working Space",
+        "centroid": [
+          -0.705,
+          8.332
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRfr": {
+        "name": "38",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          6.773
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRfm": {
+        "name": "39",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          -17.267
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRf$": {
+        "name": "40",
+        "function": "Working Space",
+        "centroid": [
+          -0.705,
+          -18.826
+        ],
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRf6": {
+        "name": "41",
+        "function": "Working Space",
+        "centroid": [
+          -0.705,
+          8.332
+        ],
+        "storey": "OG4"
+      },
+      "0II2RZUufDBOPLitolzRf7": {
+        "name": "42",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          6.773
+        ],
+        "storey": "OG4"
+      },
+      "0II2RZUufDBOPLitolzRf4": {
+        "name": "43",
+        "function": "WC",
+        "centroid": [
+          -6.634,
+          -17.267
+        ],
+        "storey": "OG4"
+      },
+      "0II2RZUufDBOPLitolzRf5": {
+        "name": "44",
+        "function": "Working Space",
+        "centroid": [
+          -0.705,
+          -18.826
+        ],
+        "storey": "OG4"
+      }
+    },
+    "doors": {
+      "2S7nIm7pvBthAHaPVMoDmb": {
+        "name": "TU Fassade - 1-flg-Drehfl\u00fcgel:GG - T\u00fcre 10 mm:459612",
+        "rooms": [
+          "0N9CSx_ib7HQ7izEW$Ox78",
+          "outside"
+        ],
+        "clear_width_m": 2.34,
+        "position": [
+          9.936,
+          -9.972
+        ],
+        "approach": {
+          "0N9CSx_ib7HQ7izEW$Ox78": [
+            9.55,
+            -9.972
+          ],
+          "outside": [
+            10.322,
+            -9.972
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": "EG"
+      },
+      "2S7nIm7pvBthAHaPVMoDmd": {
+        "name": "TU Fassade - 1-flg-Drehfl\u00fcgel:GG - T\u00fcre 10 mm:459614",
+        "rooms": [
+          "0N9CSx_ib7HQ7izEW$Ox78",
+          "outside"
+        ],
+        "clear_width_m": 2.34,
+        "position": [
+          9.936,
+          -7.721
+        ],
+        "approach": {
+          "0N9CSx_ib7HQ7izEW$Ox78": [
+            9.55,
+            -7.721
+          ],
+          "outside": [
+            10.322,
+            -7.721
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": "EG"
+      },
+      "3SOX5dZHP7dwnUJhhNe8vQ": {
+        "name": "Drehfl\u00fcgel 2-flg - Variabel:Drehfl\u00fcgel 2-flg - Variabel:491083",
+        "rooms": [
+          "0N9CSx_ib7HQ7izEW$Ox7L",
+          "outside"
+        ],
+        "clear_width_m": 2.5,
+        "position": [
+          3.586,
+          -21.069
+        ],
+        "approach": {
+          "0N9CSx_ib7HQ7izEW$Ox7L": [
+            3.586,
+            -20.534
+          ],
+          "outside": [
+            3.586,
+            -21.604
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": "EG"
+      },
+      "3SOX5dZHP7dwnUJhhNe7ri": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:494973",
+        "rooms": [
+          "0N9CSx_ib7HQ7izEW$Ox6l",
+          "0N9CSx_ib7HQ7izEW$Ox7G"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          -17.976
+        ],
+        "approach": {
+          "0N9CSx_ib7HQ7izEW$Ox7G": [
+            -6.638,
+            -18.376
+          ],
+          "0N9CSx_ib7HQ7izEW$Ox6l": [
+            -6.638,
+            -17.576
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "3SOX5dZHP7dwnUJhhNe6pj": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:498940",
+        "rooms": [
+          "0N9CSx_ib7HQ7izEW$Ox7G",
+          "0N9CSx_ib7HQ7izEW$Ox7L"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          0.897,
+          -19.78
+        ],
+        "approach": {
+          "0N9CSx_ib7HQ7izEW$Ox7G": [
+            0.497,
+            -19.78
+          ],
+          "0N9CSx_ib7HQ7izEW$Ox7L": [
+            1.297,
+            -19.78
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "3xCOwMZ_r0HfXOhUmMA9nU": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:513025",
+        "rooms": [
+          "0N9CSx_ib7HQ7izEW$Ox70",
+          "0N9CSx_ib7HQ7izEW$Ox78"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          7.9,
+          4.439
+        ],
+        "approach": {
+          "0N9CSx_ib7HQ7izEW$Ox78": [
+            8.3,
+            4.439
+          ],
+          "0N9CSx_ib7HQ7izEW$Ox70": [
+            7.5,
+            4.439
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "3xCOwMZ_r0HfXOhUmMA9sZ": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:513532",
+        "rooms": [
+          "0N9CSx_ib7HQ7izEW$Ox78",
+          "0N9CSx_ib7HQ7izEW$Ox7V"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          7.9,
+          6.894
+        ],
+        "approach": {
+          "0N9CSx_ib7HQ7izEW$Ox78": [
+            8.3,
+            6.894
+          ],
+          "0N9CSx_ib7HQ7izEW$Ox7V": [
+            7.5,
+            6.894
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "3xCOwMZ_r0HfXOhUmMA9u4": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:513627",
+        "rooms": [
+          "0N9CSx_ib7HQ7izEW$Ox78",
+          "0N9CSx_ib7HQ7izEW$Ox7Q"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          7.9,
+          9.362
+        ],
+        "approach": {
+          "0N9CSx_ib7HQ7izEW$Ox78": [
+            8.3,
+            9.362
+          ],
+          "0N9CSx_ib7HQ7izEW$Ox7Q": [
+            7.5,
+            9.362
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "3xCOwMZ_r0HfXOhUmMA9IC": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:515283",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRM4",
+          "0II2RZUufDBOPLitolzRMv"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          -17.976
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRM4": [
+            -6.638,
+            -18.376
+          ],
+          "0II2RZUufDBOPLitolzRMv": [
+            -6.638,
+            -17.576
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG1"
+      },
+      "37dJdSzd98YfHGn6im$tKD": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:523925",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRMe",
+          "outside"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          7.986,
+          5.745
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRMe": [
+            7.986,
+            6.158
+          ],
+          "outside": [
+            7.986,
+            5.332
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": "OG1"
+      },
+      "0N9CSx_ib7HQ7izEW$Ow$6": {
+        "name": "TU Fassade - 1-flg-Drehfl\u00fcgel:GG - T\u00fcre 10 mm:526888",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRgN",
+          "outside"
+        ],
+        "clear_width_m": 2.34,
+        "position": [
+          -11.964,
+          -9.972
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRgN": [
+            -11.578,
+            -9.972
+          ],
+          "outside": [
+            -12.35,
+            -9.972
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Ow$4": {
+        "name": "TU Fassade - 1-flg-Drehfl\u00fcgel:GG - T\u00fcre 10 mm:526890",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRgN",
+          "outside"
+        ],
+        "clear_width_m": 2.34,
+        "position": [
+          -11.964,
+          -7.721
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRgN": [
+            -11.578,
+            -7.721
+          ],
+          "outside": [
+            -12.35,
+            -7.721
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$OwdX": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:527375",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRgI",
+          "0II2RZUufDBOPLitolzRgN"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -9.928,
+          4.439
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRgN": [
+            -10.328,
+            4.439
+          ],
+          "0II2RZUufDBOPLitolzRgI": [
+            -9.528,
+            4.439
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Owdz": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:527379",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRgH",
+          "0II2RZUufDBOPLitolzRgN"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -9.928,
+          6.894
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRgN": [
+            -10.328,
+            6.894
+          ],
+          "0II2RZUufDBOPLitolzRgH": [
+            -9.528,
+            6.894
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Owdv": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:527383",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRgN",
+          "0II2RZUufDBOPLitolzRgS"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -9.928,
+          9.362
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRgN": [
+            -10.328,
+            9.362
+          ],
+          "0II2RZUufDBOPLitolzRgS": [
+            -9.528,
+            9.362
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$OwYf": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:527687",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRMm",
+          "outside"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -10.014,
+          5.745
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRMm": [
+            -10.014,
+            6.158
+          ],
+          "outside": [
+            -10.014,
+            5.332
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": "OG1"
+      },
+      "0N9CSx_ib7HQ7izEW$Owj_": {
+        "name": "Drehfl\u00fcgel 2-flg - Variabel:Drehfl\u00fcgel 2-flg - Variabel:528016",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRhr",
+          "outside"
+        ],
+        "clear_width_m": 2.5,
+        "position": [
+          3.586,
+          10.575
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRhr": [
+            3.586,
+            10.04
+          ],
+          "outside": [
+            3.586,
+            11.11
+          ]
+        },
+        "is_exterior": true,
+        "state": "open",
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$OwjR": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:528053",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRhm",
+          "0II2RZUufDBOPLitolzRhs"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          7.482
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRhs": [
+            -6.638,
+            7.882
+          ],
+          "0II2RZUufDBOPLitolzRhm": [
+            -6.638,
+            7.082
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$OwjL": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:528059",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRhr",
+          "0II2RZUufDBOPLitolzRhs"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          0.897,
+          9.287
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRhs": [
+            0.497,
+            9.287
+          ],
+          "0II2RZUufDBOPLitolzRhr": [
+            1.297,
+            9.287
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "EG"
+      },
+      "0N9CSx_ib7HQ7izEW$Owic": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:528072",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRM$",
+          "0II2RZUufDBOPLitolzRMw"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          7.482
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRM$": [
+            -6.638,
+            7.882
+          ],
+          "0II2RZUufDBOPLitolzRMw": [
+            -6.638,
+            7.082
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG1"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox6R": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529525",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRNY",
+          "0II2RZUufDBOPLitolzRNd"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          -17.976
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRNd": [
+            -6.638,
+            -18.376
+          ],
+          "0II2RZUufDBOPLitolzRNY": [
+            -6.638,
+            -17.576
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG2"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox6L": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529531",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRf$",
+          "0II2RZUufDBOPLitolzRfm"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          -17.976
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRf$": [
+            -6.638,
+            -18.376
+          ],
+          "0II2RZUufDBOPLitolzRfm": [
+            -6.638,
+            -17.576
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG3"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox5k": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529536",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRf4",
+          "0II2RZUufDBOPLitolzRf5"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          -17.976
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRf5": [
+            -6.638,
+            -18.376
+          ],
+          "0II2RZUufDBOPLitolzRf4": [
+            -6.638,
+            -17.576
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG4"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox5r": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529563",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRNr",
+          "0II2RZUufDBOPLitolzRNs"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          7.482
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRNs": [
+            -6.638,
+            7.882
+          ],
+          "0II2RZUufDBOPLitolzRNr": [
+            -6.638,
+            7.082
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG2"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox5E": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529568",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRfr",
+          "0II2RZUufDBOPLitolzRfs"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          7.482
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRfs": [
+            -6.638,
+            7.882
+          ],
+          "0II2RZUufDBOPLitolzRfr": [
+            -6.638,
+            7.082
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG3"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox5B": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529573",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRf6",
+          "0II2RZUufDBOPLitolzRf7"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -6.638,
+          7.482
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRf6": [
+            -6.638,
+            7.882
+          ],
+          "0II2RZUufDBOPLitolzRf7": [
+            -6.638,
+            7.082
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG4"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox4y": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529618",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRMH",
+          "0II2RZUufDBOPLitolzRMT"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          7.9,
+          6.894
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRMH": [
+            8.3,
+            6.894
+          ],
+          "0II2RZUufDBOPLitolzRMT": [
+            7.5,
+            6.894
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG2"
+      },
+      "0N9CSx_ib7HQ7izEW$Ox4w": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529620",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRMH",
+          "0II2RZUufDBOPLitolzRMO"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          7.9,
+          9.362
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRMH": [
+            8.3,
+            9.362
+          ],
+          "0II2RZUufDBOPLitolzRMO": [
+            7.5,
+            9.362
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRMN": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529713",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRNX",
+          "0II2RZUufDBOPLitolzRNh"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -9.928,
+          6.894
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRNX": [
+            -10.328,
+            6.894
+          ],
+          "0II2RZUufDBOPLitolzRNh": [
+            -9.528,
+            6.894
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRML": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:529715",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRNX",
+          "0II2RZUufDBOPLitolzRNi"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -9.928,
+          9.362
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRNX": [
+            -10.328,
+            9.362
+          ],
+          "0II2RZUufDBOPLitolzRNi": [
+            -9.528,
+            9.362
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG2"
+      },
+      "0II2RZUufDBOPLitolzRhP": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:531071",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRfY",
+          "0II2RZUufDBOPLitolzRfd"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -9.928,
+          6.894
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRfd": [
+            -10.328,
+            6.894
+          ],
+          "0II2RZUufDBOPLitolzRfY": [
+            -9.528,
+            6.894
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRed": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:531073",
+        "rooms": [
+          "0II2RZUufDBOPLitolzRfX",
+          "0II2RZUufDBOPLitolzRfd"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          -9.928,
+          9.362
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzRfd": [
+            -10.328,
+            9.362
+          ],
+          "0II2RZUufDBOPLitolzRfX": [
+            -9.528,
+            9.362
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzReq": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:531090",
+        "rooms": [
+          "0II2RZUufDBOPLitolzReR",
+          "0II2RZUufDBOPLitolzRfh"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          7.9,
+          6.894
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzReR": [
+            8.3,
+            6.894
+          ],
+          "0II2RZUufDBOPLitolzRfh": [
+            7.5,
+            6.894
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG3"
+      },
+      "0II2RZUufDBOPLitolzRer": {
+        "name": "Drehfl\u00fcgel 1-flg - Stahlzarge:88.5 x 2.26:531091",
+        "rooms": [
+          "0II2RZUufDBOPLitolzReR",
+          "0II2RZUufDBOPLitolzRfi"
+        ],
+        "clear_width_m": 0.885,
+        "position": [
+          7.9,
+          9.362
+        ],
+        "approach": {
+          "0II2RZUufDBOPLitolzReR": [
+            8.3,
+            9.362
+          ],
+          "0II2RZUufDBOPLitolzRfi": [
+            7.5,
+            9.362
+          ]
+        },
+        "is_exterior": false,
+        "state": "open",
+        "storey": "OG3"
+      }
+    },
+    "adjacency": {
+      "0N9CSx_ib7HQ7izEW$Ox78": [
+        {
+          "to": "outside",
+          "door": "2S7nIm7pvBthAHaPVMoDmb",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "outside",
+          "door": "2S7nIm7pvBthAHaPVMoDmd",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox70",
+          "door": "3xCOwMZ_r0HfXOhUmMA9nU",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox7V",
+          "door": "3xCOwMZ_r0HfXOhUmMA9sZ",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox7Q",
+          "door": "3xCOwMZ_r0HfXOhUmMA9u4",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0N9CSx_ib7HQ7izEW$Ox70": [
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox78",
+          "door": "3xCOwMZ_r0HfXOhUmMA9nU",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0N9CSx_ib7HQ7izEW$Ox7V": [
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox78",
+          "door": "3xCOwMZ_r0HfXOhUmMA9sZ",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0N9CSx_ib7HQ7izEW$Ox7Q": [
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox78",
+          "door": "3xCOwMZ_r0HfXOhUmMA9u4",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0N9CSx_ib7HQ7izEW$Ox7L": [
+        {
+          "to": "outside",
+          "door": "3SOX5dZHP7dwnUJhhNe8vQ",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox7G",
+          "door": "3SOX5dZHP7dwnUJhhNe6pj",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0N9CSx_ib7HQ7izEW$Ox7G": [
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox6l",
+          "door": "3SOX5dZHP7dwnUJhhNe7ri",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox7L",
+          "door": "3SOX5dZHP7dwnUJhhNe6pj",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0N9CSx_ib7HQ7izEW$Ox6l": [
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox7G",
+          "door": "3SOX5dZHP7dwnUJhhNe7ri",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRMe": [
+        {
+          "to": "outside",
+          "door": "37dJdSzd98YfHGn6im$tKD",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRMm": [
+        {
+          "to": "outside",
+          "door": "0N9CSx_ib7HQ7izEW$OwYf",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRM$": [
+        {
+          "to": "0II2RZUufDBOPLitolzRMw",
+          "door": "0N9CSx_ib7HQ7izEW$Owic",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRMw": [
+        {
+          "to": "0II2RZUufDBOPLitolzRM$",
+          "door": "0N9CSx_ib7HQ7izEW$Owic",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRMv": [
+        {
+          "to": "0II2RZUufDBOPLitolzRM4",
+          "door": "3xCOwMZ_r0HfXOhUmMA9IC",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRM4": [
+        {
+          "to": "0II2RZUufDBOPLitolzRMv",
+          "door": "3xCOwMZ_r0HfXOhUmMA9IC",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRMH": [
+        {
+          "to": "0II2RZUufDBOPLitolzRMT",
+          "door": "0N9CSx_ib7HQ7izEW$Ox4y",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRMO",
+          "door": "0N9CSx_ib7HQ7izEW$Ox4w",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRMT": [
+        {
+          "to": "0II2RZUufDBOPLitolzRMH",
+          "door": "0N9CSx_ib7HQ7izEW$Ox4y",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRMO": [
+        {
+          "to": "0II2RZUufDBOPLitolzRMH",
+          "door": "0N9CSx_ib7HQ7izEW$Ox4w",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRNd": [
+        {
+          "to": "0II2RZUufDBOPLitolzRNY",
+          "door": "0N9CSx_ib7HQ7izEW$Ox6R",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRNY": [
+        {
+          "to": "0II2RZUufDBOPLitolzRNd",
+          "door": "0N9CSx_ib7HQ7izEW$Ox6R",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRNX": [
+        {
+          "to": "0II2RZUufDBOPLitolzRNh",
+          "door": "0II2RZUufDBOPLitolzRMN",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRNi",
+          "door": "0II2RZUufDBOPLitolzRML",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRNi": [
+        {
+          "to": "0II2RZUufDBOPLitolzRNX",
+          "door": "0II2RZUufDBOPLitolzRML",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRNh": [
+        {
+          "to": "0II2RZUufDBOPLitolzRNX",
+          "door": "0II2RZUufDBOPLitolzRMN",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRNs": [
+        {
+          "to": "0II2RZUufDBOPLitolzRNr",
+          "door": "0N9CSx_ib7HQ7izEW$Ox5r",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRNr": [
+        {
+          "to": "0II2RZUufDBOPLitolzRNs",
+          "door": "0N9CSx_ib7HQ7izEW$Ox5r",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRgN": [
+        {
+          "to": "outside",
+          "door": "0N9CSx_ib7HQ7izEW$Ow$6",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "outside",
+          "door": "0N9CSx_ib7HQ7izEW$Ow$4",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRgI",
+          "door": "0N9CSx_ib7HQ7izEW$OwdX",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRgH",
+          "door": "0N9CSx_ib7HQ7izEW$Owdz",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRgS",
+          "door": "0N9CSx_ib7HQ7izEW$Owdv",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRgI": [
+        {
+          "to": "0II2RZUufDBOPLitolzRgN",
+          "door": "0N9CSx_ib7HQ7izEW$OwdX",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRgH": [
+        {
+          "to": "0II2RZUufDBOPLitolzRgN",
+          "door": "0N9CSx_ib7HQ7izEW$Owdz",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRgS": [
+        {
+          "to": "0II2RZUufDBOPLitolzRgN",
+          "door": "0N9CSx_ib7HQ7izEW$Owdv",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRhs": [
+        {
+          "to": "0II2RZUufDBOPLitolzRhm",
+          "door": "0N9CSx_ib7HQ7izEW$OwjR",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRhr",
+          "door": "0N9CSx_ib7HQ7izEW$OwjL",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRhr": [
+        {
+          "to": "outside",
+          "door": "0N9CSx_ib7HQ7izEW$Owj_",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRhs",
+          "door": "0N9CSx_ib7HQ7izEW$OwjL",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRhm": [
+        {
+          "to": "0II2RZUufDBOPLitolzRhs",
+          "door": "0N9CSx_ib7HQ7izEW$OwjR",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzReR": [
+        {
+          "to": "0II2RZUufDBOPLitolzRfh",
+          "door": "0II2RZUufDBOPLitolzReq",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRfi",
+          "door": "0II2RZUufDBOPLitolzRer",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRfd": [
+        {
+          "to": "0II2RZUufDBOPLitolzRfY",
+          "door": "0II2RZUufDBOPLitolzRhP",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRfX",
+          "door": "0II2RZUufDBOPLitolzRed",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRfY": [
+        {
+          "to": "0II2RZUufDBOPLitolzRfd",
+          "door": "0II2RZUufDBOPLitolzRhP",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRfX": [
+        {
+          "to": "0II2RZUufDBOPLitolzRfd",
+          "door": "0II2RZUufDBOPLitolzRed",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRfi": [
+        {
+          "to": "0II2RZUufDBOPLitolzReR",
+          "door": "0II2RZUufDBOPLitolzRer",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRfh": [
+        {
+          "to": "0II2RZUufDBOPLitolzReR",
+          "door": "0II2RZUufDBOPLitolzReq",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRfs": [
+        {
+          "to": "0II2RZUufDBOPLitolzRfr",
+          "door": "0N9CSx_ib7HQ7izEW$Ox5E",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRfr": [
+        {
+          "to": "0II2RZUufDBOPLitolzRfs",
+          "door": "0N9CSx_ib7HQ7izEW$Ox5E",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRfm": [
+        {
+          "to": "0II2RZUufDBOPLitolzRf$",
+          "door": "0N9CSx_ib7HQ7izEW$Ox6L",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRf$": [
+        {
+          "to": "0II2RZUufDBOPLitolzRfm",
+          "door": "0N9CSx_ib7HQ7izEW$Ox6L",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRf6": [
+        {
+          "to": "0II2RZUufDBOPLitolzRf7",
+          "door": "0N9CSx_ib7HQ7izEW$Ox5B",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRf7": [
+        {
+          "to": "0II2RZUufDBOPLitolzRf6",
+          "door": "0N9CSx_ib7HQ7izEW$Ox5B",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRf4": [
+        {
+          "to": "0II2RZUufDBOPLitolzRf5",
+          "door": "0N9CSx_ib7HQ7izEW$Ox5k",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "0II2RZUufDBOPLitolzRf5": [
+        {
+          "to": "0II2RZUufDBOPLitolzRf4",
+          "door": "0N9CSx_ib7HQ7izEW$Ox5k",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ],
+      "outside": [
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox78",
+          "door": "2S7nIm7pvBthAHaPVMoDmb",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox78",
+          "door": "2S7nIm7pvBthAHaPVMoDmd",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0N9CSx_ib7HQ7izEW$Ox7L",
+          "door": "3SOX5dZHP7dwnUJhhNe8vQ",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRMe",
+          "door": "37dJdSzd98YfHGn6im$tKD",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRgN",
+          "door": "0N9CSx_ib7HQ7izEW$Ow$6",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRgN",
+          "door": "0N9CSx_ib7HQ7izEW$Ow$4",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRMm",
+          "door": "0N9CSx_ib7HQ7izEW$OwYf",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        },
+        {
+          "to": "0II2RZUufDBOPLitolzRhr",
+          "door": "0N9CSx_ib7HQ7izEW$Owj_",
+          "door_action": "none",
+          "capabilities": [
+            "navigate"
+          ]
+        }
+      ]
+    },
+    "task": {
+      "name": "find_object",
+      "target": "fire extinguisher",
+      "mode": "single",
+      "restricted": null,
+      "recorded": [],
+      "text": "Finde den Feuerl\u00f6scher"
+    },
+    "belief": {
+      "prior": {},
+      "posterior": {}
+    },
+    "search": {
+      "visits": {},
+      "stage": {},
+      "searched": [],
+      "found": [],
+      "observations": []
+    },
+    "settings": {
+      "prob_mass": 0.9,
+      "min_prob": 0.01,
+      "max_visits_per_room": 1,
+      "distance": "door_graph",
+      "door_states_source": "assumed: all open (no door-states file)"
+    }
+  },
+  "prior": {},
+  "posterior": {},
+  "chosen_method": null,
+  "tree": {
+    "task": "goal(find_object(fire extinguisher, single))",
+    "method": null,
+    "status": "failed",
+    "reasons": [
+      "prior_needed: no room probabilities yet (the executor asks the ranking model once)"
+    ],
+    "children": [
+      {
+        "task": "find_object(fire extinguisher, single)",
+        "method": null,
+        "status": "failed",
+        "children": [
+          {
+            "task": "find_object(fire extinguisher, single)",
+            "method": "m_search_restricted",
+            "status": "rejected",
+            "reasons": [
+              "precondition_failed: the user did not restrict the search to one room"
+            ]
+          },
+          {
+            "task": "find_object(fire extinguisher, single)",
+            "method": "m_search_recorded",
+            "status": "rejected",
+            "reasons": [
+              "precondition_failed: the building model records the target in no room",
+              "precondition_failed: every room where the building model records the target has been searched"
+            ]
+          },
+          {
+            "task": "find_object(fire extinguisher, single)",
+            "method": "m_search_semantic",
+            "status": "rejected",
+            "reasons": [
+              "prior_needed: no room probabilities yet (the executor asks the ranking model once)",
+              "no_eligible_rooms: no reachable room is left to search (all visited or below min_prob)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "plan": null,
+  "failure": {
+    "task": "find_object(fire extinguisher, single)",
+    "reason_code": "prior_needed",
+    "message": "no room probabilities yet (the executor asks the ranking model once)",
+    "details": {
+      "methods": {
+        "m_search_restricted": "precondition_failed: the user did not restrict the search to one room",
+        "m_search_recorded": "precondition_failed: the building model records the target in no room",
+        "m_search_semantic": "prior_needed: no room probabilities yet (the executor asks the ranking model once)"
+      }
+    }
+  },
+  "note": "no prior yet: asked the ranking model, replanning",
+  "rankings": [
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox78",
+      "probability": 0.5194807100640231,
+      "likelihood": 0.8,
+      "reasoning": "Lobbies often have fire safety equipment like extinguishers near the entrance or reception."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgN",
+      "probability": 0.31508097778311916,
+      "likelihood": 0.75,
+      "reasoning": "This lobby also typically contains fire safety equipment near exits."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhr",
+      "probability": 0.07030406903247118,
+      "likelihood": 0.6,
+      "reasoning": "As a lobby, it may have an extinguisher, though the room is currently empty in the list."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7L",
+      "probability": 0.07030406903247118,
+      "likelihood": 0.6,
+      "reasoning": "This lobby might contain a fire extinguisher despite having no listed equipment."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMe",
+      "probability": 0.003500233491458672,
+      "likelihood": 0.3,
+      "reasoning": "Meeting rooms sometimes have extinguishers mounted on walls near exits."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMm",
+      "probability": 0.003500233491458672,
+      "likelihood": 0.3,
+      "reasoning": "Meeting rooms sometimes have extinguishers mounted on walls near exits."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRM$",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRM4",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMH",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNd",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNX",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNs",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhs",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzReR",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfd",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfs",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf$",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf6",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf5",
+      "probability": 0.0007810076595060712,
+      "likelihood": 0.15,
+      "reasoning": "Working spaces rarely have extinguishers unless near an exit, but it's possible."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox70",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7V",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7Q",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox6l",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMw",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMv",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMT",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMO",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNY",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNi",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNh",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNr",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgI",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgH",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgS",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhm",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfY",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfX",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfi",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfh",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfr",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfm",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf7",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf4",
+      "probability": 0.0002873166613297096,
+      "likelihood": 0.05,
+      "reasoning": "WCs are small and usually do not contain fire extinguishers."
+    }
+  ]
+}

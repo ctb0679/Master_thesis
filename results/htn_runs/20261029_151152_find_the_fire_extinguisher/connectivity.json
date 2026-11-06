@@ -1,0 +1,205 @@
+{
+  "start_space": {
+    "space": "3DsWwrAET2VRfR_BYHBzXe",
+    "name": "1",
+    "function": "Printer room",
+    "storey": null
+  },
+  "storeys": [
+    null
+  ],
+  "groups": [
+    {
+      "rooms": [
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXe",
+          "name": "1",
+          "function": "Printer room",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXg",
+          "name": "3",
+          "function": "Workspace",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXa",
+          "name": "5",
+          "function": "Corridor",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXd",
+          "name": "6",
+          "function": "Office 5",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXb",
+          "name": "4",
+          "function": "Lobby",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXV",
+          "name": "14",
+          "function": "Meeting room",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXT",
+          "name": "12",
+          "function": "Office 2",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXY",
+          "name": "11",
+          "function": "Office 3",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXS",
+          "name": "13",
+          "function": "Office 1",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXZ",
+          "name": "10",
+          "function": "Office 4",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXc",
+          "name": "7",
+          "function": "Office 8",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXW",
+          "name": "9",
+          "function": "Office 7",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXX",
+          "name": "8",
+          "function": "Office 6",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXh",
+          "name": "2",
+          "function": "Storage",
+          "storey": null
+        },
+        {
+          "space": "3DsWwrAET2VRfR_BYHBzXU",
+          "name": "15",
+          "function": "Lab",
+          "storey": null
+        }
+      ],
+      "storeys": [
+        "None"
+      ],
+      "exterior_doors": 1
+    }
+  ],
+  "reachable_from_start": [
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXe",
+      "name": "1",
+      "function": "Printer room",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXh",
+      "name": "2",
+      "function": "Storage",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXg",
+      "name": "3",
+      "function": "Workspace",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXb",
+      "name": "4",
+      "function": "Lobby",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXa",
+      "name": "5",
+      "function": "Corridor",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXd",
+      "name": "6",
+      "function": "Office 5",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXc",
+      "name": "7",
+      "function": "Office 8",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXX",
+      "name": "8",
+      "function": "Office 6",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXW",
+      "name": "9",
+      "function": "Office 7",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXZ",
+      "name": "10",
+      "function": "Office 4",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXY",
+      "name": "11",
+      "function": "Office 3",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXT",
+      "name": "12",
+      "function": "Office 2",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXS",
+      "name": "13",
+      "function": "Office 1",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXV",
+      "name": "14",
+      "function": "Meeting room",
+      "storey": null
+    },
+    {
+      "space": "3DsWwrAET2VRfR_BYHBzXU",
+      "name": "15",
+      "function": "Lab",
+      "storey": null
+    }
+  ],
+  "unlinked_stairs": [],
+  "rooms_without_door": []
+}

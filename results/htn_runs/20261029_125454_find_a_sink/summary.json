@@ -1,0 +1,323 @@
+{
+  "task": {
+    "name": "find_object",
+    "args": [
+      "sink",
+      "single"
+    ],
+    "text": "find a sink"
+  },
+  "robot": {
+    "id": "a300",
+    "space": "0N9CSx_ib7HQ7izEW$Ox78",
+    "capabilities": [
+      "depth",
+      "navigate",
+      "rgb"
+    ],
+    "width_m": 0.665,
+    "safety_margin_m": 0.1,
+    "allow_exterior": false
+  },
+  "settings": {
+    "prob_mass": 0.9,
+    "min_prob": 0.01,
+    "max_visits_per_room": 1,
+    "distance": "door_graph",
+    "door_states_source": "assumed: all open (no door-states file)",
+    "miss_rate": 0.2,
+    "detect_threshold": 0.0,
+    "residual_mass": 0.09999999999999998,
+    "llm_temperature": 0.0,
+    "seed": 42,
+    "model": "qwen3.5:9b"
+  },
+  "outcome": "not_found",
+  "reason": "remaining probability 0.000 < residual_mass 0.100",
+  "found": [],
+  "rankings": [
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox70",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7V",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7Q",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox6l",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMw",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMv",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgI",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgH",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgS",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhm",
+      "probability": 0.09998456640620661,
+      "likelihood": 1.0,
+      "reasoning": "This is a WC room containing a washbasin (sink)."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox78",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is a lobby with reception furniture and no sink equipment listed."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7L",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty lobby with no sink equipment."
+    },
+    {
+      "space": "0N9CSx_ib7HQ7izEW$Ox7G",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is a working space with desks and computers but no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMe",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is a meeting room with a conference table but no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMm",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is a meeting room with a conference table but no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRM$",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is a working space with desks and computers but no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRM4",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is a working space with desks and computers but no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMH",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMT",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRMO",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNd",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNY",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNX",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNi",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNh",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNs",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRNr",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRgN",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is a lobby with furniture but no sink equipment."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhs",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is a working space with desks and computers but no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRhr",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty lobby with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzReR",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfd",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfY",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfX",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfi",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfh",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfs",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfr",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRfm",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf$",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf6",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf7",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf4",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty WC room with no washbasin equipment listed."
+    },
+    {
+      "space": "0II2RZUufDBOPLitolzRf5",
+      "probability": 4.539292292174282e-06,
+      "likelihood": 0.0,
+      "reasoning": "This is an empty working space with no sink."
+    }
+  ],
+  "visit_order": [
+    "0N9CSx_ib7HQ7izEW$Ox70",
+    "0N9CSx_ib7HQ7izEW$Ox7V",
+    "0N9CSx_ib7HQ7izEW$Ox7Q"
+  ],
+  "travelled_m": 20.68,
+  "iterations": 5,
+  "model_calls": {
+    "ranker": 1,
+    "detector": 0
+  },
+  "failure": null,
+  "log_dir": "/home/idac/Junaidali/Master_thesis/results/htn_runs/20261029_125454_find_a_sink",
+  "found_labels": [],
+  "visit_order_labels": [
+    "2 (WC)",
+    "3 (WC)",
+    "4 (WC)"
+  ]
+}

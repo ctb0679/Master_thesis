@@ -1,0 +1,55 @@
+{
+  "task": {
+    "name": "find_object",
+    "args": [
+      "fire extinguisher",
+      "single"
+    ],
+    "text": "find the fire extinguisher"
+  },
+  "robot": {
+    "id": "a300",
+    "space": "3DsWwrAET2VRfR_BYHBzXe",
+    "capabilities": [
+      "depth",
+      "navigate",
+      "rgb"
+    ],
+    "width_m": 0.665,
+    "safety_margin_m": 0.1,
+    "allow_exterior": false
+  },
+  "settings": {
+    "prob_mass": 0.9,
+    "min_prob": 0.01,
+    "max_visits_per_room": 1,
+    "distance": "door_graph",
+    "door_states_source": "/home/idac/Junaidali/Master_thesis/data/robot/door_states_IDAC.json",
+    "miss_rate": 0.2,
+    "detect_threshold": 0.0,
+    "residual_mass": 0.09999999999999998,
+    "llm_temperature": 0.0,
+    "seed": 42,
+    "model": "qwen3.5:9b"
+  },
+  "outcome": "aborted",
+  "reason": "user ended the session",
+  "found": [],
+  "visit_order": [
+    "3DsWwrAET2VRfR_BYHBzXe",
+    "3DsWwrAET2VRfR_BYHBzXh"
+  ],
+  "travelled_m": 6.12,
+  "iterations": 3,
+  "model_calls": {
+    "ranker": 1,
+    "detector": 0
+  },
+  "failure": null,
+  "log_dir": "/home/idac/Junaidali/Master_thesis/results/htn_runs/20261029_104643_find_the_fire_extinguisher",
+  "found_labels": [],
+  "visit_order_labels": [
+    "1 (Printer room)",
+    "2 (Storage)"
+  ]
+}
