@@ -95,6 +95,7 @@ Run `cd ~/Junaidali/navbim_ws/src/navbim && git diff` to see all code changes at
 | C2 | `~/Junaidali/thesis_models/check_doors.py` | Prints which rooms each door connects (reads `"links"` from the JSON) | delete |
 | C3 | Copied the IFC to `navbim_bringup/bim/IDAC_Model.ifc` and the model to `navbim_bringup/nav_model/IDAC_Model/`, then `colcon build --symlink-install --packages-select navbim_bringup` | The RViz BimPanel only looks in navbim_bringup's install `share` folder (`navbim_rviz_plugins/src/bim_panel.cpp` lines 67, 78, 129-137) and ignores custom paths | delete both, rebuild `navbim_bringup` |
 | C4 | `Master_thesis/data/IDAC_Model_preplanned.json` (commit dde6b5f, pulled on the Windows PC 2026-11-12): copy of the pre-planned navbim JSON. 31 nodes, 103 links, 44/44 transition edges with `planned_distance` + `path` | Input for the room-to-room distance table script (works without ROS) | `git rm` |
+| C5 | `scripts/navbim/navbim_distance_table.py` + `tests/navbim/test_distance_table.py` + output `data/distances/IDAC_Model_preplanned_walking_distances.{json,csv}` (2026-11-12) | Option A table: 15×15, keyed by IfcSpace GUID, offline (no ROS). `load_distance_function(path)` gives `distance(guid_a, guid_b)` for `optimal_visit_order(..., distance=...)` | `git rm` |
 
 Launch now: `ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`
 
@@ -118,9 +119,11 @@ Launch now: `ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`
 - [x] Smoothing ruled out (B4)
 - [x] Wrong path Workspace → Office_1 FIXED by B5 (2026-11-12). The room order was always correct (Workspace → door 27 → Corridor → door 28 → Meeting_room → door 23 → Office_1). Inside Workspace the path cut through the Printer_room/Storage block. Checks done: the IFC wall widths are normal (0.12–0.46 m); the Workspace.png correctly marks the block as unknown (value 100). So the map was right, and the costmap turned unknown into free (B5).
 - [x] PrePlanEdges done via auto pre-plan (B6), 44/44 edges, 2026-11-12. Old note: Run PrePlanEdges (`ros2 action send_goal /pre_plan_edges navbim_msgs/action/PrePlanEdges "{force_replan: true}" --feedback`). This **writes into** `IDAC_Model.json`, so back it up first
-- [ ] Switch the auto pre-plan settings back to `false` (B6). Not yet confirmed.
-- [ ] Push the Master_thesis commits (log commit 5fee881) so the Ubuntu PC has the log
-- [ ] **NEXT:** Script: 15×15 room-to-room walking-distance table keyed by IfcSpace GUID for Held-Karp (option A chosen to start, see F)
+- [x] Auto pre-plan settings switched back to `false` (B6), confirmed by the user 2026-11-12
+- [x] Pushed log commits (b6fdc3a) 2026-11-12
+- [x] Option A table script done (C5, 2026-11-12). Result for IDAC_Model: 15 rooms, 0 unreachable pairs, symmetric, max 33.46 m (Office_1 ↔ Office_8). 28 ordered pairs = 0 m because the rooms share a door (expected for option A). Works with the existing Held-Karp: e.g. from Corridor over {Office_1, Lab, Office_5, Printer_room, Office_8} it gives a different order than straight lines. The room GUIDs in the navbim JSON match `data/cleaned_ifc/IDAC_Model_llm.json` (15/15).
+- [ ] Decide: use the table in the HTN/ranking pipeline (replace `DoorGraph.route_length`?), and/or build option B (adds the walk inside rooms, removes the 0 m pairs)
+- [ ] pytest is not installed in the venv (`pip install pytest`). The tests were run with a stand-in and all 4 pass.
 - [ ] Optional: fix second-terminal communication (B6 "Still open", Plan B: `ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST`)
 - [ ] Set robot size parameters from the URDF / `data/robot/profiles/a300.json` (navbim now uses robot_radius 0.2 placeholder) → then pre-plan again and rerun the table script
 - [ ] Delete `/swapfile2` when no longer needed (A5)
