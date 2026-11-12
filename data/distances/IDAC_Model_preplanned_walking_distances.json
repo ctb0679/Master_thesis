@@ -1,5 +1,6 @@
 {
   "source_map": "IDAC_Model_preplanned.json",
+  "method": "door",
   "definition": "door_to_door (option A): shortest walk from a door of room A to a door of room B over navbim planned_distance; walk inside A and B not included",
   "rooms": [
     {

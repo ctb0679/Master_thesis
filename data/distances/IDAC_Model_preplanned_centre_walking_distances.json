@@ -1,0 +1,4090 @@
+{
+  "source_map": "IDAC_Model_preplanned.json",
+  "method": "centre",
+  "definition": "centre_to_centre (option B): walk from the centre of room A to one of its doors, door to door over navbim planned_distance, then from a door of B to its centre; the centre-door walks are computed from the room outlines (navbim_room_walks.py)",
+  "rooms": [
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXa",
+      "name": "Corridor",
+      "node_id": 11,
+      "doors": [
+        19,
+        20,
+        27,
+        28,
+        29
+      ],
+      "centre_xy": [
+        35.585,
+        19.163
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "19": 1.758,
+        "20": 4.998,
+        "27": 5.601,
+        "28": 5.224,
+        "29": 1.602
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXU",
+      "name": "Lab",
+      "node_id": 6,
+      "doors": [
+        24
+      ],
+      "centre_xy": [
+        21.886,
+        21.826
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "24": 2.405
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXb",
+      "name": "Lobby",
+      "node_id": 10,
+      "doors": [
+        29
+      ],
+      "centre_xy": [
+        36.678,
+        23.959
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "29": 3.795
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXV",
+      "name": "Meeting_room",
+      "node_id": 5,
+      "doors": [
+        21,
+        22,
+        23,
+        28
+      ],
+      "centre_xy": [
+        45.493,
+        21.118
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "28": 5.123,
+        "21": 5.283,
+        "22": 0.841,
+        "23": 3.833
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXS",
+      "name": "Office_1",
+      "node_id": 4,
+      "doors": [
+        23
+      ],
+      "centre_xy": [
+        49.053,
+        25.792
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "23": 3.168
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXT",
+      "name": "Office_2",
+      "node_id": 3,
+      "doors": [
+        22
+      ],
+      "centre_xy": [
+        49.052,
+        21.547
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "22": 2.894
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXY",
+      "name": "Office_3",
+      "node_id": 2,
+      "doors": [
+        21
+      ],
+      "centre_xy": [
+        43.477,
+        16.126
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "21": 2.709
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXZ",
+      "name": "Office_4",
+      "node_id": 1,
+      "doors": [
+        20
+      ],
+      "centre_xy": [
+        38.005,
+        16.282
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "20": 2.724
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXd",
+      "name": "Office_5",
+      "node_id": 12,
+      "doors": [
+        19
+      ],
+      "centre_xy": [
+        32.687,
+        16.363
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "19": 2.548
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXX",
+      "name": "Office_6",
+      "node_id": 14,
+      "doors": [
+        17
+      ],
+      "centre_xy": [
+        27.287,
+        16.363
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "17": 2.445
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXW",
+      "name": "Office_7",
+      "node_id": 15,
+      "doors": [
+        18
+      ],
+      "centre_xy": [
+        21.887,
+        16.363
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "18": 2.579
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXc",
+      "name": "Office_8",
+      "node_id": 13,
+      "doors": [
+        16
+      ],
+      "centre_xy": [
+        16.544,
+        16.36
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "16": 2.407
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXe",
+      "name": "Printer_room",
+      "node_id": 7,
+      "doors": [
+        25
+      ],
+      "centre_xy": [
+        30.118,
+        24.319
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "25": 1.277
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXh",
+      "name": "Storage",
+      "node_id": 8,
+      "doors": [
+        26
+      ],
+      "centre_xy": [
+        30.118,
+        21.711
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "26": 1.42
+      }
+    },
+    {
+      "guid": "3DsWwrAET2VRfR_BYHBzXg",
+      "name": "Workspace",
+      "node_id": 9,
+      "doors": [
+        16,
+        17,
+        18,
+        24,
+        25,
+        26,
+        27,
+        30
+      ],
+      "centre_xy": [
+        22.795,
+        24.122
+      ],
+      "centre_from": "navbim position",
+      "centre_to_door_m": {
+        "16": 10.478,
+        "17": 7.534,
+        "18": 7.929,
+        "24": 7.217,
+        "25": 7.173,
+        "26": 6.507,
+        "27": 9.044,
+        "30": 10.068
+      }
+    }
+  ],
+  "matrix_m": [
+    [
+      0.0,
+      14.643,
+      5.396,
+      10.347,
+      16.029,
+      14.009,
+      9.494,
+      7.722,
+      4.306,
+      12.408,
+      14.952,
+      23.029,
+      15.939,
+      11.101,
+      14.645
+    ],
+    [
+      14.643,
+      0.0,
+      19.695,
+      24.965,
+      30.647,
+      28.626,
+      24.112,
+      22.228,
+      16.161,
+      7.953,
+      6.987,
+      13.808,
+      13.598,
+      9.879,
+      9.622
+    ],
+    [
+      5.396,
+      19.695,
+      0.0,
+      13.235,
+      18.917,
+      16.896,
+      12.382,
+      10.667,
+      9.441,
+      17.46,
+      20.005,
+      28.081,
+      20.991,
+      16.153,
+      19.698
+    ],
+    [
+      10.347,
+      24.965,
+      13.235,
+      0.0,
+      7.001,
+      3.735,
+      7.992,
+      9.33,
+      14.411,
+      22.729,
+      25.274,
+      33.351,
+      26.261,
+      21.423,
+      24.967
+    ],
+    [
+      16.029,
+      30.647,
+      18.917,
+      7.001,
+      0.0,
+      9.407,
+      14.077,
+      15.012,
+      20.093,
+      28.412,
+      30.956,
+      39.033,
+      31.943,
+      27.105,
+      30.649
+    ],
+    [
+      14.009,
+      28.626,
+      16.896,
+      3.735,
+      9.407,
+      0.0,
+      11.502,
+      12.992,
+      18.073,
+      26.391,
+      28.936,
+      37.012,
+      29.923,
+      25.085,
+      28.629
+    ],
+    [
+      9.494,
+      24.112,
+      12.382,
+      7.992,
+      14.077,
+      11.502,
+      0.0,
+      8.478,
+      13.558,
+      21.877,
+      24.422,
+      32.498,
+      25.408,
+      20.57,
+      24.115
+    ],
+    [
+      7.722,
+      22.228,
+      10.667,
+      9.33,
+      15.012,
+      12.992,
+      8.478,
+      0.0,
+      11.612,
+      19.993,
+      22.538,
+      30.614,
+      23.525,
+      18.687,
+      22.231
+    ],
+    [
+      4.306,
+      16.161,
+      9.441,
+      14.411,
+      20.093,
+      18.073,
+      13.558,
+      11.612,
+      0.0,
+      13.926,
+      16.471,
+      24.547,
+      17.458,
+      12.62,
+      16.164
+    ],
+    [
+      12.408,
+      7.953,
+      17.46,
+      22.729,
+      28.412,
+      26.391,
+      21.877,
+      19.993,
+      13.926,
+      0.0,
+      7.861,
+      16.001,
+      13.001,
+      8.632,
+      9.979
+    ],
+    [
+      14.952,
+      6.987,
+      20.005,
+      25.274,
+      30.956,
+      28.936,
+      24.422,
+      22.538,
+      16.471,
+      7.861,
+      0.0,
+      13.735,
+      14.298,
+      10.534,
+      10.508
+    ],
+    [
+      23.029,
+      13.808,
+      28.081,
+      33.351,
+      39.033,
+      37.012,
+      32.498,
+      30.614,
+      24.547,
+      16.001,
+      13.735,
+      0.0,
+      21.524,
+      18.311,
+      12.885
+    ],
+    [
+      15.939,
+      13.598,
+      20.991,
+      26.261,
+      31.943,
+      29.923,
+      25.408,
+      23.525,
+      17.458,
+      13.001,
+      14.298,
+      21.524,
+      0.0,
+      8.164,
+      8.45
+    ],
+    [
+      11.101,
+      9.879,
+      16.153,
+      21.423,
+      27.105,
+      25.085,
+      20.57,
+      18.687,
+      12.62,
+      8.632,
+      10.534,
+      18.311,
+      8.164,
+      0.0,
+      7.927
+    ],
+    [
+      14.645,
+      9.622,
+      19.698,
+      24.967,
+      30.649,
+      28.629,
+      24.115,
+      22.231,
+      16.164,
+      9.979,
+      10.508,
+      12.885,
+      8.45,
+      7.927,
+      0.0
+    ]
+  ],
+  "routes": {
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Corridor",
+      "to": "Lab",
+      "metres": 14.643,
+      "doors": [
+        27,
+        24
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.601,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Corridor",
+      "to": "Lobby",
+      "metres": 5.396,
+      "doors": [
+        29
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 1.602,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Corridor",
+      "to": "Meeting_room",
+      "metres": 10.347,
+      "doors": [
+        28
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 5.224,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Corridor",
+      "to": "Office_1",
+      "metres": 16.029,
+      "doors": [
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 5.224,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Corridor",
+      "to": "Office_2",
+      "metres": 14.009,
+      "doors": [
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 5.224,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Corridor",
+      "to": "Office_3",
+      "metres": 9.494,
+      "doors": [
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 5.224,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Corridor",
+      "to": "Office_4",
+      "metres": 7.722,
+      "doors": [
+        20
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 4.998,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Corridor",
+      "to": "Office_5",
+      "metres": 4.306,
+      "doors": [
+        19
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 1.758,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Corridor",
+      "to": "Office_6",
+      "metres": 12.408,
+      "doors": [
+        27,
+        17
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.601,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Corridor",
+      "to": "Office_7",
+      "metres": 14.952,
+      "doors": [
+        27,
+        18
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.601,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Corridor",
+      "to": "Office_8",
+      "metres": 23.029,
+      "doors": [
+        27,
+        16
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.601,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Corridor",
+      "to": "Printer_room",
+      "metres": 15.939,
+      "doors": [
+        27,
+        25
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.601,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Corridor",
+      "to": "Storage",
+      "metres": 11.101,
+      "doors": [
+        27,
+        26
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.601,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Corridor",
+      "to": "Workspace",
+      "metres": 14.645,
+      "doors": [
+        27
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 5.601,
+      "end_room_walk_m": 9.044
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Lab",
+      "to": "Corridor",
+      "metres": 14.643,
+      "doors": [
+        24,
+        27
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 5.601
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Lab",
+      "to": "Lobby",
+      "metres": 19.695,
+      "doors": [
+        24,
+        27,
+        29
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Lab",
+      "to": "Meeting_room",
+      "metres": 24.965,
+      "doors": [
+        24,
+        27,
+        28
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Lab",
+      "to": "Office_1",
+      "metres": 30.647,
+      "doors": [
+        24,
+        27,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Lab",
+      "to": "Office_2",
+      "metres": 28.626,
+      "doors": [
+        24,
+        27,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Lab",
+      "to": "Office_3",
+      "metres": 24.112,
+      "doors": [
+        24,
+        27,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Lab",
+      "to": "Office_4",
+      "metres": 22.228,
+      "doors": [
+        24,
+        27,
+        20
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Lab",
+      "to": "Office_5",
+      "metres": 16.161,
+      "doors": [
+        24,
+        27,
+        19
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Lab",
+      "to": "Office_6",
+      "metres": 7.953,
+      "doors": [
+        24,
+        17
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Lab",
+      "to": "Office_7",
+      "metres": 6.987,
+      "doors": [
+        24,
+        18
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Lab",
+      "to": "Office_8",
+      "metres": 13.808,
+      "doors": [
+        24,
+        16
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Lab",
+      "to": "Printer_room",
+      "metres": 13.598,
+      "doors": [
+        24,
+        25
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Lab",
+      "to": "Storage",
+      "metres": 9.879,
+      "doors": [
+        24,
+        26
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Lab",
+      "to": "Workspace",
+      "metres": 9.622,
+      "doors": [
+        24
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 2.405,
+      "end_room_walk_m": 7.217
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Lobby",
+      "to": "Corridor",
+      "metres": 5.396,
+      "doors": [
+        29
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 1.602
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Lobby",
+      "to": "Lab",
+      "metres": 19.695,
+      "doors": [
+        29,
+        27,
+        24
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Lobby",
+      "to": "Meeting_room",
+      "metres": 13.235,
+      "doors": [
+        29,
+        28
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Lobby",
+      "to": "Office_1",
+      "metres": 18.917,
+      "doors": [
+        29,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Lobby",
+      "to": "Office_2",
+      "metres": 16.896,
+      "doors": [
+        29,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Lobby",
+      "to": "Office_3",
+      "metres": 12.382,
+      "doors": [
+        29,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Lobby",
+      "to": "Office_4",
+      "metres": 10.667,
+      "doors": [
+        29,
+        20
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Lobby",
+      "to": "Office_5",
+      "metres": 9.441,
+      "doors": [
+        29,
+        19
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Lobby",
+      "to": "Office_6",
+      "metres": 17.46,
+      "doors": [
+        29,
+        27,
+        17
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Lobby",
+      "to": "Office_7",
+      "metres": 20.005,
+      "doors": [
+        29,
+        27,
+        18
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Lobby",
+      "to": "Office_8",
+      "metres": 28.081,
+      "doors": [
+        29,
+        27,
+        16
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Lobby",
+      "to": "Printer_room",
+      "metres": 20.991,
+      "doors": [
+        29,
+        27,
+        25
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Lobby",
+      "to": "Storage",
+      "metres": 16.153,
+      "doors": [
+        29,
+        27,
+        26
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Lobby",
+      "to": "Workspace",
+      "metres": 19.698,
+      "doors": [
+        29,
+        27
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 3.795,
+      "end_room_walk_m": 9.044
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Meeting_room",
+      "to": "Corridor",
+      "metres": 10.347,
+      "doors": [
+        28
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 5.224
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Meeting_room",
+      "to": "Lab",
+      "metres": 24.965,
+      "doors": [
+        28,
+        27,
+        24
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Meeting_room",
+      "to": "Lobby",
+      "metres": 13.235,
+      "doors": [
+        28,
+        29
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Meeting_room",
+      "to": "Office_1",
+      "metres": 7.001,
+      "doors": [
+        23
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 3.833,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Meeting_room",
+      "to": "Office_2",
+      "metres": 3.735,
+      "doors": [
+        22
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 0.841,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Meeting_room",
+      "to": "Office_3",
+      "metres": 7.992,
+      "doors": [
+        21
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 5.283,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Meeting_room",
+      "to": "Office_4",
+      "metres": 9.33,
+      "doors": [
+        28,
+        20
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Meeting_room",
+      "to": "Office_5",
+      "metres": 14.411,
+      "doors": [
+        28,
+        19
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Meeting_room",
+      "to": "Office_6",
+      "metres": 22.729,
+      "doors": [
+        28,
+        27,
+        17
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Meeting_room",
+      "to": "Office_7",
+      "metres": 25.274,
+      "doors": [
+        28,
+        27,
+        18
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Meeting_room",
+      "to": "Office_8",
+      "metres": 33.351,
+      "doors": [
+        28,
+        27,
+        16
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Meeting_room",
+      "to": "Printer_room",
+      "metres": 26.261,
+      "doors": [
+        28,
+        27,
+        25
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Meeting_room",
+      "to": "Storage",
+      "metres": 21.423,
+      "doors": [
+        28,
+        27,
+        26
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Meeting_room",
+      "to": "Workspace",
+      "metres": 24.967,
+      "doors": [
+        28,
+        27
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 5.123,
+      "end_room_walk_m": 9.044
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Office_1",
+      "to": "Corridor",
+      "metres": 16.029,
+      "doors": [
+        23,
+        28
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 5.224
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Office_1",
+      "to": "Lab",
+      "metres": 30.647,
+      "doors": [
+        23,
+        28,
+        27,
+        24
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Office_1",
+      "to": "Lobby",
+      "metres": 18.917,
+      "doors": [
+        23,
+        28,
+        29
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Office_1",
+      "to": "Meeting_room",
+      "metres": 7.001,
+      "doors": [
+        23
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 3.833
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Office_1",
+      "to": "Office_2",
+      "metres": 9.407,
+      "doors": [
+        23,
+        22
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Office_1",
+      "to": "Office_3",
+      "metres": 14.077,
+      "doors": [
+        23,
+        21
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Office_1",
+      "to": "Office_4",
+      "metres": 15.012,
+      "doors": [
+        23,
+        28,
+        20
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Office_1",
+      "to": "Office_5",
+      "metres": 20.093,
+      "doors": [
+        23,
+        28,
+        19
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Office_1",
+      "to": "Office_6",
+      "metres": 28.412,
+      "doors": [
+        23,
+        28,
+        27,
+        17
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Office_1",
+      "to": "Office_7",
+      "metres": 30.956,
+      "doors": [
+        23,
+        28,
+        27,
+        18
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Office_1",
+      "to": "Office_8",
+      "metres": 39.033,
+      "doors": [
+        23,
+        28,
+        27,
+        16
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Office_1",
+      "to": "Printer_room",
+      "metres": 31.943,
+      "doors": [
+        23,
+        28,
+        27,
+        25
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Office_1",
+      "to": "Storage",
+      "metres": 27.105,
+      "doors": [
+        23,
+        28,
+        27,
+        26
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Office_1",
+      "to": "Workspace",
+      "metres": 30.649,
+      "doors": [
+        23,
+        28,
+        27
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 3.168,
+      "end_room_walk_m": 9.044
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Office_2",
+      "to": "Corridor",
+      "metres": 14.009,
+      "doors": [
+        22,
+        28
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 5.224
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Office_2",
+      "to": "Lab",
+      "metres": 28.626,
+      "doors": [
+        22,
+        28,
+        27,
+        24
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Office_2",
+      "to": "Lobby",
+      "metres": 16.896,
+      "doors": [
+        22,
+        28,
+        29
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Office_2",
+      "to": "Meeting_room",
+      "metres": 3.735,
+      "doors": [
+        22
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 0.841
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Office_2",
+      "to": "Office_1",
+      "metres": 9.407,
+      "doors": [
+        22,
+        23
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Office_2",
+      "to": "Office_3",
+      "metres": 11.502,
+      "doors": [
+        22,
+        21
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Office_2",
+      "to": "Office_4",
+      "metres": 12.992,
+      "doors": [
+        22,
+        28,
+        20
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Office_2",
+      "to": "Office_5",
+      "metres": 18.073,
+      "doors": [
+        22,
+        28,
+        19
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Office_2",
+      "to": "Office_6",
+      "metres": 26.391,
+      "doors": [
+        22,
+        28,
+        27,
+        17
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Office_2",
+      "to": "Office_7",
+      "metres": 28.936,
+      "doors": [
+        22,
+        28,
+        27,
+        18
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Office_2",
+      "to": "Office_8",
+      "metres": 37.012,
+      "doors": [
+        22,
+        28,
+        27,
+        16
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Office_2",
+      "to": "Printer_room",
+      "metres": 29.923,
+      "doors": [
+        22,
+        28,
+        27,
+        25
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Office_2",
+      "to": "Storage",
+      "metres": 25.085,
+      "doors": [
+        22,
+        28,
+        27,
+        26
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Office_2",
+      "to": "Workspace",
+      "metres": 28.629,
+      "doors": [
+        22,
+        28,
+        27
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.894,
+      "end_room_walk_m": 9.044
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Office_3",
+      "to": "Corridor",
+      "metres": 9.494,
+      "doors": [
+        21,
+        28
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 5.224
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Office_3",
+      "to": "Lab",
+      "metres": 24.112,
+      "doors": [
+        21,
+        28,
+        27,
+        24
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Office_3",
+      "to": "Lobby",
+      "metres": 12.382,
+      "doors": [
+        21,
+        28,
+        29
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Office_3",
+      "to": "Meeting_room",
+      "metres": 7.992,
+      "doors": [
+        21
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 5.283
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Office_3",
+      "to": "Office_1",
+      "metres": 14.077,
+      "doors": [
+        21,
+        23
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Office_3",
+      "to": "Office_2",
+      "metres": 11.502,
+      "doors": [
+        21,
+        22
+      ],
+      "walks_inside": [
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Office_3",
+      "to": "Office_4",
+      "metres": 8.478,
+      "doors": [
+        21,
+        28,
+        20
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Office_3",
+      "to": "Office_5",
+      "metres": 13.558,
+      "doors": [
+        21,
+        28,
+        19
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Office_3",
+      "to": "Office_6",
+      "metres": 21.877,
+      "doors": [
+        21,
+        28,
+        27,
+        17
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Office_3",
+      "to": "Office_7",
+      "metres": 24.422,
+      "doors": [
+        21,
+        28,
+        27,
+        18
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Office_3",
+      "to": "Office_8",
+      "metres": 32.498,
+      "doors": [
+        21,
+        28,
+        27,
+        16
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Office_3",
+      "to": "Printer_room",
+      "metres": 25.408,
+      "doors": [
+        21,
+        28,
+        27,
+        25
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Office_3",
+      "to": "Storage",
+      "metres": 20.57,
+      "doors": [
+        21,
+        28,
+        27,
+        26
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Office_3",
+      "to": "Workspace",
+      "metres": 24.115,
+      "doors": [
+        21,
+        28,
+        27
+      ],
+      "walks_inside": [
+        "Meeting_room",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.709,
+      "end_room_walk_m": 9.044
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Office_4",
+      "to": "Corridor",
+      "metres": 7.722,
+      "doors": [
+        20
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 4.998
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Office_4",
+      "to": "Lab",
+      "metres": 22.228,
+      "doors": [
+        20,
+        27,
+        24
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Office_4",
+      "to": "Lobby",
+      "metres": 10.667,
+      "doors": [
+        20,
+        29
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Office_4",
+      "to": "Meeting_room",
+      "metres": 9.33,
+      "doors": [
+        20,
+        28
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Office_4",
+      "to": "Office_1",
+      "metres": 15.012,
+      "doors": [
+        20,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Office_4",
+      "to": "Office_2",
+      "metres": 12.992,
+      "doors": [
+        20,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Office_4",
+      "to": "Office_3",
+      "metres": 8.478,
+      "doors": [
+        20,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Office_4",
+      "to": "Office_5",
+      "metres": 11.612,
+      "doors": [
+        20,
+        19
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Office_4",
+      "to": "Office_6",
+      "metres": 19.993,
+      "doors": [
+        20,
+        27,
+        17
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Office_4",
+      "to": "Office_7",
+      "metres": 22.538,
+      "doors": [
+        20,
+        27,
+        18
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Office_4",
+      "to": "Office_8",
+      "metres": 30.614,
+      "doors": [
+        20,
+        27,
+        16
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Office_4",
+      "to": "Printer_room",
+      "metres": 23.525,
+      "doors": [
+        20,
+        27,
+        25
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Office_4",
+      "to": "Storage",
+      "metres": 18.687,
+      "doors": [
+        20,
+        27,
+        26
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Office_4",
+      "to": "Workspace",
+      "metres": 22.231,
+      "doors": [
+        20,
+        27
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.724,
+      "end_room_walk_m": 9.044
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Office_5",
+      "to": "Corridor",
+      "metres": 4.306,
+      "doors": [
+        19
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 1.758
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Office_5",
+      "to": "Lab",
+      "metres": 16.161,
+      "doors": [
+        19,
+        27,
+        24
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Office_5",
+      "to": "Lobby",
+      "metres": 9.441,
+      "doors": [
+        19,
+        29
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Office_5",
+      "to": "Meeting_room",
+      "metres": 14.411,
+      "doors": [
+        19,
+        28
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Office_5",
+      "to": "Office_1",
+      "metres": 20.093,
+      "doors": [
+        19,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Office_5",
+      "to": "Office_2",
+      "metres": 18.073,
+      "doors": [
+        19,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Office_5",
+      "to": "Office_3",
+      "metres": 13.558,
+      "doors": [
+        19,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Office_5",
+      "to": "Office_4",
+      "metres": 11.612,
+      "doors": [
+        19,
+        20
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Office_5",
+      "to": "Office_6",
+      "metres": 13.926,
+      "doors": [
+        19,
+        27,
+        17
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Office_5",
+      "to": "Office_7",
+      "metres": 16.471,
+      "doors": [
+        19,
+        27,
+        18
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Office_5",
+      "to": "Office_8",
+      "metres": 24.547,
+      "doors": [
+        19,
+        27,
+        16
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Office_5",
+      "to": "Printer_room",
+      "metres": 17.458,
+      "doors": [
+        19,
+        27,
+        25
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Office_5",
+      "to": "Storage",
+      "metres": 12.62,
+      "doors": [
+        19,
+        27,
+        26
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Office_5",
+      "to": "Workspace",
+      "metres": 16.164,
+      "doors": [
+        19,
+        27
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.548,
+      "end_room_walk_m": 9.044
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Office_6",
+      "to": "Corridor",
+      "metres": 12.408,
+      "doors": [
+        17,
+        27
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 5.601
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Office_6",
+      "to": "Lab",
+      "metres": 7.953,
+      "doors": [
+        17,
+        24
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Office_6",
+      "to": "Lobby",
+      "metres": 17.46,
+      "doors": [
+        17,
+        27,
+        29
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Office_6",
+      "to": "Meeting_room",
+      "metres": 22.729,
+      "doors": [
+        17,
+        27,
+        28
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Office_6",
+      "to": "Office_1",
+      "metres": 28.412,
+      "doors": [
+        17,
+        27,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Office_6",
+      "to": "Office_2",
+      "metres": 26.391,
+      "doors": [
+        17,
+        27,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Office_6",
+      "to": "Office_3",
+      "metres": 21.877,
+      "doors": [
+        17,
+        27,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Office_6",
+      "to": "Office_4",
+      "metres": 19.993,
+      "doors": [
+        17,
+        27,
+        20
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Office_6",
+      "to": "Office_5",
+      "metres": 13.926,
+      "doors": [
+        17,
+        27,
+        19
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Office_6",
+      "to": "Office_7",
+      "metres": 7.861,
+      "doors": [
+        17,
+        18
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Office_6",
+      "to": "Office_8",
+      "metres": 16.001,
+      "doors": [
+        17,
+        16
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Office_6",
+      "to": "Printer_room",
+      "metres": 13.001,
+      "doors": [
+        17,
+        25
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Office_6",
+      "to": "Storage",
+      "metres": 8.632,
+      "doors": [
+        17,
+        26
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXX->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Office_6",
+      "to": "Workspace",
+      "metres": 9.979,
+      "doors": [
+        17
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 2.445,
+      "end_room_walk_m": 7.534
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Office_7",
+      "to": "Corridor",
+      "metres": 14.952,
+      "doors": [
+        18,
+        27
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 5.601
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Office_7",
+      "to": "Lab",
+      "metres": 6.987,
+      "doors": [
+        18,
+        24
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Office_7",
+      "to": "Lobby",
+      "metres": 20.005,
+      "doors": [
+        18,
+        27,
+        29
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Office_7",
+      "to": "Meeting_room",
+      "metres": 25.274,
+      "doors": [
+        18,
+        27,
+        28
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Office_7",
+      "to": "Office_1",
+      "metres": 30.956,
+      "doors": [
+        18,
+        27,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Office_7",
+      "to": "Office_2",
+      "metres": 28.936,
+      "doors": [
+        18,
+        27,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Office_7",
+      "to": "Office_3",
+      "metres": 24.422,
+      "doors": [
+        18,
+        27,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Office_7",
+      "to": "Office_4",
+      "metres": 22.538,
+      "doors": [
+        18,
+        27,
+        20
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Office_7",
+      "to": "Office_5",
+      "metres": 16.471,
+      "doors": [
+        18,
+        27,
+        19
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Office_7",
+      "to": "Office_6",
+      "metres": 7.861,
+      "doors": [
+        18,
+        17
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Office_7",
+      "to": "Office_8",
+      "metres": 13.735,
+      "doors": [
+        18,
+        16
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Office_7",
+      "to": "Printer_room",
+      "metres": 14.298,
+      "doors": [
+        18,
+        25
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Office_7",
+      "to": "Storage",
+      "metres": 10.534,
+      "doors": [
+        18,
+        26
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Office_7",
+      "to": "Workspace",
+      "metres": 10.508,
+      "doors": [
+        18
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 2.579,
+      "end_room_walk_m": 7.929
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Office_8",
+      "to": "Corridor",
+      "metres": 23.029,
+      "doors": [
+        16,
+        27
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 5.601
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Office_8",
+      "to": "Lab",
+      "metres": 13.808,
+      "doors": [
+        16,
+        24
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Office_8",
+      "to": "Lobby",
+      "metres": 28.081,
+      "doors": [
+        16,
+        27,
+        29
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Office_8",
+      "to": "Meeting_room",
+      "metres": 33.351,
+      "doors": [
+        16,
+        27,
+        28
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Office_8",
+      "to": "Office_1",
+      "metres": 39.033,
+      "doors": [
+        16,
+        27,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Office_8",
+      "to": "Office_2",
+      "metres": 37.012,
+      "doors": [
+        16,
+        27,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Office_8",
+      "to": "Office_3",
+      "metres": 32.498,
+      "doors": [
+        16,
+        27,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Office_8",
+      "to": "Office_4",
+      "metres": 30.614,
+      "doors": [
+        16,
+        27,
+        20
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Office_8",
+      "to": "Office_5",
+      "metres": 24.547,
+      "doors": [
+        16,
+        27,
+        19
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Office_8",
+      "to": "Office_6",
+      "metres": 16.001,
+      "doors": [
+        16,
+        17
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Office_8",
+      "to": "Office_7",
+      "metres": 13.735,
+      "doors": [
+        16,
+        18
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Office_8",
+      "to": "Printer_room",
+      "metres": 21.524,
+      "doors": [
+        16,
+        25
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Office_8",
+      "to": "Storage",
+      "metres": 18.311,
+      "doors": [
+        16,
+        26
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Office_8",
+      "to": "Workspace",
+      "metres": 12.885,
+      "doors": [
+        16
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 2.407,
+      "end_room_walk_m": 10.478
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Printer_room",
+      "to": "Corridor",
+      "metres": 15.939,
+      "doors": [
+        25,
+        27
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 5.601
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Printer_room",
+      "to": "Lab",
+      "metres": 13.598,
+      "doors": [
+        25,
+        24
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Printer_room",
+      "to": "Lobby",
+      "metres": 20.991,
+      "doors": [
+        25,
+        27,
+        29
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Printer_room",
+      "to": "Meeting_room",
+      "metres": 26.261,
+      "doors": [
+        25,
+        27,
+        28
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Printer_room",
+      "to": "Office_1",
+      "metres": 31.943,
+      "doors": [
+        25,
+        27,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Printer_room",
+      "to": "Office_2",
+      "metres": 29.923,
+      "doors": [
+        25,
+        27,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Printer_room",
+      "to": "Office_3",
+      "metres": 25.408,
+      "doors": [
+        25,
+        27,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Printer_room",
+      "to": "Office_4",
+      "metres": 23.525,
+      "doors": [
+        25,
+        27,
+        20
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Printer_room",
+      "to": "Office_5",
+      "metres": 17.458,
+      "doors": [
+        25,
+        27,
+        19
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Printer_room",
+      "to": "Office_6",
+      "metres": 13.001,
+      "doors": [
+        25,
+        17
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Printer_room",
+      "to": "Office_7",
+      "metres": 14.298,
+      "doors": [
+        25,
+        18
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Printer_room",
+      "to": "Office_8",
+      "metres": 21.524,
+      "doors": [
+        25,
+        16
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Printer_room",
+      "to": "Storage",
+      "metres": 8.164,
+      "doors": [
+        25,
+        26
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 1.42
+    },
+    "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Printer_room",
+      "to": "Workspace",
+      "metres": 8.45,
+      "doors": [
+        25
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 1.277,
+      "end_room_walk_m": 7.173
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Storage",
+      "to": "Corridor",
+      "metres": 11.101,
+      "doors": [
+        26,
+        27
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 5.601
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Storage",
+      "to": "Lab",
+      "metres": 9.879,
+      "doors": [
+        26,
+        24
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Storage",
+      "to": "Lobby",
+      "metres": 16.153,
+      "doors": [
+        26,
+        27,
+        29
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Storage",
+      "to": "Meeting_room",
+      "metres": 21.423,
+      "doors": [
+        26,
+        27,
+        28
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Storage",
+      "to": "Office_1",
+      "metres": 27.105,
+      "doors": [
+        26,
+        27,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Storage",
+      "to": "Office_2",
+      "metres": 25.085,
+      "doors": [
+        26,
+        27,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Storage",
+      "to": "Office_3",
+      "metres": 20.57,
+      "doors": [
+        26,
+        27,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Storage",
+      "to": "Office_4",
+      "metres": 18.687,
+      "doors": [
+        26,
+        27,
+        20
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Storage",
+      "to": "Office_5",
+      "metres": 12.62,
+      "doors": [
+        26,
+        27,
+        19
+      ],
+      "walks_inside": [
+        "Workspace",
+        "Corridor"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Storage",
+      "to": "Office_6",
+      "metres": 8.632,
+      "doors": [
+        26,
+        17
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Storage",
+      "to": "Office_7",
+      "metres": 10.534,
+      "doors": [
+        26,
+        18
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Storage",
+      "to": "Office_8",
+      "metres": 18.311,
+      "doors": [
+        26,
+        16
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Storage",
+      "to": "Printer_room",
+      "metres": 8.164,
+      "doors": [
+        26,
+        25
+      ],
+      "walks_inside": [
+        "Workspace"
+      ],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXg": {
+      "from": "Storage",
+      "to": "Workspace",
+      "metres": 7.927,
+      "doors": [
+        26
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 1.42,
+      "end_room_walk_m": 6.507
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXa": {
+      "from": "Workspace",
+      "to": "Corridor",
+      "metres": 14.645,
+      "doors": [
+        27
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 9.044,
+      "end_room_walk_m": 5.601
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXU": {
+      "from": "Workspace",
+      "to": "Lab",
+      "metres": 9.622,
+      "doors": [
+        24
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 7.217,
+      "end_room_walk_m": 2.405
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXb": {
+      "from": "Workspace",
+      "to": "Lobby",
+      "metres": 19.698,
+      "doors": [
+        27,
+        29
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 9.044,
+      "end_room_walk_m": 3.795
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXV": {
+      "from": "Workspace",
+      "to": "Meeting_room",
+      "metres": 24.967,
+      "doors": [
+        27,
+        28
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 9.044,
+      "end_room_walk_m": 5.123
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXS": {
+      "from": "Workspace",
+      "to": "Office_1",
+      "metres": 30.649,
+      "doors": [
+        27,
+        28,
+        23
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 9.044,
+      "end_room_walk_m": 3.168
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXT": {
+      "from": "Workspace",
+      "to": "Office_2",
+      "metres": 28.629,
+      "doors": [
+        27,
+        28,
+        22
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 9.044,
+      "end_room_walk_m": 2.894
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXY": {
+      "from": "Workspace",
+      "to": "Office_3",
+      "metres": 24.115,
+      "doors": [
+        27,
+        28,
+        21
+      ],
+      "walks_inside": [
+        "Corridor",
+        "Meeting_room"
+      ],
+      "start_room_walk_m": 9.044,
+      "end_room_walk_m": 2.709
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXZ": {
+      "from": "Workspace",
+      "to": "Office_4",
+      "metres": 22.231,
+      "doors": [
+        27,
+        20
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 9.044,
+      "end_room_walk_m": 2.724
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXd": {
+      "from": "Workspace",
+      "to": "Office_5",
+      "metres": 16.164,
+      "doors": [
+        27,
+        19
+      ],
+      "walks_inside": [
+        "Corridor"
+      ],
+      "start_room_walk_m": 9.044,
+      "end_room_walk_m": 2.548
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXX": {
+      "from": "Workspace",
+      "to": "Office_6",
+      "metres": 9.979,
+      "doors": [
+        17
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 7.534,
+      "end_room_walk_m": 2.445
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXW": {
+      "from": "Workspace",
+      "to": "Office_7",
+      "metres": 10.508,
+      "doors": [
+        18
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 7.929,
+      "end_room_walk_m": 2.579
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXc": {
+      "from": "Workspace",
+      "to": "Office_8",
+      "metres": 12.885,
+      "doors": [
+        16
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 10.478,
+      "end_room_walk_m": 2.407
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXe": {
+      "from": "Workspace",
+      "to": "Printer_room",
+      "metres": 8.45,
+      "doors": [
+        25
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 7.173,
+      "end_room_walk_m": 1.277
+    },
+    "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXh": {
+      "from": "Workspace",
+      "to": "Storage",
+      "metres": 7.927,
+      "doors": [
+        26
+      ],
+      "walks_inside": [],
+      "start_room_walk_m": 6.507,
+      "end_room_walk_m": 1.42
+    }
+  },
+  "centre_walk_options": {
+    "resolution": 0.05,
+    "wall": 0.125,
+    "clearance": 0.2
+  },
+  "check_against_navbim": {
+    "what": "door-to-door walks navbim planned, recomputed with the outline method",
+    "pairs": 44,
+    "unreachable": 0,
+    "mean_diff_m": 0.061,
+    "mean_abs_diff_m": 0.147,
+    "min_diff_m": -0.385,
+    "max_diff_m": 0.387,
+    "rows": [
+      {
+        "room": "Workspace",
+        "doors": [
+          16,
+          17
+        ],
+        "navbim_m": 11.149,
+        "outline_m": 11.286
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          16,
+          18
+        ],
+        "navbim_m": 8.749,
+        "outline_m": 8.886
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          16,
+          24
+        ],
+        "navbim_m": 8.995,
+        "outline_m": 9.047
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          16,
+          25
+        ],
+        "navbim_m": 17.839,
+        "outline_m": 17.607
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          16,
+          26
+        ],
+        "navbim_m": 14.483,
+        "outline_m": 14.629
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          16,
+          27
+        ],
+        "navbim_m": 15.02,
+        "outline_m": 15.094
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          16,
+          30
+        ],
+        "navbim_m": 2.794,
+        "outline_m": 2.893
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          17,
+          18
+        ],
+        "navbim_m": 2.837,
+        "outline_m": 2.988
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          17,
+          24
+        ],
+        "navbim_m": 3.103,
+        "outline_m": 3.301
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          17,
+          25
+        ],
+        "navbim_m": 9.279,
+        "outline_m": 9.086
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          17,
+          26
+        ],
+        "navbim_m": 4.766,
+        "outline_m": 4.784
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          17,
+          27
+        ],
+        "navbim_m": 4.362,
+        "outline_m": 4.425
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          17,
+          30
+        ],
+        "navbim_m": 12.552,
+        "outline_m": 12.601
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          18,
+          24
+        ],
+        "navbim_m": 2.003,
+        "outline_m": 1.942
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          18,
+          25
+        ],
+        "navbim_m": 10.442,
+        "outline_m": 10.277
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          18,
+          26
+        ],
+        "navbim_m": 6.534,
+        "outline_m": 6.551
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          18,
+          27
+        ],
+        "navbim_m": 6.772,
+        "outline_m": 6.81
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          18,
+          30
+        ],
+        "navbim_m": 10.147,
+        "outline_m": 10.24
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          19,
+          20
+        ],
+        "navbim_m": 6.34,
+        "outline_m": 6.597
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          19,
+          27
+        ],
+        "navbim_m": 4.572,
+        "outline_m": 4.542
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          19,
+          28
+        ],
+        "navbim_m": 6.74,
+        "outline_m": 6.86
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          19,
+          29
+        ],
+        "navbim_m": 3.099,
+        "outline_m": 3.322
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          20,
+          27
+        ],
+        "navbim_m": 10.463,
+        "outline_m": 10.486
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          20,
+          28
+        ],
+        "navbim_m": 1.483,
+        "outline_m": 1.773
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          20,
+          29
+        ],
+        "navbim_m": 4.148,
+        "outline_m": 4.487
+      },
+      {
+        "room": "Meeting_room",
+        "doors": [
+          21,
+          22
+        ],
+        "navbim_m": 5.9,
+        "outline_m": 6.086
+      },
+      {
+        "room": "Meeting_room",
+        "doors": [
+          21,
+          23
+        ],
+        "navbim_m": 8.2,
+        "outline_m": 8.417
+      },
+      {
+        "room": "Meeting_room",
+        "doors": [
+          21,
+          28
+        ],
+        "navbim_m": 1.562,
+        "outline_m": 1.739
+      },
+      {
+        "room": "Meeting_room",
+        "doors": [
+          22,
+          23
+        ],
+        "navbim_m": 3.345,
+        "outline_m": 3.733
+      },
+      {
+        "room": "Meeting_room",
+        "doors": [
+          22,
+          28
+        ],
+        "navbim_m": 5.891,
+        "outline_m": 5.906
+      },
+      {
+        "room": "Meeting_room",
+        "doors": [
+          23,
+          28
+        ],
+        "navbim_m": 7.637,
+        "outline_m": 7.846
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          24,
+          25
+        ],
+        "navbim_m": 9.916,
+        "outline_m": 9.531
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          24,
+          26
+        ],
+        "navbim_m": 6.053,
+        "outline_m": 6.285
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          24,
+          27
+        ],
+        "navbim_m": 6.636,
+        "outline_m": 6.791
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          24,
+          30
+        ],
+        "navbim_m": 10.332,
+        "outline_m": 10.141
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          25,
+          26
+        ],
+        "navbim_m": 5.466,
+        "outline_m": 5.266
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          25,
+          27
+        ],
+        "navbim_m": 9.061,
+        "outline_m": 8.761
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          25,
+          30
+        ],
+        "navbim_m": 17.339,
+        "outline_m": 17.444
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          26,
+          27
+        ],
+        "navbim_m": 4.079,
+        "outline_m": 4.056
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          26,
+          30
+        ],
+        "navbim_m": 15.757,
+        "outline_m": 15.668
+      },
+      {
+        "room": "Workspace",
+        "doors": [
+          27,
+          30
+        ],
+        "navbim_m": 16.343,
+        "outline_m": 16.338
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          27,
+          28
+        ],
+        "navbim_m": 10.8,
+        "outline_m": 10.797
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          27,
+          29
+        ],
+        "navbim_m": 6.859,
+        "outline_m": 7.006
+      },
+      {
+        "room": "Corridor",
+        "doors": [
+          28,
+          29
+        ],
+        "navbim_m": 4.317,
+        "outline_m": 4.539
+      }
+    ]
+  }
+}

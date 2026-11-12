@@ -96,6 +96,7 @@ Run `cd ~/Junaidali/navbim_ws/src/navbim && git diff` to see all code changes at
 | C3 | Copied the IFC to `navbim_bringup/bim/IDAC_Model.ifc` and the model to `navbim_bringup/nav_model/IDAC_Model/`, then `colcon build --symlink-install --packages-select navbim_bringup` | The RViz BimPanel only looks in navbim_bringup's install `share` folder (`navbim_rviz_plugins/src/bim_panel.cpp` lines 67, 78, 129-137) and ignores custom paths | delete both, rebuild `navbim_bringup` |
 | C4 | `Master_thesis/data/IDAC_Model_preplanned.json` (commit dde6b5f, pulled on the Windows PC 2026-11-12): copy of the pre-planned navbim JSON. 31 nodes, 103 links, 44/44 transition edges with `planned_distance` + `path` | Input for the room-to-room distance table script (works without ROS) | `git rm` |
 | C5 | `scripts/navbim/navbim_distance_table.py` + `tests/navbim/test_distance_table.py` + output `data/distances/IDAC_Model_preplanned_walking_distances.{json,csv}` (2026-11-12) | Option A table: 15×15, keyed by IfcSpace GUID, offline (no ROS). `load_distance_function(path)` gives `distance(guid_a, guid_b)` for `optimal_visit_order(..., distance=...)` | `git rm` |
+| C6 | `scripts/navbim/navbim_room_walks.py` + option B in `navbim_distance_table.py` (`--method centre`, `--check`) + `tests/navbim/test_room_walks.py` + output `data/distances/IDAC_Model_preplanned_centre_walking_distances.{json,csv}` (2026-11-12) | Option B table: room centre to room centre (see E and F). Option A output is unchanged apart from a new `"method": "door"` field; option A stays the default | `git rm` the new files; `git checkout d565794 -- scripts/navbim/navbim_distance_table.py` |
 
 Launch now: `ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`
 
@@ -122,8 +123,10 @@ Launch now: `ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`
 - [x] Auto pre-plan settings switched back to `false` (B6), confirmed by the user 2026-11-12
 - [x] Pushed log commits (b6fdc3a) 2026-11-12
 - [x] Option A table script done (C5, 2026-11-12). Result for IDAC_Model: 15 rooms, 0 unreachable pairs, symmetric, max 33.46 m (Office_1 ↔ Office_8). 28 ordered pairs = 0 m because the rooms share a door (expected for option A). Works with the existing Held-Karp: e.g. from Corridor over {Office_1, Lab, Office_5, Printer_room, Office_8} it gives a different order than straight lines. The room GUIDs in the navbim JSON match `data/cleaned_ifc/IDAC_Model_llm.json` (15/15).
-- [ ] Decide: use the table in the HTN/ranking pipeline (replace `DoorGraph.route_length`?), and/or build option B (adds the walk inside rooms, removes the 0 m pairs)
-- [ ] pytest is not installed in the venv (`pip install pytest`). The tests were run with a stand-in and all 4 pass.
+- [x] Option B table done (C6, 2026-11-12). Built offline from the same JSON, NOT from the PNG maps (they are only on Ubuntu): the walk "room centre -> door" is a grid search (5 cm) inside the room outline (IfcSpace polygon), keeping 0.2 m from the walls (= navbim `robot_radius`), with every other room cut out plus a 0.125 m wall (needed because the Lab lies inside the Workspace outline). Check against the 44 door-to-door walks navbim planned: outline method is on average 0.15 m off, at most ±0.39 m. Result: 15 rooms, 0 unreachable, 0 pairs at 0 m, symmetric, max 39.03 m (Office_8 ↔ Office_1), e.g. Workspace→Lab 0 → 9.62 m, Corridor→Lobby 0 → 5.40 m. Same Held-Karp example: B gives the same order as A (81.0 m real walk vs 88.2 m with straight lines). Rebuild: `python scripts/navbim/navbim_distance_table.py data/IDAC_Model_preplanned.json --method centre --check`
+- [ ] Decide: use A or B in the HTN/ranking pipeline (replace `DoorGraph.route_length`?)
+- [ ] Option B limit: the "centre" of a big room is arbitrary (Workspace: 6.5-10.5 m from its doors); furniture is not modelled
+- [ ] pytest is not installed in the venv (`pip install pytest`). The tests were run with a stand-in and all pass (4 for option A, 3 for option B).
 - [ ] Optional: fix second-terminal communication (B6 "Still open", Plan B: `ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST`)
 - [ ] Set robot size parameters from the URDF / `data/robot/profiles/a300.json` (navbim now uses robot_radius 0.2 placeholder) → then pre-plan again and rerun the table script
 - [ ] Delete `/swapfile2` when no longer needed (A5)
@@ -134,7 +137,7 @@ Launch now: `ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`
 
 **Distance table: how room-to-room distance is defined (decided 2026-11-12)**
 - **Option A (chosen to start): door to door.** Uses only the 44 pre-planned `planned_distance` values in `data/IDAC_Model_preplanned.json`. Dijkstra over the topological graph (door nodes; door-to-door edges inside a room = planned length). Offline, no ROS.
-- Option B (later, for comparison): room centre to room centre = A plus the walk from the room centre to its doors, planned with Python A* on navbim's room PNG maps.
+- Option B (built, C6): room centre to room centre = A plus the walk from the room centre to its doors. Planned on the room outlines from the navbim JSON instead of navbim's PNG maps (those stay on Ubuntu); validated against navbim's own door-to-door paths (±0.4 m). The room "centre" is navbim's `position` (polygon centroid), moved to the nearest walkable point when it is not walkable.
 - Option C: ask navbim directly for all 105 pairs (`Path distance` in the log). Needs the second-terminal problem fixed.
 - **The planned lengths respect walls** (checked 2026-11-12). Printer_room door → Corridor door inside Workspace: straight 6.25 m, planned 9.06 m, the path goes around the block (min x 28.25 < 28.66). Storage door → Corridor door: 3.09 → 4.08 m. Lab door → Corridor door: 6.54 → 6.64 m.
 - Option A ignores the walk inside the start/goal room.
