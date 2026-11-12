@@ -124,10 +124,15 @@ def _room_grids(nodes, resolution, wall, clearance):
     from navbim_room_walks import RoomGrid, room_polygon, walkable_area
     rooms = {i: n for i, n in nodes.items() if n.get("type") in ROOM_TYPES}
     polys = {r: room_polygon(rooms[r]) for r in rooms}
+    floors = {r: set(rooms[r].get("floor") or []) for r in rooms}
+
+    def same_floor(a, b):   # rooms with no floor info are compared with all
+        return not floors[a] or not floors[b] or bool(floors[a] & floors[b])
+
     grids = {}
     for r in rooms:
-        free = walkable_area(polys[r], [q for o, q in polys.items() if o != r],
-                             wall=wall, clearance=clearance)
+        others = [q for o, q in polys.items() if o != r and same_floor(o, r)]
+        free = walkable_area(polys[r], others, wall=wall, clearance=clearance)
         grids[r] = (RoomGrid(polys[r], resolution, free_area=free), free)
     return grids
 

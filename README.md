@@ -64,6 +64,8 @@ data/
   cleaned_ifc/         JSON produced by clean_ifc.py (<name>_full.json, <name>_llm.json;
                        *_cleaned.json are v1 outputs still read by vlm_reasoning/)
   images/              Sample photos used as stand-ins for camera captures
+  <name>_preplanned.json  Pre-planned navbim map (copied from the Ubuntu PC), see section 6
+  distances/           Walking-distance tables made from it (.json for code, .csv for Excel)
   robot/
     urdf/              Robot descriptions (*.urdf); a300.urdf = Clearpath A300 (expanded xacro)
     profiles/          <robot>.json derived from the URDF (width, capabilities, evidence); edit to correct
@@ -75,6 +77,10 @@ scripts/
     make_grid.py        CLI: <name>_full.json -> nav2 occupancy grid (PNG + YAML) per storey
     ifc_extract/        Extractor package (audit, units, relations, geometry, exporter,
                         rooms_doors, obstacles, extractor); see its __init__.py
+  navbim/
+    navbim_distance_table.py  CLI: pre-planned navbim map JSON -> room-to-room walking
+                        distance table (option A door to door, option B centre to centre)
+    navbim_room_walks.py  Option B helper: walk from a room centre to its doors (room outline)
   vlm_reasoning/
     rank_candidates.py    Ranking/planning logic (library, used by interactive_search.py)
     rank_candidates2.py   Standalone CLI for stages (a)+(b): rank + plan only
@@ -88,6 +94,8 @@ file_converters/        Standalone IFC <-> ifcJSON converters (ifc2json.py, json
 results/                Output location for saved plans; results/htn_runs/ = one folder per HTN run
 docs/                   htn_design.md (HTN design + decisions), references/ (papers)
 tests/htn/              pytest suite for the HTN layer (no Ollama needed)
+tests/navbim/           pytest suite for the walking-distance tables (no ROS needed)
+navbim_setup_log.md     Every navbim setup change on the Ubuntu PC (what / why / undo)
 legacy_graph_pipeline/ Archived Neo4j-based approach (extraction, classification, query)
 testing_vlm.py          One-off smoke test for a local Ollama vision model
 requirements.txt        Actual pipeline dependencies (ifcopenshell, ollama)
@@ -355,11 +363,99 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
   reasoning per room, as in `--no-htn`, and saved as `rankings` in `summary.json`.
 - `--no-htn` keeps the previous `SearchSession` behaviour as the evaluation baseline.
 
+### 6. Walking distances from navbim (any IFC model)
+
+Straight lines between room centres ignore walls. [navbim](https://github.com/janstueh/navbim)
+(GPP-BIM, ROS 2 Jazzy, runs on the Ubuntu PC) plans real robot paths inside
+every room on maps made from the IFC. Its "pre-planning" stores the length of
+every door-to-door walk inside each room in the navbim map JSON. From that file
+`scripts/navbim/navbim_distance_table.py` builds a table of walking distances
+between all rooms, on Windows, without ROS.
+
+Two ways to measure "room A to room B":
+
+| `--method` | Distance | Note |
+|---|---|---|
+| `door` (option A, default) | nearest door of A → … → nearest door of B | only navbim's own planned lengths; two rooms sharing a door get **0 m** |
+| `centre` (option B) | centre of A → door → … → door → centre of B | adds the walk inside A and B, computed from the room outlines in the same JSON (5 cm grid, 0.2 m robot clearance, walls respected); `--check` compares this method with navbim's own door-to-door walks (IDAC_Model: mean 0.15 m off, at most 0.4 m) |
+
+**Steps for a new IFC model** (`<Name>` = the IFC file name without `.ifc`, no spaces).
+Setup details, fixes and the build command are in [navbim_setup_log.md](navbim_setup_log.md).
+
+On the **Ubuntu PC** (one terminal, in `~/Junaidali/navbim_ws`, after `source install/setup.bash`):
+
+1. Put the IFC into navbim's bringup package and rebuild that package (the
+   launch and the RViz BIM panel only find models there):
+   ```bash
+   cp <path>/<Name>.ifc src/navbim/navbim_bringup/bim/<Name>.ifc
+   colcon build --symlink-install --packages-select navbim_bringup
+   source install/setup.bash
+   ```
+2. Switch on automatic pre-planning in `src/navbim/navbim_bringup/params/navbim_params.yaml`,
+   section `gpp_bim`: `pre_plan_paths: true` and `force_pre_plan_of_planned_paths: true`
+   (no rebuild needed; this replaces the `ros2 action send_goal /pre_plan_edges ...`
+   command, which hangs from a second terminal on this PC, see log B6).
+3. Launch:
+   ```bash
+   ros2 launch navbim_bringup bringup_launch.py ifc:=<Name>
+   ```
+   The first time it prints `Navigation model folder not found: <path>` and
+   builds the navigation model into that `<path>` (room/door graph + one map per
+   room; takes a few minutes), then starts navigation. About 15 s later it
+   pre-plans; wait for `Successfully pre-planned all <N> transition edges`.
+   Optional: check paths in RViz (BIM panel → `<Name>`, "2D Pose Estimate", then
+   "2D Goal Pose"). Then stop with Ctrl+C.
+4. Set both pre-plan settings back to `false` (otherwise it re-plans at every launch).
+5. Keep the model in the source folder, so a rebuild does not lose it:
+   ```bash
+   cp -r <path> src/navbim/navbim_bringup/nav_model/
+   colcon build --symlink-install --packages-select navbim_bringup
+   ```
+   From now on, launching with `ifc:=<Name>` reuses this model
+   (`force_nav_model_gen:=true` builds it again, e.g. after changing the IFC;
+   then repeat steps 2-4).
+6. Copy the pre-planned map into this repo and push it:
+   ```bash
+   cp src/navbim/navbim_bringup/nav_model/<Name>/<Name>.json <thesis repo>/data/<Name>_preplanned.json
+   cd <thesis repo> && git add data/<Name>_preplanned.json && git commit -m "Add pre-planned <Name> map" && git push
+   ```
+
+On the **Windows PC** (in this repo, venv active):
+
+7. `git pull`, then build the tables:
+   ```bash
+   python scripts/navbim/navbim_distance_table.py data/<Name>_preplanned.json                    # option A
+   python scripts/navbim/navbim_distance_table.py data/<Name>_preplanned.json --method centre --check  # option B
+   ```
+   It prints the number of rooms, unreachable room pairs and 0 m pairs, and writes
+   `data/distances/<Name>_preplanned_walking_distances[_centre].{json,csv}`.
+   If it says "Run navbim PrePlanEdges first", step 3 did not finish pre-planning.
+8. Use the table in code. Rooms are keyed by their IfcSpace GUID, the same key as
+   in `data/cleaned_ifc/<Name>_llm.json` (made from the **same** IFC file with
+   `clean_ifc.py`, section 2):
+   ```python
+   from navbim_distance_table import load_distance_function   # scripts/navbim on sys.path
+   dist = load_distance_function("data/distances/<Name>_preplanned_centre_walking_distances.json")
+   dist(guid_a, guid_b)    # metres, None = no walkable connection
+   # e.g. rank_candidates.optimal_visit_order(..., distance=lambda a, b: dist(guid[a], guid[b]))
+   ```
+   The `.json` also holds, for every pair, the doors and rooms the walk goes
+   through, so any number can be checked.
+
+Options for option B: `--clearance` (robot radius in m; keep it equal to navbim's
+`robot_radius`, 0.2 now), `--resolution` (grid cell, 0.05 m), `--wall` (wall
+thickness kept around other rooms, 0.125 m). Limits: tested on the one-storey
+IDAC_Model only; the "centre" of a big room is the middle of its outline, which
+can be far from where a robot would actually stand; furniture is not in the
+outlines. The distance table is not yet used by the HTN layer (it still uses
+its own door-graph route lengths).
+
 ### Tests
 
 ```bash
 pip install -r requirements-dev.txt
 python -m pytest            # tests/htn: framework, IDAC domain, robot profiles, executor, reachability
+                            # tests/navbim: walking-distance tables (options A and B)
 ```
 
 ## IFC <-> JSON converters
