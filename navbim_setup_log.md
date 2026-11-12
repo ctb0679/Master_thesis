@@ -94,7 +94,6 @@ Run `cd ~/Junaidali/navbim_ws/src/navbim && git diff` to see all code changes at
 | C1 | `~/Junaidali/thesis_models/IDAC_Model.ifc` and generated model `~/Junaidali/thesis_models/nav_model/IDAC_Model/` | First generation run (now kept as **backup**) | delete folder |
 | C2 | `~/Junaidali/thesis_models/check_doors.py` | Prints which rooms each door connects (reads `"links"` from the JSON) | delete |
 | C3 | Copied the IFC to `navbim_bringup/bim/IDAC_Model.ifc` and the model to `navbim_bringup/nav_model/IDAC_Model/`, then `colcon build --symlink-install --packages-select navbim_bringup` | The RViz BimPanel only looks in navbim_bringup's install `share` folder (`navbim_rviz_plugins/src/bim_panel.cpp` lines 67, 78, 129-137) and ignores custom paths | delete both, rebuild `navbim_bringup` |
-
 | C4 | `Master_thesis/data/IDAC_Model_preplanned.json` (commit dde6b5f, pulled on the Windows PC 2026-11-12): copy of the pre-planned navbim JSON. 31 nodes, 103 links, 44/44 transition edges with `planned_distance` + `path` | Input for the room-to-room distance table script (works without ROS) | `git rm` |
 
 Launch now: `ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`
@@ -106,7 +105,7 @@ Launch now: `ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`
 - **2026-11-12:** generator output for IDAC_Model: 31 nodes, 15 rooms (all IfcSpaces, no combined rooms), 15 doors. 14 interior doors each link 2 correct rooms. The exterior door `2BOvfVeQT2E8wiKZrVEfNM` links only Workspace (dead end; that's fine, the robot must not leave the building).
 - **2026-11-12:** bringup log shows `Topological map loaded successfully: 31 vertices, 103 edges`. 15 room costmaps created for `Floor_0`.
 - **2026-11-12:** after the B2 fix, bim_server starts: "Successfully loaded IFC file with 249 elements", configured and activated. The full bringup runs with no errors (`ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`).
-- **2026-11-12:** RViz check: BimPanel shows IDAC_Model / Floor_0. Room maps show only with the Map display's **Durability Policy = Transient Local** (maps are published once). Most test paths look correct. One path (start in upper-middle open area → goal in the upper-right room) looks wrong: it cuts through the small two-room block and seems to cross the wall into the goal room. Under investigation (see E).
+- **2026-11-12:** RViz check: BimPanel shows IDAC_Model / Floor_0. Room maps show only with the Map display's **Durability Policy = Transient Local** (maps are published once). Most test paths look correct. One path (start in upper-middle open area → goal in the upper-right room) looks wrong: it cuts through the small two-room block and seems to cross the wall into the goal room. Cause found and fixed: B5 (the costmap settings were never applied).
 - The planner prints `Path distance: <m>` for every plan (gpp_bim_server.cpp ~line 738). We can use this for the distance table.
 - Harmless warnings: `Robot is out of bounds of the costmap` (no robot pose yet), matplotlib `Unable to import Axes3D`, pip PATH warnings.
 
@@ -117,8 +116,37 @@ Launch now: `ros2 launch navbim_bringup bringup_launch.py ifc:=IDAC_Model`
 - [x] Confirm bim_server starts after the B2 fix (2026-11-12)
 - [x] Check in RViz: BimPanel → IDAC_Model / Floor_0, the TopomapPanel graph, test paths (mostly OK)
 - [x] Smoothing ruled out (B4)
-- [x] FIXED by B5 (2026-11-12). Workspace → Office_1 path: the room order is correct (Workspace → door 27 → Corridor → door 28 → Meeting_room → door 23 → Office_1), but inside **Workspace** the path cuts straight through the Printer_room/Storage block (x 28.8–31.4, y 20.2–25.3) instead of going around it on the left (x < 28.66). Suspect: Workspace's own room map (`/maps/Floor_0/Workspace/map`) shows that block as free. Likely causes in `occupancy_map_manager.py`: floor-slab cells are marked free before the polygon check (~line 586), and BFS dilation (~line 615) grows by `max_width_of_walls` into neighbouring rooms. Check the Workspace map.
+- [x] Wrong path Workspace → Office_1 FIXED by B5 (2026-11-12). The room order was always correct (Workspace → door 27 → Corridor → door 28 → Meeting_room → door 23 → Office_1). Inside Workspace the path cut through the Printer_room/Storage block. Checks done: the IFC wall widths are normal (0.12–0.46 m); the Workspace.png correctly marks the block as unknown (value 100). So the map was right, and the costmap turned unknown into free (B5).
 - [x] PrePlanEdges done via auto pre-plan (B6), 44/44 edges, 2026-11-12. Old note: Run PrePlanEdges (`ros2 action send_goal /pre_plan_edges navbim_msgs/action/PrePlanEdges "{force_replan: true}" --feedback`). This **writes into** `IDAC_Model.json`, so back it up first
-- [ ] Script: 15×15 room-to-room walking-distance table keyed by IfcSpace GUID for Held-Karp
-- [ ] Set robot size parameters from the URDF
+- [ ] Switch the auto pre-plan settings back to `false` (B6). Not yet confirmed.
+- [ ] Push the Master_thesis commits (log commit 5fee881) so the Ubuntu PC has the log
+- [ ] **NEXT:** Script: 15×15 room-to-room walking-distance table keyed by IfcSpace GUID for Held-Karp (option A chosen to start, see F)
+- [ ] Optional: fix second-terminal communication (B6 "Still open", Plan B: `ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST`)
+- [ ] Set robot size parameters from the URDF / `data/robot/profiles/a300.json` (navbim now uses robot_radius 0.2 placeholder) → then pre-plan again and rerun the table script
 - [ ] Delete `/swapfile2` when no longer needed (A5)
+
+---
+
+## F. Decisions and things worth knowing
+
+**Distance table: how room-to-room distance is defined (decided 2026-11-12)**
+- **Option A (chosen to start): door to door.** Uses only the 44 pre-planned `planned_distance` values in `data/IDAC_Model_preplanned.json`. Dijkstra over the topological graph (door nodes; door-to-door edges inside a room = planned length). Offline, no ROS.
+- Option B (later, for comparison): room centre to room centre = A plus the walk from the room centre to its doors, planned with Python A* on navbim's room PNG maps.
+- Option C: ask navbim directly for all 105 pairs (`Path distance` in the log). Needs the second-terminal problem fixed.
+- **The planned lengths respect walls** (checked 2026-11-12). Printer_room door → Corridor door inside Workspace: straight 6.25 m, planned 9.06 m, the path goes around the block (min x 28.25 < 28.66). Storage door → Corridor door: 3.09 → 4.08 m. Lab door → Corridor door: 6.54 → 6.64 m.
+- Option A ignores the walk inside the start/goal room.
+
+**How the navbim pieces fit together**
+- Level 1 = topological map (JSON): floor, room and door ("transition") nodes. Level 2 = room occupancy maps (PNG/YAML) → costmaps (walls + inflation).
+- The planner first finds the room/door sequence on the graph, then plans each piece inside one room on that room's costmap (ThetaStar).
+- With `--symlink-install`, `install/navbim_bringup/share/.../nav_model/IDAC_Model/IDAC_Model.json` is a shortcut to `src/navbim/navbim_bringup/nav_model/IDAC_Model/IDAC_Model.json`. Editing or saving one changes the other. The yaml params are linked the same way, so a param change needs only a restart, no rebuild.
+- JSON versions: `src/.../IDAC_Model.json` = current, pre-planned. `IDAC_Model.before_preplan.json` = backup. `~/Junaidali/thesis_models/...` = old first generation.
+- Node ids in IDAC_Model: rooms 1-15 (Office_4, Office_3, Office_2, Office_1, Meeting_room, Lab, Printer_room, Storage, Workspace, Lobby, Corridor, Office_5, Office_8, Office_6, Office_7), doors 16-30 (30 = exterior door, Workspace only).
+
+**RViz tips**
+- BIM Panel → Select BIM model `IDAC_Model` → Select floor `Floor_0`.
+- To show a room map: Add → By display type → Map, Topic `/maps/Floor_0/<Room>/map`, **Durability Policy = Transient Local** (otherwise "No map received"). Untick "BIM Model" to see it (it lies under the 3D floor).
+- Test path: "2D Pose Estimate" (start) then "2D Goal Pose" (goal). The path is shown on `/planned_path`.
+- The navbim default RViz config has displays for navbim's example building (Ebene_0, Floor_1). Their "No map received" can be ignored.
+
+**Known problem:** `ros2 param get`, `ros2 action send_goal` etc. from a second terminal hang (requests never reach navbim). Communication inside the navbim launch works fine.
