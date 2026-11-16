@@ -93,7 +93,7 @@ scripts/
 file_converters/        Standalone IFC <-> ifcJSON converters (ifc2json.py, json2ifc.py)
 results/                Output location for saved plans; results/htn_runs/ = one folder per HTN run
 docs/                   htn_design.md (HTN design + decisions), references/ (papers)
-tests/htn/              pytest suite for the HTN layer (no Ollama needed)
+tests/htn/              pytest suite for the HTN layer (no Ollama needed; test_walking.py = navbim distances)
 tests/navbim/           pytest suite for the walking-distance tables (no ROS needed)
 navbim_setup_log.md     Every navbim setup change on the Ubuntu PC (what / why / undo)
 legacy_graph_pipeline/ Archived Neo4j-based approach (extraction, classification, query)
@@ -327,8 +327,29 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
   rooms where the IFC records the target → the most likely rooms from the
   ranking model (asked once per task, only when needed).
 - **Routes** go through doors (shortest path by length through door
-  positions); the visit order is Held-Karp over those route lengths
-  (`--distance euclidean` for the old straight lines).
+  positions). The **visit order** is Held-Karp (below) over the distance chosen
+  with `--distance`:
+  - `navbim` (default): real walking distances, room centre to room centre,
+    from navbim's table `data/distances/<building>_preplanned_centre_walking_distances.json`
+    (section 6; other file: `--distance_table`). For a pair whose navbim route
+    has a door this robot cannot pass (closed, too narrow, outside), the
+    `door_graph` length is used instead. Without a table for the building,
+    the whole run uses `door_graph` and says so at start-up.
+  - `door_graph`: route through the door positions in straight lines.
+  - `euclidean`: straight line between the room centres.
+- **Visit order formula** (`rank_candidates.optimal_visit_order`): with
+  start room s, chosen rooms 1..n and distance d, find the order
+  r1, ..., rn that minimises d(s, r1) + d(r1, r2) + ... + d(r(n-1), rn)
+  (an open path: no return to s). Held-Karp computes this exactly:
+  C({j}, j) = d(s, j) and C(S, j) = min over i in S without j of
+  C(S without j, i) + d(i, j), where C(S, j) is the shortest walk from s that
+  visits exactly the rooms in S and ends in j; the answer is min over j of
+  C(all, j). Up to 18 rooms (n²·2ⁿ steps); above that greedy nearest
+  neighbour. The order is made again after every searched room. Which rooms
+  are in the list comes from the probabilities only, not from distance.
+- Each plan line shows the metres per leg and in total, and the run ends with
+  "walked X m (navbim distances)"; `summary.json` has `distance`, `walking_m`
+  and `walking_legs`.
 - **Robot**: `data/robot/urdf/*.urdf` (`--robot <stem>` when there are several).
   Width and capabilities are derived once into `data/robot/profiles/<stem>.json`;
   a door is passable when it is at least width + 0.1 m wide, open (or the robot
@@ -447,8 +468,12 @@ Options for option B: `--clearance` (robot radius in m; keep it equal to navbim'
 thickness kept around other rooms, 0.125 m). Limits: tested on the one-storey
 IDAC_Model only; the "centre" of a big room is the middle of its outline, which
 can be far from where a robot would actually stand; furniture is not in the
-outlines. The distance table is not yet used by the HTN layer (it still uses
-its own door-graph route lengths).
+outlines.
+
+The HTN layer (section 5) finds the option B table by the building name and
+uses it for the visit order by default (`--distance navbim`), so after step 7
+nothing else is needed: `interactive_search.py --cleaned_json data/cleaned_ifc/<Name>_llm.json ...`
+prints "visit order uses navbim walking distances from ..." at start-up.
 
 ### Tests
 

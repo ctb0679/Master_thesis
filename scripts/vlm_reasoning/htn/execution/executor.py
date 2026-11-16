@@ -8,7 +8,7 @@ import math
 from dataclasses import asdict, dataclass, field
 
 from htn.domain.building import DoorGraph
-from htn.domain.methods import eligible_spaces, reachability
+from htn.domain.methods import distance_function, eligible_spaces, reachability
 
 
 class ExecutionError(RuntimeError):
@@ -25,7 +25,10 @@ class RunSummary:
     unreachable: list = field(default_factory=list)   # rooms this robot cannot reach, with the reason
     rankings: list = field(default_factory=list)   # ranking model output, with its reasoning per room
     visit_order: list = field(default_factory=list)
-    travelled_m: float = 0.0
+    travelled_m: float = 0.0          # simulated: straight lines through the door positions
+    distance: str = None              # distance used for the visit order (settings distance)
+    walking_m: float = 0.0            # sum of walking_legs: the visit-order distance per leg
+    walking_legs: list = field(default_factory=list)   # [{"from", "to", "metres"}]
     iterations: int = 0
     model_calls: dict = field(default_factory=dict)
     failure: dict = None
@@ -62,8 +65,9 @@ class PlanExecutor:
         find = task.name == "find_object"
         if find and self.miss_rate is None:
             raise ExecutionError("find_object needs the detector miss rate (--miss_rate); it has no default")
-        summary = RunSummary("not_found")
+        summary = RunSummary("not_found", distance=self.state.settings.get("distance"))
         pos = tuple(self.state.spaces[self.state.robot["space"]]["centroid"])
+        here = self.state.robot["space"]
         max_iterations = len(self.state.spaces) * self.state.settings["max_visits_per_room"] + 3
 
         for n in range(1, max_iterations + 1):
@@ -123,6 +127,7 @@ class PlanExecutor:
 
             if observation is not None:
                 summary.visit_order.append(observation.space)
+                here = self._walk(summary, here, observation.space)
                 if observation.aborted:
                     summary.outcome, summary.reason = "aborted", "user ended the session"
                     break
@@ -134,6 +139,7 @@ class PlanExecutor:
                         break
             if not find:
                 summary.outcome, summary.reason = "reached", f"reached {self.label(task.args[0])}"
+                here = self._walk(summary, here, self.state.robot["space"])
                 break
         else:
             summary.reason = f"stopped after {max_iterations} iterations"
@@ -257,8 +263,29 @@ class PlanExecutor:
                 self.belief.update_on_miss(obs.space, self.miss_rate)
         state.belief = self.belief.to_state()
 
+    def _walk(self, summary, a, b):
+        """Add the leg a -> b (visit-order distance) to the summary; returns b."""
+        if a != b:
+            metres = distance_function(self.state)(a, b)
+            summary.walking_legs.append({"from": a, "to": b,
+                                         "metres": None if metres is None else round(metres, 2)})
+            summary.walking_m = round(summary.walking_m + (metres or 0.0), 2)
+        return b
+
     def _print_plan(self, n, method, plan):
         rooms = [a.args["space"] for a in plan.actions if a.action == "capture_rgb"]
         target = [a.args["to_space"] for a in plan.actions if a.action == "navigate"][-1:] if not rooms else []
-        stops = " -> ".join(self.label(s) for s in (rooms or target)) or "(none)"
-        self.log(f"\n[plan {n}] {method}: {stops}  ({len(plan.actions)} actions)")
+        distance = distance_function(self.state)
+        prev, stops, total = self.state.robot["space"], [], 0.0
+        for s in rooms or target:
+            d = distance(prev, s)
+            total += d or 0.0
+            stops.append(f"{self.label(s)} ({'?' if d is None else f'{d:.1f}'} m)")
+            prev = s
+        mode = self.state.settings.get("distance")
+        self.log(f"\n[plan {n}] {method}: {' -> '.join(stops) or '(none)'}  "
+                 f"({len(plan.actions)} actions; {total:.1f} m, {mode} distances)")
+        fallbacks = getattr(distance, "fallbacks", ())
+        if fallbacks:
+            self.log(f"  note: {len(fallbacks)} leg(s) use door-graph distances because navbim's route "
+                     "has a door this robot cannot pass")

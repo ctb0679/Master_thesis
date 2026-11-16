@@ -209,7 +209,8 @@ def build_table(nodes, links, method="door", **walk_options):
             through.reverse()
             row.append(round(total, 3))
             route = {"from": name[a], "to": name[b], "metres": round(total, 3),
-                     "doors": path, "walks_inside": through}
+                     "doors": path, "door_guids": [nodes[d].get("ifc_guid") for d in path],
+                     "walks_inside": through}
             if method == "centre":
                 route["start_room_walk_m"] = round(inside[a][path[0]], 3)
                 route["end_room_walk_m"] = round(inside[b][end], 3)

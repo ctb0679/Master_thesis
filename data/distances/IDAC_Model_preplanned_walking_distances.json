@@ -404,6 +404,10 @@
         27,
         24
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -415,6 +419,9 @@
       "doors": [
         29
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXV": {
@@ -423,6 +430,9 @@
       "metres": 0.0,
       "doors": [
         28
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb"
       ],
       "walks_inside": []
     },
@@ -433,6 +443,10 @@
       "doors": [
         28,
         23
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Meeting_room"
@@ -446,6 +460,10 @@
         28,
         22
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Meeting_room"
       ]
@@ -458,6 +476,10 @@
         28,
         21
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Meeting_room"
       ]
@@ -469,6 +491,9 @@
       "doors": [
         20
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXa->3DsWwrAET2VRfR_BYHBzXd": {
@@ -477,6 +502,9 @@
       "metres": 0.0,
       "doors": [
         19
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA"
       ],
       "walks_inside": []
     },
@@ -487,6 +515,10 @@
       "doors": [
         27,
         17
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGF7"
       ],
       "walks_inside": [
         "Workspace"
@@ -500,6 +532,10 @@
         27,
         18
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -511,6 +547,10 @@
       "doors": [
         27,
         16
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Workspace"
@@ -524,6 +564,10 @@
         27,
         25
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -536,6 +580,10 @@
         27,
         26
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -547,6 +595,9 @@
       "doors": [
         27
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXU->3DsWwrAET2VRfR_BYHBzXa": {
@@ -556,6 +607,10 @@
       "doors": [
         24,
         27
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2y16PNiQDAUu6vtOChEcqd"
       ],
       "walks_inside": [
         "Workspace"
@@ -569,6 +624,11 @@
         24,
         27,
         29
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEch4"
       ],
       "walks_inside": [
         "Workspace",
@@ -584,6 +644,11 @@
         27,
         28
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -598,6 +663,12 @@
         27,
         28,
         23
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Workspace",
@@ -615,6 +686,12 @@
         28,
         22
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -631,6 +708,12 @@
         28,
         21
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -646,6 +729,11 @@
         27,
         20
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -660,6 +748,11 @@
         27,
         19
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -673,6 +766,10 @@
         24,
         17
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2jlli2nuj35OT4Nt8dpGF7"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -684,6 +781,10 @@
       "doors": [
         24,
         18
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "1TBRTxOmH2qOCfGLFJR1oS"
       ],
       "walks_inside": [
         "Workspace"
@@ -697,6 +798,10 @@
         24,
         16
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "2jlli2nuj35OT4Nt8dpGGq"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -708,6 +813,10 @@
       "doors": [
         24,
         25
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "0xust1cwr8XOVmfb2C$iKT"
       ],
       "walks_inside": [
         "Workspace"
@@ -721,6 +830,10 @@
         24,
         26
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -732,6 +845,9 @@
       "doors": [
         24
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXb->3DsWwrAET2VRfR_BYHBzXa": {
@@ -740,6 +856,9 @@
       "metres": 0.0,
       "doors": [
         29
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4"
       ],
       "walks_inside": []
     },
@@ -751,6 +870,11 @@
         29,
         27,
         24
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
       ],
       "walks_inside": [
         "Corridor",
@@ -765,6 +889,10 @@
         29,
         28
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -777,6 +905,11 @@
         29,
         28,
         23
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Corridor",
@@ -792,6 +925,11 @@
         28,
         22
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Corridor",
         "Meeting_room"
@@ -806,6 +944,11 @@
         28,
         21
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Corridor",
         "Meeting_room"
@@ -819,6 +962,10 @@
         29,
         20
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -830,6 +977,10 @@
       "doors": [
         29,
         19
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "1TBRTxOmH2qOCfGLFJR1qA"
       ],
       "walks_inside": [
         "Corridor"
@@ -843,6 +994,11 @@
         29,
         27,
         17
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGF7"
       ],
       "walks_inside": [
         "Corridor",
@@ -858,6 +1014,11 @@
         27,
         18
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -871,6 +1032,11 @@
         29,
         27,
         16
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Corridor",
@@ -886,6 +1052,11 @@
         27,
         25
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -900,6 +1071,11 @@
         27,
         26
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -913,6 +1089,10 @@
         29,
         27
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEch4",
+        "2y16PNiQDAUu6vtOChEcqd"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -924,6 +1104,9 @@
       "doors": [
         28
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXU": {
@@ -934,6 +1117,11 @@
         28,
         27,
         24
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
       ],
       "walks_inside": [
         "Corridor",
@@ -948,6 +1136,10 @@
         28,
         29
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEch4"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -959,6 +1151,9 @@
       "doors": [
         23
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXT": {
@@ -967,6 +1162,9 @@
       "metres": 0.0,
       "doors": [
         22
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M"
       ],
       "walks_inside": []
     },
@@ -977,6 +1175,9 @@
       "doors": [
         21
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXV->3DsWwrAET2VRfR_BYHBzXZ": {
@@ -986,6 +1187,10 @@
       "doors": [
         28,
         20
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1qc"
       ],
       "walks_inside": [
         "Corridor"
@@ -999,6 +1204,10 @@
         28,
         19
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -1011,6 +1220,11 @@
         28,
         27,
         17
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGF7"
       ],
       "walks_inside": [
         "Corridor",
@@ -1026,6 +1240,11 @@
         27,
         18
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -1039,6 +1258,11 @@
         28,
         27,
         16
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Corridor",
@@ -1054,6 +1278,11 @@
         27,
         25
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -1068,6 +1297,11 @@
         27,
         26
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -1081,6 +1315,10 @@
         28,
         27
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -1092,6 +1330,10 @@
       "doors": [
         23,
         28
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb"
       ],
       "walks_inside": [
         "Meeting_room"
@@ -1106,6 +1348,12 @@
         28,
         27,
         24
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1122,6 +1370,11 @@
         28,
         29
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEch4"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1134,6 +1387,9 @@
       "doors": [
         23
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXS->3DsWwrAET2VRfR_BYHBzXT": {
@@ -1143,6 +1399,10 @@
       "doors": [
         23,
         22
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "1TBRTxOmH2qOCfGLFJR18M"
       ],
       "walks_inside": [
         "Meeting_room"
@@ -1156,6 +1416,10 @@
         23,
         21
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Meeting_room"
       ]
@@ -1168,6 +1432,11 @@
         23,
         28,
         20
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1qc"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1183,6 +1452,11 @@
         28,
         19
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1197,6 +1471,12 @@
         28,
         27,
         17
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGF7"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1214,6 +1494,12 @@
         27,
         18
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1229,6 +1515,12 @@
         28,
         27,
         16
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1246,6 +1538,12 @@
         27,
         25
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1262,6 +1560,12 @@
         27,
         26
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1277,6 +1581,11 @@
         28,
         27
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Ca",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1289,6 +1598,10 @@
       "doors": [
         22,
         28
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb"
       ],
       "walks_inside": [
         "Meeting_room"
@@ -1303,6 +1616,12 @@
         28,
         27,
         24
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1319,6 +1638,11 @@
         28,
         29
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEch4"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1331,6 +1655,9 @@
       "doors": [
         22
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXT->3DsWwrAET2VRfR_BYHBzXS": {
@@ -1340,6 +1667,10 @@
       "doors": [
         22,
         23
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Meeting_room"
@@ -1353,6 +1684,10 @@
         22,
         21
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Meeting_room"
       ]
@@ -1365,6 +1700,11 @@
         22,
         28,
         20
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1qc"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1380,6 +1720,11 @@
         28,
         19
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1394,6 +1739,12 @@
         28,
         27,
         17
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGF7"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1411,6 +1762,12 @@
         27,
         18
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1426,6 +1783,12 @@
         28,
         27,
         16
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1443,6 +1806,12 @@
         27,
         25
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1459,6 +1828,12 @@
         27,
         26
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1474,6 +1849,11 @@
         28,
         27
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR18M",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1486,6 +1866,10 @@
       "doors": [
         21,
         28
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb"
       ],
       "walks_inside": [
         "Meeting_room"
@@ -1500,6 +1884,12 @@
         28,
         27,
         24
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1516,6 +1906,11 @@
         28,
         29
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEch4"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1528,6 +1923,9 @@
       "doors": [
         21
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXY->3DsWwrAET2VRfR_BYHBzXS": {
@@ -1537,6 +1935,10 @@
       "doors": [
         21,
         23
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Meeting_room"
@@ -1550,6 +1952,10 @@
         21,
         22
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Meeting_room"
       ]
@@ -1562,6 +1968,11 @@
         21,
         28,
         20
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1qc"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1577,6 +1988,11 @@
         28,
         19
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1591,6 +2007,12 @@
         28,
         27,
         17
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGF7"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1608,6 +2030,12 @@
         27,
         18
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1623,6 +2051,12 @@
         28,
         27,
         16
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Meeting_room",
@@ -1640,6 +2074,12 @@
         27,
         25
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1656,6 +2096,12 @@
         27,
         26
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor",
@@ -1671,6 +2117,11 @@
         28,
         27
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1su",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "2y16PNiQDAUu6vtOChEcqd"
+      ],
       "walks_inside": [
         "Meeting_room",
         "Corridor"
@@ -1683,6 +2134,9 @@
       "doors": [
         20
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXZ->3DsWwrAET2VRfR_BYHBzXU": {
@@ -1693,6 +2147,11 @@
         20,
         27,
         24
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
       ],
       "walks_inside": [
         "Corridor",
@@ -1707,6 +2166,10 @@
         20,
         29
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEch4"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -1718,6 +2181,10 @@
       "doors": [
         20,
         28
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcsb"
       ],
       "walks_inside": [
         "Corridor"
@@ -1731,6 +2198,11 @@
         20,
         28,
         23
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Corridor",
@@ -1746,6 +2218,11 @@
         28,
         22
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Corridor",
         "Meeting_room"
@@ -1760,6 +2237,11 @@
         28,
         21
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Corridor",
         "Meeting_room"
@@ -1773,6 +2255,10 @@
         20,
         19
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -1785,6 +2271,11 @@
         20,
         27,
         17
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGF7"
       ],
       "walks_inside": [
         "Corridor",
@@ -1800,6 +2291,11 @@
         27,
         18
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -1813,6 +2309,11 @@
         20,
         27,
         16
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Corridor",
@@ -1828,6 +2329,11 @@
         27,
         25
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -1842,6 +2348,11 @@
         27,
         26
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -1855,6 +2366,10 @@
         20,
         27
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qc",
+        "2y16PNiQDAUu6vtOChEcqd"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -1866,6 +2381,9 @@
       "doors": [
         19
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXd->3DsWwrAET2VRfR_BYHBzXU": {
@@ -1876,6 +2394,11 @@
         19,
         27,
         24
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
       ],
       "walks_inside": [
         "Corridor",
@@ -1890,6 +2413,10 @@
         19,
         29
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEch4"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -1901,6 +2428,10 @@
       "doors": [
         19,
         28
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcsb"
       ],
       "walks_inside": [
         "Corridor"
@@ -1914,6 +2445,11 @@
         19,
         28,
         23
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Corridor",
@@ -1929,6 +2465,11 @@
         28,
         22
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Corridor",
         "Meeting_room"
@@ -1943,6 +2484,11 @@
         28,
         21
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Corridor",
         "Meeting_room"
@@ -1956,6 +2502,10 @@
         19,
         20
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -1968,6 +2518,11 @@
         19,
         27,
         17
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGF7"
       ],
       "walks_inside": [
         "Corridor",
@@ -1983,6 +2538,11 @@
         27,
         18
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -1996,6 +2556,11 @@
         19,
         27,
         16
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Corridor",
@@ -2011,6 +2576,11 @@
         27,
         25
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -2025,6 +2595,11 @@
         27,
         26
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Corridor",
         "Workspace"
@@ -2038,6 +2613,10 @@
         19,
         27
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1qA",
+        "2y16PNiQDAUu6vtOChEcqd"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -2049,6 +2628,10 @@
       "doors": [
         17,
         27
+      ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2y16PNiQDAUu6vtOChEcqd"
       ],
       "walks_inside": [
         "Workspace"
@@ -2062,6 +2645,10 @@
         17,
         24
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2074,6 +2661,11 @@
         17,
         27,
         29
+      ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEch4"
       ],
       "walks_inside": [
         "Workspace",
@@ -2089,6 +2681,11 @@
         27,
         28
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2103,6 +2700,12 @@
         27,
         28,
         23
+      ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Workspace",
@@ -2120,6 +2723,12 @@
         28,
         22
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2136,6 +2745,12 @@
         28,
         21
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2151,6 +2766,11 @@
         27,
         20
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2165,6 +2785,11 @@
         27,
         19
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2178,6 +2803,10 @@
         17,
         18
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2189,6 +2818,10 @@
       "doors": [
         17,
         16
+      ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Workspace"
@@ -2202,6 +2835,10 @@
         17,
         25
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2214,6 +2851,10 @@
         17,
         26
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2225,6 +2866,9 @@
       "doors": [
         17
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXW->3DsWwrAET2VRfR_BYHBzXa": {
@@ -2234,6 +2878,10 @@
       "doors": [
         18,
         27
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2y16PNiQDAUu6vtOChEcqd"
       ],
       "walks_inside": [
         "Workspace"
@@ -2247,6 +2895,10 @@
         18,
         24
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2259,6 +2911,11 @@
         18,
         27,
         29
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEch4"
       ],
       "walks_inside": [
         "Workspace",
@@ -2274,6 +2931,11 @@
         27,
         28
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2288,6 +2950,12 @@
         27,
         28,
         23
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Workspace",
@@ -2305,6 +2973,12 @@
         28,
         22
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2321,6 +2995,12 @@
         28,
         21
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2336,6 +3016,11 @@
         27,
         20
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2350,6 +3035,11 @@
         27,
         19
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2363,6 +3053,10 @@
         18,
         17
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2jlli2nuj35OT4Nt8dpGF7"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2374,6 +3068,10 @@
       "doors": [
         18,
         16
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "2jlli2nuj35OT4Nt8dpGGq"
       ],
       "walks_inside": [
         "Workspace"
@@ -2387,6 +3085,10 @@
         18,
         25
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2399,6 +3101,10 @@
         18,
         26
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2410,6 +3116,9 @@
       "doors": [
         18
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXc->3DsWwrAET2VRfR_BYHBzXa": {
@@ -2419,6 +3128,10 @@
       "doors": [
         16,
         27
+      ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2y16PNiQDAUu6vtOChEcqd"
       ],
       "walks_inside": [
         "Workspace"
@@ -2432,6 +3145,10 @@
         16,
         24
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2444,6 +3161,11 @@
         16,
         27,
         29
+      ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEch4"
       ],
       "walks_inside": [
         "Workspace",
@@ -2459,6 +3181,11 @@
         27,
         28
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2473,6 +3200,12 @@
         27,
         28,
         23
+      ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Workspace",
@@ -2490,6 +3223,12 @@
         28,
         22
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2506,6 +3245,12 @@
         28,
         21
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2521,6 +3266,11 @@
         27,
         20
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2535,6 +3285,11 @@
         27,
         19
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2548,6 +3303,10 @@
         16,
         17
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "2jlli2nuj35OT4Nt8dpGF7"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2559,6 +3318,10 @@
       "doors": [
         16,
         18
+      ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "1TBRTxOmH2qOCfGLFJR1oS"
       ],
       "walks_inside": [
         "Workspace"
@@ -2572,6 +3335,10 @@
         16,
         25
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2584,6 +3351,10 @@
         16,
         26
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2595,6 +3366,9 @@
       "doors": [
         16
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXe->3DsWwrAET2VRfR_BYHBzXa": {
@@ -2604,6 +3378,10 @@
       "doors": [
         25,
         27
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2y16PNiQDAUu6vtOChEcqd"
       ],
       "walks_inside": [
         "Workspace"
@@ -2617,6 +3395,10 @@
         25,
         24
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2629,6 +3411,11 @@
         25,
         27,
         29
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEch4"
       ],
       "walks_inside": [
         "Workspace",
@@ -2644,6 +3431,11 @@
         27,
         28
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2658,6 +3450,12 @@
         27,
         28,
         23
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Workspace",
@@ -2675,6 +3473,12 @@
         28,
         22
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2691,6 +3495,12 @@
         28,
         21
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2706,6 +3516,11 @@
         27,
         20
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2720,6 +3535,11 @@
         27,
         19
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2733,6 +3553,10 @@
         25,
         17
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2jlli2nuj35OT4Nt8dpGF7"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2744,6 +3568,10 @@
       "doors": [
         25,
         18
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "1TBRTxOmH2qOCfGLFJR1oS"
       ],
       "walks_inside": [
         "Workspace"
@@ -2757,6 +3585,10 @@
         25,
         16
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "2jlli2nuj35OT4Nt8dpGGq"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2769,6 +3601,10 @@
         25,
         26
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT",
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2780,6 +3616,9 @@
       "doors": [
         25
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXh->3DsWwrAET2VRfR_BYHBzXa": {
@@ -2789,6 +3628,10 @@
       "doors": [
         26,
         27
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2y16PNiQDAUu6vtOChEcqd"
       ],
       "walks_inside": [
         "Workspace"
@@ -2802,6 +3645,10 @@
         26,
         24
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "1TBRTxOmH2qOCfGLFJR1Fl"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2814,6 +3661,11 @@
         26,
         27,
         29
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEch4"
       ],
       "walks_inside": [
         "Workspace",
@@ -2829,6 +3681,11 @@
         27,
         28
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2843,6 +3700,12 @@
         27,
         28,
         23
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Workspace",
@@ -2860,6 +3723,12 @@
         28,
         22
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2876,6 +3745,12 @@
         28,
         21
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor",
@@ -2891,6 +3766,11 @@
         27,
         20
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2905,6 +3785,11 @@
         27,
         19
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Workspace",
         "Corridor"
@@ -2918,6 +3803,10 @@
         26,
         17
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2jlli2nuj35OT4Nt8dpGF7"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2929,6 +3818,10 @@
       "doors": [
         26,
         18
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "1TBRTxOmH2qOCfGLFJR1oS"
       ],
       "walks_inside": [
         "Workspace"
@@ -2942,6 +3835,10 @@
         26,
         16
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "2jlli2nuj35OT4Nt8dpGGq"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2954,6 +3851,10 @@
         26,
         25
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu",
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": [
         "Workspace"
       ]
@@ -2965,6 +3866,9 @@
       "doors": [
         26
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXa": {
@@ -2973,6 +3877,9 @@
       "metres": 0.0,
       "doors": [
         27
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd"
       ],
       "walks_inside": []
     },
@@ -2983,6 +3890,9 @@
       "doors": [
         24
       ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1Fl"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXb": {
@@ -2992,6 +3902,10 @@
       "doors": [
         27,
         29
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEch4"
       ],
       "walks_inside": [
         "Corridor"
@@ -3005,6 +3919,10 @@
         27,
         28
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -3017,6 +3935,11 @@
         27,
         28,
         23
+      ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1Ca"
       ],
       "walks_inside": [
         "Corridor",
@@ -3032,6 +3955,11 @@
         28,
         22
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR18M"
+      ],
       "walks_inside": [
         "Corridor",
         "Meeting_room"
@@ -3046,6 +3974,11 @@
         28,
         21
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "2y16PNiQDAUu6vtOChEcsb",
+        "1TBRTxOmH2qOCfGLFJR1su"
+      ],
       "walks_inside": [
         "Corridor",
         "Meeting_room"
@@ -3059,6 +3992,10 @@
         27,
         20
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qc"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -3071,6 +4008,10 @@
         27,
         19
       ],
+      "door_guids": [
+        "2y16PNiQDAUu6vtOChEcqd",
+        "1TBRTxOmH2qOCfGLFJR1qA"
+      ],
       "walks_inside": [
         "Corridor"
       ]
@@ -3082,6 +4023,9 @@
       "doors": [
         17
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGF7"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXW": {
@@ -3090,6 +4034,9 @@
       "metres": 0.0,
       "doors": [
         18
+      ],
+      "door_guids": [
+        "1TBRTxOmH2qOCfGLFJR1oS"
       ],
       "walks_inside": []
     },
@@ -3100,6 +4047,9 @@
       "doors": [
         16
       ],
+      "door_guids": [
+        "2jlli2nuj35OT4Nt8dpGGq"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXe": {
@@ -3109,6 +4059,9 @@
       "doors": [
         25
       ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iKT"
+      ],
       "walks_inside": []
     },
     "3DsWwrAET2VRfR_BYHBzXg->3DsWwrAET2VRfR_BYHBzXh": {
@@ -3117,6 +4070,9 @@
       "metres": 0.0,
       "doors": [
         26
+      ],
+      "door_guids": [
+        "0xust1cwr8XOVmfb2C$iJu"
       ],
       "walks_inside": []
     }

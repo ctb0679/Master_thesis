@@ -334,6 +334,35 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-11-16  HTN visit order uses navbim walking distances (default)
+  What:
+    - --distance {navbim, door_graph, euclidean}, default navbim (was
+      door_graph); --distance_table <file>. Default table:
+      data/distances/<building>_preplanned_centre_walking_distances.json
+      (option B, room centre to room centre; README section 6).
+    - htn/domain/walking.py: table loading/checks and walking_distance().
+      methods.distance_function(state) picks the distance for visit_order.
+    - Door rules stay with the HTN: navbim knows walls, not door states or
+      robot width. A pair whose navbim route has a door this robot cannot
+      pass uses the door-graph length (distance.fallbacks; noted per plan).
+      Reachability is still decided by the door graph only.
+    - No table for the building, or rooms missing from it -> NOTE at start-up
+      and the whole run uses door_graph.
+    - Each plan line shows metres per leg + total and the distance used; the
+      run ends with "walked X m (<distance> distances)"; summary.json gets
+      distance, walking_m, walking_legs (travelled_m stays: simulated
+      straight lines through door positions).
+    - Table rows now carry door_guids (navbim_distance_table.py) so the door
+      check is possible; tables rebuilt.
+  Why: straight lines through door positions cut through obstacles inside
+    rooms; navbim plans around walls with the robot size (IDAC: navbim is on
+    average 0.73 m longer per pair, most Lab-Workspace 6.29 -> 9.62 m).
+  Not changed: --no-htn baseline (still straight lines centre to centre);
+    which rooms are searched (probabilities only); the route the plan's
+    navigate actions follow (door graph).
+  Tests: tests/htn/test_walking.py (8). pytest installed from
+    requirements-dev.txt; full suite 67 passed.
+
 2026-10-29  HTN: unreachable probability, single-storey planning, connectivity report
   What:
     - methods.reachability(state): every room reachable / unreachable for this

@@ -9,10 +9,11 @@ rejected and the planner falls through to m_search_semantic by ordinary
 backtracking."""
 
 from htn.core import CompoundTask, Condition, Method, PrimitiveTask
-from rank_candidates import optimal_visit_order, select_candidates
+from rank_candidates import euclidean, optimal_visit_order, select_candidates
 
 from .building import DoorGraph
 from .operators import HasCapability, RobotAt, SpaceReachable
+from .walking import walking_distance
 
 
 # --- room selection (shared with the executor's stop rule) --------------------
@@ -43,17 +44,33 @@ def eligible_spaces(state):
     return [g for g in reachable if visits.get(g, 0) < max_visits], unreachable
 
 
-def visit_order(state, candidates):
-    """Shortest tour over the candidates ({"room": guid, ...} dicts) from the
-    robot's space: Held-Karp (rank_candidates.optimal_visit_order) with the
-    door-graph distance, or straight lines with settings distance = euclidean."""
-    graph = DoorGraph.from_state(state)
-    centroids = {g: s["centroid"] for g, s in state.spaces.items()}
-    distance = None
-    if state.settings.get("distance", "door_graph") == "door_graph":
+def distance_function(state):
+    """distance(room_a, room_b) -> metres, as chosen by settings distance:
+    "navbim" = walking distance from navbim's table (walking.py; door-graph
+    length for pairs whose navbim route has a door this robot cannot pass),
+    "door_graph" = shortest route through door positions in straight lines,
+    "euclidean" = straight line between the room centroids."""
+    mode = state.settings.get("distance", "door_graph")
+    if mode == "euclidean":
         def distance(a, b):
-            return graph.route_length(a, b, state.robot)
-    return optimal_visit_order(candidates, centroids, state.robot["space"], distance=distance)
+            return euclidean(state.spaces[a]["centroid"], state.spaces[b]["centroid"])
+        return distance
+    graph = DoorGraph.from_state(state)
+    if mode == "navbim":
+        return walking_distance(state, graph)
+
+    def distance(a, b):
+        return graph.route_length(a, b, state.robot)
+    return distance
+
+
+def visit_order(state, candidates, distance=None):
+    """Shortest tour over the candidates ({"room": guid, ...} dicts) from the
+    robot's space: Held-Karp (rank_candidates.optimal_visit_order) with
+    distance_function(state) unless a distance is given."""
+    centroids = {g: s["centroid"] for g, s in state.spaces.items()}
+    return optimal_visit_order(candidates, centroids, state.robot["space"],
+                               distance=distance or distance_function(state))
 
 
 def select_rooms(state):

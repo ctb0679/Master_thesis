@@ -9,6 +9,7 @@ from rank_candidates import call_ollama, softmax_probabilities, validate_ranking
 from .core import CompoundTask, HTNPlanner
 from .domain import (build_domain, connectivity_report, format_connectivity, load_world, select_robot,
                      set_task, unlinked_stairs)
+from .domain.walking import default_table_path, table_problem
 from .domain.world import default_door_states_path
 from .execution import BeliefModel, ManualImageBackend, PlanExecutor, RunLogger, SimulatedNavigation
 
@@ -36,8 +37,13 @@ def add_htn_args(parser):
     g.add_argument("--max_visits_per_room", type=int, default=1, help="Visits per room per task (default 1).")
     g.add_argument("--residual_mass", type=float,
                    help="Stop when the unsearched rooms hold less probability than this (default 1 - prob_mass).")
-    g.add_argument("--distance", choices=("door_graph", "euclidean"), default="door_graph",
-                   help="Distance for the visit order: route length through doors (default) or straight lines.")
+    g.add_argument("--distance", choices=("navbim", "door_graph", "euclidean"), default="navbim",
+                   help="Distance for the visit order: navbim walking distances (default; README section 6), "
+                        "route length through door positions in straight lines, or straight lines between "
+                        "room centres. Without a navbim table for the building, door_graph is used.")
+    g.add_argument("--distance_table",
+                   help="navbim walking-distance table (default "
+                        "data/distances/<building>_preplanned_centre_walking_distances.json).")
 
 
 def check_htn_args(parser, args):
@@ -60,12 +66,24 @@ class HTNSearch:
         self.robot = select_robot(ROBOT_DIR / "urdf", ROBOT_DIR / "profiles", args.robot, note)
         self.key_to_guid = {s["name"]: s["guid"] for s in session.building["spaces"]}
         door_states = args.door_states or default_door_states_path(llm_json, ROBOT_DIR)
+        table = None
+        if args.distance == "navbim":
+            table = Path(args.distance_table) if args.distance_table else default_table_path(llm_json)
         settings = {"prob_mass": args.prob_mass, "min_prob": args.min_prob,
-                    "max_visits_per_room": args.max_visits_per_room, "distance": args.distance}
+                    "max_visits_per_room": args.max_visits_per_room, "distance": args.distance,
+                    "distance_table": str(table) if table else None}
         self.world, report = load_world(llm_json, full_json, self.robot, door_states,
                                         self.key_to_guid[session.start_room], settings)
         for line in report:
             note(f"NOTE: {line}")
+        if args.distance == "navbim":
+            problem = table_problem(table, self.world.spaces)
+            if problem:
+                note(f"NOTE: {problem}. Visit order uses door_graph distances instead "
+                     "(see README section 6 to make the table).")
+                self.world.settings.update(distance="door_graph", distance_table=None)
+            else:
+                note(f"NOTE: visit order uses navbim walking distances from {table}.")
         self.planner = HTNPlanner(*build_domain())
         self.perception = ManualImageBackend(session.detector)
         note(f"NOTE: HTN planning with robot '{self.robot.id}' (width {self.robot.width_m} m, "
@@ -142,7 +160,8 @@ class HTNSearch:
         where = ", ".join(executor.label(s) for s in summary.found)
         print(f"\nOutcome: {summary.outcome}" + (f" in {where}" if where else "")
               + (f" ({summary.reason})" if summary.reason else "")
-              + f"; {len(summary.visit_order)} room(s) searched, {summary.travelled_m} m, "
+              + f"; {len(summary.visit_order)} room(s) searched, walked {summary.walking_m} m "
+                f"({summary.distance} distances), "
                 f"{summary.iterations} plan(s). Log: {summary.log_dir}")
         self._print_probability(summary, executor)
         visited = ", ".join(executor.label(s) for s in summary.visit_order) or "no room"
