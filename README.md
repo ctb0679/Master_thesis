@@ -91,7 +91,6 @@ scripts/
                           see docs/htn_design.md
     building_query.py     Answers building questions from <name>_full.json (plan -> compute -> answer)
     test_interpreter.py   Batch checker for the interpretation stage (no walking)
-    old_rank_candidates*.py  Superseded versions, kept for reference
 file_converters/        Standalone IFC <-> ifcJSON converters (ifc2json.py, json2ifc.py)
 results/                Output location for saved plans; results/htn_runs/ = one folder per HTN run
 docs/                   htn_design.md (HTN design + decisions), references/ (papers)
