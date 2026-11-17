@@ -16,7 +16,8 @@ from rank_candidates import room_keys
 
 from .building import OUTSIDE, Door, Space, edge
 
-DEFAULT_SETTINGS = {"prob_mass": 0.9, "min_prob": 0.01, "max_visits_per_room": 1, "distance": "door_graph"}
+DEFAULT_SETTINGS = {"prob_mass": 0.9, "min_prob": 0.01, "max_visits_per_room": 1, "distance": "door_graph",
+                    "search_algorithm": "held_karp"}
 
 
 class WorldError(RuntimeError):
@@ -97,7 +98,7 @@ def load_world(llm_json, full_json, robot, door_states=None, start_space=None, s
 
     keys = room_keys(llm["rooms"])
     spaces = {r["guid"]: Space(r["guid"], keys[r["guid"]], r.get("function") or "", tuple(r["centroid"][:2]),
-                               r.get("storey"))
+                               r.get("storey"), r.get("area_m2"))
               for r in llm["rooms"] if r.get("centroid")}
     storey_names = {st["guid"]: st.get("name") for st in full.get("storeys", [])}
     no_storey = [s.name for s in spaces.values() if s.storey is None]

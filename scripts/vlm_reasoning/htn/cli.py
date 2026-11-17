@@ -5,6 +5,8 @@ import sys
 from pathlib import Path
 
 from rank_candidates import call_ollama, softmax_probabilities, validate_rankings
+from search_planners import DEFAULT_ALGORITHM
+from search_planners.blr import invalid_areas
 
 from .core import CompoundTask, HTNPlanner
 from .domain import (build_domain, connectivity_report, format_connectivity, load_world, select_robot,
@@ -71,7 +73,8 @@ class HTNSearch:
             table = Path(args.distance_table) if args.distance_table else default_table_path(llm_json)
         settings = {"prob_mass": args.prob_mass, "min_prob": args.min_prob,
                     "max_visits_per_room": args.max_visits_per_room, "distance": args.distance,
-                    "distance_table": str(table) if table else None}
+                    "distance_table": str(table) if table else None,
+                    "search_algorithm": getattr(args, "search_algorithm", DEFAULT_ALGORITHM)}
         self.world, report = load_world(llm_json, full_json, self.robot, door_states,
                                         self.key_to_guid[session.start_room], settings)
         for line in report:
@@ -84,6 +87,15 @@ class HTNSearch:
                 self.world.settings.update(distance="door_graph", distance_table=None)
             else:
                 note(f"NOTE: visit order uses navbim walking distances from {table}.")
+        if settings["search_algorithm"] == "blr":
+            bad = invalid_areas(list(self.world.spaces),
+                                {g: s.get("area_m2") for g, s in self.world.spaces.items()})
+            if bad:
+                raise RuntimeError("--search_algorithm blr needs a positive floor area (area_m2) for every room; "
+                                   + "; ".join(f"{self.world.spaces[g]['name']}: {why}" for g, why in bad.items())
+                                   + ". Use --search_algorithm held_karp or re-extract the IFC.")
+        note(f"NOTE: ranked rooms are ordered with {settings['search_algorithm']} "
+             "(rooms recorded in the IFC: held_karp).")
         self.planner = HTNPlanner(*build_domain())
         self.perception = ManualImageBackend(session.detector)
         note(f"NOTE: HTN planning with robot '{self.robot.id}' (width {self.robot.width_m} m, "

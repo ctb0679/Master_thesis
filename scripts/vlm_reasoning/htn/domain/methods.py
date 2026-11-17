@@ -9,7 +9,8 @@ rejected and the planner falls through to m_search_semantic by ordinary
 backtracking."""
 
 from htn.core import CompoundTask, Condition, Method, PrimitiveTask
-from rank_candidates import euclidean, optimal_visit_order, select_candidates
+from rank_candidates import euclidean, select_candidates
+from search_planners import DEFAULT_ALGORITHM, order_rooms
 
 from .building import DoorGraph
 from .operators import HasCapability, RobotAt, SpaceReachable
@@ -64,13 +65,15 @@ def distance_function(state):
     return distance
 
 
-def visit_order(state, candidates, distance=None):
-    """Shortest tour over the candidates ({"room": guid, ...} dicts) from the
-    robot's space: Held-Karp (rank_candidates.optimal_visit_order) with
+def visit_order(state, candidates, distance=None, algorithm=DEFAULT_ALGORITHM):
+    """Order the candidates ({"room": guid, ...} dicts) from the robot's
+    space with search_planners.order_rooms: Held-Karp (default, shortest
+    tour) or BLR (algorithm="blr", uses the room areas), both with
     distance_function(state) unless a distance is given."""
     centroids = {g: s["centroid"] for g, s in state.spaces.items()}
-    return optimal_visit_order(candidates, centroids, state.robot["space"],
-                               distance=distance or distance_function(state))
+    areas = {g: s.get("area_m2") for g, s in state.spaces.items()} if algorithm == "blr" else None
+    return order_rooms(candidates, centroids, state.robot["space"], algorithm,
+                       distance=distance or distance_function(state), areas=areas)
 
 
 def select_rooms(state):
@@ -86,7 +89,8 @@ def select_rooms(state):
     ranked = sorted(({"room": g, "probability": posterior.get(g, 0.0) / mass} for g in eligible),
                     key=lambda r: (-r["probability"], r["room"]))
     chosen = select_candidates(ranked, state.settings["prob_mass"], state.settings["min_prob"])
-    return [c["room"] for c in visit_order(state, chosen)] if chosen else []
+    algorithm = state.settings.get("search_algorithm", DEFAULT_ALGORITHM)   # --search_algorithm
+    return [c["room"] for c in visit_order(state, chosen, algorithm=algorithm)] if chosen else []
 
 
 def _recorded_eligible(state):
@@ -162,7 +166,11 @@ def search_restricted(state, target, mode):
 
 
 def search_recorded(state, target, mode):
-    rooms = [c["room"] for c in visit_order(state, [{"room": r} for r in _recorded_eligible(state)])]
+    # Rooms where the IFC records the target are ordered by Held-Karp whatever
+    # --search_algorithm says: they are searched before any ranking, so they
+    # have no probabilities for BLR (unchanged behaviour).
+    rooms = [c["room"] for c in visit_order(state, [{"room": r} for r in _recorded_eligible(state)],
+                                            algorithm="held_karp")]
     return _search(rooms, target)
 
 

@@ -334,6 +334,35 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-11-17  Room ordering modular; BestLocalRatio (BLR) as an alternative
+  What:
+    - scripts/vlm_reasoning/search_planners/: held_karp.py (optimal_visit_order
+      + _greedy_nearest_neighbor moved unchanged out of rank_candidates.py,
+      which re-exports them; byte-identical code), blr.py, selector.py,
+      common.py (euclidean), README.md.
+    - --search_algorithm {held_karp, blr} in interactive_search.py, default
+      held_karp, for HTN and --no-htn. Only the ranked rooms use it:
+      HTN select_rooms, --no-htn rank_and_plan. Recorded-in-IFC rooms, a room
+      the user names and go_to stay Held-Karp (recorded rooms are ordered
+      before any ranking, so there are no probabilities for BLR).
+    - BLR = Izquierdo-Cordova et al., RoboCup 2016, Sec. 3.1 Eq. (1)
+      H = P / (d * sqrt(A)) and Algorithm 1 (greedy, from the last chosen
+      room); checked against the paper's text. Own conventions (paper leaves
+      them open): d = 0 first (by P/sqrt(A)), ties -> earlier candidate,
+      unreachable -> skipped this step / error if none left, invalid input
+      -> error, no epsilon.
+    - Areas: area_m2 from the cleaned JSON; HTN spaces now carry area_m2.
+      blr refuses to start when a room has no positive area.
+    - Same distance for both algorithms: HTN distance_function (navbim by
+      default), --no-htn straight lines.
+  Checks: Held-Karp outputs identical to a baseline recorded before the move
+    (28 cases incl. ties, callbacks, fallback >18); HTN default room choice
+    and order identical on 36 IDAC cases; 131 tests pass.
+  Note: the paper evaluates orders by expected distance (its Eq. 2), while
+    Held-Karp here minimises the total walk. IDAC example (robot in room 3,
+    target nowhere, same prior): Held-Karp walks 135 m, BLR 170 m but BLR
+    reaches the likely rooms first; compare with E(d) before concluding.
+
 2026-11-16  HTN visit order uses navbim walking distances (default)
   What:
     - --distance {navbim, door_graph, euclidean}, default navbim (was

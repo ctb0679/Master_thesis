@@ -1,0 +1,1212 @@
+{
+ "empty": {
+  "result": []
+ },
+ "one_room": {
+  "result": [
+   {
+    "room": "A",
+    "probability": 0.7,
+    "likelihood": 0.9,
+    "reasoning": "only one",
+    "distance_from_previous_m": 5.0
+   }
+  ]
+ },
+ "start_is_candidate": {
+  "result": [
+   {
+    "room": "S",
+    "distance_from_previous_m": 0.0
+   },
+   {
+    "room": "A",
+    "distance_from_previous_m": 1.0
+   }
+  ]
+ },
+ "missing_start": {
+  "error": "ValueError",
+  "message": "start room 'S' not found or has no centroid"
+ },
+ "ties_square": {
+  "result": [
+   {
+    "room": "D",
+    "distance_from_previous_m": 1.0
+   },
+   {
+    "room": "C",
+    "distance_from_previous_m": 1.41
+   },
+   {
+    "room": "B",
+    "distance_from_previous_m": 1.41
+   },
+   {
+    "room": "A",
+    "distance_from_previous_m": 1.41
+   }
+  ]
+ },
+ "ties_matrix": {
+  "result": [
+   {
+    "room": "C",
+    "distance_from_previous_m": 1.0
+   },
+   {
+    "room": "B",
+    "distance_from_previous_m": 1.0
+   },
+   {
+    "room": "A",
+    "distance_from_previous_m": 1.0
+   }
+  ]
+ },
+ "euclid_2": {
+  "result": [
+   {
+    "room": "R1",
+    "probability": 0.3536,
+    "likelihood": 0.28,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 17.94
+   },
+   {
+    "room": "R0",
+    "probability": 0.0608,
+    "likelihood": 0.89,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 3.27
+   }
+  ]
+ },
+ "matrix_2": {
+  "result": [
+   {
+    "room": "R0",
+    "probability": 0.0608,
+    "likelihood": 0.89,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 17.82
+   },
+   {
+    "room": "R1",
+    "probability": 0.3536,
+    "likelihood": 0.28,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 12.04
+   }
+  ]
+ },
+ "euclid_3": {
+  "result": [
+   {
+    "room": "R1",
+    "probability": 0.5344,
+    "likelihood": 0.13,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 2.19
+   },
+   {
+    "room": "R2",
+    "probability": 0.6152,
+    "likelihood": 0.09,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 6.81
+   },
+   {
+    "room": "R0",
+    "probability": 0.689,
+    "likelihood": 0.66,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 14.09
+   }
+  ]
+ },
+ "matrix_3": {
+  "result": [
+   {
+    "room": "R2",
+    "probability": 0.6152,
+    "likelihood": 0.09,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 3.45
+   },
+   {
+    "room": "R1",
+    "probability": 0.5344,
+    "likelihood": 0.13,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 9.08
+   },
+   {
+    "room": "R0",
+    "probability": 0.689,
+    "likelihood": 0.66,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 8.54
+   }
+  ]
+ },
+ "euclid_4": {
+  "result": [
+   {
+    "room": "R3",
+    "probability": 0.4237,
+    "likelihood": 0.74,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 5.98
+   },
+   {
+    "room": "R1",
+    "probability": 0.384,
+    "likelihood": 0.19,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 1.83
+   },
+   {
+    "room": "R0",
+    "probability": 0.9665,
+    "likelihood": 0.01,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 2.58
+   },
+   {
+    "room": "R2",
+    "probability": 0.4357,
+    "likelihood": 0.67,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 10.38
+   }
+  ]
+ },
+ "matrix_4": {
+  "result": [
+   {
+    "room": "R0",
+    "probability": 0.9665,
+    "likelihood": 0.01,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 6.24
+   },
+   {
+    "room": "R2",
+    "probability": 0.4357,
+    "likelihood": 0.67,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 4.71
+   },
+   {
+    "room": "R1",
+    "probability": 0.384,
+    "likelihood": 0.19,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 5.14
+   },
+   {
+    "room": "R3",
+    "probability": 0.4237,
+    "likelihood": 0.74,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 2.76
+   }
+  ]
+ },
+ "euclid_5": {
+  "result": [
+   {
+    "room": "R4",
+    "probability": 0.6653,
+    "likelihood": 0.66,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 12.54
+   },
+   {
+    "room": "R3",
+    "probability": 0.3222,
+    "likelihood": 0.39,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 9.97
+   },
+   {
+    "room": "R1",
+    "probability": 0.4443,
+    "likelihood": 0.54,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 11.58
+   },
+   {
+    "room": "R0",
+    "probability": 0.4743,
+    "likelihood": 0.85,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 6.13
+   },
+   {
+    "room": "R2",
+    "probability": 0.8448,
+    "likelihood": 0.03,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 8.18
+   }
+  ]
+ },
+ "matrix_5": {
+  "result": [
+   {
+    "room": "R3",
+    "probability": 0.3222,
+    "likelihood": 0.39,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 0.76
+   },
+   {
+    "room": "R2",
+    "probability": 0.8448,
+    "likelihood": 0.03,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 3.25
+   },
+   {
+    "room": "R1",
+    "probability": 0.4443,
+    "likelihood": 0.54,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 15.6
+   },
+   {
+    "room": "R4",
+    "probability": 0.6653,
+    "likelihood": 0.66,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 9.73
+   },
+   {
+    "room": "R0",
+    "probability": 0.4743,
+    "likelihood": 0.85,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 6.69
+   }
+  ]
+ },
+ "euclid_6": {
+  "result": [
+   {
+    "room": "R4",
+    "probability": 0.2116,
+    "likelihood": 0.79,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 3.55
+   },
+   {
+    "room": "R0",
+    "probability": 0.6163,
+    "likelihood": 0.96,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 5.54
+   },
+   {
+    "room": "R3",
+    "probability": 0.2815,
+    "likelihood": 0.53,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 8.94
+   },
+   {
+    "room": "R2",
+    "probability": 0.9003,
+    "likelihood": 0.8,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 6.01
+   },
+   {
+    "room": "R5",
+    "probability": 0.5695,
+    "likelihood": 0.52,
+    "reasoning": "why R5",
+    "distance_from_previous_m": 20.84
+   },
+   {
+    "room": "R1",
+    "probability": 0.9631,
+    "likelihood": 0.96,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 8.83
+   }
+  ]
+ },
+ "matrix_6": {
+  "result": [
+   {
+    "room": "R1",
+    "probability": 0.9631,
+    "likelihood": 0.96,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 3.38
+   },
+   {
+    "room": "R3",
+    "probability": 0.2815,
+    "likelihood": 0.53,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 6.93
+   },
+   {
+    "room": "R5",
+    "probability": 0.5695,
+    "likelihood": 0.52,
+    "reasoning": "why R5",
+    "distance_from_previous_m": 1.64
+   },
+   {
+    "room": "R4",
+    "probability": 0.2116,
+    "likelihood": 0.79,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 2.98
+   },
+   {
+    "room": "R2",
+    "probability": 0.9003,
+    "likelihood": 0.8,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 3.37
+   },
+   {
+    "room": "R0",
+    "probability": 0.6163,
+    "likelihood": 0.96,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 13.54
+   }
+  ]
+ },
+ "euclid_7": {
+  "result": [
+   {
+    "room": "R3",
+    "probability": 0.7541,
+    "likelihood": 0.27,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 6.3
+   },
+   {
+    "room": "R2",
+    "probability": 0.8072,
+    "likelihood": 0.12,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 5.35
+   },
+   {
+    "room": "R4",
+    "probability": 0.6215,
+    "likelihood": 0.98,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 7.67
+   },
+   {
+    "room": "R1",
+    "probability": 0.2432,
+    "likelihood": 0.28,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 3.64
+   },
+   {
+    "room": "R0",
+    "probability": 0.9057,
+    "likelihood": 0.73,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 8.11
+   },
+   {
+    "room": "R5",
+    "probability": 0.2554,
+    "likelihood": 0.92,
+    "reasoning": "why R5",
+    "distance_from_previous_m": 5.91
+   },
+   {
+    "room": "R6",
+    "probability": 0.1605,
+    "likelihood": 0.82,
+    "reasoning": "why R6",
+    "distance_from_previous_m": 9.32
+   }
+  ]
+ },
+ "matrix_7": {
+  "result": [
+   {
+    "room": "R0",
+    "probability": 0.9057,
+    "likelihood": 0.73,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 1.23
+   },
+   {
+    "room": "R4",
+    "probability": 0.6215,
+    "likelihood": 0.98,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 2.44
+   },
+   {
+    "room": "R6",
+    "probability": 0.1605,
+    "likelihood": 0.82,
+    "reasoning": "why R6",
+    "distance_from_previous_m": 0.71
+   },
+   {
+    "room": "R1",
+    "probability": 0.2432,
+    "likelihood": 0.28,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 4.77
+   },
+   {
+    "room": "R5",
+    "probability": 0.2554,
+    "likelihood": 0.92,
+    "reasoning": "why R5",
+    "distance_from_previous_m": 7.0
+   },
+   {
+    "room": "R3",
+    "probability": 0.7541,
+    "likelihood": 0.27,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 1.82
+   },
+   {
+    "room": "R2",
+    "probability": 0.8072,
+    "likelihood": 0.12,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 11.96
+   }
+  ]
+ },
+ "euclid_8": {
+  "result": [
+   {
+    "room": "R7",
+    "probability": 0.2976,
+    "likelihood": 0.09,
+    "reasoning": "why R7",
+    "distance_from_previous_m": 7.44
+   },
+   {
+    "room": "R3",
+    "probability": 0.6633,
+    "likelihood": 0.18,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 3.34
+   },
+   {
+    "room": "R6",
+    "probability": 0.5597,
+    "likelihood": 0.92,
+    "reasoning": "why R6",
+    "distance_from_previous_m": 12.01
+   },
+   {
+    "room": "R0",
+    "probability": 0.6501,
+    "likelihood": 0.73,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 13.42
+   },
+   {
+    "room": "R5",
+    "probability": 0.2573,
+    "likelihood": 0.71,
+    "reasoning": "why R5",
+    "distance_from_previous_m": 12.09
+   },
+   {
+    "room": "R2",
+    "probability": 0.624,
+    "likelihood": 0.59,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 8.27
+   },
+   {
+    "room": "R1",
+    "probability": 0.9438,
+    "likelihood": 0.81,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 4.06
+   },
+   {
+    "room": "R4",
+    "probability": 0.4725,
+    "likelihood": 0.14,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 3.6
+   }
+  ]
+ },
+ "matrix_8": {
+  "result": [
+   {
+    "room": "R6",
+    "probability": 0.5597,
+    "likelihood": 0.92,
+    "reasoning": "why R6",
+    "distance_from_previous_m": 1.82
+   },
+   {
+    "room": "R4",
+    "probability": 0.4725,
+    "likelihood": 0.14,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 1.4
+   },
+   {
+    "room": "R5",
+    "probability": 0.2573,
+    "likelihood": 0.71,
+    "reasoning": "why R5",
+    "distance_from_previous_m": 1.21
+   },
+   {
+    "room": "R0",
+    "probability": 0.6501,
+    "likelihood": 0.73,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 11.01
+   },
+   {
+    "room": "R1",
+    "probability": 0.9438,
+    "likelihood": 0.81,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 2.87
+   },
+   {
+    "room": "R3",
+    "probability": 0.6633,
+    "likelihood": 0.18,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 0.74
+   },
+   {
+    "room": "R2",
+    "probability": 0.624,
+    "likelihood": 0.59,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 4.03
+   },
+   {
+    "room": "R7",
+    "probability": 0.2976,
+    "likelihood": 0.09,
+    "reasoning": "why R7",
+    "distance_from_previous_m": 13.18
+   }
+  ]
+ },
+ "euclid_9": {
+  "result": [
+   {
+    "room": "R8",
+    "probability": 0.251,
+    "likelihood": 0.57,
+    "reasoning": "why R8",
+    "distance_from_previous_m": 6.42
+   },
+   {
+    "room": "R6",
+    "probability": 0.3202,
+    "likelihood": 0.28,
+    "reasoning": "why R6",
+    "distance_from_previous_m": 1.22
+   },
+   {
+    "room": "R5",
+    "probability": 0.9249,
+    "likelihood": 0.67,
+    "reasoning": "why R5",
+    "distance_from_previous_m": 5.46
+   },
+   {
+    "room": "R7",
+    "probability": 0.8637,
+    "likelihood": 0.86,
+    "reasoning": "why R7",
+    "distance_from_previous_m": 6.61
+   },
+   {
+    "room": "R3",
+    "probability": 0.2655,
+    "likelihood": 0.68,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 8.87
+   },
+   {
+    "room": "R1",
+    "probability": 0.2152,
+    "likelihood": 0.57,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 2.5
+   },
+   {
+    "room": "R4",
+    "probability": 0.3398,
+    "likelihood": 0.86,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 4.2
+   },
+   {
+    "room": "R2",
+    "probability": 0.5338,
+    "likelihood": 0.0,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 3.81
+   },
+   {
+    "room": "R0",
+    "probability": 0.8386,
+    "likelihood": 0.64,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 13.43
+   }
+  ]
+ },
+ "matrix_9": {
+  "result": [
+   {
+    "room": "R2",
+    "probability": 0.5338,
+    "likelihood": 0.0,
+    "reasoning": "why R2",
+    "distance_from_previous_m": 3.64
+   },
+   {
+    "room": "R5",
+    "probability": 0.9249,
+    "likelihood": 0.67,
+    "reasoning": "why R5",
+    "distance_from_previous_m": 7.96
+   },
+   {
+    "room": "R7",
+    "probability": 0.8637,
+    "likelihood": 0.86,
+    "reasoning": "why R7",
+    "distance_from_previous_m": 1.67
+   },
+   {
+    "room": "R1",
+    "probability": 0.2152,
+    "likelihood": 0.57,
+    "reasoning": "why R1",
+    "distance_from_previous_m": 1.78
+   },
+   {
+    "room": "R6",
+    "probability": 0.3202,
+    "likelihood": 0.28,
+    "reasoning": "why R6",
+    "distance_from_previous_m": 1.09
+   },
+   {
+    "room": "R4",
+    "probability": 0.3398,
+    "likelihood": 0.86,
+    "reasoning": "why R4",
+    "distance_from_previous_m": 0.91
+   },
+   {
+    "room": "R8",
+    "probability": 0.251,
+    "likelihood": 0.57,
+    "reasoning": "why R8",
+    "distance_from_previous_m": 2.4
+   },
+   {
+    "room": "R0",
+    "probability": 0.8386,
+    "likelihood": 0.64,
+    "reasoning": "why R0",
+    "distance_from_previous_m": 4.21
+   },
+   {
+    "room": "R3",
+    "probability": 0.2655,
+    "likelihood": 0.68,
+    "reasoning": "why R3",
+    "distance_from_previous_m": 5.86
+   }
+  ]
+ },
+ "fallback_5_3": {
+  "result": [
+   {
+    "room": "F3",
+    "probability": 0.1,
+    "distance_from_previous_m": 8.38
+   },
+   {
+    "room": "F2",
+    "probability": 0.1,
+    "distance_from_previous_m": 23.9
+   },
+   {
+    "room": "F4",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.05
+   },
+   {
+    "room": "F1",
+    "probability": 0.1,
+    "distance_from_previous_m": 22.22
+   },
+   {
+    "room": "F0",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.55
+   }
+  ]
+ },
+ "fallback_matrix_5_3": {
+  "result": [
+   {
+    "room": "F1",
+    "probability": 0.1,
+    "distance_from_previous_m": 3.94
+   },
+   {
+    "room": "F2",
+    "probability": 0.1,
+    "distance_from_previous_m": 8.86
+   },
+   {
+    "room": "F4",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.8
+   },
+   {
+    "room": "F3",
+    "probability": 0.1,
+    "distance_from_previous_m": 15.64
+   },
+   {
+    "room": "F0",
+    "probability": 0.1,
+    "distance_from_previous_m": 14.63
+   }
+  ]
+ },
+ "fallback_20_18": {
+  "result": [
+   {
+    "room": "F19",
+    "probability": 0.1,
+    "distance_from_previous_m": 19.98
+   },
+   {
+    "room": "F3",
+    "probability": 0.1,
+    "distance_from_previous_m": 6.61
+   },
+   {
+    "room": "F18",
+    "probability": 0.1,
+    "distance_from_previous_m": 11.7
+   },
+   {
+    "room": "F16",
+    "probability": 0.1,
+    "distance_from_previous_m": 3.14
+   },
+   {
+    "room": "F0",
+    "probability": 0.1,
+    "distance_from_previous_m": 10.54
+   },
+   {
+    "room": "F13",
+    "probability": 0.1,
+    "distance_from_previous_m": 5.61
+   },
+   {
+    "room": "F12",
+    "probability": 0.1,
+    "distance_from_previous_m": 5.38
+   },
+   {
+    "room": "F14",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.52
+   },
+   {
+    "room": "F4",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.91
+   },
+   {
+    "room": "F11",
+    "probability": 0.1,
+    "distance_from_previous_m": 9.81
+   },
+   {
+    "room": "F5",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.66
+   },
+   {
+    "room": "F2",
+    "probability": 0.1,
+    "distance_from_previous_m": 10.8
+   },
+   {
+    "room": "F17",
+    "probability": 0.1,
+    "distance_from_previous_m": 8.39
+   },
+   {
+    "room": "F10",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.18
+   },
+   {
+    "room": "F9",
+    "probability": 0.1,
+    "distance_from_previous_m": 10.27
+   },
+   {
+    "room": "F15",
+    "probability": 0.1,
+    "distance_from_previous_m": 13.0
+   },
+   {
+    "room": "F8",
+    "probability": 0.1,
+    "distance_from_previous_m": 41.17
+   },
+   {
+    "room": "F7",
+    "probability": 0.1,
+    "distance_from_previous_m": 9.16
+   },
+   {
+    "room": "F6",
+    "probability": 0.1,
+    "distance_from_previous_m": 10.41
+   },
+   {
+    "room": "F1",
+    "probability": 0.1,
+    "distance_from_previous_m": 5.25
+   }
+  ]
+ },
+ "fallback_matrix_20_18": {
+  "result": [
+   {
+    "room": "F10",
+    "probability": 0.1,
+    "distance_from_previous_m": 1.69
+   },
+   {
+    "room": "F6",
+    "probability": 0.1,
+    "distance_from_previous_m": 1.19
+   },
+   {
+    "room": "F4",
+    "probability": 0.1,
+    "distance_from_previous_m": 1.09
+   },
+   {
+    "room": "F7",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.02
+   },
+   {
+    "room": "F13",
+    "probability": 0.1,
+    "distance_from_previous_m": 3.75
+   },
+   {
+    "room": "F18",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.28
+   },
+   {
+    "room": "F8",
+    "probability": 0.1,
+    "distance_from_previous_m": 1.19
+   },
+   {
+    "room": "F14",
+    "probability": 0.1,
+    "distance_from_previous_m": 1.91
+   },
+   {
+    "room": "F1",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.8
+   },
+   {
+    "room": "F5",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.04
+   },
+   {
+    "room": "F12",
+    "probability": 0.1,
+    "distance_from_previous_m": 10.95
+   },
+   {
+    "room": "F11",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.94
+   },
+   {
+    "room": "F9",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.68
+   },
+   {
+    "room": "F15",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.67
+   },
+   {
+    "room": "F19",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.22
+   },
+   {
+    "room": "F16",
+    "probability": 0.1,
+    "distance_from_previous_m": 24.3
+   },
+   {
+    "room": "F2",
+    "probability": 0.1,
+    "distance_from_previous_m": 3.96
+   },
+   {
+    "room": "F3",
+    "probability": 0.1,
+    "distance_from_previous_m": 11.96
+   },
+   {
+    "room": "F17",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.91
+   },
+   {
+    "room": "F0",
+    "probability": 0.1,
+    "distance_from_previous_m": 36.6
+   }
+  ]
+ },
+ "fallback_19_18": {
+  "result": [
+   {
+    "room": "F14",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.48
+   },
+   {
+    "room": "F13",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.83
+   },
+   {
+    "room": "F7",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.29
+   },
+   {
+    "room": "F3",
+    "probability": 0.1,
+    "distance_from_previous_m": 5.28
+   },
+   {
+    "room": "F8",
+    "probability": 0.1,
+    "distance_from_previous_m": 18.3
+   },
+   {
+    "room": "F9",
+    "probability": 0.1,
+    "distance_from_previous_m": 17.24
+   },
+   {
+    "room": "F18",
+    "probability": 0.1,
+    "distance_from_previous_m": 9.79
+   },
+   {
+    "room": "F17",
+    "probability": 0.1,
+    "distance_from_previous_m": 6.34
+   },
+   {
+    "room": "F2",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.63
+   },
+   {
+    "room": "F1",
+    "probability": 0.1,
+    "distance_from_previous_m": 8.93
+   },
+   {
+    "room": "F10",
+    "probability": 0.1,
+    "distance_from_previous_m": 5.16
+   },
+   {
+    "room": "F0",
+    "probability": 0.1,
+    "distance_from_previous_m": 17.71
+   },
+   {
+    "room": "F6",
+    "probability": 0.1,
+    "distance_from_previous_m": 9.65
+   },
+   {
+    "room": "F4",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.66
+   },
+   {
+    "room": "F11",
+    "probability": 0.1,
+    "distance_from_previous_m": 1.33
+   },
+   {
+    "room": "F16",
+    "probability": 0.1,
+    "distance_from_previous_m": 9.85
+   },
+   {
+    "room": "F5",
+    "probability": 0.1,
+    "distance_from_previous_m": 14.29
+   },
+   {
+    "room": "F15",
+    "probability": 0.1,
+    "distance_from_previous_m": 26.36
+   },
+   {
+    "room": "F12",
+    "probability": 0.1,
+    "distance_from_previous_m": 8.0
+   }
+  ]
+ },
+ "fallback_matrix_19_18": {
+  "result": [
+   {
+    "room": "F10",
+    "probability": 0.1,
+    "distance_from_previous_m": 1.54
+   },
+   {
+    "room": "F6",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.63
+   },
+   {
+    "room": "F0",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.53
+   },
+   {
+    "room": "F18",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.93
+   },
+   {
+    "room": "F3",
+    "probability": 0.1,
+    "distance_from_previous_m": 7.51
+   },
+   {
+    "room": "F7",
+    "probability": 0.1,
+    "distance_from_previous_m": 5.96
+   },
+   {
+    "room": "F14",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.29
+   },
+   {
+    "room": "F1",
+    "probability": 0.1,
+    "distance_from_previous_m": 6.47
+   },
+   {
+    "room": "F12",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.32
+   },
+   {
+    "room": "F13",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.57
+   },
+   {
+    "room": "F16",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.74
+   },
+   {
+    "room": "F8",
+    "probability": 0.1,
+    "distance_from_previous_m": 4.46
+   },
+   {
+    "room": "F5",
+    "probability": 0.1,
+    "distance_from_previous_m": 2.88
+   },
+   {
+    "room": "F9",
+    "probability": 0.1,
+    "distance_from_previous_m": 9.59
+   },
+   {
+    "room": "F2",
+    "probability": 0.1,
+    "distance_from_previous_m": 10.86
+   },
+   {
+    "room": "F4",
+    "probability": 0.1,
+    "distance_from_previous_m": 9.17
+   },
+   {
+    "room": "F17",
+    "probability": 0.1,
+    "distance_from_previous_m": 5.28
+   },
+   {
+    "room": "F15",
+    "probability": 0.1,
+    "distance_from_previous_m": 17.79
+   },
+   {
+    "room": "F11",
+    "probability": 0.1,
+    "distance_from_previous_m": 6.87
+   }
+  ]
+ }
+}

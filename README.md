@@ -83,6 +83,8 @@ scripts/
     navbim_room_walks.py  Option B helper: walk from a room centre to its doors (room outline)
   vlm_reasoning/
     rank_candidates.py    Ranking/planning logic (library, used by interactive_search.py)
+    search_planners/      Room ordering: held_karp.py (default), blr.py (BestLocalRatio),
+                          selector.py (--search_algorithm); see its README.md
     rank_candidates2.py   Standalone CLI for stages (a)+(b): rank + plan only
     interactive_search.py Full interactive REPL: interpret -> rank -> plan -> visual detect
     htn/                  HTN planning layer (core framework, object-search domain, executor);
@@ -93,7 +95,9 @@ scripts/
 file_converters/        Standalone IFC <-> ifcJSON converters (ifc2json.py, json2ifc.py)
 results/                Output location for saved plans; results/htn_runs/ = one folder per HTN run
 docs/                   htn_design.md (HTN design + decisions), references/ (papers)
-tests/htn/              pytest suite for the HTN layer (no Ollama needed; test_walking.py = navbim distances)
+tests/htn/              pytest suite for the HTN layer (no Ollama needed; test_walking.py = navbim distances,
+                        test_search_algorithm.py = --search_algorithm in the HTN)
+tests/search_planners/  Held-Karp regression (baseline from before the refactor), BLR, selector, --no-htn
 tests/navbim/           pytest suite for the walking-distance tables (no ROS needed)
 navbim_setup_log.md     Every navbim setup change on the Ubuntu PC (what / why / undo)
 legacy_graph_pipeline/ Archived Neo4j-based approach (extraction, classification, query)
@@ -246,6 +250,11 @@ python3 scripts/vlm_reasoning/interactive_search.py \
 # the v1 *_cleaned.json files have no door positions: use the old search there
 python3 scripts/vlm_reasoning/interactive_search.py \
   --cleaned_json data/cleaned_ifc/synthetic_office_cleaned.json --no-htn
+
+# order the ranked rooms with BestLocalRatio instead of Held-Karp (default);
+# works with and without --no-htn, needs room areas
+python3 scripts/vlm_reasoning/interactive_search.py \
+  --cleaned_json data/cleaned_ifc/IDAC_Model_llm.json --miss_rate 0.2 --search_algorithm blr
 ```
 
 Type anything at the prompt. Questions about the building are answered in
@@ -327,8 +336,8 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
   rooms where the IFC records the target → the most likely rooms from the
   ranking model (asked once per task, only when needed).
 - **Routes** go through doors (shortest path by length through door
-  positions). The **visit order** is Held-Karp (below) over the distance chosen
-  with `--distance`:
+  positions). The **visit order** is Held-Karp (default) or BLR
+  (`--search_algorithm`, below) over the distance chosen with `--distance`:
   - `navbim` (default): real walking distances, room centre to room centre,
     from navbim's table `data/distances/<building>_preplanned_centre_walking_distances.json`
     (section 6; other file: `--distance_table`). For a pair whose navbim route
@@ -337,7 +346,8 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
     the whole run uses `door_graph` and says so at start-up.
   - `door_graph`: route through the door positions in straight lines.
   - `euclidean`: straight line between the room centres.
-- **Visit order formula** (`rank_candidates.optimal_visit_order`): with
+- **Visit order formula, Held-Karp** (`--search_algorithm held_karp`, default;
+  `search_planners/held_karp.py`, re-exported as `rank_candidates.optimal_visit_order`): with
   start room s, chosen rooms 1..n and distance d, find the order
   r1, ..., rn that minimises d(s, r1) + d(r1, r2) + ... + d(r(n-1), rn)
   (an open path: no return to s). Held-Karp computes this exactly:
@@ -347,6 +357,14 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
   C(all, j). Up to 18 rooms (n²·2ⁿ steps); above that greedy nearest
   neighbour. The order is made again after every searched room. Which rooms
   are in the list comes from the probabilities only, not from distance.
+- **BLR** (`--search_algorithm blr`; `search_planners/blr.py`): BestLocalRatio
+  (Izquierdo-Cordova et al., RoboCup 2016, Eq. 1): from the current room take
+  the room with the highest P / (d · √A) (P probability, d distance, A floor
+  area `area_m2`), continue from there. Same candidate rooms and same
+  distances as Held-Karp; needs an area for every room (refused at start-up
+  otherwise). Rooms recorded in the IFC are still ordered by Held-Karp (they
+  have no probabilities yet). Details, conventions for zero distance and ties:
+  [scripts/vlm_reasoning/search_planners/README.md](scripts/vlm_reasoning/search_planners/README.md).
 - Each plan line shows the metres per leg and in total, and the run ends with
   "walked X m (navbim distances)"; `summary.json` has `distance`, `walking_m`
   and `walking_legs`.
@@ -481,6 +499,7 @@ prints "visit order uses navbim walking distances from ..." at start-up.
 pip install -r requirements-dev.txt
 python -m pytest            # tests/htn: framework, IDAC domain, robot profiles, executor, reachability
                             # tests/navbim: walking-distance tables (options A and B)
+                            # tests/search_planners: Held-Karp regression, BLR, selector, --no-htn session
 ```
 
 ## IFC <-> JSON converters

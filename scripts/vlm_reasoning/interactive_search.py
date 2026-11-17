@@ -72,6 +72,8 @@ from rank_candidates import (
 )
 from building_query import BuildingQueryEngine, find_full_json
 from htn.cli import HTNSearch, add_htn_args, check_htn_args
+from search_planners import ALGORITHMS, DEFAULT_ALGORITHM, order_rooms
+from search_planners.blr import invalid_areas
 import urllib.request
 
 
@@ -150,7 +152,7 @@ class SearchSession:
     inject a real navigation/camera backend), not rebuild from scratch."""
 
     def __init__(self, cleaned_json_path, start_room, prob_mass, min_prob, softmax_temp, model, host,
-                 ollama_options=None, full_json_path=None):
+                 ollama_options=None, full_json_path=None, search_algorithm=DEFAULT_ALGORITHM):
         self.building = load_building(cleaned_json_path)
         # Don't assume a room name like "Reception" exists — that's true only
         # for the synthetic office model. Fall back to the first room in this
@@ -165,6 +167,9 @@ class SearchSession:
         self.host = host
         self.ollama_options = ollama_options if ollama_options is not None else build_ollama_options()
         self.centroid_lookup = get_centroid_lookup(self.building)
+        # room ordering for the ranked rooms (--search_algorithm); BLR also needs the areas
+        self.search_algorithm = search_algorithm
+        self.areas = {s["name"]: s.get("area_m2") for s in self.building["spaces"]}
         self.room_summaries = build_room_summaries(self.building)
         self.long_names = {s["name"]: s.get("long_name") or "" for s in self.building["spaces"]}
         self.detector = VisualDetector(host, model, self.ollama_options)
@@ -215,7 +220,8 @@ class SearchSession:
         rankings = softmax_probabilities(rankings, self.softmax_temp)
 
         candidates = select_candidates(rankings, self.prob_mass, self.min_prob)
-        plan = optimal_visit_order(candidates, self.centroid_lookup, self.start_room) if candidates else []
+        plan = order_rooms(candidates, self.centroid_lookup, self.start_room, self.search_algorithm,
+                           areas=self.areas) if candidates else []
         return rankings, plan
 
     def plan_known_rooms(self, rooms, note):
@@ -414,6 +420,13 @@ def main():
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--ollama_host", default=DEFAULT_OLLAMA_HOST)
+    parser.add_argument(
+        "--search_algorithm", choices=ALGORITHMS, default=DEFAULT_ALGORITHM,
+        help="How the chosen rooms are ordered (default held_karp): held_karp = shortest tour, "
+             "blr = BestLocalRatio, P / (d * sqrt(A)) (Izquierdo-Cordova et al., RoboCup 2016), "
+             "needs room areas. Rooms recorded in the IFC, a room the user names and go_to "
+             "are not affected.",
+    )
     add_ollama_args(parser)
     add_htn_args(parser)
     args = parser.parse_args()
@@ -423,7 +436,17 @@ def main():
     session = SearchSession(args.cleaned_json, args.start_room, args.prob_mass,
                             args.min_prob, args.softmax_temp, args.model, args.ollama_host,
                             build_ollama_options(args.llm_temperature, args.seed),
-                            full_json_path=args.full_json)
+                            full_json_path=args.full_json, search_algorithm=args.search_algorithm)
+    if args.no_htn and args.search_algorithm == "blr":
+        bad = invalid_areas(list(session.areas), session.areas)
+        if bad:
+            print("ERROR: --search_algorithm blr needs a positive floor area (area_m2) for every room; "
+                  + "; ".join(f"{r}: {why}" for r, why in bad.items())
+                  + ". Use --search_algorithm held_karp or re-extract the IFC.", file=sys.stderr)
+            sys.exit(2)
+    if args.no_htn:
+        print(f"NOTE: ranked rooms are ordered with {args.search_algorithm} "
+              "(rooms recorded in the IFC, a named room and go_to: held_karp).", file=sys.stderr)
     if not args.no_htn:
         try:
             session.htn = HTNSearch.from_args(args, session)

@@ -27,6 +27,7 @@ class Space:
     function: str = ""
     centroid: tuple = None
     storey: str = None              # storey name from the cleaned JSON; None if the IFC has none
+    area_m2: float = None           # floor area from the cleaned JSON (used by --search_algorithm blr)
 
     @property
     def label(self):
@@ -34,7 +35,7 @@ class Space:
 
     def to_state(self):
         return {"name": self.name, "function": self.function, "centroid": list(self.centroid),
-                "storey": self.storey}
+                "storey": self.storey, "area_m2": self.area_m2}
 
 
 @dataclass
