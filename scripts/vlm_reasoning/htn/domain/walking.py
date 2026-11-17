@@ -80,3 +80,24 @@ def walking_distance(state, graph=None):
 
     distance.fallbacks = set()
     return distance
+
+
+def table_distance(path, guid_of, fallback):
+    """distance(a, b) over room keys for the --no-htn path (no door graph
+    there): navbim's walking metres from the table, with guid_of mapping a
+    room key to its IfcSpace GUID. A pair the table has no walk for gets
+    fallback(a, b) (straight line); such pairs are collected in
+    distance.fallbacks."""
+    table = load_table(str(path))
+
+    def distance(a, b):
+        if a == b:
+            return 0.0
+        i, j = table["index"].get(guid_of.get(a)), table["index"].get(guid_of.get(b))
+        if i is not None and j is not None and table["matrix"][i][j] is not None:
+            return table["matrix"][i][j]
+        distance.fallbacks.add((a, b))
+        return fallback(a, b)
+
+    distance.fallbacks = set()
+    return distance

@@ -334,6 +334,26 @@ WHY these settings
 -----------------------------------------------------------------------------
 5. CHANGE LOG (newest first)
 -----------------------------------------------------------------------------
+2026-11-17  --no-htn walking distances; BLR also for IFC-recorded rooms; cleanup
+  What:
+    - --distance now also works with --no-htn: euclidean (straight lines)
+      stays the default there; --distance navbim uses the same navbim table
+      as the HTN (htn/domain/walking.table_distance; a pair without a walk
+      falls back to the straight line); door_graph is refused (no door graph
+      in --no-htn). HTN default unchanged (navbim).
+    - Rooms where the IFC records the target now follow --search_algorithm
+      too. They have no model probabilities, so they count as equally
+      likely (HTN 1/n, --no-htn 1.0 each as before); BLR orders them by
+      1 / (d * sqrt(A)). Held-Karp unchanged.
+    - Removed rank_candidates2.py (old standalone rank+plan CLI),
+      data/cleaned_ifc/IDAC_model.json (old extractor output, unused) and
+      data/IDAC_Model.json (ifcJSON converter output, unused). All in git
+      history.
+  Why: HTN vs --no-htn can now be compared with the same distances, so the
+    difference measures the HTN itself (replanning, door rules, stop rule).
+  Checks: HTN default room choice/order still identical to the pre-BLR
+    baseline (36 cases); 134 tests pass.
+
 2026-11-17  Removed scripts/vlm_reasoning/old_rank_candidates{,2,3}.py
   Superseded versions of rank_candidates.py, imported by nothing. Still in
   git history (e.g. git show 2d1b380:scripts/vlm_reasoning/old_rank_candidates3.py).
@@ -747,11 +767,10 @@ Suggested experiments for the report [ideas, not done]:
   - Evaluate building_query: labelled questions with ground truth computed
     from _full.json; compare (1) _llm summary only, (2) LLM-picks-records,
     (3) plan -> compute -> answer. Repeat on a larger model.
-  - rank_candidates2.py still loads via load_building - check it on _llm.json.
+  - (done 2026-11-17: rank_candidates2.py removed)
   - Fill DROP_PSET_EXACT from audit.pset_names of IDAC_Model.
   - Check door swing convention (+local Y = opening side) on a model
     with known swings before relying on opens_into_room.
-  - rank_candidates2.py: check it still matches renamed flags/options.
   - generate_synthetic_office_ifc.py writes to hardcoded /home/claude path.
   - Decide how IFC-Bench is used (evaluation vs. citation).
 

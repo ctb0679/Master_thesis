@@ -73,16 +73,25 @@ def test_blr_orders_the_same_candidates_with_the_same_distance(distance):
     assert sorted(select_rooms(state)) == sorted(blr_rooms) == sorted(c["room"] for c in cands)
 
 
-def test_recorded_rooms_keep_held_karp_under_blr(planner):
+@pytest.mark.parametrize("alg", ["held_karp", "blr"])
+def test_recorded_rooms_come_first_ordered_by_the_algorithm(planner, alg):
+    """Recorded rooms are still searched first (m_search_recorded); with BLR
+    they count as equally likely (1/n each)."""
     state, keys = idac_with()
     recorded = [keys[k] for k in ("10", "2", "14")]
     search_task(state, recorded=recorded)
-    with_belief(state, keys, "blr")
+    with_belief(state, keys, alg)
     result = planner.plan(state, [FIND])
     assert result.tree.children[0].method_name == "m_search_recorded"
     searched = [a.args["space"] for a in result.plan.actions if a.action == "capture_rgb"]
-    hk = [c["room"] for c in visit_order(state, [{"room": r} for r in recorded], algorithm="held_karp")]
-    assert searched == hk
+    if alg == "held_karp":                                       # unchanged
+        assert searched == [c["room"] for c in visit_order(state, [{"room": r} for r in recorded])]
+    else:
+        centroids = {g: s["centroid"] for g, s in state.spaces.items()}
+        areas = {g: s["area_m2"] for g, s in state.spaces.items()}
+        exp = blr_visit_order([{"room": r, "probability": 1 / 3} for r in recorded], centroids,
+                              state.robot["space"], distance_function(state), areas)
+        assert searched == [c["room"] for c in exp]
 
 
 def test_restricted_and_go_to_are_unchanged(planner):

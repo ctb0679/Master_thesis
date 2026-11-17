@@ -85,7 +85,6 @@ scripts/
     rank_candidates.py    Ranking/planning logic (library, used by interactive_search.py)
     search_planners/      Room ordering: held_karp.py (default), blr.py (BestLocalRatio),
                           selector.py (--search_algorithm); see its README.md
-    rank_candidates2.py   Standalone CLI for stages (a)+(b): rank + plan only
     interactive_search.py Full interactive REPL: interpret -> rank -> plan -> visual detect
     htn/                  HTN planning layer (core framework, object-search domain, executor);
                           see docs/htn_design.md
@@ -217,17 +216,10 @@ names the outlying objects. `--output-dir` defaults to the JSON's directory.
 
 ### 3. Rank candidate rooms and plan a route (one-shot)
 
-```bash
-python3 scripts/vlm_reasoning/rank_candidates2.py \
-  --cleaned_json data/cleaned_ifc/synthetic_office_cleaned.json \
-  --task "Find the source of a water leak in the building" \
-  --start_room Reception \
-  --threshold 0.3 \
-  --output results/leak_plan.json
-```
-
-This queries Ollama once for room likelihoods, then prints (and optionally
-saves) a proximity-ordered visit plan — no image/detection stage.
+The standalone one-shot CLI (`rank_candidates2.py`) was removed on
+2026-11-17; it used an older ranking (threshold, no softmax) and greedy
+ordering. Ranking and planning are done by `interactive_search.py`
+(section 4); the library functions are in `rank_candidates.py`.
 
 ### 4. Full interactive plan -> navigate -> detect loop
 
@@ -250,10 +242,16 @@ python3 scripts/vlm_reasoning/interactive_search.py \
 python3 scripts/vlm_reasoning/interactive_search.py \
   --cleaned_json data/cleaned_ifc/synthetic_office_cleaned.json --no-htn
 
-# order the ranked rooms with BestLocalRatio instead of Held-Karp (default);
+# order the rooms with BestLocalRatio instead of Held-Karp (default);
 # works with and without --no-htn, needs room areas
 python3 scripts/vlm_reasoning/interactive_search.py \
   --cleaned_json data/cleaned_ifc/IDAC_Model_llm.json --miss_rate 0.2 --search_algorithm blr
+
+# --no-htn orders over straight lines by default; --distance navbim gives it
+# the same walking distances as the HTN (README section 6), so a comparison
+# HTN vs --no-htn then differs only by the HTN itself
+python3 scripts/vlm_reasoning/interactive_search.py \
+  --cleaned_json data/cleaned_ifc/IDAC_Model_llm.json --no-htn --distance navbim
 ```
 
 Type anything at the prompt. Questions about the building are answered in
@@ -361,8 +359,9 @@ infeasibility reasons and JSON plans of `{"action", "robot", "args"}`.
   the room with the highest P / (d · √A) (P probability, d distance, A floor
   area `area_m2`), continue from there. Same candidate rooms and same
   distances as Held-Karp; needs an area for every room (refused at start-up
-  otherwise). Rooms recorded in the IFC are still ordered by Held-Karp (they
-  have no probabilities yet). Details, conventions for zero distance and ties:
+  otherwise). Rooms recorded in the IFC are still searched first; they have
+  no model probabilities, so with BLR they count as equally likely and are
+  ordered by 1 / (d · √A). Details, conventions for zero distance and ties:
   [scripts/vlm_reasoning/search_planners/README.md](scripts/vlm_reasoning/search_planners/README.md).
 - Each plan line shows the metres per leg and in total, and the run ends with
   "walked X m (navbim distances)"; `summary.json` has `distance`, `walking_m`

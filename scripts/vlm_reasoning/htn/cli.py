@@ -39,10 +39,11 @@ def add_htn_args(parser):
     g.add_argument("--max_visits_per_room", type=int, default=1, help="Visits per room per task (default 1).")
     g.add_argument("--residual_mass", type=float,
                    help="Stop when the unsearched rooms hold less probability than this (default 1 - prob_mass).")
-    g.add_argument("--distance", choices=("navbim", "door_graph", "euclidean"), default="navbim",
-                   help="Distance for the visit order: navbim walking distances (default; README section 6), "
-                        "route length through door positions in straight lines, or straight lines between "
-                        "room centres. Without a navbim table for the building, door_graph is used.")
+    g.add_argument("--distance", choices=("navbim", "door_graph", "euclidean"), default=None,
+                   help="Distance for the visit order: navbim walking distances (README section 6), route "
+                        "length through door positions in straight lines (HTN only), or straight lines "
+                        "between room centres. Default: navbim with the HTN (door_graph when the building "
+                        "has no table), euclidean with --no-htn (navbim there only when asked).")
     g.add_argument("--distance_table",
                    help="navbim walking-distance table (default "
                         "data/distances/<building>_preplanned_centre_walking_distances.json).")
@@ -50,7 +51,11 @@ def add_htn_args(parser):
 
 def check_htn_args(parser, args):
     if args.no_htn:
+        if args.distance == "door_graph":
+            parser.error("--distance door_graph needs the HTN's door graph; with --no-htn use navbim or euclidean")
+        args.distance = args.distance or "euclidean"      # unchanged --no-htn default: straight lines
         return
+    args.distance = args.distance or "navbim"
     if args.miss_rate is None:
         parser.error("--miss_rate is required for HTN find_object runs (or use --no-htn)")
     if not 0.0 <= args.miss_rate <= 1.0:
@@ -69,6 +74,7 @@ class HTNSearch:
         self.key_to_guid = {s["name"]: s["guid"] for s in session.building["spaces"]}
         door_states = args.door_states or default_door_states_path(llm_json, ROBOT_DIR)
         table = None
+        args.distance = args.distance or "navbim"
         if args.distance == "navbim":
             table = Path(args.distance_table) if args.distance_table else default_table_path(llm_json)
         settings = {"prob_mass": args.prob_mass, "min_prob": args.min_prob,
@@ -94,8 +100,7 @@ class HTNSearch:
                 raise RuntimeError("--search_algorithm blr needs a positive floor area (area_m2) for every room; "
                                    + "; ".join(f"{self.world.spaces[g]['name']}: {why}" for g, why in bad.items())
                                    + ". Use --search_algorithm held_karp or re-extract the IFC.")
-        note(f"NOTE: ranked rooms are ordered with {settings['search_algorithm']} "
-             "(rooms recorded in the IFC: held_karp).")
+        note(f"NOTE: rooms are ordered with {settings['search_algorithm']}.")
         self.planner = HTNPlanner(*build_domain())
         self.perception = ManualImageBackend(session.detector)
         note(f"NOTE: HTN planning with robot '{self.robot.id}' (width {self.robot.width_m} m, "

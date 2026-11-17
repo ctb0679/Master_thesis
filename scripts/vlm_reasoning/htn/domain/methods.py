@@ -166,11 +166,13 @@ def search_restricted(state, target, mode):
 
 
 def search_recorded(state, target, mode):
-    # Rooms where the IFC records the target are ordered by Held-Karp whatever
-    # --search_algorithm says: they are searched before any ranking, so they
-    # have no probabilities for BLR (unchanged behaviour).
-    rooms = [c["room"] for c in visit_order(state, [{"room": r} for r in _recorded_eligible(state)],
-                                            algorithm="held_karp")]
+    # Rooms where the IFC records the target are searched before any ranking,
+    # so they have no model probabilities. They count as equally likely
+    # (1/n each): Held-Karp ignores it, BLR then orders by 1 / (d * sqrt(A)).
+    recorded = _recorded_eligible(state)
+    candidates = [{"room": r, "probability": 1.0 / len(recorded)} for r in recorded]
+    algorithm = state.settings.get("search_algorithm", DEFAULT_ALGORITHM)
+    rooms = [c["room"] for c in visit_order(state, candidates, algorithm=algorithm)] if recorded else []
     return _search(rooms, target)
 
 

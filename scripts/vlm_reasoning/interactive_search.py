@@ -74,6 +74,8 @@ from building_query import BuildingQueryEngine, find_full_json
 from htn.cli import HTNSearch, add_htn_args, check_htn_args
 from search_planners import ALGORITHMS, DEFAULT_ALGORITHM, order_rooms
 from search_planners.blr import invalid_areas
+from search_planners.common import euclidean
+from htn.domain.walking import default_table_path, table_distance, table_problem
 import urllib.request
 
 
@@ -170,6 +172,9 @@ class SearchSession:
         # room ordering for the ranked rooms (--search_algorithm); BLR also needs the areas
         self.search_algorithm = search_algorithm
         self.areas = {s["name"]: s.get("area_m2") for s in self.building["spaces"]}
+        # distance(a, b) for ordering; None = straight lines between centroids
+        # (the default). main() sets navbim walking distances with --distance navbim.
+        self.distance = None
         self.room_summaries = build_room_summaries(self.building)
         self.long_names = {s["name"]: s.get("long_name") or "" for s in self.building["spaces"]}
         self.detector = VisualDetector(host, model, self.ollama_options)
@@ -221,14 +226,17 @@ class SearchSession:
 
         candidates = select_candidates(rankings, self.prob_mass, self.min_prob)
         plan = order_rooms(candidates, self.centroid_lookup, self.start_room, self.search_algorithm,
-                           areas=self.areas) if candidates else []
+                           distance=self.distance, areas=self.areas) if candidates else []
         return rankings, plan
 
     def plan_known_rooms(self, rooms, note):
         """Plan a route through rooms the building model already lists the
-        target in — no ranking needed, the IFC data is the evidence."""
+        target in — no ranking needed, the IFC data is the evidence. All
+        rooms count as equally likely (probability 1.0 each, as before):
+        Held-Karp ignores it, BLR then orders by 1 / (d * sqrt(A))."""
         entries = [{"room": r, "likelihood": 1.0, "probability": 1.0, "reasoning": note} for r in rooms]
-        return optimal_visit_order(entries, self.centroid_lookup, self.start_room)
+        return order_rooms(entries, self.centroid_lookup, self.start_room, self.search_algorithm,
+                           distance=self.distance, areas=self.areas)
 
     # --- stage (c): walk the plan -------------------------------------------
 
@@ -424,8 +432,8 @@ def main():
         "--search_algorithm", choices=ALGORITHMS, default=DEFAULT_ALGORITHM,
         help="How the chosen rooms are ordered (default held_karp): held_karp = shortest tour, "
              "blr = BestLocalRatio, P / (d * sqrt(A)) (Izquierdo-Cordova et al., RoboCup 2016), "
-             "needs room areas. Rooms recorded in the IFC, a room the user names and go_to "
-             "are not affected.",
+             "needs room areas. Rooms recorded in the IFC are still searched first; with blr "
+             "they count as equally likely.",
     )
     add_ollama_args(parser)
     add_htn_args(parser)
@@ -445,8 +453,20 @@ def main():
                   + ". Use --search_algorithm held_karp or re-extract the IFC.", file=sys.stderr)
             sys.exit(2)
     if args.no_htn:
-        print(f"NOTE: ranked rooms are ordered with {args.search_algorithm} "
-              "(rooms recorded in the IFC, a named room and go_to: held_karp).", file=sys.stderr)
+        if args.distance == "navbim":
+            table = Path(args.distance_table) if args.distance_table else default_table_path(args.cleaned_json)
+            guid_of = {s["name"]: s.get("guid") for s in session.building["spaces"]}
+            problem = table_problem(table, [g for g in guid_of.values() if g])
+            if problem:
+                print(f"NOTE: {problem}. Visit order uses straight lines instead "
+                      "(see README section 6 to make the table).", file=sys.stderr)
+            else:
+                lookup = session.centroid_lookup
+                session.distance = table_distance(
+                    table, guid_of, lambda a, b: euclidean(lookup[a], lookup[b]))
+                print(f"NOTE: visit order uses navbim walking distances from {table}.", file=sys.stderr)
+        print(f"NOTE: rooms are ordered with {args.search_algorithm}"
+              + ("" if session.distance else " over straight lines") + ".", file=sys.stderr)
     if not args.no_htn:
         try:
             session.htn = HTNSearch.from_args(args, session)

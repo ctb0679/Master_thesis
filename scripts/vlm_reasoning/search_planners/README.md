@@ -52,14 +52,23 @@ and `blr_score`.
 
 ## Where it is used
 
-| Path | Ordered with `--search_algorithm` | Always Held-Karp |
+Every place that orders rooms follows `--search_algorithm`:
+
+| Path | Ranked rooms | Rooms where the IFC records the target |
 |---|---|---|
-| HTN (default) | `methods.select_rooms` (ranked rooms) | `search_recorded` (rooms where the IFC records the target: no probabilities yet) |
-| `--no-htn` | `SearchSession.rank_and_plan` | `plan_known_rooms` (recorded rooms, a room the user names, go_to) |
+| HTN (default) | `methods.select_rooms` | `methods.search_recorded` |
+| `--no-htn` | `SearchSession.rank_and_plan` | `SearchSession.plan_known_rooms` (also a named room and go_to: one room, nothing to order) |
+
+Recorded rooms are searched before the ranking model is asked, so they have
+no model probabilities: they count as equally likely (HTN 1/n each,
+`--no-htn` 1.0 each as it always showed; the BLR order is the same for any
+equal value). BLR then orders them by 1 / (d * sqrt(A)); Held-Karp is
+unchanged.
 
 Distances: the HTN passes `distance_function(state)` (`--distance`, navbim
 by default) to both algorithms; `--no-htn` uses straight lines between room
-centroids for both.
+centroids by default and navbim walking distances with `--distance navbim`
+(same table; a pair without a walk falls back to the straight line).
 
 Replanning: the HTN executor replans after every searched room with the
 robot's new room and the updated probabilities (belief update in the
